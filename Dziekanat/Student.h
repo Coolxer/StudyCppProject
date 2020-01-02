@@ -1,16 +1,20 @@
 #pragma once
 #include "Person.h"
+#include "Study.h"
 
 class Student :public Person
 {
 private:
 	int index;
-	std::string pesel;
+	Study study;
 
 public:
-	Student(std::string firstName, std::string lastName, std::string pesel, int age, int index);
+	Student(std::string firstName, std::string lastName, int age, int index);
+	void setStudy(std::string field, std::string year, std::string type);
 
 	int getIndex();
-	std::string getPesel();
+
+	void changeStudyYear(std::string year);
+	void changeStudyType(std::string type);
 };
 
