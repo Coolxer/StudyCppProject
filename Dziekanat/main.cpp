@@ -1,11 +1,12 @@
 #include <iostream>
 #include <stdlib.h>
 
+#include "Program.h"
+
 using namespace std;
 
 int main()
 {
-	cout << "hello world" << endl;
-	system("pause");
+	Program::run();
 	return 0;
 }
