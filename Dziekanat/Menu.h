@@ -10,5 +10,6 @@ private:
 
 public:
 	Menu();
+	void show();
 };
 

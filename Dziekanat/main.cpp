@@ -7,6 +7,7 @@ using namespace std;
 
 int main()
 {
-	Program::run();
+	Program program;
+	program.run();
 	return 0;
 }

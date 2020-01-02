@@ -11,5 +11,5 @@ public:
 	MenuElement() {}
 	MenuElement(int number, std::string name);
 
-	void show();};
-
+	void show();
+};

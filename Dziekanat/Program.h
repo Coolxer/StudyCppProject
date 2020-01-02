@@ -1,12 +1,15 @@
 #pragma once
+#include "Window.h"
+#include "CmdManager.h"
+
 class Program
 {
 private:
-	// Cmd Manager
-	// Window ?
+	CmdManager cmdManager;
+	Window window;
 
 public:
 	Program();
-	static void run();
+	void run();
 };
 
