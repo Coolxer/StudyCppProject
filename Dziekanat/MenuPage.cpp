@@ -2,8 +2,8 @@
 
 MenuPage::MenuPage(HANDLE console): Page(console)
 {
-	this->tileBox = TextBox("##     DZIEKANAT     ##");
-	this->infoBox = TextBox("## Podaj nr operacji ##");
+	this->tileBox = TextBox('#', "##     DZIEKANAT     ##");
+	this->infoBox = TextBox('*', "** Podaj nr operacji **");
 }
 
 void MenuPage::draw()

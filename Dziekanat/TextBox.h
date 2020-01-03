@@ -4,10 +4,11 @@
 class TextBox
 {
 private:
+	char type;
 	std::string text;
 public:
 	TextBox() {}
-	TextBox(std::string text);
+	TextBox(char type, std::string text);
 	void show();
 };
 
