@@ -13,5 +13,6 @@ public:
 
 	std::string getFirstName() const;
 	std::string getLastName() const;
+	int getAge() const;
 };
 

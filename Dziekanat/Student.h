@@ -16,5 +16,7 @@ public:
 
 	void changeStudyYear(std::string year);
 	void changeStudyType(std::string type);
+
+	void show();
 };
 

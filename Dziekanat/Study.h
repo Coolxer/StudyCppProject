@@ -18,7 +18,6 @@ public:
 
 	void setField(std::string field);
 	void setYear(std::string year);
-	void setType(std::string type);
-	
+	void setType(std::string type);	
 };
 

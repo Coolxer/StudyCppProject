@@ -1,2 +1,15 @@
-﻿  Program.cpp
-  Dziekanat.vcxproj -> E:\studia\C++\projekt\Dziekanat\Debug\Dziekanat.exe
+﻿  MenuPage.cpp
+  Program.cpp
+  Window.cpp
+E:\studia\C++\projekt\Dziekanat\Dziekanat\Window.cpp(11): error C2259: „MenuPage”: nie można utworzyć wystąpienia klasy abstrakcyjnej
+E:\studia\C++\projekt\Dziekanat\Dziekanat\MenuPage.h(8): message : zobacz deklarację „MenuPage”
+E:\studia\C++\projekt\Dziekanat\Dziekanat\Window.cpp(11): message : z powodu następujących składowych:
+E:\studia\C++\projekt\Dziekanat\Dziekanat\Window.cpp(11): message : "void Page::draw(void)": jest abstrakcyjna
+E:\studia\C++\projekt\Dziekanat\Dziekanat\Page.h(15): message : zobacz deklarację „Page::draw”
+E:\studia\C++\projekt\Dziekanat\Dziekanat\Window.cpp(11,31): error C2259: „MenuPage”: nie można utworzyć wystąpienia klasy abstrakcyjnej
+E:\studia\C++\projekt\Dziekanat\Dziekanat\MenuPage.h(8): message : zobacz deklarację „MenuPage”
+E:\studia\C++\projekt\Dziekanat\Dziekanat\Window.cpp(11,31): message : z powodu następujących składowych:
+E:\studia\C++\projekt\Dziekanat\Dziekanat\Window.cpp(11,31): message : "void Page::draw(void)": jest abstrakcyjna
+E:\studia\C++\projekt\Dziekanat\Dziekanat\Page.h(15): message : zobacz deklarację „Page::draw”
+  main.cpp
+  Generowanie kodu...

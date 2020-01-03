@@ -16,3 +16,8 @@ std::string Person::getLastName() const
 {
 	return this->lastName;
 }
+
+int Person::getAge() const
+{
+	return this->age;
+}

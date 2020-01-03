@@ -9,13 +9,18 @@ Program::Program()
 
 void Program::run()
 {
-	int number;
+	int option;
 
 	do{
-		number = cmdManager.listen();
-		this->window.refresh();
-		if (number != -1 && number != 9) {
-			switch (number) {
+		option = cmdManager.listen();
+
+		if (option == 9)
+			break;
+		else if (option == -1)
+			continue;
+		else
+		{
+			switch (option) {
 			case 1:
 				std::cout << '1';
 				break;
@@ -26,7 +31,6 @@ void Program::run()
 				std::cout << '3';
 				break;
 			}
-		}
-			
-	} while (number != 9);
+		}	
+	} while (true);
 }

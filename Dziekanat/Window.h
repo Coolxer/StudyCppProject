@@ -4,19 +4,20 @@
 #include "Menu.h"
 #include "TextBox.h"
 
+#include "Page.h"
+#include "MenuPage.h"
+
 class Window
 {
 private:
-	TextBox tileBox;
-	Menu menu;
-	TextBox infoBox;
-
 	HANDLE console;
+	Page* pages[1];
 
 	void clear();
 public:
 	Window();
+	~Window();
 
-	void refresh();
+	void drawPage(int pageIndex);
 };
 
