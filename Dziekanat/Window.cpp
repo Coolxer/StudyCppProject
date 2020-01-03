@@ -8,7 +8,7 @@ Window::Window()
 {
 	this->console = GetStdHandle(STD_OUTPUT_HANDLE);
 
-	this->pages[0] = new MenuPage(0, &this->console);
+	this->pages[0] = new MenuPage(this->console);
 
 	this->drawPage(0);
 }

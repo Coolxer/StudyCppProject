@@ -14,7 +14,7 @@ private:
 
 public:
 	MenuPage();
-	MenuPage(int index, HANDLE *console);
+	MenuPage(HANDLE console);
 
 	void draw();
 };

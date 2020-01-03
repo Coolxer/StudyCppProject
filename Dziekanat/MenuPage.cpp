@@ -1,6 +1,6 @@
 #include "MenuPage.h"
 
-MenuPage::MenuPage(int index, HANDLE* console): Page(index, console)
+MenuPage::MenuPage(HANDLE console): Page(console)
 {
 	this->tileBox = TextBox("##     DZIEKANAT     ##");
 	this->infoBox = TextBox("## Podaj nr operacji ##");
