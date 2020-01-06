@@ -140,14 +140,17 @@
   <ItemGroup>
     <ClCompile Include="CmdManager.cpp" />
     <ClCompile Include="Lesson.cpp" />
+    <ClCompile Include="LessonsPage.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="MenuElement.cpp" />
     <ClCompile Include="MenuPage.cpp" />
+    <ClCompile Include="Page.cpp" />
     <ClCompile Include="Person.cpp" />
     <ClCompile Include="Program.cpp" />
     <ClCompile Include="Schedule.cpp" />
     <ClCompile Include="StaffMember.cpp" />
+    <ClCompile Include="StaffPage.cpp" />
     <ClCompile Include="Student.cpp" />
     <ClCompile Include="StudentsList.cpp" />
     <ClCompile Include="StudentsPage.cpp" />
@@ -158,6 +161,7 @@
   <ItemGroup>
     <ClInclude Include="CmdManager.h" />
     <ClInclude Include="Lesson.h" />
+    <ClInclude Include="LessonsPage.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="MenuElement.h" />
     <ClInclude Include="MenuPage.h" />
@@ -166,6 +170,7 @@
     <ClInclude Include="Program.h" />
     <ClInclude Include="Schedule.h" />
     <ClInclude Include="StaffMember.h" />
+    <ClInclude Include="StaffPage.h" />
     <ClInclude Include="Student.h" />
     <ClInclude Include="StudentsList.h" />
     <ClInclude Include="StudentsPage.h" />

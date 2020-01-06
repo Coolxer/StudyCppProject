@@ -1,16 +1,17 @@
 #pragma once
 #include "windows.h"
+#include "Window.h"
 
 class Page
 {
 private:
-	HANDLE console;
-
+	Window* window;
 public:
-	Page(HANDLE console) { this->console = console; }
+	Page(Window* window);
 
-	HANDLE getConsole() { return this->console; }
+	Window* getWindow();
 
 	virtual void draw() = 0;
+	virtual void service() = 0;
 };
 

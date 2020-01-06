@@ -1,7 +1,7 @@
 #pragma once
 #include "MenuElement.h"
 
-#define COUNT 5
+#define COUNT 3
 
 class Menu
 {

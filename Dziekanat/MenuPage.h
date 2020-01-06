@@ -1,21 +1,19 @@
 #pragma once
 #include "Page.h"
-
 #include "TextBox.h"
 #include "Menu.h"
-#include "TextBox.h"
 
-class MenuPage :public Page
+class MenuPage : public Page
 {
 private:
-	TextBox tileBox;
+	TextBox titleBox;
 	Menu menu;
 	TextBox infoBox;
 
 public:
-	MenuPage();
-	MenuPage(HANDLE console);
+	MenuPage(Window *window);
 
 	void draw();
+	void service();
 };
 

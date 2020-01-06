@@ -1,12 +1,18 @@
 #pragma once
 #include "Page.h"
 
-class StudentsPage: public Page
+#include "TextBox.h"
+#include "StudentsList.h"
+
+class StudentsPage : public Page
 {
 private:
-
+	TextBox header;
+	StudentsList studentsList;
 public:
-	StudentsPage();
-	StudentsPage(HANDLE console);
+	StudentsPage(Window *window);
+
+	void draw();
+	void service();
 };
 

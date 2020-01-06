@@ -1,23 +1,23 @@
 #pragma once
 #include "windows.h"
 
-#include "Menu.h"
-#include "TextBox.h"
-
-#include "Page.h"
-#include "MenuPage.h"
+class Page;
 
 class Window
 {
 private:
 	HANDLE console;
-	Page* pages[1];
+	Page* pages[2];
+
+	int activePageIndex;
 
 	void clear();
+	void drawActivePage();
 public:
 	Window();
 	~Window();
 
-	void drawPage(int pageIndex);
+	void setActivePage(int pageIndex);
+	HANDLE getConsole();
 };
 

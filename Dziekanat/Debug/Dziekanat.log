@@ -1,8 +1,4 @@
-﻿  main.cpp
-  MenuPage.cpp
-  Program.cpp
+﻿  CmdManager.cpp
   StudentsPage.cpp
-  TextBox.cpp
-  Window.cpp
   Generowanie kodu...
   Dziekanat.vcxproj -> E:\studia\C++\projekt\Dziekanat\Debug\Dziekanat.exe

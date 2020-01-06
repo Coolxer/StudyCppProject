@@ -1,17 +1,37 @@
 #include "MenuPage.h"
+#include "CmdManager.h"
 
-MenuPage::MenuPage(HANDLE console): Page(console)
+MenuPage::MenuPage(Window *window): Page(window)
 {
-	this->tileBox = TextBox('#', "##     DZIEKANAT     ##");
+	this->titleBox = TextBox('#', "##     DZIEKANAT     ##");
 	this->infoBox = TextBox('*', "** Podaj nr operacji **");
 }
 
 void MenuPage::draw()
 {
-	SetConsoleTextAttribute(this->getConsole(), FOREGROUND_GREEN);
-	this->tileBox.show();
-	SetConsoleTextAttribute(this->getConsole(), FOREGROUND_RED);
+	SetConsoleTextAttribute(this->getWindow()->getConsole(), FOREGROUND_GREEN);
+	this->titleBox.show();
+	SetConsoleTextAttribute(this->getWindow()->getConsole(), FOREGROUND_RED);
 	this->menu.show();
-	SetConsoleTextAttribute(this->getConsole(), FOREGROUND_INTENSITY | FOREGROUND_GREEN | FOREGROUND_BLUE);
+	SetConsoleTextAttribute(this->getWindow()->getConsole(), FOREGROUND_INTENSITY | FOREGROUND_GREEN | FOREGROUND_BLUE);
 	this->infoBox.show();
+}
+
+void MenuPage::service()
+{
+	int option;
+
+	do {
+		option = CmdManager::listen();
+
+		if (option == 9)
+			break;
+		else if (option == -1)
+			continue;
+		else
+		{
+			this->getWindow()->setActivePage(option);
+			break;
+		}	
+	} while (true);
 }

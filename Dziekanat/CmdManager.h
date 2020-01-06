@@ -3,6 +3,6 @@ class CmdManager
 {
 public:
 	CmdManager();
-	int listen();
+	static int listen();
 };
 

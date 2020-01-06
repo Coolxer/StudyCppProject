@@ -18,7 +18,7 @@ int CmdManager::listen()
 		std::cin.clear();
 		std::cin.ignore(INT_MAX, '\n');
 	}
-	else if (input < 1 || input > 5) {
+	else if (input < 1 || input > 9) {
 		std::cout << "Nie ma takiej opcji" << std::endl;
 	}
 	else
