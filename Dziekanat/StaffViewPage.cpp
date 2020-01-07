@@ -16,7 +16,7 @@ void StaffViewPage::draw()
 	SetConsoleTextAttribute(this->getWindow()->getConsole(), FOREGROUND_GREEN);
 	this->header.show();
 
-	std::cout << " ID " << " Imie " << " Nazwisko " << " Wiek " << " Tytuly " << " Wynagrodzenie " << " Liczba zajec " << std::endl;
+	StaffMember::showHeader();
 
 	SetConsoleTextAttribute(this->getWindow()->getConsole(), FOREGROUND_RED);
 	bool isNotNull = this->staffList->showStaff();

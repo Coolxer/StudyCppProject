@@ -16,7 +16,7 @@ void StudentsViewPage::draw()
 	SetConsoleTextAttribute(this->getWindow()->getConsole(), FOREGROUND_GREEN);
 	this->header.show();
 
-	std::cout << " Imie " << " Nazwisko " << " Wiek " << " Indeks " << " Kierunek " << " Stopien " << " Rok " << " Typ " << std::endl;
+	Student::showHeader();
 
 	SetConsoleTextAttribute(this->getWindow()->getConsole(), FOREGROUND_RED);
 	bool isNotNull = this->studentsList->showAllStudents();
