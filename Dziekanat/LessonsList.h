@@ -17,6 +17,8 @@ public:
 	int removeLesson(int index);
 	Lesson* getLessonByName(std::string name);
 
+	void removeStaffMember(StaffMember* staffMember);
+
 	bool showLessons();
 	bool showLessonById(int index);
 	bool showLessonByName(std::string name);

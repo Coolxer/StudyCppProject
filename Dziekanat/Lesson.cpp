@@ -73,6 +73,12 @@ bool Lesson::setStaffMember(StaffMember* staffMember)
 	return true;
 }
 
+void Lesson::removeStaffMember()
+{
+	//delete this->staffMember;
+	this->staffMember = nullptr;
+}
+
 bool Lesson::addStudent(Student* student)
 {
 	if(this->freePlaces > 0) 

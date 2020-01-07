@@ -49,6 +49,15 @@ Lesson* LessonsList::getLessonByName(std::string name)
 	return nullptr;
 }
 
+void LessonsList::removeStaffMember(StaffMember* staffMember)
+{
+	for (int i = 0; i < (int)this->lessons.size(); i++)
+	{
+		if (this->lessons[i].getStaffMember() == staffMember)
+			this->lessons[i].removeStaffMember();
+	}
+}
+
 bool LessonsList::showLessons()
 {
 	for (int i = 0; i < (int)this->lessons.size(); i++)

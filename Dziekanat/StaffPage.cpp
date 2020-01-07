@@ -52,6 +52,8 @@ void StaffPage::service()
 			bool exists;
 			std::string input;
 
+			StaffMember* staffMember;
+
 			switch (option)
 			{
 			case 1:
@@ -69,13 +71,18 @@ void StaffPage::service()
 					break;
 				}
 
+				staffMember = this->staffList.getStaffMemberByIndex(id);
+
 				id = this->staffList.removeMember(id);
 
 				if (id == 0)
 					std::cout << std::endl << "Nie ma takiego pracownika" << std::endl;
 				else
+				{
 					std::cout << std::endl << "Usunieto pracownika o indeksie " << id;
-
+					this->lessonsList->removeStaffMember(staffMember);
+				}
+					
 				Sleep(2000);
 
 				break;

@@ -41,6 +41,7 @@ public:
 
 	void setIndex(int index);
 	bool setStaffMember(StaffMember* staffMember);
+	void removeStaffMember();
 	bool addStudent(Student* student);
 
 	static void showHeader();

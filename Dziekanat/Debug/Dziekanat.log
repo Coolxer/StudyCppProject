@@ -1,3 +1,6 @@
-﻿  StaffList.cpp
-  LINK : nie znaleziono elementu E:\studia\C++\projekt\Dziekanat\Debug\Dziekanat.exe ani nie zosta│ on skompilowany podczas ostatniego konsolidowania przyrostowego; zostanie wykonana pe│na konsolidacja
+﻿  Lesson.cpp
+E:\studia\C++\projekt\Dziekanat\Dziekanat\Lesson.cpp(17,26): warning C4150: usunięcie wskaźnika do niekompletnego typu "StaffMember"; brak wywołania destruktora
+E:\studia\C++\projekt\Dziekanat\Dziekanat\Lesson.h(7): message : zobacz deklarację „StaffMember”
+  StaffPage.cpp
+  Generowanie kodu...
   Dziekanat.vcxproj -> E:\studia\C++\projekt\Dziekanat\Debug\Dziekanat.exe
