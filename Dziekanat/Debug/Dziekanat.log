@@ -1,2 +1,10 @@
-﻿  Lesson.cpp
+﻿  AddLessonPage.cpp
+  AddStaffMemberPage.cpp
+  AddStudentPage.cpp
+  Window.cpp
+E:\studia\C++\projekt\Dziekanat\Dziekanat\MenuStudent.h(4,1): warning C4005: "COUNT": ponowna definicja makra
+E:\studia\C++\projekt\Dziekanat\Dziekanat\MenuMenu.h(4): message : zobacz poprzednią definicję „COUNT”
+E:\studia\C++\projekt\Dziekanat\Dziekanat\MenuStaff.h(4,1): warning C4005: "COUNT": ponowna definicja makra
+E:\studia\C++\projekt\Dziekanat\Dziekanat\MenuStudent.h(4): message : zobacz poprzednią definicję „COUNT”
+  Generowanie kodu...
   Dziekanat.vcxproj -> E:\studia\C++\projekt\Dziekanat\Debug\Dziekanat.exe

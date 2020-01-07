@@ -18,7 +18,6 @@ AddStudentPage::~AddStudentPage()
 	delete this->student;
 }
 
-
 void AddStudentPage::resetValues()
 {
 	this->currentStep = 1;
@@ -99,76 +98,22 @@ void AddStudentPage::service()
 	switch (this->currentStep)
 	{
 		case 1:
-			std::cout << "Podaj imie: (min. 3 litery)" << std::endl;
-			std::cin >> this->firstName;
-			while (!std::cin.good() || this->firstName.length() < 3)
-			{
-				this->firstName.clear();
-				this->getWindow()->refresh();
-				std::cout << "Podaj imie: (min. 3 litery)" << std::endl;
-				std::cin.clear();
-				std::cin >> this->firstName;
-			}
+			this->testString("Podaj imie: (min. 3 litery)", &this->firstName);
 			break;
 		case 2:
-			std::cout << "Podaj nazwisko: (min. 3 litery)" << std::endl;
-			std::cin >> this->lastName;
-			while (!std::cin.good() || this->lastName.length() < 3)
-			{
-				this->lastName.clear();
-				this->getWindow()->refresh();
-				std::cout << "Podaj nazwisko: (min. 3 litery)" << std::endl;
-				std::cin.clear();
-				std::cin >> this->lastName;
-			}
+			this->testString("Podaj nazwisko: (min. 3 litery)", &this->lastName);
 			break;
 		case 3:
-			std::cout << "Podaj wiek: (min. 20, max. 100)" << std::endl;
-			std::cin >> this->age;
-			while (!std::cin.good() || this->age < 20 || this->age > 100)
-			{
-				this->age = 0;
-				this->getWindow()->refresh();
-				std::cout << "Podaj wiek: (min. 20, max. 100)" << std::endl;
-				std::cin.clear();
-				std::cin >> this->age;
-			}
+			this->testNumber("Podaj wiek: (min. 20, max. 100)", &this->age, 20, 100);
 			break;
 		case 4:
-			std::cout << "Podaj kierunek: (min 3 litery)" << std::endl;
-			std::cin >> this->field;
-			while (!std::cin.good() || this->field.length() < 3)
-			{
-				this->field.clear();
-				this->getWindow()->refresh();
-				std::cout << "Podaj kierunek: (min 3 litery)" << std::endl;
-				std::cin.clear();
-				std::cin >> this->field;
-			}
+			this->testString("Podaj kierunek: (min. 3 litery)", &this->field);
 			break;
 		case 5:
-			std::cout << "Podaj stopien: (1 lub 2)" << std::endl;
-			std::cin >> this->level;
-			while (!std::cin.good() || (this->level != 1 && this->level !=2))
-			{
-				this->level = 0;
-				this->getWindow()->refresh();
-				std::cout << "Podaj stopien: (1 lub 2)" << std::endl;
-				std::cin.clear();
-				std::cin >> this->level;
-			}
+			this->testNumber("Podaj stopien: (1 lub 2)", &this->level, 1, 2);
 			break;
 		case 6:
-			std::cout << "Podaj rok: (1-4)" << std::endl;
-			std::cin >> this->year;
-			while (!std::cin.good() || this->year < 1 || this->year > 4)
-			{
-				this->year = 0;
-				this->getWindow()->refresh();
-				std::cout << "Podaj rok: (1-4)" << std::endl;
-				std::cin.clear();
-				std::cin >> this->year;
-			}
+			this->testNumber("Podaj rok: (1 - 4)", &this->year, 1, 4);
 			break;
 		case 7:
 			std::cout << "Podaj typ: (stacjonarne lub zaoczne)" << std::endl;
@@ -197,10 +142,35 @@ void AddStudentPage::service()
 			break;
 	}
 
-	if (this->currentStep <= 7)
+	this->currentStep++;
+	this->getWindow()->refresh();
+	this->service();
+}
+
+void AddStudentPage::testString(std::string text, std::string* pointer)
+{
+	std::cout << text << std::endl;
+	std::cin >> *pointer;
+	while (!std::cin.good() || pointer->length() < 3)
 	{
-		this->currentStep++;
+		pointer->clear();
 		this->getWindow()->refresh();
-		this->service();
+		std::cout << text << std::endl;
+		std::cin.clear();
+		std::cin >> *pointer;
+	}
+}
+
+void AddStudentPage::testNumber(std::string text, int* pointer, int min, int max)
+{
+	std::cout << text << std::endl;
+	std::cin >> *pointer;
+	while (!std::cin.good() || *pointer < min || *pointer > max)
+	{
+		*pointer = 0;
+		this->getWindow()->refresh();
+		std::cout << text << std::endl;
+		std::cin.clear();
+		std::cin >> *pointer;
 	}
 }

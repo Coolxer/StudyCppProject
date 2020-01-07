@@ -82,7 +82,7 @@ void AddLessonPage::service()
 	switch (this->currentStep)
 	{
 	case 1:
-		std::cout << "Podaj typ: (wyklad / cwiczenia / laboratiorum / projekt)" << std::endl;
+		std::cout << "Podaj typ: (wyklad / cwiczenia / laboratorium / projekt)" << std::endl;
 		std::cin >> this->type;
 		while (!std::cin.good() || (this->type != "wyklad" && this->type != "cwiczenia" && this->type != "laboratorium" && this->type != "projekt"))
 		{
@@ -94,52 +94,16 @@ void AddLessonPage::service()
 		}
 		break;
 	case 2:
-		std::cout << "Podaj nazwe: (min. 3 litery)" << std::endl;
-		std::cin >> this->name;
-		while (!std::cin.good() || this->name.length() < 3)
-		{
-			this->name.clear();
-			this->getWindow()->refresh();
-			std::cout << "Podaj nazwe: (min. 3 litery)" << std::endl;
-			std::cin.clear();
-			std::cin >> this->name;
-		}
+		this->testString("Podaj nazwe: (min. 3 litery)", &this->name);
 		break;
 	case 3:
-		std::cout << "Podaj godzine rozpoczecia: (min 8 max 18, tylko pelne godziny)" << std::endl;
-		std::cin >> this->startTime;
-		while (!std::cin.good() || this->startTime < 8 || this->startTime > 18)
-		{
-			this->startTime = 0;
-			this->getWindow()->refresh();
-			std::cout << "Podaj godzine rozpoczecia: (min 8 max 18, tylko pelne godziny)" << std::endl;
-			std::cin.clear();
-			std::cin >> this->startTime;
-		}
+		this->testNumber("Podaj godzine rozpoczecia: (min 8 max 18, tylko pelne godziny)", &this->startTime, 8, 10);
 		break;
 	case 4:
-		std::cout << "Podaj czas trwania: (min 120, max 240 [w min.])" << std::endl;
-		std::cin >> this->duration;
-		while (!std::cin.good() || this->duration < 120 || this->duration > 240)
-		{
-			this->duration = 0;
-			this->getWindow()->refresh();
-			std::cout << "Podaj czas trwania: (min 120, max 240 [w min.])" << std::endl;
-			std::cin.clear();
-			std::cin >> this->duration;
-		}
+		this->testNumber("Podaj czas trwania: (min 120, max 240 [w min.])", &this->duration, 120, 240);
 		break;
 	case 5:
-		std::cout << "Podaj max. ilosc miejsc: (min 5, max 100)" << std::endl;
-		std::cin >> this->maxPlaces;
-		while (!std::cin.good() || this->maxPlaces < 120 || this->maxPlaces > 240)
-		{
-			this->maxPlaces = 0;
-			this->getWindow()->refresh();
-			std::cout << "Podaj max. ilosc miejsc: (min 5, max 100)" << std::endl;
-			std::cin.clear();
-			std::cin >> this->maxPlaces;
-		}
+		this->testNumber("Podaj max. ilosc miejsc: (min 5, max 100)", &this->maxPlaces, 5, 100);
 		break;
 	default:
 		this->lesson = new Lesson(this->type, this->name, this->startTime, this->duration, this->maxPlaces);
@@ -156,10 +120,35 @@ void AddLessonPage::service()
 		break;
 	}
 
-	if (this->currentStep <= 5)
+	this->currentStep++;
+	this->getWindow()->refresh();
+	this->service();
+}
+
+void AddLessonPage::testString(std::string text, std::string* pointer)
+{
+	std::cout << text << std::endl;
+	std::cin >> *pointer;
+	while (!std::cin.good() || pointer->length() < 3)
 	{
-		this->currentStep++;
+		pointer->clear();
 		this->getWindow()->refresh();
-		this->service();
+		std::cout << text << std::endl;
+		std::cin.clear();
+		std::cin >> *pointer;
+	}
+}
+
+void AddLessonPage::testNumber(std::string text, int* pointer, int min, int max)
+{
+	std::cout << text << std::endl;
+	std::cin >> *pointer;
+	while (!std::cin.good() || *pointer < 20 || *pointer > 100)
+	{
+		*pointer = 0;
+		this->getWindow()->refresh();
+		std::cout << text << std::endl;
+		std::cin.clear();
+		std::cin >> *pointer;
 	}
 }

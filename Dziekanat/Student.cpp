@@ -11,6 +11,11 @@ int Student::getIndex()
 {
 	return this->index;
 }
+Study* Student::getStudy()
+{
+	return &this->study;
+}
+
 
 void Student::setIndex(int index)
 {
@@ -27,17 +32,17 @@ void Student::changeStudyType(std::string type)
 	this->study.setType(type);
 }
 
-void Student::show(bool withHeader)
+void Student::showHeader()
 {
-	if(withHeader)
-		std::cout << " Imie " << " Nazwisko " << " Wiek " << " Indeks " << " Kierunek " << " Stopien " << " Rok " << " Typ " << std::endl;
-
-	std::cout << "-----------------" << std::endl;
-	std::cout << this->getFirstName() << " | " << this->getLastName() << " | " << this->getAge() << " | " << this->getIndex() << " | ";
-	std::cout << this->study.getField() << " | " << this->study.getLevel() << " | " << this->study.getYear() << " | " << this->study.getType() << std::endl;
+	std::cout << " Imie " << " Nazwisko " << " Wiek " << " Indeks " << " Kierunek " << " Stopien " << " Rok " << " Typ " << std::endl;
 }
 
-Study* Student::getStudy()
+void Student::show(bool withHeader)
 {
-	return &this->study;
+	if (withHeader)
+		this->showHeader();
+
+	std::cout << "-----------------" << std::endl;
+	std::cout << this->getFirstName() << " | " << this->getLastName() << " | " << this->getAge() << " | " << this->index << " | ";
+	std::cout << this->study.getField() << " | " << this->study.getLevel() << " | " << this->study.getYear() << " | " << this->study.getType() << std::endl;
 }

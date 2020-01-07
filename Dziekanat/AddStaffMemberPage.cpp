@@ -70,52 +70,16 @@ void AddStaffMemberPage::service()
 	switch (this->currentStep)
 	{
 	case 1:
-		std::cout << "Podaj imie: (min. 3 litery)" << std::endl;
-		std::cin >> this->firstName;
-		while (!std::cin.good() || this->firstName.length() < 3)
-		{
-			this->firstName.clear();
-			this->getWindow()->refresh();
-			std::cout << "Podaj imie: (min. 3 litery)" << std::endl;
-			std::cin.clear();
-			std::cin >> this->firstName;
-		}
+		this->testString("Podaj imie: (min. 3 litery)", &this->firstName);
 		break;
 	case 2:
-		std::cout << "Podaj nazwisko: (min. 3 litery)" << std::endl;
-		std::cin >> this->lastName;
-		while (!std::cin.good() || this->lastName.length() < 3)
-		{
-			this->lastName.clear();
-			this->getWindow()->refresh();
-			std::cout << "Podaj nazwisko: (min. 3 litery)" << std::endl;
-			std::cin.clear();
-			std::cin >> this->lastName;
-		}
+		this->testString("Podaj nazwisko: (min. 3 litery)", &this->lastName);
 		break;
 	case 3:
-		std::cout << "Podaj wiek: (min. 30, max. 100)" << std::endl;
-		std::cin >> this->age;
-		while (!std::cin.good() || this->age < 20 || this->age > 100)
-		{
-			this->age = 0;
-			this->getWindow()->refresh();
-			std::cout << "Podaj wiek: (min. 30, max. 100)" << std::endl;
-			std::cin.clear();
-			std::cin >> this->age;
-		}
+		this->testNumber("Podaj wiek: (min. 30, max. 100)", &this->age, 30, 100);
 		break;
 	case 4:
-		std::cout << "Podaj tytul(y): (min 3 litery)" << std::endl;
-		std::cin >> this->academic_degrees;
-		while (!std::cin.good() || this->academic_degrees.length() < 3)
-		{
-			this->academic_degrees.clear();
-			this->getWindow()->refresh();
-			std::cout << "Podaj tytul(y): (min 3 litery)" << std::endl;
-			std::cin.clear();
-			std::cin >> this->academic_degrees;
-		}
+		this->testString("Podaj tytul(y): (min 3 litery)", &this->academic_degrees);
 		break;
 	default:
 		this->staffMember = new StaffMember(this->firstName, this->lastName, this->age, this->academic_degrees);
@@ -132,10 +96,35 @@ void AddStaffMemberPage::service()
 		break;
 	}
 
-	if (this->currentStep <= 4)
+	this->currentStep++;
+	this->getWindow()->refresh();
+	this->service();
+}
+
+void AddStaffMemberPage::testString(std::string text, std::string* pointer)
+{
+	std::cout << text << std::endl;
+	std::cin >> *pointer;
+	while (!std::cin.good() || pointer->length() < 3)
 	{
-		this->currentStep++;
+		pointer->clear();
 		this->getWindow()->refresh();
-		this->service();
+		std::cout << text << std::endl;
+		std::cin.clear();
+		std::cin >> *pointer;
+	}
+}
+
+void AddStaffMemberPage::testNumber(std::string text, int* pointer, int min, int max)
+{
+	std::cout << text << std::endl;
+	std::cin >> *pointer;
+	while (!std::cin.good() || *pointer < min || *pointer > max)
+	{
+		*pointer = 0;
+		this->getWindow()->refresh();
+		std::cout << text << std::endl;
+		std::cin.clear();
+		std::cin >> *pointer;
 	}
 }

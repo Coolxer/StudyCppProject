@@ -21,8 +21,7 @@ void LessonsPage::draw()
 	this->header.show();
 
 	SetConsoleTextAttribute(this->getWindow()->getConsole(), FOREGROUND_RED);
-	for (int i = 0; i < 6; i++)
-		this->menuElements[i].show();
+	this->menuLesson.show();
 
 	SetConsoleTextAttribute(this->getWindow()->getConsole(), FOREGROUND_INTENSITY | FOREGROUND_GREEN | FOREGROUND_BLUE);
 	this->info.show();

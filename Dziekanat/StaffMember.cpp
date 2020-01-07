@@ -49,6 +49,6 @@ void StaffMember::show(bool withHeader)
 		this->showHeader();
 
 	std::cout << "-----------------" << std::endl;
-	std::cout << this->id << " | " << this->getFirstName() << " | " << this->getLastName() << " | " << this->getAge() << " | ";
+	std::cout << this->index << " | " << this->getFirstName() << " | " << this->getLastName() << " | " << this->getAge() << " | ";
 	std::cout << this->academic_degrees << " | " << this->cash << " | " << this->numberofLessonsProvided << std::endl;
 }

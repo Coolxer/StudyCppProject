@@ -12,19 +12,20 @@ private:
 	TextBox info;
 
 	LessonsList* lessonsList;
+	Lesson* lesson;
 
 	std::string type;
 	std::string name;
 	int startTime;
 	int duration;
-
-	int currentStep;
 	int maxPlaces;
 
-	Lesson* lesson;
+	int currentStep;
 
 	void resetValues();
 
+	void testString(std::string text, std::string* pointer);
+	void testNumber(std::string text, int* pointer, int min, int max);
 public:
 	AddLessonPage(Window* window, LessonsPage* lessonsPage);
 	~AddLessonPage();

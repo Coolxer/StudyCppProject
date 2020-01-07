@@ -99,7 +99,7 @@ void StudentsPage::service()
 				std::cout << "Podaj nazwe kierunku studiow" << std::endl;
 				std::cin >> input;
 
-				std::cout << " Imie " << " Nazwisko " << " Wiek " << " Indeks " << " Kierunek " << " Stopien " << " Rok " << " Typ " << std::endl;
+				Student::showHeader();
 
 				exists = this->studentsList.showStudentsByField(input);
 

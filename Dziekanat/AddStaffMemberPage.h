@@ -12,19 +12,18 @@ private:
 	TextBox info;
 
 	StaffList* staffList;
+	StaffMember* staffMember;
 
 	std::string firstName;
 	std::string lastName;
 	int age;
-
 	std::string academic_degrees;
 
 	int currentStep;
 
-	StaffMember* staffMember;
-
 	void resetValues();
-
+	void testString(std::string text, std::string* pointer);
+	void testNumber(std::string text, int* pointer, int min, int max);
 public:
 	AddStaffMemberPage(Window* window, StaffPage* staffPage);
 	~AddStaffMemberPage();

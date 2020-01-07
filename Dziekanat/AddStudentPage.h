@@ -12,11 +12,11 @@ private:
 	TextBox info;
 
 	StudentsList* studentsList;
+	Student* student;
 
 	std::string firstName;
 	std::string lastName;
 	int age;
-
 	std::string field;
 	int level;
 	int year;
@@ -24,10 +24,10 @@ private:
 
 	int currentStep;
 
-	Student* student;
-
 	void resetValues();
 
+	void testString(std::string text, std::string* pointer);
+	void testNumber(std::string text, int* pointer, int min, int max);
 public:
 	AddStudentPage(Window* window, StudentsPage* studentsPage);
 	~AddStudentPage();

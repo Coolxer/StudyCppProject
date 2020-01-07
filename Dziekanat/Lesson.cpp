@@ -62,5 +62,5 @@ void Lesson::show(bool withHeader)
 		this->showHeader();
 
 	std::cout << "-----------------" << std::endl;
-	std::cout << this->id << " | " << this->type << " | " << this->name << " | " << this->startTime << " | " << this->duration << " | " << this->maxPlaces - this->freePlaces << "/" << this->maxPlaces << std::endl;
+	std::cout << this->index << " | " << this->type << " | " << this->name << " | " << this->startTime << " | " << this->duration << " | " << this->maxPlaces - this->freePlaces << "/" << this->maxPlaces << std::endl;
 }

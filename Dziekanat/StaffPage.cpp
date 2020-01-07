@@ -97,7 +97,7 @@ void StaffPage::service()
 				break;
 			case 5:
 
-				std::cout << " ID " << " Imie " << " Nazwisko " << " Wiek " << " Tytuly " << " Wynagrodzenie " << " Liczba zajec " << std::endl;
+				StaffMember::showHeader();
 
 				exists = this->staffList.showProfessors();
 
