@@ -5,14 +5,6 @@
 LessonsPage::LessonsPage(Window* window) : Page(window)
 {
 	this->header = TextBox('#', "##     Zajecia      ##");
-
-	this->menuElements[0] = MenuElement(1, "Dodaj zajecie");
-	this->menuElements[1] = MenuElement(2, "Usun zajecie"); //wedlug indeksu
-	this->menuElements[2] = MenuElement(3, "Znajdz zajecie wedlug id");
-	this->menuElements[3] = MenuElement(4, "Wyswietl wszystkie zajecia");
-	this->menuElements[4] = MenuElement(5, "Wyswietl konkretny typ zajec");
-	this->menuElements[5] = MenuElement(6, "Wyswietl liczbe zajec");
-
 	this->info = TextBox('*', "** Podaj nr operacji **");
 
 	this->lessonsList = LessonsList();

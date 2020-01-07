@@ -1,15 +1,14 @@
 #pragma once
 #include "Page.h"
-
-#include "MenuElement.h"
 #include "TextBox.h"
+#include "MenuStaff.h"
 #include "StaffList.h"
 
 class StaffPage : public Page
 {
 private:
 	TextBox header;
-	MenuElement menuElements[6];
+	MenuStaff menuStaff;
 	TextBox info;
 
 	StaffList staffList;

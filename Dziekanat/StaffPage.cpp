@@ -5,14 +5,6 @@
 StaffPage::StaffPage(Window* window) : Page(window)
 {
 	this->header = TextBox('#', "##     Pracownicy      ##");
-
-	this->menuElements[0] = MenuElement(1, "Dodaj pracownika");
-	this->menuElements[1] = MenuElement(2, "Usun pracownika"); //wedlug indeksu
-	this->menuElements[2] = MenuElement(3, "Znajdz pracownika wedlug id");
-	this->menuElements[3] = MenuElement(4, "Wyswietl wszystkich pracownikow");
-	this->menuElements[4] = MenuElement(5, "Wyswietl profesorow");
-	this->menuElements[5] = MenuElement(6, "Wyswietl liczbe pracownikow");
-
 	this->info = TextBox('*', "** Podaj nr operacji **");
 
 	this->staffList = StaffList();
@@ -29,8 +21,7 @@ void StaffPage::draw()
 	this->header.show();
 
 	SetConsoleTextAttribute(this->getWindow()->getConsole(), FOREGROUND_RED);
-	for (int i = 0; i < 6; i++)
-		this->menuElements[i].show();
+	this->menuStaff.show();
 
 	SetConsoleTextAttribute(this->getWindow()->getConsole(), FOREGROUND_INTENSITY | FOREGROUND_GREEN | FOREGROUND_BLUE);
 	this->info.show();

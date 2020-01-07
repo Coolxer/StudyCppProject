@@ -3,13 +3,12 @@
 
 #define COUNT 3
 
-class Menu
+class MenuMenu
 {
 private:
 	MenuElement menuElements[COUNT];
-
 public:
-	Menu();
+	MenuMenu();
 	void show();
 };
 
