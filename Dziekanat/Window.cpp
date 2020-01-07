@@ -6,6 +6,7 @@
 #include "StudentsPage.h"
 #include "LessonsPage.h"
 #include "AddStudentPage.h"
+#include "StudentsViewPage.h"
 
 using namespace std;
 
@@ -17,13 +18,14 @@ Window::Window()
 	this->pages[1] = new StudentsPage(this);
 	this->pages[2] = new LessonsPage(this);
 	this->pages[3] = new AddStudentPage(this, (StudentsPage*)this->pages[1]);
+	this->pages[4] = new StudentsViewPage(this, (StudentsPage*)this->pages[1]);
 
 	this->activePageIndex = 0;
 }
 
 Window::~Window()
 {
-	for (int i = 0; i < 3; i++)
+	for (int i = 0; i < 5; i++)
 		delete this->pages[i];
 }
 

@@ -9,8 +9,7 @@ private:
 	Study study;
 
 public:
-	Student(std::string firstName, std::string lastName, int age);
-	void setStudy(std::string field, int level, int year, std::string type);
+	Student(std::string firstName, std::string lastName, int age, std::string field, int level, int year, std::string type);
 
 	int getIndex();
 	void setIndex(int index);

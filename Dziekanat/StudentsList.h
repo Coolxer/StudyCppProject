@@ -10,9 +10,9 @@ private:
 public:
 	StudentsList();
 	
-	int addStudent(Student &s);
-	void removeStudent();
-	void showAllStudents();
+	int addStudent(Student *s);
+	int removeStudent(int index);
+	bool showAllStudents();
 	void showStudentbyIndex(int index);
 
 	int getNumberOfStudents();

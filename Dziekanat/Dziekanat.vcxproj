@@ -155,6 +155,7 @@
     <ClCompile Include="Student.cpp" />
     <ClCompile Include="StudentsList.cpp" />
     <ClCompile Include="StudentsPage.cpp" />
+    <ClCompile Include="StudentsViewPage.cpp" />
     <ClCompile Include="Study.cpp" />
     <ClCompile Include="TextBox.cpp" />
     <ClCompile Include="Window.cpp" />
@@ -176,6 +177,7 @@
     <ClInclude Include="Student.h" />
     <ClInclude Include="StudentsList.h" />
     <ClInclude Include="StudentsPage.h" />
+    <ClInclude Include="StudentsViewPage.h" />
     <ClInclude Include="Study.h" />
     <ClInclude Include="TextBox.h" />
     <ClInclude Include="Window.h" />

@@ -6,7 +6,7 @@
 
 AddStudentPage::AddStudentPage(Window* window, StudentsPage* studentsPage) : Page(window)
 {
-	this->header = TextBox('#', "##    Adding Student     ##");
+	this->header = TextBox('#', "##   Dodawanie studenta   ##");
 
 	this->studentsList = studentsPage->getStudentsList();
 	
@@ -183,10 +183,9 @@ void AddStudentPage::service()
 			}
 			break;
 		default:
-			this->student = new Student(this->firstName, this->lastName, this->age);
-			this->student->setStudy(this->field, this->level, this->year, this->type);
+			this->student = new Student(this->firstName, this->lastName, this->age, this->field, this->level, this->year, this->type);
 
-			int index = this->studentsList->addStudent(*this->student);
+			int index = this->studentsList->addStudent(this->student);
 			
 			this->getWindow()->refresh();
 			std::cout << "Dodano nowego studenta o indeksie " << index << std::endl << std::endl;

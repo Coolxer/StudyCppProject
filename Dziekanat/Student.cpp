@@ -2,12 +2,7 @@
 
 #include <iostream>
 
-Student::Student(std::string firstName, std::string lastName, int age) : Person(firstName, lastName, age)
-{
-	
-}
-
-void Student::setStudy(std::string field, int level, int year, std::string type)
+Student::Student(std::string firstName, std::string lastName, int age, std::string field, int level, int year, std::string type) : Person(firstName, lastName, age)
 {
 	this->study = Study(field, level, year, type);
 }
@@ -36,5 +31,5 @@ void Student::show()
 {
 	std::cout << "-----------------" << std::endl;
 	std::cout << this->getFirstName() << " | " << this->getLastName() << " | " << this->getAge() << " | " << this->getIndex() << " | ";
-	std::cout << this->study.getField() << " | " << this->study.getYear() << " | " << this->study.getType() << std::endl;
+	std::cout << this->study.getField() << " | " << this->study.getLevel() << " | " << this->study.getYear() << " | " << this->study.getType() << std::endl;
 }
