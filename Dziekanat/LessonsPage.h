@@ -15,7 +15,7 @@ private:
 public:
 	LessonsPage(Window* window);
 
-	LessonsList* getStaffList();
+	LessonsList* getLessonsList();
 
 	void draw();
 	void service();

@@ -9,6 +9,6 @@ MenuMenu::MenuMenu()
 
 void MenuMenu::show()
 {
-	for (int i = 0; i < COUNT; i++)
+	for (int i = 0; i < 3; i++)
 		this->menuElements[i].show();
 }

@@ -4,7 +4,7 @@
 
 LessonsList::LessonsList()
 {
-	this->index = 1;
+	this->index = 0;
 
 	this->addLesson(new Lesson("projekt", "programowanie", 5, 90, 30));
 	this->addLesson(new Lesson("laboratorium", "systemy", 10, 120, 15));
@@ -38,6 +38,17 @@ int LessonsList::removeLesson(int index)
 	return 0;
 }
 
+Lesson* LessonsList::getLessonByName(std::string name)
+{
+	for (int i = 0; i < (int)this->lessons.size(); i++)
+	{
+		if (this->lessons[i].getName() == name)
+			return &this->lessons[i];
+	}
+
+	return nullptr;
+}
+
 bool LessonsList::showLessons()
 {
 	for (int i = 0; i < (int)this->lessons.size(); i++)
@@ -54,6 +65,19 @@ bool LessonsList::showLessonById(int index)
 	for (int i = 0; i < (int)this->lessons.size(); i++)
 	{
 		if (this->lessons[i].getIndex() == index)
+		{
+			this->lessons[i].show(true);
+			return true;
+		}
+	}
+	return false;
+}
+
+bool LessonsList::showLessonByName(std::string name)
+{
+	for (int i = 0; i < (int)this->lessons.size(); i++)
+	{
+		if (this->lessons[i].getName() == name)
 		{
 			this->lessons[i].show(true);
 			return true;
@@ -80,7 +104,7 @@ bool LessonsList::showSpecificLessons(std::string type)
 	return false;
 }
 
-int LessonsList::getNumberofLessons()
+int LessonsList::getNumberOfLessons()
 {
 	return (int)this->lessons.size();
 }

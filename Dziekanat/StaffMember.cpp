@@ -5,14 +5,13 @@
 StaffMember::StaffMember(std::string firstName, std::string lastName, int age, std::string academic_degrees) : Person(firstName, lastName, age)
 {
 	this->academic_degrees = academic_degrees;
-	this->numberofLessonsProvided = 0;
+	this->numberOfLessonsProvided = 0;
 }
 
 int StaffMember::getIndex() const
 {
 	return this->index;
 }
-
 
 std::string StaffMember::getAcademicDegrees() const
 {
@@ -37,11 +36,20 @@ void StaffMember::setIndex(int index)
 	this->index = index;
 }
 
+int StaffMember::increaseLessons()
+{
+	return ++this->numberOfLessonsProvided;
+}
+
+int StaffMember::decreaseLessons()
+{
+	return --this->numberOfLessonsProvided;
+}
+
 void StaffMember::showHeader()
 {
 	std::cout << " ID " << " Imie " << " Nazwisko " << " Wiek " << " Tytuly " << " Wynagrodzenie " << " Liczba zajec " << std::endl;
 }
-
 
 void StaffMember::show(bool withHeader)
 {
@@ -50,5 +58,5 @@ void StaffMember::show(bool withHeader)
 
 	std::cout << "-----------------" << std::endl;
 	std::cout << this->index << " | " << this->getFirstName() << " | " << this->getLastName() << " | " << this->getAge() << " | ";
-	std::cout << this->academic_degrees << " | " << this->cash << " | " << this->numberofLessonsProvided << std::endl;
+	std::cout << this->academic_degrees << " | " << this->cash << " | " << this->numberOfLessonsProvided << std::endl;
 }

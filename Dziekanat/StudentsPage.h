@@ -2,7 +2,9 @@
 #include "Page.h"
 #include "TextBox.h"
 #include "MenuStudent.h"
+
 #include "StudentsList.h"
+#include "LessonsList.h"
 
 class StudentsPage : public Page
 {
@@ -12,8 +14,12 @@ private:
 	TextBox info;
 
 	StudentsList studentsList;
+	LessonsList* lessonsList;
 public:
 	StudentsPage(Window *window);
+	~StudentsPage();
+
+	void init(LessonsList* lessonsList);
 
 	StudentsList* getStudentsList();
 

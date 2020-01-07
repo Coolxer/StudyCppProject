@@ -9,7 +9,7 @@ private:
 	std::string academic_degrees;
 	int cash;
 
-	int numberofLessonsProvided;
+	int numberOfLessonsProvided;
 
 public:
 	StaffMember(std::string firstName, std::string lastName, int age, std::string academic_degrees);
@@ -20,8 +20,11 @@ public:
 	int getCash() const;
 
 	bool isProfessor() const;
+	StaffMember* getStaffMember;
 
 	void setIndex(int id);
+	int increaseLessons();
+	int decreaseLessons();
 
 	static void showHeader();
 	void show(bool withHeader = false);

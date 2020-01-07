@@ -10,7 +10,7 @@ LessonsPage::LessonsPage(Window* window) : Page(window)
 	this->lessonsList = LessonsList();
 }
 
-LessonsList* LessonsPage::getStaffList()
+LessonsList* LessonsPage::getLessonsList()
 {
 	return &this->lessonsList;
 }
@@ -34,7 +34,7 @@ void LessonsPage::service()
 	do {
 		option = CmdManager::listen();
 
-		if (option == 9)
+		if (option == 0)
 		{
 			this->getWindow()->setActivePage(0);
 			break;
@@ -112,7 +112,7 @@ void LessonsPage::service()
 				Sleep(2500);
 				break;
 			case 6:
-				std::cout << "Liczba zajec: " << this->lessonsList.getNumberofLessons() << std::endl;
+				std::cout << "Liczba zajec: " << this->lessonsList.getNumberOfLessons() << std::endl;
 				Sleep(2000);
 				break;
 			}

@@ -24,7 +24,7 @@ void MenuPage::service()
 	do {
 		option = CmdManager::listen();
 
-		if (option == 9)
+		if (option == 0)
 			break;
 		else if (option == -1)
 			continue;

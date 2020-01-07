@@ -12,6 +12,6 @@ MenuLesson::MenuLesson()
 
 void MenuLesson::show()
 {
-	for (int i = 0; i < COUNT; i++)
+	for (int i = 0; i < 6; i++)
 		this->menuElements[i].show();
 }

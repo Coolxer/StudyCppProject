@@ -2,12 +2,24 @@
 #include <iostream>
 #include "CmdManager.h"
 
+#include "LessonsList.h"
+
 StudentsPage::StudentsPage(Window* window): Page(window)
 {
 	this->header = TextBox('#', "##     Studenci      ##");
 	this->info = TextBox('*', "** Podaj nr operacji **");
 
 	this->studentsList = StudentsList();
+}
+
+StudentsPage::~StudentsPage()
+{
+	delete this->lessonsList;
+}
+
+void StudentsPage::init(LessonsList* lessonsList)
+{
+	this->lessonsList = lessonsList;
 }
 
 StudentsList *StudentsPage::getStudentsList()
@@ -34,7 +46,7 @@ void StudentsPage::service()
 	do {
 		option = CmdManager::listen();
 
-		if (option == 9)
+		if (option == 0)
 		{
 			this->getWindow()->setActivePage(0);
 			break;
@@ -137,8 +149,46 @@ void StudentsPage::service()
 				std::cout << "Liczba studentow: " << this->studentsList.getNumberOfStudents() << std::endl;
 				Sleep(2000);
 				break;
-			}
+			case 9:
+				Student * student;
+				std::cout << "Podaj nr indeksu studenta, ktorego chcesz przypisac: " << std::endl;
+				std::cin >> index;
 
+				student = this->studentsList.getStudentByIndex(index);
+
+				if (!student)
+				{
+					std::cout << "Nie ma takiego studenta" << std::endl;
+					Sleep(1500);
+				}		
+				else
+				{
+					Lesson* lesson;
+
+					std::cout << "Podaj nazwe zajecia, do ktorego chcesz zapisac studenta: " << std::endl;
+					std::cin >> input;
+
+					lesson = this->lessonsList->getLessonByName(input);
+
+					if (!lesson)
+					{
+						std::cout << "Nie ma takiego zajecia" << std::endl;
+						Sleep(1500);
+					}
+					else
+					{
+						bool ok = lesson->addStudent(student);
+
+						if (ok)
+							std::cout << "Przypisano studenta do zajecia";
+						else
+							std::cout << "Brak wolnych miejsc";
+
+						Sleep(1500);
+					}
+				}
+				break;
+			}
 			this->getWindow()->refresh();
 		}
 	} while (true);

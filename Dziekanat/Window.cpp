@@ -32,7 +32,13 @@ Window::Window()
 	this->pages[7] = new StaffViewPage(this, (StaffPage*)this->pages[2]);
 	this->pages[8] = new AddLessonPage(this, (LessonsPage*)this->pages[3]);
 	this->pages[9] = new LessonsViewPage(this, (LessonsPage*)this->pages[3]);
-	// staffviewpage
+
+	StudentsPage* studentsPage = (StudentsPage*)this->pages[1];
+	LessonsPage* lessonsPage = (LessonsPage *)this->pages[3];
+
+	studentsPage->init(lessonsPage->getLessonsList());
+
+	//this->pages[1] = studentsPage;
 
 	this->activePageIndex = 0;
 }

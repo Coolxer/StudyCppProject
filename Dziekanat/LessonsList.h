@@ -15,11 +15,13 @@ public:
 
 	int addLesson(Lesson* s);
 	int removeLesson(int index);
+	Lesson* getLessonByName(std::string name);
+
 	bool showLessons();
 	bool showLessonById(int index);
-
+	bool showLessonByName(std::string name);
 	bool showSpecificLessons(std::string type);
 
-	int getNumberofLessons();
+	int getNumberOfLessons();
 };
 

@@ -10,10 +10,11 @@ MenuStudent::MenuStudent()
 	this->menuElements[5] = MenuElement(6, "Wyswietl studentow stacjonarnych");
 	this->menuElements[6] = MenuElement(7, "Wyswietl studentow zaocznych");
 	this->menuElements[7] = MenuElement(8, "Wyswietl liczbe studentow");
+	this->menuElements[8] = MenuElement(9, "Zapisz studenta na zajecia");
 }
 
 void MenuStudent::show()
 {
-	for (int i = 0; i < COUNT; i++)
+	for (int i = 0; i < 9; i++)
 		this->menuElements[i].show();
 }

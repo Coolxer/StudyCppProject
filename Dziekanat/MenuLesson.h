@@ -1,12 +1,10 @@
 #pragma once
 #include "MenuElement.h"
 
-#define COUNT 6
-
 class MenuLesson
 {
 private:
-	MenuElement menuElements[COUNT];
+	MenuElement menuElements[6];
 public:
 	MenuLesson();
 	void show();

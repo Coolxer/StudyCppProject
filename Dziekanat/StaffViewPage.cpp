@@ -35,7 +35,7 @@ void StaffViewPage::service()
 	do {
 		option = CmdManager::listen();
 
-		if (option == 9)
+		if (option == 0)
 		{
 			this->getWindow()->setActivePage(2);
 			break;

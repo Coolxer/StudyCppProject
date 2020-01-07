@@ -16,6 +16,8 @@ public:
 	int addStudent(Student *s);
 	int removeStudent(int index);
 
+	Student* getStudentByIndex(int index);
+
 	bool showAllStudents();
 	bool showStudentbyIndex(int index);
 	bool showStudentsByField(std::string field);

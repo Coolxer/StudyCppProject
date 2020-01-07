@@ -8,7 +8,7 @@ LessonsViewPage::LessonsViewPage(Window* window, LessonsPage* lessonsPage) : Pag
 {
 	this->header = TextBox('#', "##    Lista zajec     ##");
 
-	this->lessonsList = lessonsPage->getStaffList();
+	this->lessonsList = lessonsPage->getLessonsList();
 }
 
 void LessonsViewPage::draw()
@@ -35,7 +35,7 @@ void LessonsViewPage::service()
 	do {
 		option = CmdManager::listen();
 
-		if (option == 9)
+		if (option == 0)
 		{
 			this->getWindow()->setActivePage(3);
 			break;

@@ -8,7 +8,7 @@ AddLessonPage::AddLessonPage(Window* window, LessonsPage* lessonsPage) : Page(wi
 {
 	this->header = TextBox('#', "##   Dodawanie zajecia   ##");
 
-	this->lessonsList = lessonsPage->getStaffList();
+	this->lessonsList = lessonsPage->getLessonsList();
 
 	this->resetValues();
 }

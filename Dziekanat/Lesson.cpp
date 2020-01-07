@@ -8,8 +8,15 @@ Lesson::Lesson(std::string type, std::string name, int startTime, int duration, 
 	this->duration = duration;
 
 	this->maxPlaces = this->freePlaces = maxPlaces;
+
+	this->staffMember = nullptr;
 }
 
+Lesson::~Lesson()
+{
+	delete this->staffMember;
+	this->students.clear();
+}
 
 int Lesson::getIndex() const
 {
@@ -46,9 +53,30 @@ int Lesson::getFreePlaces() const
 	return this->freePlaces;
 }
 
+StaffMember* Lesson::getStaffMember() const
+{
+	return this->staffMember;
+}
+
 void Lesson::setIndex(int index)
 {
 	this->index = index;
+}
+
+void Lesson::setStaffMember(StaffMember* staffMember)
+{
+	this->staffMember = staffMember;
+}
+
+bool Lesson::addStudent(Student* student)
+{
+	if(this->freePlaces > 0) 
+	{
+		this->students.push_back(*student);
+		this->freePlaces--;
+		return true;
+	}
+	return false;
 }
 
 void Lesson::showHeader()
