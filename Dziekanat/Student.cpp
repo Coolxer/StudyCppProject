@@ -36,3 +36,8 @@ void Student::show(bool withHeader)
 	std::cout << this->getFirstName() << " | " << this->getLastName() << " | " << this->getAge() << " | " << this->getIndex() << " | ";
 	std::cout << this->study.getField() << " | " << this->study.getLevel() << " | " << this->study.getYear() << " | " << this->study.getType() << std::endl;
 }
+
+Study* Student::getStudy()
+{
+	return &this->study;
+}

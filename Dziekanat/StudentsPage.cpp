@@ -10,7 +10,7 @@ StudentsPage::StudentsPage(Window* window): Page(window)
 	this->menuElements[1] = MenuElement(2, "Usun studenta"); //wedlug indeksu
 	this->menuElements[2] = MenuElement(3, "Znajdz studenta wedlug indeksu");
 	this->menuElements[3] = MenuElement(4, "Wyswietl wszystkich studentow");
-	this->menuElements[4] = MenuElement(5, "Wyswietl studentow z wydzialu");
+	this->menuElements[4] = MenuElement(5, "Wyswietl studentow z kierunku");
 	this->menuElements[5] = MenuElement(6, "Wyswietl studentow stacjonarnych");
 	this->menuElements[6] = MenuElement(7, "Wyswietl studentow zaocznych");
 	this->menuElements[7] = MenuElement(8, "Wyswietl liczbe studentow");
@@ -54,6 +54,10 @@ void StudentsPage::service()
 			continue;
 		else
 		{
+			int index;
+			bool exists;
+			std::string input;
+
 			switch (option)
 			{
 			case 1:
@@ -62,7 +66,6 @@ void StudentsPage::service()
 			case 2:
 				this->getWindow()->refresh();
 				std::cout << "Podaj nr indeksu studenta, ktorego chcesz usunac: " << std::endl;
-				int index;
 				std::cin >> index;
 
 				if (!std::cin.good())
@@ -93,7 +96,6 @@ void StudentsPage::service()
 					break;
 				}
 
-				bool exists;
 				exists = this->studentsList.showStudentbyIndex(index);
 
 				if (!exists)
@@ -105,12 +107,46 @@ void StudentsPage::service()
 				this->getWindow()->setActivePage(4);
 				break;
 			case 5:
+				std::cout << "Podaj nazwe kierunku studiow" << std::endl;
+				std::cin >> input;
+
+				std::cout << " Imie " << " Nazwisko " << " Wiek " << " Indeks " << " Kierunek " << " Stopien " << " Rok " << " Typ " << std::endl;
+
+				exists = this->studentsList.showStudentsByField(input);
+
+				if (!exists)
+				{
+					this->getWindow()->refresh();
+					std::cout << std::endl << "Nie studentow na tym kierunku" << std::endl;
+				}
+					
+				Sleep(2500);
 				break;
 			case 6:
+				exists = this->studentsList.showStudentsByType("stacjonarne");
+
+				if (!exists)
+				{
+					this->getWindow()->refresh();
+					std::cout << std::endl << "Nie studentow stacjonarnych" << std::endl;
+				}
+
+				Sleep(2500);
 				break;
 			case 7:
+				exists = this->studentsList.showStudentsByType("zaoczne");
+
+				if (!exists)
+				{
+					this->getWindow()->refresh();
+					std::cout << std::endl << "Nie studentow zaocznych" << std::endl;
+				}
+
+				Sleep(2500);
 				break;
 			case 8:
+				std::cout << "Liczba studentow: " << this->studentsList.getNumberOfStudents() << std::endl;
+				Sleep(2000);
 				break;
 			}
 

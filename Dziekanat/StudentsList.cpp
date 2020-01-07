@@ -7,8 +7,8 @@ StudentsList::StudentsList()
 	this->startIndex = 16000;
 
 	this->addStudent(new Student("Lukasz", "Milos", 21, "inf", 1, 2, "zaoczne"));
-	this->addStudent(new Student("Rafal", "Magrys", 22, "inf", 1, 2, "zaoczne"));
-	this->addStudent(new Student("Kuba", "Stanislawczyk", 21, "inf", 1, 2, "zaoczne"));
+	this->addStudent(new Student("Rafal", "Magrys", 22, "inf", 1, 2, "stacjonarne"));
+	this->addStudent(new Student("Kuba", "Stanislawczyk", 21, "bud", 1, 2, "zaoczne"));
 	this->addStudent(new Student("Damian", "Pietraszek", 27, "inf", 1, 2, "zaoczne"));
 }
 
@@ -57,6 +57,40 @@ bool StudentsList::showStudentbyIndex(int index)
 			return true;
 		}
 	}
+	return false;
+}
+
+
+bool StudentsList::showStudentsByField(std::string field)
+{
+	int count = 0;
+	for (int i = 0; i < (int)this->students.size(); i++)
+	{
+		if (this->students[i].getStudy()->getField() == field)
+		{
+			this->students[i].show();
+			count++;
+		}
+	}
+	if (count > 0)
+		return true;
+
+	return false;
+}
+
+bool StudentsList::showStudentsByType(std::string type)
+{
+	int count = 0;
+	for (int i = 0; i < (int)this->students.size(); i++)
+	{
+		if (this->students[i].getStudy()->getType() == type)
+		{
+			this->students[i].show();
+			count++;
+		}
+	}
+	if (count > 0)
+		return true;
 
 	return false;
 }

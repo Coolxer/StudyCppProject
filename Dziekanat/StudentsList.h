@@ -1,5 +1,7 @@
 #pragma once
 #include <vector>
+#include <string>
+
 #include "Student.h"
 
 class StudentsList
@@ -14,6 +16,9 @@ public:
 	int removeStudent(int index);
 	bool showAllStudents();
 	bool showStudentbyIndex(int index);
+
+	bool showStudentsByField(std::string field);
+	bool showStudentsByType(std::string type);
 
 	int getNumberOfStudents();
 };

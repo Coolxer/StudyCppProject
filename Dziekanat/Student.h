@@ -18,5 +18,7 @@ public:
 	void changeStudyType(std::string type);
 
 	void show(bool withHeader=false);
+
+	Study* getStudy();
 };
 
