@@ -4,13 +4,24 @@
 class StaffMember :public Person
 {
 private:
-	std::string academic_degree;
+	int id;
+	std::string academic_degrees;
 	int cash;
 
-public:
-	StaffMember(std::string firstName, std::string lastName, int age, std::string academic_degree, int cash);
+	int numberofLessonsProvided;
 
-	std::string getAcademicDegree();
+public:
+	StaffMember(std::string firstName, std::string lastName, int age, std::string academic_degrees);
+
+	void setId(int id);
+	int getId() const ;
+
+	std::string getAcademicDegrees() const;
 	int getCash();
+
+	bool isProfessor();
+
+	void show(bool withHeader = false);
+	
 };
 

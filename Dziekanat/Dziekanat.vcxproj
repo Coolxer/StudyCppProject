@@ -138,6 +138,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AddStaffMemberPage.cpp" />
     <ClCompile Include="AddStudentPage.cpp" />
     <ClCompile Include="CmdManager.cpp" />
     <ClCompile Include="Lesson.cpp" />
@@ -150,8 +151,10 @@
     <ClCompile Include="Person.cpp" />
     <ClCompile Include="Program.cpp" />
     <ClCompile Include="Schedule.cpp" />
+    <ClCompile Include="StaffList.cpp" />
     <ClCompile Include="StaffMember.cpp" />
     <ClCompile Include="StaffPage.cpp" />
+    <ClCompile Include="StaffViewPage.cpp" />
     <ClCompile Include="Student.cpp" />
     <ClCompile Include="StudentsList.cpp" />
     <ClCompile Include="StudentsPage.cpp" />
@@ -161,6 +164,7 @@
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AddStaffMemberPage.h" />
     <ClInclude Include="AddStudentPage.h" />
     <ClInclude Include="CmdManager.h" />
     <ClInclude Include="Lesson.h" />
@@ -172,8 +176,10 @@
     <ClInclude Include="Person.h" />
     <ClInclude Include="Program.h" />
     <ClInclude Include="Schedule.h" />
+    <ClInclude Include="StaffList.h" />
     <ClInclude Include="StaffMember.h" />
     <ClInclude Include="StaffPage.h" />
+    <ClInclude Include="StaffViewPage.h" />
     <ClInclude Include="Student.h" />
     <ClInclude Include="StudentsList.h" />
     <ClInclude Include="StudentsPage.h" />

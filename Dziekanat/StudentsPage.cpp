@@ -4,7 +4,7 @@
 
 StudentsPage::StudentsPage(Window* window): Page(window)
 {
-	this->header = TextBox('#', "##     Students Page      ##");
+	this->header = TextBox('#', "##     Studenci      ##");
 	
 	this->menuElements[0] = MenuElement(1, "Dodaj studenta");
 	this->menuElements[1] = MenuElement(2, "Usun studenta"); //wedlug indeksu
@@ -61,7 +61,7 @@ void StudentsPage::service()
 			switch (option)
 			{
 			case 1:
-				this->getWindow()->setActivePage(3);
+				this->getWindow()->setActivePage(4);
 				break;
 			case 2:
 				this->getWindow()->refresh();
@@ -104,7 +104,7 @@ void StudentsPage::service()
 				Sleep(2500);
 				break;
 			case 4:
-				this->getWindow()->setActivePage(4);
+				this->getWindow()->setActivePage(5);
 				break;
 			case 5:
 				std::cout << "Podaj nazwe kierunku studiow" << std::endl;
