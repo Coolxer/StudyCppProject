@@ -9,12 +9,13 @@ private:
 	Study study;
 
 public:
-	Student(std::string firstName, std::string lastName, int age, int index);
-	void setStudy(std::string field, std::string year, std::string type);
+	Student(std::string firstName, std::string lastName, int age);
+	void setStudy(std::string field, int level, int year, std::string type);
 
 	int getIndex();
+	void setIndex(int index);
 
-	void changeStudyYear(std::string year);
+	void changeStudyYear(int year);
 	void changeStudyType(std::string type);
 
 	void show();

@@ -6,9 +6,9 @@
 class MenuPage : public Page
 {
 private:
-	TextBox titleBox;
+	TextBox header;
 	Menu menu;
-	TextBox infoBox;
+	TextBox info;
 
 public:
 	MenuPage(Window *window);

@@ -5,19 +5,22 @@ class Study
 {
 private:
 	std::string field;
-	std::string year;
+	int level;
+	int year;
 	std::string type;
 
 public:
 	Study() {}
-	Study(std::string field, std::string year, std::string type);
+	Study(std::string field, int level, int year, std::string type);
 
 	std::string getField() const;
-	std::string getYear() const;
+	int getLevel() const;
+	int getYear() const;
 	std::string getType() const;
 
 	void setField(std::string field);
-	void setYear(std::string year);
+	void setLevel(int level);
+	void setYear(int year);
 	void setType(std::string type);	
 };
 

@@ -7,7 +7,7 @@ class Window
 {
 private:
 	HANDLE console;
-	Page* pages[2];
+	Page* pages[4];
 
 	int activePageIndex;
 
@@ -16,6 +16,8 @@ private:
 public:
 	Window();
 	~Window();
+
+	void refresh();
 
 	void setActivePage(int pageIndex);
 	HANDLE getConsole();

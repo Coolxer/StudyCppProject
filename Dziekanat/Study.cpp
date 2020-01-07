@@ -1,8 +1,9 @@
 #include "Study.h"
 
-Study::Study(std::string field, std::string year, std::string type)
+Study::Study(std::string field, int level, int year, std::string type)
 {
 	this->field = field;
+	this->level = level;
 	this->year = year;
 	this->type = type;
 }
@@ -12,7 +13,12 @@ std::string Study::getField() const
 	return this->field;
 }
 
-std::string Study::getYear() const
+int Study::getLevel() const
+{
+	return this->level;
+}
+
+int Study::getYear() const
 {
 	return this->year;
 }
@@ -27,7 +33,12 @@ void Study::setField(std::string field)
 	this->field = field;
 }
 
-void Study::setYear(std::string year)
+void Study::setLevel(int level)
+{
+	this->level = level;
+}
+
+void Study::setYear(int year)
 {
 	this->year = year;
 }

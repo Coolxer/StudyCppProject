@@ -10,10 +10,11 @@ private:
 public:
 	StudentsList();
 	
-	void addStudent(Student &s);
+	int addStudent(Student &s);
 	void removeStudent();
 	void showAllStudents();
 	void showStudentbyIndex(int index);
 
+	int getNumberOfStudents();
 };
 

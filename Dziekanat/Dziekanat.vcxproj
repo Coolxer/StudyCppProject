@@ -138,6 +138,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AddStudentPage.cpp" />
     <ClCompile Include="CmdManager.cpp" />
     <ClCompile Include="Lesson.cpp" />
     <ClCompile Include="LessonsPage.cpp" />
@@ -159,6 +160,7 @@
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AddStudentPage.h" />
     <ClInclude Include="CmdManager.h" />
     <ClInclude Include="Lesson.h" />
     <ClInclude Include="LessonsPage.h" />

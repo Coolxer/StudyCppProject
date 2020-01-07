@@ -9,9 +9,14 @@ StudentsList::StudentsList()
 	//this->addStudent(Student("lukasz", "milos", 21, this->startIndex + 1));
 }
 
-void StudentsList::addStudent(Student &s)
+int StudentsList::addStudent(Student &s)
 {
 	this->students.push_back(s);
+	
+	this->startIndex++;
+	this->students.back().setIndex(this->startIndex);
+
+	return this->startIndex;
 }
 
 void StudentsList::removeStudent()
@@ -32,5 +37,10 @@ void StudentsList::showStudentbyIndex(int index)
 		if (this->students[i].getIndex() == index)
 			this->students[i].show();
 	}
+}
+
+int StudentsList::getNumberOfStudents()
+{
+	return (int)this->students.size();
 }
 

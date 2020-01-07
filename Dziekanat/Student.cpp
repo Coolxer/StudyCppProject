@@ -2,14 +2,14 @@
 
 #include <iostream>
 
-Student::Student(std::string firstName, std::string lastName, int age, int index) : Person(firstName, lastName, age)
+Student::Student(std::string firstName, std::string lastName, int age) : Person(firstName, lastName, age)
 {
-	this->index = index;
+	
 }
 
-void Student::setStudy(std::string field, std::string year, std::string type)
+void Student::setStudy(std::string field, int level, int year, std::string type)
 {
-	this->study = Study(field, year, type);
+	this->study = Study(field, level, year, type);
 }
 
 int Student::getIndex()
@@ -17,7 +17,12 @@ int Student::getIndex()
 	return this->index;
 }
 
-void Student::changeStudyYear(std::string year)
+void Student::setIndex(int index)
+{
+	this->index = index;
+}
+
+void Student::changeStudyYear(int year)
 {
 	this->study.setYear(year);
 }
