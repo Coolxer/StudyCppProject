@@ -11,6 +11,16 @@ private:
 
 	int numberOfLessonsProvided;
 
+	/* 1 lesson
+	lic/inz = 200, 
+	mgr = 400, 
+	dr = 700, 
+	prof = 1000
+
+	*/
+
+	void calcCash();
+
 public:
 	StaffMember(std::string firstName, std::string lastName, int age, std::string academic_degrees);
 
@@ -23,8 +33,7 @@ public:
 	StaffMember* getStaffMember;
 
 	void setIndex(int id);
-	int increaseLessons();
-	int decreaseLessons();
+	void increaseLessons();
 
 	static void showHeader();
 	void show(bool withHeader = false);

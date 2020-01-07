@@ -63,9 +63,14 @@ void Lesson::setIndex(int index)
 	this->index = index;
 }
 
-void Lesson::setStaffMember(StaffMember* staffMember)
+bool Lesson::setStaffMember(StaffMember* staffMember)
 {
+	if (this->staffMember)
+		return false;
+
 	this->staffMember = staffMember;
+
+	return true;
 }
 
 bool Lesson::addStudent(Student* student)

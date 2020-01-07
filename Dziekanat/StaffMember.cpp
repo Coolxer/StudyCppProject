@@ -36,14 +36,28 @@ void StaffMember::setIndex(int index)
 	this->index = index;
 }
 
-int StaffMember::increaseLessons()
+void StaffMember::calcCash()
 {
-	return ++this->numberOfLessonsProvided;
+	int converter; //przelicznik
+
+	if (this->academic_degrees == "lic" || this->academic_degrees == "lic." || this->academic_degrees == "inz" || this->academic_degrees == "inz.")
+		converter = 200;
+	else if (this->academic_degrees == "mgr" || this->academic_degrees == "mgr.")
+		converter = 400;
+	else if (this->academic_degrees == "dr" || this->academic_degrees == "dr.")
+		converter = 700;
+	else if (this->academic_degrees == "prof" || this->academic_degrees == "prof.")
+		converter = 1000;
+	else
+		converter = 0;
+
+	this->cash = converter * this->numberOfLessonsProvided;
 }
 
-int StaffMember::decreaseLessons()
+void StaffMember::increaseLessons()
 {
-	return --this->numberOfLessonsProvided;
+	this->numberOfLessonsProvided++;
+	this->calcCash();
 }
 
 void StaffMember::showHeader()

@@ -10,6 +10,11 @@ StaffPage::StaffPage(Window* window) : Page(window)
 	this->staffList = StaffList();
 }
 
+void StaffPage::init(LessonsList* lessonsList)
+{
+	this->lessonsList = lessonsList;
+}
+
 StaffList* StaffPage::getStaffList()
 {
 	return &this->staffList;
@@ -113,8 +118,49 @@ void StaffPage::service()
 				std::cout << "Liczba pracownikow: " << this->staffList.getNumberOfMembers() << std::endl;
 				Sleep(2000);
 				break;
-			}
+			case 7:
+				StaffMember * staffMember;
+				std::cout << "Podaj nr id pracownika, ktorego chcesz przypisac: " << std::endl;
+				std::cin >> id;
 
+				staffMember = this->staffList.getStaffMemberByIndex(id);
+
+				if (!staffMember)
+				{
+					std::cout << "Nie ma takiego pracownika" << std::endl;
+					Sleep(1500);
+				}
+				else
+				{
+					Lesson* lesson;
+
+					std::cout << "Podaj nazwe zajecia, do ktorego chcesz przypisac pracownika: " << std::endl;
+					std::cin >> input;
+
+					lesson = this->lessonsList->getLessonByName(input);
+
+					if (!lesson)
+					{
+						std::cout << "Nie ma takiego zajecia" << std::endl;
+						Sleep(1500);
+					}
+					else
+					{
+						bool ok = lesson->setStaffMember(staffMember);
+
+						if (ok)
+						{
+							std::cout << "Przypisano pracownika do zajecia";
+							staffMember->increaseLessons();
+						}
+						else
+							std::cout << "To zajecie ma juz swojego prowadzacego";
+
+						Sleep(1500);
+					}
+				}
+				break;
+			}	
 			this->getWindow()->refresh();
 		}
 	} while (true);

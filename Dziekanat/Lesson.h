@@ -40,7 +40,7 @@ public:
 	StaffMember* getStaffMember() const;
 
 	void setIndex(int index);
-	void setStaffMember(StaffMember* staffMember);
+	bool setStaffMember(StaffMember* staffMember);
 	bool addStudent(Student* student);
 
 	static void showHeader();

@@ -6,7 +6,7 @@ StaffList::StaffList()
 {
 	this->index = 0;
 
-	this->addMember(new StaffMember("Mariusz", "Nycz", 50, "mgr inz"));
+	this->addMember(new StaffMember("Mariusz", "Nycz", 50, "inz"));
 	this->addMember(new StaffMember("Mariusz", "Maczka", 60, "prof"));
 }
 
@@ -36,6 +36,17 @@ int StaffList::removeMember(int index)
 		}
 	}
 	return 0;
+}
+
+StaffMember* StaffList::getStaffMemberByIndex(int index)
+{
+	for (int i = 0; i < (int)this->staffMembers.size(); i++)
+	{
+		if (this->staffMembers[i].getIndex() == index)
+			return &this->staffMembers[i];
+	}
+
+	return nullptr;
 }
 
 bool StaffList::showStaff()

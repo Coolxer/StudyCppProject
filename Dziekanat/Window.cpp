@@ -34,11 +34,11 @@ Window::Window()
 	this->pages[9] = new LessonsViewPage(this, (LessonsPage*)this->pages[3]);
 
 	StudentsPage* studentsPage = (StudentsPage*)this->pages[1];
+	StaffPage* staffPage = (StaffPage*)this->pages[2];
 	LessonsPage* lessonsPage = (LessonsPage *)this->pages[3];
 
 	studentsPage->init(lessonsPage->getLessonsList());
-
-	//this->pages[1] = studentsPage;
+	staffPage->init(lessonsPage->getLessonsList());
 
 	this->activePageIndex = 0;
 }

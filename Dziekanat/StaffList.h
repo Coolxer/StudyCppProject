@@ -16,6 +16,8 @@ public:
 	int addMember(StaffMember* s);
 	int removeMember(int index);
 
+	StaffMember* getStaffMemberByIndex(int index);
+
 	bool showStaff();
 	bool showMemberbyId(int index);
 	bool showProfessors();
