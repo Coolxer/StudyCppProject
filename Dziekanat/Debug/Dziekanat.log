@@ -1,4 +1,5 @@
-﻿  StaffViewPage.cpp
-  StudentsViewPage.cpp
+﻿  LessonsList.cpp
+  LessonsPage.cpp
+  Window.cpp
   Generowanie kodu...
   Dziekanat.vcxproj -> E:\studia\C++\projekt\Dziekanat\Debug\Dziekanat.exe

@@ -138,11 +138,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AddLessonPage.cpp" />
     <ClCompile Include="AddStaffMemberPage.cpp" />
     <ClCompile Include="AddStudentPage.cpp" />
     <ClCompile Include="CmdManager.cpp" />
     <ClCompile Include="Lesson.cpp" />
+    <ClCompile Include="LessonsList.cpp" />
     <ClCompile Include="LessonsPage.cpp" />
+    <ClCompile Include="LessonsViewPage.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="MenuElement.cpp" />
@@ -164,11 +167,14 @@
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AddLessonPage.h" />
     <ClInclude Include="AddStaffMemberPage.h" />
     <ClInclude Include="AddStudentPage.h" />
     <ClInclude Include="CmdManager.h" />
     <ClInclude Include="Lesson.h" />
+    <ClInclude Include="LessonsList.h" />
     <ClInclude Include="LessonsPage.h" />
+    <ClInclude Include="LessonsViewPage.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="MenuElement.h" />
     <ClInclude Include="MenuPage.h" />

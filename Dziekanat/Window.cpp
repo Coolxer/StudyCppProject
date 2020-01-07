@@ -13,6 +13,8 @@
 #include "StaffViewPage.h"
 
 #include "LessonsPage.h"
+#include "AddLessonPage.h"
+#include "LessonsViewPage.h"
 
 using namespace std;
 
@@ -28,6 +30,8 @@ Window::Window()
 	this->pages[5] = new StudentsViewPage(this, (StudentsPage*)this->pages[1]);
 	this->pages[6] = new AddStaffMemberPage(this, (StaffPage*)this->pages[2]);
 	this->pages[7] = new StaffViewPage(this, (StaffPage*)this->pages[2]);
+	this->pages[8] = new AddLessonPage(this, (LessonsPage*)this->pages[3]);
+	this->pages[9] = new LessonsViewPage(this, (LessonsPage*)this->pages[3]);
 	// staffviewpage
 
 	this->activePageIndex = 0;

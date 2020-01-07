@@ -12,6 +12,11 @@ StudentsList::StudentsList()
 	this->addStudent(new Student("Damian", "Pietraszek", 27, "inf", 1, 2, "zaoczne"));
 }
 
+StudentsList::~StudentsList()
+{
+	this->students.clear();
+}
+
 int StudentsList::addStudent(Student *s)
 {
 	this->students.push_back(*s);

@@ -11,6 +11,7 @@ private:
 	int startIndex;
 public:
 	StudentsList();
+	~StudentsList();
 	
 	int addStudent(Student *s);
 	int removeStudent(int index);
