@@ -10,9 +10,12 @@ private:
 	int startTime;
 	int duration;
 
+	int maxPlaces;
+	int freePlaces;
+
 public:
 	Lesson() {}
-	Lesson(std::string type, std::string name, int startTime, int duration);
+	Lesson(std::string type, std::string name, int startTime, int duration, int maxPlaces);
 
 	void setId(int id);
 
@@ -22,6 +25,10 @@ public:
 	int getStartTime() const;
 	int getDuration() const;
 
+	int getMaxPlaces() const;
+	int getFreePlaces() const;
+
+	static void showHeader();
 	void show(bool withHeader = false);
 };
 

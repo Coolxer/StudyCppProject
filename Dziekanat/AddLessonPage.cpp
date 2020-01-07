@@ -63,6 +63,15 @@ void AddLessonPage::draw()
 		std::cout << ' ' << std::endl;
 	else
 	std::cout << this->duration << std::endl;
+	SetConsoleTextAttribute(this->getWindow()->getConsole(), FOREGROUND_GREEN);
+	std::cout << "-------------------------" << std::endl;
+	SetConsoleTextAttribute(this->getWindow()->getConsole(), FOREGROUND_RED);
+	std::cout << "Max. ilosc miejsc | ";
+	SetConsoleTextAttribute(this->getWindow()->getConsole(), 15);
+	if (this->maxPlaces == 0)
+		std::cout << ' ' << std::endl;
+	else
+		std::cout << this->maxPlaces << std::endl;
 
 	SetConsoleTextAttribute(this->getWindow()->getConsole(), FOREGROUND_INTENSITY | FOREGROUND_GREEN | FOREGROUND_BLUE);
 	this->info.show();
@@ -120,8 +129,20 @@ void AddLessonPage::service()
 			std::cin >> this->duration;
 		}
 		break;
+	case 5:
+		std::cout << "Podaj max. ilosc miejsc: (min 5, max 100)" << std::endl;
+		std::cin >> this->maxPlaces;
+		while (!std::cin.good() || this->maxPlaces < 120 || this->maxPlaces > 240)
+		{
+			this->maxPlaces = 0;
+			this->getWindow()->refresh();
+			std::cout << "Podaj max. ilosc miejsc: (min 5, max 100)" << std::endl;
+			std::cin.clear();
+			std::cin >> this->maxPlaces;
+		}
+		break;
 	default:
-		this->lesson = new Lesson(this->type, this->name, this->startTime, this->duration);
+		this->lesson = new Lesson(this->type, this->name, this->startTime, this->duration, this->maxPlaces);
 
 		int id = this->lessonsList->addLesson(this->lesson);
 
@@ -135,7 +156,7 @@ void AddLessonPage::service()
 		break;
 	}
 
-	if (this->currentStep <= 4)
+	if (this->currentStep <= 5)
 	{
 		this->currentStep++;
 		this->getWindow()->refresh();

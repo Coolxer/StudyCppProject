@@ -6,8 +6,8 @@ LessonsList::LessonsList()
 {
 	this->id = 1;
 
-	this->addLesson(new Lesson("projekt", "programowanie", 5, 90));
-	this->addLesson(new Lesson("laboratorium", "systemy", 10, 120));
+	this->addLesson(new Lesson("projekt", "programowanie", 5, 90, 30));
+	this->addLesson(new Lesson("laboratorium", "systemy", 10, 120, 15));
 }
 
 LessonsList::~LessonsList()

@@ -16,7 +16,7 @@ void LessonsViewPage::draw()
 	SetConsoleTextAttribute(this->getWindow()->getConsole(), FOREGROUND_GREEN);
 	this->header.show();
 
-	std::cout << " ID " << " Typ " << " Nazwa " << " Godzina rozpoczecia " << " Czas trwania " << std::endl;
+	Lesson::showHeader();
 
 	SetConsoleTextAttribute(this->getWindow()->getConsole(), FOREGROUND_RED);
 	bool isNotNull = this->lessonsList->showLessons();

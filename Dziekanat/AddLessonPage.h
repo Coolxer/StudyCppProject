@@ -19,6 +19,7 @@ private:
 	int duration;
 
 	int currentStep;
+	int maxPlaces;
 
 	Lesson* lesson;
 

@@ -108,7 +108,7 @@ void LessonsPage::service()
 				std::cout << "Podaj typ zajec, ktore chcesz zobaczyc: " << std::endl;
 				std::cin >> input;
 
-				std::cout << " ID " << " Typ " << " Nazwa " << " Godzina rozpoczecia " << " Czas trwania " << std::endl;
+				Lesson::showHeader();
 
 				exists = this->lessonsList.showSpecificLessons(input);
 
