@@ -47,13 +47,18 @@ bool StudentsList::showAllStudents()
 	return false;
 }
 
-void StudentsList::showStudentbyIndex(int index)
+bool StudentsList::showStudentbyIndex(int index)
 {
 	for (int i = 0; i < (int)this->students.size(); i++)
 	{
 		if (this->students[i].getIndex() == index)
-			this->students[i].show();
+		{
+			this->students[i].show(true);
+			return true;
+		}
 	}
+
+	return false;
 }
 
 int StudentsList::getNumberOfStudents()

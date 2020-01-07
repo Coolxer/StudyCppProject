@@ -83,7 +83,23 @@ void StudentsPage::service()
 
 				break;
 			case 3:
-				
+				std::cout << "Podaj nr indeksu studenta, ktorego dane chcesz zobaczyæ: " << std::endl;
+				std::cin >> index;
+
+				if (!std::cin.good())
+				{
+					std::cout << "indeks to liczba! " << std::endl;
+					Sleep(1000);
+					break;
+				}
+
+				bool exists;
+				exists = this->studentsList.showStudentbyIndex(index);
+
+				if (!exists)
+					std::cout << std::endl << "Nie ma takiego studenta" << std::endl;
+
+				Sleep(2500);
 				break;
 			case 4:
 				this->getWindow()->setActivePage(4);

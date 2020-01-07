@@ -13,7 +13,7 @@ public:
 	int addStudent(Student *s);
 	int removeStudent(int index);
 	bool showAllStudents();
-	void showStudentbyIndex(int index);
+	bool showStudentbyIndex(int index);
 
 	int getNumberOfStudents();
 };

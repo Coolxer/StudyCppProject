@@ -27,8 +27,11 @@ void Student::changeStudyType(std::string type)
 	this->study.setType(type);
 }
 
-void Student::show()
+void Student::show(bool withHeader)
 {
+	if(withHeader)
+		std::cout << " Imie " << " Nazwisko " << " Wiek " << " Indeks " << " Kierunek " << " Stopien " << " Rok " << " Typ " << std::endl;
+
 	std::cout << "-----------------" << std::endl;
 	std::cout << this->getFirstName() << " | " << this->getLastName() << " | " << this->getAge() << " | " << this->getIndex() << " | ";
 	std::cout << this->study.getField() << " | " << this->study.getLevel() << " | " << this->study.getYear() << " | " << this->study.getType() << std::endl;
