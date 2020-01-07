@@ -7,17 +7,17 @@
 class StaffList
 {
 private:
-	int startId;
+	int index;
 	std::vector <StaffMember> staffMembers;
 public:
 	StaffList();
 	~StaffList();
 
 	int addMember(StaffMember* s);
-	int removeMember(int id);
-	bool showStaff();
-	bool showMemberbyId(int id);
+	int removeMember(int index);
 
+	bool showStaff();
+	bool showMemberbyId(int index);
 	bool showProfessors();
 
 	int getNumberOfMembers();

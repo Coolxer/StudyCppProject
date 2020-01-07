@@ -7,16 +7,16 @@
 class LessonsList
 {
 private:
-	int id;
+	int index;
 	std::vector <Lesson> lessons;
 public:
 	LessonsList();
 	~LessonsList();
 
 	int addLesson(Lesson* s);
-	int removeLesson(int id);
+	int removeLesson(int index);
 	bool showLessons();
-	bool showLessonById(int id);
+	bool showLessonById(int index);
 
 	bool showSpecificLessons(std::string type);
 

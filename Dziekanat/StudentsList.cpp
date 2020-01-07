@@ -4,7 +4,7 @@
 
 StudentsList::StudentsList()
 {
-	this->startIndex = 16000;
+	this->index = 16000;
 
 	this->addStudent(new Student("Lukasz", "Milos", 21, "inf", 1, 2, "zaoczne"));
 	this->addStudent(new Student("Rafal", "Magrys", 22, "inf", 1, 2, "stacjonarne"));
@@ -21,10 +21,10 @@ int StudentsList::addStudent(Student *s)
 {
 	this->students.push_back(*s);
 	
-	this->startIndex++;
-	this->students.back().setIndex(this->startIndex);
+	this->index++;
+	this->students.back().setIndex(this->index);
 
-	return this->startIndex;
+	return this->index;
 }
 
 int StudentsList::removeStudent(int index)

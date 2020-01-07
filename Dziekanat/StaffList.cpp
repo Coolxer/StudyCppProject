@@ -4,7 +4,7 @@
 
 StaffList::StaffList()
 {
-	this->startId = 0;
+	this->index = 0;
 
 	this->addMember(new StaffMember("Mariusz", "Nycz", 50, "mgr inz"));
 	this->addMember(new StaffMember("Mariusz", "Maczka", 60, "prof"));
@@ -19,20 +19,20 @@ int StaffList::addMember(StaffMember* s)
 {
 	this->staffMembers.push_back(*s);
 
-	this->startId++;
-	this->staffMembers.back().setId(this->startId);
+	this->index++;
+	this->staffMembers.back().setIndex(this->index);
 
-	return this->startId;
+	return this->index;
 }
 
-int StaffList::removeMember(int id)
+int StaffList::removeMember(int index)
 {
 	for (int i = 0; i < (int)this->staffMembers.size(); i++)
 	{
-		if (this->staffMembers[i].getId() == id)
+		if (this->staffMembers[i].getIndex() == index)
 		{
 			this->staffMembers.erase(this->staffMembers.begin() + i);
-			return id;
+			return index;
 		}
 	}
 	return 0;
@@ -49,11 +49,11 @@ bool StaffList::showStaff()
 	return false;
 }
 
-bool StaffList::showMemberbyId(int id)
+bool StaffList::showMemberbyId(int index)
 {
 	for (int i = 0; i < (int)this->staffMembers.size(); i++)
 	{
-		if (this->staffMembers[i].getId() == id)
+		if (this->staffMembers[i].getIndex() == index)
 		{
 			this->staffMembers[i].show(true);
 			return true;

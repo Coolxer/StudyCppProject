@@ -4,7 +4,7 @@
 
 LessonsList::LessonsList()
 {
-	this->id = 1;
+	this->index = 1;
 
 	this->addLesson(new Lesson("projekt", "programowanie", 5, 90, 30));
 	this->addLesson(new Lesson("laboratorium", "systemy", 10, 120, 15));
@@ -19,20 +19,20 @@ int LessonsList::addLesson(Lesson* lesson)
 {
 	this->lessons.push_back(*lesson);
 
-	this->id++;
-	this->lessons.back().setId(this->id);
+	this->index++;
+	this->lessons.back().setIndex(this->index);
 
-	return this->id;
+	return this->index;
 }
 
-int LessonsList::removeLesson(int id)
+int LessonsList::removeLesson(int index)
 {
 	for (int i = 0; i < (int)this->lessons.size(); i++)
 	{
-		if (this->lessons[i].getId() == id)
+		if (this->lessons[i].getIndex() == index)
 		{
 			this->lessons.erase(this->lessons.begin() + i);
-			return id;
+			return index;
 		}
 	}
 	return 0;
@@ -49,11 +49,11 @@ bool LessonsList::showLessons()
 	return false;
 }
 
-bool LessonsList::showLessonById(int id)
+bool LessonsList::showLessonById(int index)
 {
 	for (int i = 0; i < (int)this->lessons.size(); i++)
 	{
-		if (this->lessons[i].getId() == id)
+		if (this->lessons[i].getIndex() == index)
 		{
 			this->lessons[i].show(true);
 			return true;
