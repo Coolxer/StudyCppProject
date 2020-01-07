@@ -4,7 +4,8 @@
 class Lesson
 {
 private:
-	int id;
+	int index;
+
 	std::string type;
 	std::string name;
 	int startTime;
@@ -17,9 +18,8 @@ public:
 	Lesson() {}
 	Lesson(std::string type, std::string name, int startTime, int duration, int maxPlaces);
 
-	void setId(int id);
+	int getIndex() const;
 
-	int getId() const;
 	std::string getType() const;
 	std::string getName() const;
 	int getStartTime() const;
@@ -27,6 +27,8 @@ public:
 
 	int getMaxPlaces() const;
 	int getFreePlaces() const;
+
+	void setIndex(int index);
 
 	static void showHeader();
 	void show(bool withHeader = false);

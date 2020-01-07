@@ -10,14 +10,10 @@ Lesson::Lesson(std::string type, std::string name, int startTime, int duration, 
 	this->maxPlaces = this->freePlaces = maxPlaces;
 }
 
-void Lesson::setId(int id)
-{
-	this->id = id;
-}
 
-int Lesson::getId() const
+int Lesson::getIndex() const
 {
-	return this->id;
+	return this->index;
 }
 
 std::string Lesson::getType() const
@@ -48,6 +44,11 @@ int Lesson::getMaxPlaces() const
 int Lesson::getFreePlaces() const
 {
 	return this->freePlaces;
+}
+
+void Lesson::setIndex(int index)
+{
+	this->index = index;
 }
 
 void Lesson::showHeader()

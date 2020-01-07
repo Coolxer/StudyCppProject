@@ -8,27 +8,23 @@ StaffMember::StaffMember(std::string firstName, std::string lastName, int age, s
 	this->numberofLessonsProvided = 0;
 }
 
-void StaffMember::setId(int id)
+int StaffMember::getIndex() const
 {
-	this->id = id;
+	return this->index;
 }
 
-int StaffMember::getId() const
-{
-	return this->id;
-}
 
 std::string StaffMember::getAcademicDegrees() const
 {
 	return this->academic_degrees;
 }
 
-int StaffMember::getCash()
+int StaffMember::getCash() const
 {
 	return this->cash;
 }
 
-bool StaffMember::isProfessor()
+bool StaffMember::isProfessor() const
 {
 	if (this->academic_degrees.find("prof") != std::string::npos)
 		return true;
@@ -36,10 +32,21 @@ bool StaffMember::isProfessor()
 	return false;
 }
 
+void StaffMember::setIndex(int index)
+{
+	this->index = index;
+}
+
+void StaffMember::showHeader()
+{
+	std::cout << " ID " << " Imie " << " Nazwisko " << " Wiek " << " Tytuly " << " Wynagrodzenie " << " Liczba zajec " << std::endl;
+}
+
+
 void StaffMember::show(bool withHeader)
 {
 	if (withHeader)
-		std::cout << " ID " << " Imie " << " Nazwisko " << " Wiek " << " Tytuly " << " Wynagrodzenie " << " Liczba zajec " << std::endl;
+		this->showHeader();
 
 	std::cout << "-----------------" << std::endl;
 	std::cout << this->id << " | " << this->getFirstName() << " | " << this->getLastName() << " | " << this->getAge() << " | ";

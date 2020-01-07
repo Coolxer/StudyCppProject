@@ -6,6 +6,7 @@ class Student :public Person
 {
 private:
 	int index;
+
 	Study study;
 
 public:
