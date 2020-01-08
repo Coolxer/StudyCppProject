@@ -14,19 +14,9 @@ bool Student::operator ==(const Student& s)
 	return false;
 }
 
-int Student::getIndex()
-{
-	return this->index;
-}
-
 Study* Student::getStudy()
 {
 	return &this->study;
-}
-
-void Student::setIndex(int index)
-{
-	this->index = index;
 }
 
 void Student::changeStudyYear(int year)
@@ -50,6 +40,6 @@ void Student::show(bool withHeader)
 		this->showHeader();
 
 	std::cout << "-----------------" << std::endl;
-	std::cout << this->getFirstName() << " | " << this->getLastName() << " | " << this->getAge() << " | " << this->index << " | ";
+	std::cout << this->getFirstName() << " | " << this->getLastName() << " | " << this->getAge() << " | " << this->getIndex() << " | ";
 	std::cout << this->study.getField() << " | " << this->study.getLevel() << " | " << this->study.getYear() << " | " << this->study.getType() << std::endl;
 }

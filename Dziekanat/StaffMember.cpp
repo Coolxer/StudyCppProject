@@ -8,11 +8,6 @@ StaffMember::StaffMember(std::string firstName, std::string lastName, int age, s
 	this->numberOfLessonsProvided = 0;
 }
 
-int StaffMember::getIndex() const
-{
-	return this->index;
-}
-
 std::string StaffMember::getAcademicDegrees() const
 {
 	return this->academic_degrees;
@@ -49,11 +44,6 @@ bool StaffMember::isProfessor() const
 	return false;
 }
 
-void StaffMember::setIndex(int index)
-{
-	this->index = index;
-}
-
 void StaffMember::increaseLessons()
 {
 	this->numberOfLessonsProvided++;
@@ -71,6 +61,6 @@ void StaffMember::show(bool withHeader)
 		this->showHeader();
 
 	std::cout << "-----------------" << std::endl;
-	std::cout << this->index << " | " << this->getFirstName() << " | " << this->getLastName() << " | " << this->getAge() << " | ";
+	std::cout << this->getIndex() << " | " << this->getFirstName() << " | " << this->getLastName() << " | " << this->getAge() << " | ";
 	std::cout << this->academic_degrees << " | " << this->cash << " | " << this->numberOfLessonsProvided << std::endl;
 }

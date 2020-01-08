@@ -5,11 +5,11 @@
 #include "Student.h"
 #include "StaffMember.h"
 
-class Lesson
+#include "Object.h"
+
+class Lesson: public Object
 {
 private:
-	int index;
-
 	std::string type;
 	std::string name;
 	int startTime;
@@ -26,8 +26,6 @@ public:
 	~Lesson();
 	Lesson(std::string type, std::string name, int startTime, int duration, int maxPlaces);
 
-	int getIndex() const;
-
 	std::string getType() const;
 	std::string getName() const;
 	int getStartTime() const;
@@ -36,8 +34,6 @@ public:
 	int getOccupiedPlaces() const;
 
 	StaffMember* getStaffMember() const;
-
-	void setIndex(int index);
 
 	int consistsStudent(Student* student);
 

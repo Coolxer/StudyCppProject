@@ -1,7 +1,9 @@
 #pragma once
 #include <string>
 
-class Person
+#include "Object.h"
+
+class Person: public Object
 {
 private:
 	std::string firstName;

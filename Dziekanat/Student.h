@@ -13,10 +13,8 @@ public:
 
 	bool operator ==(const Student& s);
 
-	int getIndex();
 	Study* getStudy();
 	
-	void setIndex(int index);
 	void changeStudyYear(int year);
 	void changeStudyType(std::string type);
 

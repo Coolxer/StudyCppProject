@@ -23,11 +23,6 @@ Lesson::~Lesson()
 	this->students.clear();
 }
 
-int Lesson::getIndex() const
-{
-	return this->index;
-}
-
 std::string Lesson::getType() const
 {
 	return this->type;
@@ -61,11 +56,6 @@ int Lesson::getOccupiedPlaces() const
 StaffMember* Lesson::getStaffMember() const
 {
 	return this->staffMember;
-}
-
-void Lesson::setIndex(int index)
-{
-	this->index = index;
 }
 
 int Lesson::consistsStudent(Student* student)
@@ -142,5 +132,5 @@ void Lesson::show(bool withHeader)
 		this->showHeader();
 
 	std::cout << "-----------------" << std::endl;
-	std::cout << this->index << " | " << this->type << " | " << this->name << " | " << this->startTime << " | " << this->duration << " | " << this->occupiedPlaces << "/" << this->maxPlaces << std::endl;
+	std::cout << this->getIndex() << " | " << this->type << " | " << this->name << " | " << this->startTime << " | " << this->duration << " | " << this->occupiedPlaces << "/" << this->maxPlaces << std::endl;
 }
