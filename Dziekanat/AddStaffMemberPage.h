@@ -1,31 +1,13 @@
 #pragma once
-#include <string>
-#include "Page.h"
-#include "TextBox.h"
+#include "AddPage.h"
 
-#include "StaffPage.h"
-
-class AddStaffMemberPage : public Page
+class AddStaffMemberPage : public AddPage
 {
 private:
 	TextBox header;
 	TextBox info;
-
-	StaffList* staffList;
-	StaffMember* staffMember;
-
-	std::string firstName;
-	std::string lastName;
-	int age;
-	std::string academic_degrees;
-
-	int currentStep;
-
-	void resetValues();
-	void testString(std::string text, std::string* pointer);
-	void testNumber(std::string text, int* pointer, int min, int max);
 public:
-	AddStaffMemberPage(Window* window, StaffPage* staffPage);
+	AddStaffMemberPage(Window* window, ObjectList* objectList);
 	~AddStaffMemberPage();
 
 	void draw();

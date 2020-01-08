@@ -5,7 +5,6 @@
 AddLessonPage::AddLessonPage(Window* window, ObjectList* objectList) : AddPage(window, objectList)
 {
 	this->header = TextBox('#', "##   Dodawanie zajecia   ##");
-
 }
 
 AddLessonPage::~AddLessonPage()
