@@ -1,7 +1,5 @@
 #include "LessonsList.h"
 
-#include <iostream>
-
 LessonsList::LessonsList()
 {
 	this->index = 0;
@@ -55,6 +53,18 @@ void LessonsList::removeStaffMember(StaffMember* staffMember)
 	{
 		if (this->lessons[i].getStaffMember() == staffMember)
 			this->lessons[i].removeStaffMember();
+	}
+}
+
+void LessonsList::removeStudent(Student* student)
+{
+	int x;
+	for (int i = 0; i < (int)this->lessons.size(); i++)
+	{
+		x = this->lessons[i].studentExists(student);
+
+		if ( x != -1)
+			this->lessons[i].removeStudent(student, x);
 	}
 }
 

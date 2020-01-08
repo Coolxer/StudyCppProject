@@ -59,6 +59,8 @@ void StudentsPage::service()
 			bool exists;
 			std::string input;
 
+			Student* student;
+
 			switch (option)
 			{
 			case 1:
@@ -75,14 +77,21 @@ void StudentsPage::service()
 					Sleep(1000);
 					break;
 				}
-					
-				index = this->studentsList.removeStudent(index);
 
-				if (index == 0)
-					std::cout << std::endl << "Nie ma takiego studenta" << std::endl;
+				student = this->studentsList.getStudentByIndex(index);
+
+				if (!student)
+				{
+					std::cout << "Nie ma takiego studenta" << std::endl;
+				}
 				else
+				{
+					this->lessonsList->removeStudent(student);
+					index = this->studentsList.removeStudent(student->getIndex());
 					std::cout << std::endl << "Usunieto studenta o indeksie " << index;
-
+					delete student;
+				}
+				
 				Sleep(2000);
 
 				break;

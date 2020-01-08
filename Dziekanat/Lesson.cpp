@@ -1,5 +1,8 @@
 #include "Lesson.h"
 
+#include <iostream>
+#include "windows.h"
+
 Lesson::Lesson(std::string type, std::string name, int startTime, int duration, int maxPlaces)
 {
 	this->type = type;
@@ -7,7 +10,8 @@ Lesson::Lesson(std::string type, std::string name, int startTime, int duration, 
 	this->startTime = startTime;
 	this->duration = duration;
 
-	this->maxPlaces = this->freePlaces = maxPlaces;
+	this->maxPlaces = maxPlaces;
+	this->occupiedPlaces = 0;
 
 	this->staffMember = nullptr;
 }
@@ -48,14 +52,31 @@ int Lesson::getMaxPlaces() const
 	return this->maxPlaces;
 }
 
-int Lesson::getFreePlaces() const
+int Lesson::getOccupiedPlaces() const
 {
-	return this->freePlaces;
+	return this->occupiedPlaces;
 }
 
 StaffMember* Lesson::getStaffMember() const
 {
 	return this->staffMember;
+}
+
+int Lesson::studentExists(Student* student)
+{
+	for (int i = 0; i < (int)this->students.size(); i++)
+	{
+		if (this->students[i] == *student)
+			return i;
+	}
+
+	return -1;
+}
+
+void  Lesson::removeStudent(Student* student, int id)
+{
+	this->students.erase(this->students.begin() + id);
+	this->occupiedPlaces--;
 }
 
 void Lesson::setIndex(int index)
@@ -81,10 +102,10 @@ void Lesson::removeStaffMember()
 
 bool Lesson::addStudent(Student* student)
 {
-	if(this->freePlaces > 0) 
+	if(this->occupiedPlaces < this->maxPlaces) 
 	{
 		this->students.push_back(*student);
-		this->freePlaces--;
+		this->occupiedPlaces++;
 		return true;
 	}
 	return false;
@@ -101,5 +122,5 @@ void Lesson::show(bool withHeader)
 		this->showHeader();
 
 	std::cout << "-----------------" << std::endl;
-	std::cout << this->index << " | " << this->type << " | " << this->name << " | " << this->startTime << " | " << this->duration << " | " << this->maxPlaces - this->freePlaces << "/" << this->maxPlaces << std::endl;
+	std::cout << this->index << " | " << this->type << " | " << this->name << " | " << this->startTime << " | " << this->duration << " | " << this->occupiedPlaces << "/" << this->maxPlaces << std::endl;
 }

@@ -17,7 +17,7 @@ private:
 	int duration;
 
 	int maxPlaces;
-	int freePlaces;
+	int occupiedPlaces;
 
 	StaffMember* staffMember;
 	std::vector <Student> students;
@@ -35,9 +35,11 @@ public:
 	int getDuration() const;
 
 	int getMaxPlaces() const;
-	int getFreePlaces() const;
+	int getOccupiedPlaces() const;
 
 	StaffMember* getStaffMember() const;
+	int studentExists(Student* student);
+	void removeStudent(Student* student, int id);
 
 	void setIndex(int index);
 	bool setStaffMember(StaffMember* staffMember);
