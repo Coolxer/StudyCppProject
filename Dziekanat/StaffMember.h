@@ -37,6 +37,5 @@ public:
 
 	static void showHeader();
 	void show(bool withHeader = false);
-	
 };
 

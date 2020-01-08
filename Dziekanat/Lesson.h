@@ -3,8 +3,7 @@
 #include <vector>
 
 #include "Student.h"
-
-class StaffMember;
+#include "StaffMember.h"
 
 class Lesson
 {
@@ -45,6 +44,8 @@ public:
 	bool setStaffMember(StaffMember* staffMember);
 	void removeStaffMember();
 	bool addStudent(Student* student);
+
+	bool showStudents();
 
 	static void showHeader();
 	void show(bool withHeader = false);

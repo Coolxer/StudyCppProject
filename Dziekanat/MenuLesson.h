@@ -4,7 +4,7 @@
 class MenuLesson
 {
 private:
-	MenuElement menuElements[6];
+	MenuElement menuElements[8];
 public:
 	MenuLesson();
 	void show();

@@ -75,27 +75,59 @@ void LessonsPage::service()
 
 				break;
 			case 3:
-				std::cout << "Podaj id zajecia, ktorego szczegoly chcesz zobaczyc: " << std::endl;
-				std::cin >> id;
+				std::cout << "Podaj nazwe zajecia, ktorego szczegoly chcesz zobaczyc: " << std::endl;
+				std::cin >> input;
 
-				if (!std::cin.good())
-				{
-					std::cout << "id to liczba! " << std::endl;
-					Sleep(1000);
-					break;
-				}
-
-				exists = this->lessonsList.showLessonById(id);
+				exists = this->lessonsList.showLessonByName(input);
 
 				if (!exists)
-					std::cout << std::endl << "Nie ma takiego zajecia" << std::endl;
+					std::cout << std::endl << "Nie ma takich zajec" << std::endl;
 
 				Sleep(2500);
 				break;
 			case 4:
-				this->getWindow()->setActivePage(9);
+				std::cout << "Podaj nazwe zajecia, ktorego prowadzacego chcesz zobaczyc: " << std::endl;
+				std::cin >> input;
+
+				exists = this->lessonsList.getLessonByName(input);
+
+				if (!exists)
+					std::cout << std::endl << "Nie ma takich zajec" << std::endl;
+				else
+				{
+					StaffMember* staffMember = this->lessonsList.getLessonByName(input)->getStaffMember();
+
+					if (!staffMember)
+						std::cout << std::endl << "To zajecie nie ma przypisanego prowadzacego" << std::endl;
+					else
+						staffMember->show(true);
+				}
+
+				Sleep(2000);
+					
 				break;
 			case 5:
+				std::cout << "Podaj nazwe zajecia, ktorego uczestnikow chcesz zobaczyc: " << std::endl;
+				std::cin >> input;
+
+				exists = this->lessonsList.getLessonByName(input);
+
+				if (!exists)
+					std::cout << std::endl << "Nie ma takich zajec" << std::endl;
+				else
+				{
+					bool ok = this->lessonsList.getLessonByName(input)->showStudents();
+
+					if(!ok)
+						std::cout << std::endl << "To zajecie nie ma uczestnikow" << std::endl;
+				}
+
+				Sleep(2500);
+				break;
+			case 6:
+				this->getWindow()->setActivePage(9);
+				break;
+			case 7:
 				std::cout << "Podaj typ zajec, ktore chcesz zobaczyc: " << std::endl;
 				std::cin >> input;
 
@@ -106,12 +138,12 @@ void LessonsPage::service()
 				if (!exists)
 				{
 					this->getWindow()->refresh();
-					std::cout << std::endl << "Nie ma zajec typu " << input <<  std::endl;
+					std::cout << std::endl << "Nie ma zajec typu " << input << std::endl;
 				}
 
 				Sleep(2500);
 				break;
-			case 6:
+			case 8:
 				std::cout << "Liczba zajec: " << this->lessonsList.getNumberOfLessons() << std::endl;
 				Sleep(2000);
 				break;

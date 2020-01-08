@@ -117,6 +117,19 @@ bool Lesson::addStudent(Student* student)
 	return false;
 }
 
+bool Lesson::showStudents()
+{
+	if (this->students.size() == 0)
+		return false;
+
+	Student::showHeader();
+
+	for (int i = 0; i < (int)this->students.size(); i++)
+		this->students[i].show();
+
+	return true;
+}
+
 void Lesson::showHeader()
 {
 	std::cout << " ID " << " Typ " << " Nazwa " << " Godzina rozpoczecia " << " Czas trwania " << " zajete / max "<< std::endl;
