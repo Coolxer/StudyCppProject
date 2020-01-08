@@ -23,19 +23,6 @@ int StaffMember::getCash() const
 	return this->cash;
 }
 
-bool StaffMember::isProfessor() const
-{
-	if (this->academic_degrees.find("prof") != std::string::npos)
-		return true;
-
-	return false;
-}
-
-void StaffMember::setIndex(int index)
-{
-	this->index = index;
-}
-
 void StaffMember::calcCash()
 {
 	int converter; //przelicznik
@@ -52,6 +39,19 @@ void StaffMember::calcCash()
 		converter = 0;
 
 	this->cash = converter * this->numberOfLessonsProvided;
+}
+
+bool StaffMember::isProfessor() const
+{
+	if (this->academic_degrees.find("prof") != std::string::npos)
+		return true;
+
+	return false;
+}
+
+void StaffMember::setIndex(int index)
+{
+	this->index = index;
 }
 
 void StaffMember::increaseLessons()

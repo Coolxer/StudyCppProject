@@ -14,6 +14,7 @@ Lesson::Lesson(std::string type, std::string name, int startTime, int duration, 
 	this->occupiedPlaces = 0;
 
 	this->staffMember = nullptr;
+	this->students.clear();
 }
 
 Lesson::~Lesson()
@@ -62,7 +63,12 @@ StaffMember* Lesson::getStaffMember() const
 	return this->staffMember;
 }
 
-int Lesson::studentExists(Student* student)
+void Lesson::setIndex(int index)
+{
+	this->index = index;
+}
+
+int Lesson::consistsStudent(Student* student)
 {
 	for (int i = 0; i < (int)this->students.size(); i++)
 	{
@@ -79,21 +85,6 @@ void Lesson::removeStudent(Student* student, int id)
 	this->occupiedPlaces--;
 }
 
-void Lesson::setIndex(int index)
-{
-	this->index = index;
-}
-
-bool Lesson::setStaffMember(StaffMember* staffMember)
-{
-	if (this->staffMember)
-		return false;
-
-	this->staffMember = staffMember;
-
-	return true;
-}
-
 void Lesson::removeStaffMember()
 {
 	//delete this->staffMember;
@@ -102,7 +93,7 @@ void Lesson::removeStaffMember()
 
 bool Lesson::addStudent(Student* student)
 {
-	if(this->occupiedPlaces < this->maxPlaces) 
+	if (this->occupiedPlaces < this->maxPlaces)
 	{
 		for (int i = 0; i < (int)this->students.size(); i++)
 		{
@@ -115,6 +106,16 @@ bool Lesson::addStudent(Student* student)
 		return true;
 	}
 	return false;
+}
+
+bool Lesson::setStaffMember(StaffMember* staffMember)
+{
+	if (this->staffMember)
+		return false;
+
+	this->staffMember = staffMember;
+
+	return true;
 }
 
 bool Lesson::showStudents()

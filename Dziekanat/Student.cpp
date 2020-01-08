@@ -18,6 +18,7 @@ int Student::getIndex()
 {
 	return this->index;
 }
+
 Study* Student::getStudy()
 {
 	return &this->study;

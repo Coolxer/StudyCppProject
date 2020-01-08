@@ -32,19 +32,21 @@ public:
 	std::string getName() const;
 	int getStartTime() const;
 	int getDuration() const;
-
 	int getMaxPlaces() const;
 	int getOccupiedPlaces() const;
 
 	StaffMember* getStaffMember() const;
-	int studentExists(Student* student);
-	void removeStudent(Student* student, int id);
 
 	void setIndex(int index);
-	bool setStaffMember(StaffMember* staffMember);
-	void removeStaffMember();
-	bool addStudent(Student* student);
 
+	int consistsStudent(Student* student);
+
+	void removeStudent(Student* student, int id);
+	void removeStaffMember();
+
+	bool addStudent(Student* student);
+	bool setStaffMember(StaffMember* staffMember);
+	
 	bool showStudents();
 
 	static void showHeader();

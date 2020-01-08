@@ -61,7 +61,7 @@ void LessonsList::removeStudent(Student* student)
 	int x;
 	for (int i = 0; i < (int)this->lessons.size(); i++)
 	{
-		x = this->lessons[i].studentExists(student);
+		x = this->lessons[i].consistsStudent(student);
 
 		if ( x != -1)
 			this->lessons[i].removeStudent(student, x);
