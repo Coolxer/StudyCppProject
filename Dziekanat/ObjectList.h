@@ -2,30 +2,26 @@
 #include <vector>
 #include <string>
 
-#include "Lesson.h"
 #include "Student.h"
 #include "StaffMember.h"
+#include "Lesson.h"
 
 class ObjectList
 {
 private:
 	int index;
-	std::vector <Object> lessons;
+	std::vector <Object> objects;
 public:
-	LessonsList();
-	~LessonsList();
+	ObjectList();
+	~ObjectList();
 
-	int addObject(Lesson* s);
-	int removeLesson(int index);
-	Lesson* getLessonByName(std::string name);
+	int addObject(Object* o);
+	int removeObject(int index);
+	Object* getObjectByIndex(int index);
 
-	void removeStaffMember(StaffMember* staffMember);
-	void removeStudent(Student* student);
+	void setStartIndex(int index);
 
-	bool showLessons();
-	bool showLessonById(int index);
-	bool showLessonByName(std::string name);
-	bool showSpecificLessons(std::string type);
+	bool showAll();
 
 	int getNumberOfObjects();
 };

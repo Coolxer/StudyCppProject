@@ -11,5 +11,7 @@ public:
 
 	int getIndex() const;
 	void setIndex(int index);
+
+	virtual void show() = 0;
 };
 
