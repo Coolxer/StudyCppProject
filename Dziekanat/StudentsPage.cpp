@@ -89,7 +89,7 @@ void StudentsPage::service()
 					this->lessonsList->removeStudent(student);
 					index = this->studentsList.removeStudent(student->getIndex());
 					std::cout << std::endl << "Usunieto studenta o indeksie " << index;
-					delete student;
+					//delete student;
 				}
 				
 				Sleep(2000);
@@ -174,14 +174,14 @@ void StudentsPage::service()
 				{
 					Lesson* lesson;
 
-					std::cout << "Podaj nazwe zajecia, do ktorego chcesz zapisac studenta: " << std::endl;
+					std::cout << "Podaj nazwe zajec, do ktorego chcesz zapisac studenta: " << std::endl;
 					std::cin >> input;
 
 					lesson = this->lessonsList->getLessonByName(input);
 
 					if (!lesson)
 					{
-						std::cout << "Nie ma takiego zajecia" << std::endl;
+						std::cout << "Nie ma takch zajec" << std::endl;
 						Sleep(1500);
 					}
 					else
@@ -189,9 +189,9 @@ void StudentsPage::service()
 						bool ok = lesson->addStudent(student);
 
 						if (ok)
-							std::cout << "Przypisano studenta do zajecia";
+							std::cout << "Przypisano studenta do zajec";
 						else
-							std::cout << "Brak wolnych miejsc";
+							std::cout << "Brak wolnych miejsc / Student juz jest przypisany do tych zajec";
 
 						Sleep(1500);
 					}

@@ -73,7 +73,7 @@ int Lesson::studentExists(Student* student)
 	return -1;
 }
 
-void  Lesson::removeStudent(Student* student, int id)
+void Lesson::removeStudent(Student* student, int id)
 {
 	this->students.erase(this->students.begin() + id);
 	this->occupiedPlaces--;
@@ -104,6 +104,12 @@ bool Lesson::addStudent(Student* student)
 {
 	if(this->occupiedPlaces < this->maxPlaces) 
 	{
+		for (int i = 0; i < (int)this->students.size(); i++)
+		{
+			if (this->students[i] == *student)
+				return false;
+		}
+
 		this->students.push_back(*student);
 		this->occupiedPlaces++;
 		return true;
