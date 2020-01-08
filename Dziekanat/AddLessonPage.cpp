@@ -1,31 +1,16 @@
 #include "AddLessonPage.h"
-
+#include <iostream>
 #include "CmdManager.h"
 
-#include <iostream>
-
-AddLessonPage::AddLessonPage(Window* window, LessonsPage* lessonsPage) : Page(window)
+AddLessonPage::AddLessonPage(Window* window, ObjectList* objectList) : AddPage(window, objectList)
 {
 	this->header = TextBox('#', "##   Dodawanie zajecia   ##");
 
-	this->lessonsList = lessonsPage->getLessonsList();
-
-	this->resetValues();
 }
 
 AddLessonPage::~AddLessonPage()
 {
-	delete this->lesson;
-}
-
-void AddLessonPage::resetValues()
-{
-	this->currentStep = 1;
-
-	this->type.clear();
-	this->name.clear();
-	this->startTime = 0;
-	this->duration = 0;
+	
 }
 
 void AddLessonPage::draw()
@@ -33,45 +18,20 @@ void AddLessonPage::draw()
 	SetConsoleTextAttribute(this->getWindow()->getConsole(), FOREGROUND_GREEN);
 	this->header.show();
 
-	std::cout << std::endl;
-	std::cout << "-------------------------" << std::endl;
-	SetConsoleTextAttribute(this->getWindow()->getConsole(), FOREGROUND_RED);
-	std::cout << "Typ:     | ";
-	SetConsoleTextAttribute(this->getWindow()->getConsole(), 15);
-	std::cout << this->type << std::endl;
-	SetConsoleTextAttribute(this->getWindow()->getConsole(), FOREGROUND_GREEN);
-	std::cout << "-------------------------" << std::endl;
-	SetConsoleTextAttribute(this->getWindow()->getConsole(), FOREGROUND_RED);
-	std::cout << "Name: | ";
-	SetConsoleTextAttribute(this->getWindow()->getConsole(), 15);
-	std::cout << this->name << std::endl;
-	SetConsoleTextAttribute(this->getWindow()->getConsole(), FOREGROUND_GREEN);
-	std::cout << "-------------------------" << std::endl;
-	SetConsoleTextAttribute(this->getWindow()->getConsole(), FOREGROUND_RED);
-	std::cout << "Godzina rozpoczecia:     | ";
-	SetConsoleTextAttribute(this->getWindow()->getConsole(), 15);
-	if (this->startTime == 0)
-		std::cout << ' ' << std::endl;
-	else
-		std::cout << this->startTime << std::endl;
-	SetConsoleTextAttribute(this->getWindow()->getConsole(), FOREGROUND_GREEN);
-	std::cout << "-------------------------" << std::endl;
-	SetConsoleTextAttribute(this->getWindow()->getConsole(), FOREGROUND_RED);
-	std::cout << "Czas trwania: | ";
-	SetConsoleTextAttribute(this->getWindow()->getConsole(), 15);
-	if(this->duration == 0)
-		std::cout << ' ' << std::endl;
-	else
-	std::cout << this->duration << std::endl;
-	SetConsoleTextAttribute(this->getWindow()->getConsole(), FOREGROUND_GREEN);
-	std::cout << "-------------------------" << std::endl;
-	SetConsoleTextAttribute(this->getWindow()->getConsole(), FOREGROUND_RED);
-	std::cout << "Max. ilosc miejsc | ";
-	SetConsoleTextAttribute(this->getWindow()->getConsole(), 15);
-	if (this->maxPlaces == 0)
-		std::cout << ' ' << std::endl;
-	else
-		std::cout << this->maxPlaces << std::endl;
+	this->drawParagraph("Typ:     | ");
+	std::cout << this->getInputString(0) << std::endl;
+
+	this->drawParagraph("Name: | ");
+	std::cout << this->getInputString(1) << std::endl;
+
+	this->drawParagraph("Godzina rozpoczecia:     | ");
+	this->checkNumber(this->getInputNumber(0));
+
+	this->drawParagraph("Czas trwania: | ");
+	this->checkNumber(this->getInputNumber(1));
+
+	this->drawParagraph("Max. ilosc miejsc | ");
+	this->checkNumber(this->getInputNumber(2));
 
 	SetConsoleTextAttribute(this->getWindow()->getConsole(), FOREGROUND_INTENSITY | FOREGROUND_GREEN | FOREGROUND_BLUE);
 	this->info.show();
@@ -79,36 +39,39 @@ void AddLessonPage::draw()
 
 void AddLessonPage::service()
 {
-	switch (this->currentStep)
+	std::string inputString = "";
+
+	switch (this->getCurrentStep())
 	{
 	case 1:
 		std::cout << "Podaj typ: (wyklad / cwiczenia / laboratorium / projekt)" << std::endl;
-		std::cin >> this->type;
-		while (!std::cin.good() || (this->type != "wyklad" && this->type != "cwiczenia" && this->type != "laboratorium" && this->type != "projekt"))
+		std::cin >> inputString;
+		while (!std::cin.good() || (inputString != "wyklad" && inputString != "cwiczenia" && inputString != "laboratorium" && inputString != "projekt"))
 		{
-			this->type.clear();
+			inputString.clear();
 			this->getWindow()->refresh();
 			std::cout << "Podaj typ: (wyklad / cwiczenia / laboratiorum / projekt)" << std::endl;
 			std::cin.clear();
-			std::cin >> this->type;
+			std::cin >> inputString;
 		}
+		this->setString(0, inputString);
 		break;
 	case 2:
-		this->testString("Podaj nazwe: (min. 3 litery)", &this->name);
+		this->testString("Podaj nazwe: (min. 3 litery)", 1);
 		break;
 	case 3:
-		this->testNumber("Podaj godzine rozpoczecia: (min 8 max 18, tylko pelne godziny)", &this->startTime, 8, 10);
+		this->testNumber("Podaj godzine rozpoczecia: (min 8 max 18, tylko pelne godziny)", 0, 8, 10);
 		break;
 	case 4:
-		this->testNumber("Podaj czas trwania: (min 120, max 240 [w min.])", &this->duration, 120, 240);
+		this->testNumber("Podaj czas trwania: (min 120, max 240 [w min.])", 1, 120, 240);
 		break;
 	case 5:
-		this->testNumber("Podaj max. ilosc miejsc: (min 5, max 100)", &this->maxPlaces, 5, 100);
+		this->testNumber("Podaj max. ilosc miejsc: (min 5, max 100)", 2, 5, 100);
 		break;
 	default:
-		this->lesson = new Lesson(this->type, this->name, this->startTime, this->duration, this->maxPlaces);
+		//Lesson* lesson = new Lesson(, this->name, this->startTime, this->duration, this->maxPlaces);
 
-		int id = this->lessonsList->addLesson(this->lesson);
+		//int id = this->lessonsList->addLesson(this->lesson);
 
 		this->getWindow()->refresh();
 		std::cout << "Dodano nowe zajecie o id " << id << std::endl << std::endl;
@@ -120,35 +83,7 @@ void AddLessonPage::service()
 		break;
 	}
 
-	this->currentStep++;
+	this->increaseCurrentStep();
 	this->getWindow()->refresh();
 	this->service();
-}
-
-void AddLessonPage::testString(std::string text, std::string* pointer)
-{
-	std::cout << text << std::endl;
-	std::cin >> *pointer;
-	while (!std::cin.good() || pointer->length() < 3)
-	{
-		pointer->clear();
-		this->getWindow()->refresh();
-		std::cout << text << std::endl;
-		std::cin.clear();
-		std::cin >> *pointer;
-	}
-}
-
-void AddLessonPage::testNumber(std::string text, int* pointer, int min, int max)
-{
-	std::cout << text << std::endl;
-	std::cin >> *pointer;
-	while (!std::cin.good() || *pointer < 20 || *pointer > 100)
-	{
-		*pointer = 0;
-		this->getWindow()->refresh();
-		std::cout << text << std::endl;
-		std::cin.clear();
-		std::cin >> *pointer;
-	}
 }
