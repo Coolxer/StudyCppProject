@@ -1,5 +1,6 @@
 #pragma once
 #include "ObjectList.h"
+#include "Student.h"
 
 class StudentList: public ObjectList
 {
