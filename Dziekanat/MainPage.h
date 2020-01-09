@@ -3,18 +3,24 @@
 #include "TextBox.h"
 #include "ObjectList.h"
 
+#include "Menu.h"
+
 class MainPage : public Page
 {
 private:
 	TextBox header;
-	ObjectList objectList;
+	Menu menu;
 	TextBox info;
+
+	ObjectList objectList;
 public:
 	MainPage(Window* window, std::string headerText);
 
 	ObjectList* getObjectList();
 
+	void setMenu(Menu* menu);
+
 	void draw();
-	void service();
+	virtual void service() = 0;
 };
 

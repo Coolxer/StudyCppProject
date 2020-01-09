@@ -139,7 +139,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AddLessonPage.cpp" />
-    <ClCompile Include="AddObjectPage.cpp" />
     <ClCompile Include="AddStaffMemberPage.cpp" />
     <ClCompile Include="AddStudentPage.cpp" />
     <ClCompile Include="CmdManager.cpp" />
@@ -148,12 +147,9 @@
     <ClCompile Include="LessonsPage.cpp" />
     <ClCompile Include="LessonsViewPage.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="MenuLesson.cpp" />
-    <ClCompile Include="MenuMenu.cpp" />
+    <ClCompile Include="MainPage.cpp" />
+    <ClCompile Include="Menu.cpp" />
     <ClCompile Include="MenuElement.cpp" />
-    <ClCompile Include="MenuPage.cpp" />
-    <ClCompile Include="MenuStaff.cpp" />
-    <ClCompile Include="MenuStudent.cpp" />
     <ClCompile Include="ObjectList.cpp" />
     <ClCompile Include="Page.cpp" />
     <ClCompile Include="Person.cpp" />
@@ -179,12 +175,9 @@
     <ClInclude Include="LessonsList.h" />
     <ClInclude Include="LessonsPage.h" />
     <ClInclude Include="LessonsViewPage.h" />
-    <ClInclude Include="MenuLesson.h" />
-    <ClInclude Include="MenuMenu.h" />
+    <ClInclude Include="MainPage.h" />
+    <ClInclude Include="Menu.h" />
     <ClInclude Include="MenuElement.h" />
-    <ClInclude Include="MenuPage.h" />
-    <ClInclude Include="MenuStaff.h" />
-    <ClInclude Include="MenuStudent.h" />
     <ClInclude Include="ObjectList.h" />
     <ClInclude Include="Page.h" />
     <ClInclude Include="Person.h" />

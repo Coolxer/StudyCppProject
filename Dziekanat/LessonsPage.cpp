@@ -2,29 +2,20 @@
 #include <iostream>
 #include "CmdManager.h"
 
-LessonsPage::LessonsPage(Window* window) : Page(window)
+LessonsPage::LessonsPage(Window* window, std::string headerText) : MainPage(window, headerText)
 {
-	this->header = TextBox('#', "##     Zajecia      ##");
-	this->info = TextBox('*', "** Podaj nr operacji **");
+	this->menu = Menu();
 
-	this->lessonsList = LessonsList();
-}
+	this->menu.addMenuElement("Dodaj zajecie");
+	this->menu.addMenuElement("Usun zajecie");
+	this->menu.addMenuElement("Znajdz zajecie wedlug nazwy");
+	this->menu.addMenuElement("Wyswietl prowadzacego zajecia");
+	this->menu.addMenuElement("Wyswietl uczestnikow zajec");
+	this->menu.addMenuElement("Wyswietl konkretny typ zajec");
+	this->menu.addMenuElement("Wyswietl wszystkie zajecia");
+	this->menu.addMenuElement("Wyswietl liczbe zajec");
 
-LessonsList* LessonsPage::getLessonsList()
-{
-	return &this->lessonsList;
-}
-
-void LessonsPage::draw()
-{
-	SetConsoleTextAttribute(this->getWindow()->getConsole(), FOREGROUND_GREEN);
-	this->header.show();
-
-	SetConsoleTextAttribute(this->getWindow()->getConsole(), FOREGROUND_RED);
-	this->menuLesson.show();
-
-	SetConsoleTextAttribute(this->getWindow()->getConsole(), FOREGROUND_INTENSITY | FOREGROUND_GREEN | FOREGROUND_BLUE);
-	this->info.show();
+	this->setMenu(&this->menu);
 }
 
 void LessonsPage::service()
@@ -54,7 +45,7 @@ void LessonsPage::service()
 				break;
 			case 2:
 				this->getWindow()->refresh();
-				std::cout << "Podaj id zajecia, ktore chcesz usunac: " << std::endl;
+				std::cout << "Podaj id zajec, ktore chcesz usunac: " << std::endl;
 				std::cin >> id;
 
 				if (!std::cin.good())
@@ -64,7 +55,7 @@ void LessonsPage::service()
 					break;
 				}
 
-				id = this->lessonsList.removeLesson(id);
+				id = this->getObjectList().removeObject(id);
 
 				if (id == 0)
 					std::cout << std::endl << "Nie ma takiego zajecia" << std::endl;

@@ -2,34 +2,19 @@
 #include <iostream>
 #include "CmdManager.h"
 
-StaffPage::StaffPage(Window* window) : Page(window)
+StaffPage::StaffPage(Window* window, std::string headerText) : MainPage(window, headerText)
 {
-	this->header = TextBox('#', "##     Pracownicy      ##");
-	this->info = TextBox('*', "** Podaj nr operacji **");
+	this->menu = Menu();
 
-	this->staffList = StaffList();
-}
+	this->menu.addMenuElement("Dodaj pracownika");
+	this->menu.addMenuElement("Usun pracownika");
+	this->menu.addMenuElement("Znajdz studenta wedlug id");
+	this->menu.addMenuElement("Wyswietl profesorow");
+	this->menu.addMenuElement("Wyswietl wszystkich pracownikow");
+	this->menu.addMenuElement("Wyswietl liczbe pracownikow");
+	this->menu.addMenuElement("Przypisz pracownika do zajec");
 
-void StaffPage::init(LessonsList* lessonsList)
-{
-	this->lessonsList = lessonsList;
-}
-
-StaffList* StaffPage::getStaffList()
-{
-	return &this->staffList;
-}
-
-void StaffPage::draw()
-{
-	SetConsoleTextAttribute(this->getWindow()->getConsole(), FOREGROUND_GREEN);
-	this->header.show();
-
-	SetConsoleTextAttribute(this->getWindow()->getConsole(), FOREGROUND_RED);
-	this->menuStaff.show();
-
-	SetConsoleTextAttribute(this->getWindow()->getConsole(), FOREGROUND_INTENSITY | FOREGROUND_GREEN | FOREGROUND_BLUE);
-	this->info.show();
+	this->setMenu(&this->menu);
 }
 
 void StaffPage::service()

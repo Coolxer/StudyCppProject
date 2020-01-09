@@ -1,23 +1,14 @@
 #pragma once
-#include "Page.h"
-#include "TextBox.h"
-#include "MenuLesson.h"
-#include "LessonsList.h"
+#include "MainPage.h"
+#include "ObjectList.h"
 
-class LessonsPage : public Page
+class LessonsPage : public MainPage
 {
 private:
-	TextBox header;
-	MenuLesson menuLesson;
-	TextBox info;
-
-	LessonsList lessonsList;
+	Menu menu;
 public:
-	LessonsPage(Window* window);
+	LessonsPage(Window* window, std::string headerText);
 
-	LessonsList* getLessonsList();
-
-	void draw();
 	void service();
 };
 

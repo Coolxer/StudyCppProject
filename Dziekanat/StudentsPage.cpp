@@ -2,41 +2,21 @@
 #include <iostream>
 #include "CmdManager.h"
 
-#include "LessonsList.h"
-
-StudentsPage::StudentsPage(Window* window): Page(window)
+StudentsPage::StudentsPage(Window* window, std::string headerText): MainPage(window, headerText)
 {
-	this->header = TextBox('#', "##     Studenci      ##");
-	this->info = TextBox('*', "** Podaj nr operacji **");
+	this->menu = Menu();
 
-	this->studentsList = StudentsList();
-}
+	this->menu.addMenuElement("Dodaj studenta");
+	this->menu.addMenuElement("Usun studenta");
+	this->menu.addMenuElement("Znajdz studenta wedlug indeksu");
+	this->menu.addMenuElement("Wyswietl studentow z kierunku");
+	this->menu.addMenuElement("Wyswietl studentow stacjonarnych");
+	this->menu.addMenuElement("Wyswietl studentow zaocznych");
+	this->menu.addMenuElement("Wyswietl wszystkich studentow");
+	this->menu.addMenuElement("Wyswietl liczbe studentow");
+	this->menu.addMenuElement("Zapisz studenta na zajecia");
 
-StudentsPage::~StudentsPage()
-{
-	delete this->lessonsList;
-}
-
-void StudentsPage::init(LessonsList* lessonsList)
-{
-	this->lessonsList = lessonsList;
-}
-
-StudentsList *StudentsPage::getStudentsList()
-{
-	return &this->studentsList;
-}
-
-void StudentsPage::draw()
-{
-	SetConsoleTextAttribute(this->getWindow()->getConsole(), FOREGROUND_GREEN);
-	this->header.show();
-
-	SetConsoleTextAttribute(this->getWindow()->getConsole(), FOREGROUND_RED);
-	this->menuStudent.show();
-
-	SetConsoleTextAttribute(this->getWindow()->getConsole(), FOREGROUND_INTENSITY | FOREGROUND_GREEN | FOREGROUND_BLUE);
-	this->info.show();
+	this->setMenu(&this->menu);
 }
 
 void StudentsPage::service()
