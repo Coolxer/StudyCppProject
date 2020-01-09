@@ -8,20 +8,19 @@
 class AddPage : public Page
 {
 private:
-	std::string strings[10];
-	int numbers[10];
-
-	ObjectList* objectList;
 	Object* object;
 
 	int currentStep;
+
+protected:
+	std::string strings[10];
+	int numbers[10];
+	ObjectList* objectList;
 
 public:
 	AddPage(Window* window, ObjectList* objectList);
 	~AddPage();
 
-	std::string getInputString(int id);
-	int getInputNumber(int id);
 	int getCurrentStep();
 
 	void setString(int id, std::string string);

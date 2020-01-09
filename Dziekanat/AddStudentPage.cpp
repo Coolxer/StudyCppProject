@@ -2,6 +2,8 @@
 #include <iostream>
 #include "CmdManager.h"
 
+#include "Student.h"
+
 AddStudentPage::AddStudentPage(Window* window, ObjectList* objectList) : AddPage(window, objectList)
 {
 	this->header = TextBox('#', "##   Dodawanie studenta   ##");
@@ -18,25 +20,25 @@ void AddStudentPage::draw()
 	this->header.show();
 
 	this->drawParagraph("Imie:     | ");
-	std::cout << this->getInputString(0) << std::endl;
+	std::cout << this->strings[0] << std::endl;
 
 	this->drawParagraph("Nazwisko: | ");
-	std::cout << this->getInputString(1) << std::endl;
+	std::cout << this->strings[1] << std::endl;
 
 	this->drawParagraph("Wiek:     | ");
-	this->checkNumber(this->getInputNumber(0));
+	this->checkNumber(this->numbers[0]);
 
 	this->drawParagraph("Kierunek: | ");
-	std::cout << this->getInputString(2) << std::endl;
+	std::cout << this->strings[2] << std::endl;
 
 	this->drawParagraph("Stopien:  | ");
-	this->checkNumber(this->getInputNumber(1));
+	this->checkNumber(this->numbers[1]);
 
 	this->drawParagraph("Rok:      | ");
-	this->checkNumber(this->getInputNumber(2));
+	this->checkNumber(this->numbers[2]);
 
 	this->drawParagraph("Typ:      | ");
-	std::cout << this->getInputString(3) << std::endl;
+	std::cout << this->strings[3] << std::endl;
 
 	SetConsoleTextAttribute(this->getWindow()->getConsole(), FOREGROUND_INTENSITY | FOREGROUND_GREEN | FOREGROUND_BLUE);
 	this->info.show();
@@ -44,8 +46,6 @@ void AddStudentPage::draw()
 
 void AddStudentPage::service()
 {
-	std::string inputString = "";
-
 	switch (this->getCurrentStep())
 	{
 	case 1:
@@ -68,21 +68,18 @@ void AddStudentPage::service()
 		break;
 	case 7:
 		std::cout << "Podaj typ: (stacjonarne lub zaoczne)" << std::endl;
-		std::cin >> inputString;
-		while (!std::cin.good() || (inputString != "stacjonarne" && inputString != "zaoczne"))
+		std::cin >> this->strings[3];
+		while (!std::cin.good() || (this->strings[3] != "stacjonarne" && this->strings[3] != "zaoczne"))
 		{
-			inputString.clear();
+			this->strings[3].clear();
 			this->getWindow()->refresh();
 			std::cout << "Podaj typ: (stacjonarne lub zaoczne)" << std::endl;
 			std::cin.clear();
-			std::cin >> inputString;
+			std::cin >> this->strings[3];
 		}
-		this->setString(3, inputString);
 		break;
 	default:
-		//this->student = new Student(this->firstName, this->lastName, this->age, this->field, this->level, this->year, this->type);
-
-		//int index = this->studentsList->addStudent(this->student);
+		int index = this->objectList->addObject(new Student(this->strings[0], this->strings[1], this->numbers[0], this->strings[2], this->numbers[1], this->numbers[2], this->strings[3]));
 
 		this->getWindow()->refresh();
 		std::cout << "Dodano nowego studenta o indeksie " << index << std::endl << std::endl;

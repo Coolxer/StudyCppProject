@@ -1,8 +1,8 @@
 #include "ObjectList.h"
 
-ObjectList::ObjectList()
+ObjectList::ObjectList(int startIndex)
 {
-	
+	this->index = startIndex;
 }
 
 ObjectList::~ObjectList()
@@ -47,11 +47,6 @@ Object* ObjectList::getObjectByIndex(int index)
 	}
 
 	return nullptr;
-}
-
-void ObjectList::setStartIndex(int index)
-{
-	this->index = index;
 }
 
 bool ObjectList::showAll()

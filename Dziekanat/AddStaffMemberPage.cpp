@@ -2,6 +2,8 @@
 #include <iostream>
 #include "CmdManager.h"
 
+#include "StaffMember.h"
+
 AddStaffMemberPage::AddStaffMemberPage(Window* window, ObjectList* objectList) : AddPage(window, objectList)
 {
 	this->header = TextBox('#', "##   Dodawanie pracownika   ##");
@@ -18,16 +20,16 @@ void AddStaffMemberPage::draw()
 	this->header.show();
 
 	this->drawParagraph("Imie:     | ");
-	std::cout << this->getInputString(0) << std::endl;
+	std::cout << this->strings[0] << std::endl;
 
 	this->drawParagraph("Nazwisko: | ");
-	std::cout << this->getInputString(1) << std::endl;
+	std::cout << this->strings[1] << std::endl;
 
 	this->drawParagraph("Wiek:     | ");
-	this->checkNumber(this->getInputNumber(0));
+	this->checkNumber(this->numbers[0]);
 
 	this->drawParagraph("Tytul: | ");
-	std::cout << this->getInputString(2) << std::endl;
+	std::cout << this->strings[2] << std::endl;
 
 	SetConsoleTextAttribute(this->getWindow()->getConsole(), FOREGROUND_INTENSITY | FOREGROUND_GREEN | FOREGROUND_BLUE);
 	this->info.show();
@@ -35,8 +37,6 @@ void AddStaffMemberPage::draw()
 
 void AddStaffMemberPage::service()
 {
-	std::string inputString = "";
-
 	switch (this->getCurrentStep())
 	{
 	case 1:
@@ -52,9 +52,7 @@ void AddStaffMemberPage::service()
 		this->testString("Podaj tytul(y): (min 3 litery)", 2);
 		break;
 	default:
-		//this->staffMember = new StaffMember(this->firstName, this->lastName, this->age, this->academic_degrees);
-
-		//int id = this->staffList->addMember(this->staffMember);
+		int id = this->objectList->addObject(new StaffMember(this->strings[0], this->strings[1], this->numbers[0], this->strings[2]));
 
 		this->getWindow()->refresh();
 		std::cout << "Dodano nowego pracownika o id " << id << std::endl << std::endl;

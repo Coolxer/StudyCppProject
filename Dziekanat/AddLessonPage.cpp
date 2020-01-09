@@ -2,6 +2,8 @@
 #include <iostream>
 #include "CmdManager.h"
 
+#include "Lesson.h"
+
 AddLessonPage::AddLessonPage(Window* window, ObjectList* objectList) : AddPage(window, objectList)
 {
 	this->header = TextBox('#', "##   Dodawanie zajecia   ##");
@@ -18,19 +20,19 @@ void AddLessonPage::draw()
 	this->header.show();
 
 	this->drawParagraph("Typ:     | ");
-	std::cout << this->getInputString(0) << std::endl;
+	std::cout << this->strings[0] << std::endl;
 
 	this->drawParagraph("Name: | ");
-	std::cout << this->getInputString(1) << std::endl;
+	std::cout << this->strings[1] << std::endl;
 
 	this->drawParagraph("Godzina rozpoczecia:     | ");
-	this->checkNumber(this->getInputNumber(0));
+	this->checkNumber(this->numbers[0]);
 
 	this->drawParagraph("Czas trwania: | ");
-	this->checkNumber(this->getInputNumber(1));
+	this->checkNumber(this->numbers[1]);
 
 	this->drawParagraph("Max. ilosc miejsc | ");
-	this->checkNumber(this->getInputNumber(2));
+	this->checkNumber(this->numbers[2]);
 
 	SetConsoleTextAttribute(this->getWindow()->getConsole(), FOREGROUND_INTENSITY | FOREGROUND_GREEN | FOREGROUND_BLUE);
 	this->info.show();
@@ -38,22 +40,19 @@ void AddLessonPage::draw()
 
 void AddLessonPage::service()
 {
-	std::string inputString = "";
-
 	switch (this->getCurrentStep())
 	{
 	case 1:
 		std::cout << "Podaj typ: (wyklad / cwiczenia / laboratorium / projekt)" << std::endl;
-		std::cin >> inputString;
-		while (!std::cin.good() || (inputString != "wyklad" && inputString != "cwiczenia" && inputString != "laboratorium" && inputString != "projekt"))
+		std::cin >> this->strings[0];
+		while (!std::cin.good() || (this->strings[0] != "wyklad" && this->strings[0] != "cwiczenia" && this->strings[0] != "laboratorium" && this->strings[0] != "projekt"))
 		{
-			inputString.clear();
+			this->strings[0].clear();
 			this->getWindow()->refresh();
 			std::cout << "Podaj typ: (wyklad / cwiczenia / laboratiorum / projekt)" << std::endl;
 			std::cin.clear();
-			std::cin >> inputString;
+			std::cin >> this->strings[0];
 		}
-		this->setString(0, inputString);
 		break;
 	case 2:
 		this->testString("Podaj nazwe: (min. 3 litery)", 1);
@@ -68,12 +67,10 @@ void AddLessonPage::service()
 		this->testNumber("Podaj max. ilosc miejsc: (min 5, max 100)", 2, 5, 100);
 		break;
 	default:
-		//Lesson* lesson = new Lesson(, this->name, this->startTime, this->duration, this->maxPlaces);
-
-		//int id = this->lessonsList->addLesson(this->lesson);
+		int id = this->objectList->addObject(new Lesson(this->strings[0], this->strings[1], this->numbers[0], this->numbers[1], this->numbers[2]));
 
 		this->getWindow()->refresh();
-		std::cout << "Dodano nowe zajecie o id " << id << std::endl << std::endl;
+		std::cout << "Dodano nowe zajecia o id " << id << std::endl << std::endl;
 
 		Sleep(2000);
 

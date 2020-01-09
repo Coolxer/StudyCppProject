@@ -12,15 +12,13 @@ private:
 	int index;
 	std::vector <Object> objects;
 public:
-	ObjectList();
+	ObjectList(int startIndex = 0);
 	~ObjectList();
 
 	int addObject(Object* o);
 	int removeObject(int index);
 	Object* getObjectByHardIndex(int index);
 	Object* getObjectByIndex(int index);
-
-	void setStartIndex(int index);
 
 	bool showAll();
 	bool showByIndex(int index);
