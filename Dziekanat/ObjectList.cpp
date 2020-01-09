@@ -33,11 +33,6 @@ int ObjectList::removeObject(int index)
 	return 0;
 }
 
-Object* ObjectList::getObjectByHardIndex(int index)
-{
-	return &this->objects[index];
-}
-
 Object* ObjectList::getObjectByIndex(int index)
 {
 	for (int i = 0; i < (int)this->objects.size(); i++)

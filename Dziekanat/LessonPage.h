@@ -1,13 +1,14 @@
 #pragma once
 #include "MainPage.h"
-#include "ObjectList.h"
+#include "LessonList.h"
 
-class LessonsPage : public MainPage
+class LessonPage : public MainPage
 {
 private:
 	Menu menu;
+	LessonList* lessonList;
 public:
-	LessonsPage(Window* window, std::string headerText);
+	LessonPage(Window* window, std::string headerText);
 
 	void service();
 };

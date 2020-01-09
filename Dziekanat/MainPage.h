@@ -12,11 +12,10 @@ private:
 	Menu menu;
 	TextBox info;
 
+protected:
 	ObjectList objectList;
 public:
 	MainPage(Window* window, std::string headerText);
-
-	ObjectList* getObjectList();
 
 	void setMenu(Menu* menu);
 

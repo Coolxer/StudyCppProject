@@ -10,6 +10,7 @@ class ObjectList
 {
 private:
 	int index;
+protected:
 	std::vector <Object> objects;
 public:
 	ObjectList(int startIndex = 0);
@@ -17,7 +18,6 @@ public:
 
 	int addObject(Object* o);
 	int removeObject(int index);
-	Object* getObjectByHardIndex(int index);
 	Object* getObjectByIndex(int index);
 
 	bool showAll();

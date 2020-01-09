@@ -10,10 +10,10 @@ StudentList::StudentList()
 bool StudentList::showByField(std::string field)
 {
 	int count = 0;
-	for (int i = 0; i < this->getNumberOfObjects(); i++)
+	for (int i = 0; i < (int)this->objects.size(); i++)
 	{
-		Student* student = (Student*)this->getObjectByHardIndex(i);
-		if ( student->getStudy()->getField()== field)
+		Student* student = (Student*)&this->objects[i];
+		if (student->getStudy()->getField()== field)
 		{
 			student->show();
 			count++;
@@ -28,9 +28,9 @@ bool StudentList::showByField(std::string field)
 bool StudentList::showByType(std::string type)
 {
 	int count = 0;
-	for (int i = 0; i < this->getNumberOfObjects(); i++)
+	for (int i = 0; i < (int)this->objects.size(); i++)
 	{
-		Student* student = (Student*)this->getObjectByHardIndex(i);
+		Student* student = (Student*)&this->objects[i];
 		if (student->getStudy()->getType() == type)
 		{
 			student->show();

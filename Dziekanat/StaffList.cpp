@@ -5,9 +5,9 @@
 bool StaffList::showProfessors()
 {
 	int count = 0;
-	for (int i = 0; i < this->getNumberOfObjects(); i++)
+	for (int i = 0; i < (int)this->objects.size(); i++)
 	{
-		StaffMember* member = (StaffMember*)this->getObjectByHardIndex(i);
+		StaffMember* member = (StaffMember*)&this->objects[i];
 		if (member->isProfessor())
 		{
 			member->show();

@@ -1,8 +1,11 @@
-#include "LessonsPage.h"
+#include "LessonPage.h"
 #include <iostream>
 #include "CmdManager.h"
 
-LessonsPage::LessonsPage(Window* window, std::string headerText) : MainPage(window, headerText)
+#include "LessonList.h"
+#include "StaffMember.h"
+
+LessonPage::LessonPage(Window* window, std::string headerText) : MainPage(window, headerText)
 {
 	this->menu = Menu();
 
@@ -16,9 +19,11 @@ LessonsPage::LessonsPage(Window* window, std::string headerText) : MainPage(wind
 	this->menu.addMenuElement("Wyswietl liczbe zajec");
 
 	this->setMenu(&this->menu);
+
+	this->lessonList = (LessonList*)&this->objectList;
 }
 
-void LessonsPage::service()
+void LessonPage::service()
 {
 	int option;
 
@@ -36,6 +41,7 @@ void LessonsPage::service()
 		{
 			int id;
 			bool exists;
+			Lesson* lesson;
 			std::string input;
 
 			switch (option)
@@ -48,14 +54,7 @@ void LessonsPage::service()
 				std::cout << "Podaj id zajec, ktore chcesz usunac: " << std::endl;
 				std::cin >> id;
 
-				if (!std::cin.good())
-				{
-					std::cout << "id to liczba! " << std::endl;
-					Sleep(1000);
-					break;
-				}
-
-				id = this->getObjectList().removeObject(id);
+				id = this->objectList.removeObject(id);
 
 				if (id == 0)
 					std::cout << std::endl << "Nie ma takiego zajecia" << std::endl;
@@ -69,7 +68,7 @@ void LessonsPage::service()
 				std::cout << "Podaj nazwe zajecia, ktorego szczegoly chcesz zobaczyc: " << std::endl;
 				std::cin >> input;
 
-				exists = this->lessonsList.showLessonByName(input);
+				exists = lessonList->showByName(input);
 
 				if (!exists)
 					std::cout << std::endl << "Nie ma takich zajec" << std::endl;
@@ -80,13 +79,13 @@ void LessonsPage::service()
 				std::cout << "Podaj nazwe zajecia, ktorego prowadzacego chcesz zobaczyc: " << std::endl;
 				std::cin >> input;
 
-				exists = this->lessonsList.getLessonByName(input);
+				lesson = this->lessonList->getByName(input);
 
-				if (!exists)
+				if (!lesson)
 					std::cout << std::endl << "Nie ma takich zajec" << std::endl;
 				else
 				{
-					StaffMember* staffMember = this->lessonsList.getLessonByName(input)->getStaffMember();
+					StaffMember* staffMember = lesson->getStaffMember();
 
 					if (!staffMember)
 						std::cout << std::endl << "To zajecie nie ma przypisanego prowadzacego" << std::endl;
@@ -101,13 +100,13 @@ void LessonsPage::service()
 				std::cout << "Podaj nazwe zajecia, ktorego uczestnikow chcesz zobaczyc: " << std::endl;
 				std::cin >> input;
 
-				exists = this->lessonsList.getLessonByName(input);
+				lesson = this->lessonList->getByName(input);
 
-				if (!exists)
+				if (!lesson)
 					std::cout << std::endl << "Nie ma takich zajec" << std::endl;
 				else
 				{
-					bool ok = this->lessonsList.getLessonByName(input)->showStudents();
+					bool ok = lesson->showStudents();
 
 					if(!ok)
 						std::cout << std::endl << "To zajecie nie ma uczestnikow" << std::endl;
@@ -124,7 +123,7 @@ void LessonsPage::service()
 
 				Lesson::showHeader();
 
-				exists = this->lessonsList.showSpecificLessons(input);
+				exists = this->lessonList->showSpecificType(input);
 
 				if (!exists)
 				{
@@ -135,7 +134,7 @@ void LessonsPage::service()
 				Sleep(2500);
 				break;
 			case 8:
-				std::cout << "Liczba zajec: " << this->lessonsList.getNumberOfLessons() << std::endl;
+				std::cout << "Liczba zajec: " << this->lessonList->getNumberOfObjects() << std::endl;
 				Sleep(2000);
 				break;
 			}
