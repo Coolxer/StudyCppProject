@@ -14,6 +14,11 @@ void MainPage::setMenu(Menu* menu)
 	this->menu = *menu;
 }
 
+ObjectList* MainPage::getObjectList()
+{
+	return &this->objectList;
+}
+
 void MainPage::draw()
 {
 	SetConsoleTextAttribute(this->getWindow()->getConsole(), FOREGROUND_GREEN);

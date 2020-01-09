@@ -139,17 +139,19 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AddLessonPage.cpp" />
+    <ClCompile Include="AddPage.cpp" />
     <ClCompile Include="AddStaffMemberPage.cpp" />
     <ClCompile Include="AddStudentPage.cpp" />
     <ClCompile Include="CmdManager.cpp" />
     <ClCompile Include="Lesson.cpp" />
-    <ClCompile Include="LessonsList.cpp" />
-    <ClCompile Include="LessonsPage.cpp" />
-    <ClCompile Include="LessonsViewPage.cpp" />
+    <ClCompile Include="LessonList.cpp" />
+    <ClCompile Include="LessonPage.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainPage.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="MenuElement.cpp" />
+    <ClCompile Include="MenuPage.cpp" />
+    <ClCompile Include="Object.cpp" />
     <ClCompile Include="ObjectList.cpp" />
     <ClCompile Include="Page.cpp" />
     <ClCompile Include="Person.cpp" />
@@ -157,27 +159,28 @@
     <ClCompile Include="StaffList.cpp" />
     <ClCompile Include="StaffMember.cpp" />
     <ClCompile Include="StaffPage.cpp" />
-    <ClCompile Include="StaffViewPage.cpp" />
     <ClCompile Include="Student.cpp" />
-    <ClCompile Include="StudentsList.cpp" />
-    <ClCompile Include="StudentsPage.cpp" />
-    <ClCompile Include="StudentsViewPage.cpp" />
+    <ClCompile Include="StudentList.cpp" />
+    <ClCompile Include="StudentPage.cpp" />
     <ClCompile Include="Study.cpp" />
     <ClCompile Include="TextBox.cpp" />
+    <ClCompile Include="ViewPage.cpp" />
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AddLessonPage.h" />
+    <ClInclude Include="AddPage.h" />
     <ClInclude Include="AddStaffMemberPage.h" />
     <ClInclude Include="AddStudentPage.h" />
     <ClInclude Include="CmdManager.h" />
     <ClInclude Include="Lesson.h" />
-    <ClInclude Include="LessonsList.h" />
-    <ClInclude Include="LessonsPage.h" />
-    <ClInclude Include="LessonsViewPage.h" />
+    <ClInclude Include="LessonList.h" />
+    <ClInclude Include="LessonPage.h" />
     <ClInclude Include="MainPage.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="MenuElement.h" />
+    <ClInclude Include="MenuPage.h" />
+    <ClInclude Include="Object.h" />
     <ClInclude Include="ObjectList.h" />
     <ClInclude Include="Page.h" />
     <ClInclude Include="Person.h" />
@@ -185,13 +188,12 @@
     <ClInclude Include="StaffList.h" />
     <ClInclude Include="StaffMember.h" />
     <ClInclude Include="StaffPage.h" />
-    <ClInclude Include="StaffViewPage.h" />
     <ClInclude Include="Student.h" />
-    <ClInclude Include="StudentsList.h" />
-    <ClInclude Include="StudentsPage.h" />
-    <ClInclude Include="StudentsViewPage.h" />
+    <ClInclude Include="StudentList.h" />
+    <ClInclude Include="StudentPage.h" />
     <ClInclude Include="Study.h" />
     <ClInclude Include="TextBox.h" />
+    <ClInclude Include="ViewPage.h" />
     <ClInclude Include="Window.h" />
   </ItemGroup>
   <ItemGroup>

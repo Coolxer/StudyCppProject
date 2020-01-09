@@ -1,5 +1,11 @@
 #include "LessonList.h"
 
+LessonList::LessonList()
+{
+	this->addObject(new Lesson("projekt", "programowanie", 5, 90, 30));
+	this->addObject(new Lesson("laboratorium", "systemy", 10, 120, 15));
+}
+
 Lesson* LessonList::getByName(std::string name)
 {
 	for (int i = 0; i < (int)this->objects.size(); i++)

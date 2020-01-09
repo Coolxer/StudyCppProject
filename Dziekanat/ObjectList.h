@@ -13,8 +13,10 @@ private:
 protected:
 	std::vector <Object> objects;
 public:
-	ObjectList(int startIndex = 0);
+	ObjectList();
 	~ObjectList();
+
+	void setStartIndex(int startIndex);
 
 	int addObject(Object* o);
 	int removeObject(int index);

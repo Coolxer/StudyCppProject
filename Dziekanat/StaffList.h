@@ -4,7 +4,7 @@
 class StaffList : public ObjectList
 {
 public:
-	StaffList() {}
+	StaffList();
 
 	bool showProfessors();
 };

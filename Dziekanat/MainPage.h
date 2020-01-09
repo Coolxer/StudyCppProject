@@ -19,6 +19,8 @@ public:
 
 	void setMenu(Menu* menu);
 
+	ObjectList* getObjectList();
+
 	void draw();
 	virtual void service() = 0;
 };

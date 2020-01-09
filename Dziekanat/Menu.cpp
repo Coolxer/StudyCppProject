@@ -1,4 +1,5 @@
 #include "Menu.h"
+#include <iostream>
 
 Menu::Menu()
 {
@@ -8,11 +9,11 @@ Menu::Menu()
 void Menu::addMenuElement(std::string text)
 {
 	int index = this->menuElements.size();
-	this->menuElements.push_back(MenuElement(index, text));
+	this->menuElements.push_back(MenuElement(index + 1, text));
 }
 
 void Menu::show()
 {
-	for (int i = 0; (int)this->menuElements.size(); i++)
+	for (int i = 0; i < (int)this->menuElements.size(); i++)
 		this->menuElements[i].show();
 }

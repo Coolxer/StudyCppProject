@@ -4,7 +4,12 @@
 
 StudentList::StudentList()
 {
+	this->setStartIndex(16000);
 
+	this->addObject(new Student("Lukasz", "Milos", 21, "inf", 1, 2, "zaoczne"));
+	this->addObject(new Student("Rafal", "Magrys", 22, "inf", 1, 2, "stacjonarne"));
+	this->addObject(new Student("Kuba", "Stanislawczyk", 21, "bud", 1, 2, "zaoczne"));
+	this->addObject(new Student("Damian", "Pietraszek", 27, "inf", 1, 2, "zaoczne"));
 }
 
 bool StudentList::showByField(std::string field)

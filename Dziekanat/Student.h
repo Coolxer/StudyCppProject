@@ -18,7 +18,7 @@ public:
 	void changeStudyYear(int year);
 	void changeStudyType(std::string type);
 
-	static void showHeader();
+	void showHeader();
 	void show(bool withHeader = false);
 };
 

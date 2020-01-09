@@ -6,9 +6,10 @@ class LessonPage : public MainPage
 {
 private:
 	Menu menu;
-	LessonList* lessonList;
+	LessonList lessonList;
 public:
 	LessonPage(Window* window, std::string headerText);
+	~LessonPage();
 
 	void service();
 };

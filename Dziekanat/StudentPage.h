@@ -9,7 +9,7 @@ class StudentPage : public MainPage
 private:
 	Menu menu;
 
-	StudentList* studentList;
+	StudentList studentList;
 	LessonList* lessonList;
 public:
 	StudentPage(Window* window, std::string headerText);

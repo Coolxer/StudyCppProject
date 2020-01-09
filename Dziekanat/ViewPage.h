@@ -14,7 +14,9 @@ private:
 	int parentWindowIndex;
 
 public:
-	ViewPage(Window* window, std::string headerText, ObjectList* objectList, int parentWindowIndex);
+	ViewPage(Window* window, std::string headerText, int parentWindowIndex);
+
+	void init(ObjectList* objectList);
 
 	void draw();
 	void service();

@@ -4,14 +4,20 @@
 
 #include <iostream>
 
-ViewPage::ViewPage(Window* window, std::string headerText, ObjectList* objectList, int parentWindowIndex) : Page(window)
+ViewPage::ViewPage(Window* window, std::string headerText, int parentWindowIndex) : Page(window)
 {
 	this->header = TextBox('#', headerText);
 
-	this->objectList = objectList;
 	this->parentWindowIndex = parentWindowIndex;
 
 	this->info = TextBox('*', "** Podaj nr operacji **");
+}
+
+void ViewPage::init(ObjectList* objectList)
+{
+	this->objectList = objectList;
+	//std::cout << objectList->getNumberOfObjects() << std::endl;
+	//Sleep(3000);
 }
 
 void ViewPage::draw()
@@ -19,12 +25,16 @@ void ViewPage::draw()
 	SetConsoleTextAttribute(this->getWindow()->getConsole(), FOREGROUND_GREEN);
 	this->header.show();
 
-	Object::showHeader();
+	if(this->objectList->getNumberOfObjects() != 0)
+	{
+		//Object* object = (Object*)&this->objectList[0];
+		//object->showHeader();
+	}
 
 	SetConsoleTextAttribute(this->getWindow()->getConsole(), FOREGROUND_RED);
-	bool isNotNull = this->objectList->showAll();
+	bool isEmpty = this->objectList->showAll();
 
-	if (!isNotNull)
+	if (!isEmpty)
 		std::cout << "BRAK! ";
 
 	SetConsoleTextAttribute(this->getWindow()->getConsole(), FOREGROUND_INTENSITY | FOREGROUND_GREEN | FOREGROUND_BLUE);

@@ -5,9 +5,8 @@ class AddStaffMemberPage : public AddPage
 {
 private:
 	TextBox header;
-	TextBox info;
 public:
-	AddStaffMemberPage(Window* window, ObjectList* objectList);
+	AddStaffMemberPage(Window* window);
 	~AddStaffMemberPage();
 
 	void draw();

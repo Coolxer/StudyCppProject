@@ -8,8 +8,6 @@
 class AddPage : public Page
 {
 private:
-	Object* object;
-
 	int currentStep;
 
 protected:
@@ -18,8 +16,10 @@ protected:
 	ObjectList* objectList;
 
 public:
-	AddPage(Window* window, ObjectList* objectList);
+	AddPage(Window* window);
 	~AddPage();
+
+	void init(ObjectList* objectList);
 
 	int getCurrentStep();
 

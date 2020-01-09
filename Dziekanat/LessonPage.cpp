@@ -1,6 +1,4 @@
 #include "LessonPage.h"
-#include <iostream>
-#include "CmdManager.h"
 
 #include "LessonList.h"
 #include "StaffMember.h"
@@ -20,7 +18,12 @@ LessonPage::LessonPage(Window* window, std::string headerText) : MainPage(window
 
 	this->setMenu(&this->menu);
 
-	this->lessonList = (LessonList*)&this->objectList;
+	this->lessonList = LessonList();
+}
+
+LessonPage::~LessonPage()
+{
+	
 }
 
 void LessonPage::service()
@@ -68,7 +71,7 @@ void LessonPage::service()
 				std::cout << "Podaj nazwe zajecia, ktorego szczegoly chcesz zobaczyc: " << std::endl;
 				std::cin >> input;
 
-				exists = lessonList->showByName(input);
+				exists = this->lessonList.showByName(input);
 
 				if (!exists)
 					std::cout << std::endl << "Nie ma takich zajec" << std::endl;
@@ -79,7 +82,7 @@ void LessonPage::service()
 				std::cout << "Podaj nazwe zajecia, ktorego prowadzacego chcesz zobaczyc: " << std::endl;
 				std::cin >> input;
 
-				lesson = this->lessonList->getByName(input);
+				lesson = this->lessonList.getByName(input);
 
 				if (!lesson)
 					std::cout << std::endl << "Nie ma takich zajec" << std::endl;
@@ -100,7 +103,7 @@ void LessonPage::service()
 				std::cout << "Podaj nazwe zajecia, ktorego uczestnikow chcesz zobaczyc: " << std::endl;
 				std::cin >> input;
 
-				lesson = this->lessonList->getByName(input);
+				lesson = this->lessonList.getByName(input);
 
 				if (!lesson)
 					std::cout << std::endl << "Nie ma takich zajec" << std::endl;
@@ -115,15 +118,12 @@ void LessonPage::service()
 				Sleep(2500);
 				break;
 			case 6:
-				this->getWindow()->setActivePage(9);
-				break;
-			case 7:
 				std::cout << "Podaj typ zajec, ktore chcesz zobaczyc: " << std::endl;
 				std::cin >> input;
 
-				Lesson::showHeader();
+				//Lesson::showHeader();
 
-				exists = this->lessonList->showSpecificType(input);
+				exists = this->lessonList.showSpecificType(input);
 
 				if (!exists)
 				{
@@ -133,8 +133,11 @@ void LessonPage::service()
 
 				Sleep(2500);
 				break;
+			case 7:
+				this->getWindow()->setActivePage(9);
+				break;
 			case 8:
-				std::cout << "Liczba zajec: " << this->lessonList->getNumberOfObjects() << std::endl;
+				std::cout << "Liczba zajec: " << this->lessonList.getNumberOfObjects() << std::endl;
 				Sleep(2000);
 				break;
 			}

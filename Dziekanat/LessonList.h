@@ -2,12 +2,12 @@
 #include "ObjectList.h"
 #include "Lesson.h"
 
-#include "Student.h";
+#include "Student.h"
 
 class LessonList : public ObjectList
 {
 public:
-	LessonList() {}
+	LessonList();
 
 	Lesson* getByName(std::string name);
 

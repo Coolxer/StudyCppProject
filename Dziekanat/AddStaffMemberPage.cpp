@@ -4,7 +4,7 @@
 
 #include "StaffMember.h"
 
-AddStaffMemberPage::AddStaffMemberPage(Window* window, ObjectList* objectList) : AddPage(window, objectList)
+AddStaffMemberPage::AddStaffMemberPage(Window* window) : AddPage(window)
 {
 	this->header = TextBox('#', "##   Dodawanie pracownika   ##");
 }
@@ -30,9 +30,6 @@ void AddStaffMemberPage::draw()
 
 	this->drawParagraph("Tytul: | ");
 	std::cout << this->strings[2] << std::endl;
-
-	SetConsoleTextAttribute(this->getWindow()->getConsole(), FOREGROUND_INTENSITY | FOREGROUND_GREEN | FOREGROUND_BLUE);
-	this->info.show();
 }
 
 void AddStaffMemberPage::service()

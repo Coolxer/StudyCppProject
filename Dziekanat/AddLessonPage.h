@@ -5,9 +5,8 @@ class AddLessonPage: public AddPage
 {
 private:
 	TextBox header;
-	TextBox info;
 public:
-	AddLessonPage(Window* window, ObjectList* objectList);
+	AddLessonPage(Window* window);
 	~AddLessonPage();
 
 	void draw();

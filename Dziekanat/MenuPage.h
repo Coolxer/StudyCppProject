@@ -1,19 +1,15 @@
 #pragma once
-#include "Page.h"
-#include "TextBox.h"
-#include "MenuMenu.h"
+#include "MainPage.h"
 
-class MenuPage : public Page
+class MenuPage : public MainPage
 {
 private:
-	TextBox header;
-	MenuMenu menu;
-	TextBox info;
+	Menu menu;
 
 public:
-	MenuPage(Window *window);
+	MenuPage(Window* window, std::string headerText);
+	~MenuPage();
 
-	void draw();
 	void service();
 };
 

@@ -12,7 +12,7 @@ public:
 	int getIndex() const;
 	void setIndex(int index);
 
-	virtual static void showHeader() = 0;
-	virtual void show(bool withHeader = false) = 0;
+	virtual void showHeader() {}
+	virtual void show(bool withHeader = false) {}
 };
 

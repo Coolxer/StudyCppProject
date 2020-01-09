@@ -2,6 +2,12 @@
 
 #include "StaffMember.h"
 
+StaffList::StaffList()
+{
+	this->addObject(new StaffMember("Mariusz", "Nycz", 50, "inz"));
+	this->addObject(new StaffMember("Mariusz", "Maczka", 60, "prof"));
+}
+
 bool StaffList::showProfessors()
 {
 	int count = 0;

@@ -1,6 +1,11 @@
 #include "ObjectList.h"
 
-ObjectList::ObjectList(int startIndex)
+ObjectList::ObjectList()
+{
+	this->index = 0;
+}
+
+void ObjectList::setStartIndex(int startIndex)
 {
 	this->index = startIndex;
 }

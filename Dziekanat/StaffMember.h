@@ -28,7 +28,7 @@ public:
 
 	void increaseLessons();
 
-	static void showHeader();
+	void showHeader();
 	void show(bool withHeader = false);
 };
 

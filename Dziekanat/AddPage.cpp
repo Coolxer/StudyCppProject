@@ -3,7 +3,7 @@
 
 #include "CmdManager.h"
 
-AddPage::AddPage(Window* window, ObjectList* objectList) : Page(window)
+AddPage::AddPage(Window* window) : Page(window)
 {
 	this->objectList = objectList;
 
@@ -15,14 +15,9 @@ AddPage::~AddPage()
 	
 }
 
-std::string AddPage::getInputString(int id)
+void AddPage::init(ObjectList* objectList)
 {
-	return this->strings[id];
-}
-
-int AddPage::getInputNumber(int id)
-{
-	return this->numbers[id];
+	this->objectList = objectList;
 }
 
 int AddPage::getCurrentStep()
@@ -63,7 +58,6 @@ void AddPage::checkNumber(int number)
 	else
 		std::cout << number << std::endl;
 }
-
 
 void AddPage::testString(std::string text, int id)
 {

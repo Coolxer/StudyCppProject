@@ -45,7 +45,7 @@ public:
 	
 	bool showStudents();
 
-	static void showHeader();
+	void showHeader();
 	void show(bool withHeader = false);
 };
 

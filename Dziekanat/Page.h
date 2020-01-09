@@ -2,6 +2,9 @@
 #include "windows.h"
 #include "Window.h"
 
+#include <iostream>
+#include "CmdManager.h"
+
 class Page
 {
 private:

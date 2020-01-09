@@ -4,7 +4,7 @@
 
 #include "Lesson.h"
 
-AddLessonPage::AddLessonPage(Window* window, ObjectList* objectList) : AddPage(window, objectList)
+AddLessonPage::AddLessonPage(Window* window) : AddPage(window)
 {
 	this->header = TextBox('#', "##   Dodawanie zajecia   ##");
 }
@@ -33,9 +33,6 @@ void AddLessonPage::draw()
 
 	this->drawParagraph("Max. ilosc miejsc | ");
 	this->checkNumber(this->numbers[2]);
-
-	SetConsoleTextAttribute(this->getWindow()->getConsole(), FOREGROUND_INTENSITY | FOREGROUND_GREEN | FOREGROUND_BLUE);
-	this->info.show();
 }
 
 void AddLessonPage::service()

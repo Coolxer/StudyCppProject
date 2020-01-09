@@ -5,7 +5,7 @@
 class StudentList: public ObjectList
 {
 public:
-	StudentList(){}
+	StudentList();
 
 	bool showByField(std::string field);
 	bool showByType(std::string type);

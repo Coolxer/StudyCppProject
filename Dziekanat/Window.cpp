@@ -4,17 +4,16 @@
 
 #include "MenuPage.h"
 
-#include "StudentsPage.h"
+#include "StudentPage.h"
 #include "AddStudentPage.h"
-#include "StudentsViewPage.h"
 
 #include "StaffPage.h"
 #include "AddStaffMemberPage.h"
-#include "StaffViewPage.h"
 
-#include "LessonsPage.h"
+#include "LessonPage.h"
 #include "AddLessonPage.h"
-#include "LessonsViewPage.h"
+
+#include "ViewPage.h"
 
 using namespace std;
 
@@ -22,23 +21,40 @@ Window::Window()
 {
 	this->console = GetStdHandle(STD_OUTPUT_HANDLE);
 
-	this->pages[0] = new MenuPage(this);
-	this->pages[1] = new StudentsPage(this);
-	this->pages[2] = new StaffPage(this);
-	this->pages[3] = new LessonsPage(this);
-	this->pages[4] = new AddStudentPage(this, (StudentsPage*)this->pages[1]);
-	this->pages[5] = new StudentsViewPage(this, (StudentsPage*)this->pages[1]);
-	this->pages[6] = new AddStaffMemberPage(this, (StaffPage*)this->pages[2]);
-	this->pages[7] = new StaffViewPage(this, (StaffPage*)this->pages[2]);
-	this->pages[8] = new AddLessonPage(this, (LessonsPage*)this->pages[3]);
-	this->pages[9] = new LessonsViewPage(this, (LessonsPage*)this->pages[3]);
+	this->pages[0] = new MenuPage(this, " DZIEKANAT ");
+	this->pages[1] = new StudentPage(this, " STUDENT SERWIS ");
+	this->pages[2] = new StaffPage(this, " GRONO PEDAGOGICZNE SERWIS ");
+	this->pages[3] = new LessonPage(this, " ZAJECIA SERWIS ");
 
-	StudentsPage* studentsPage = (StudentsPage*)this->pages[1];
-	StaffPage* staffPage = (StaffPage*)this->pages[2];
-	LessonsPage* lessonsPage = (LessonsPage *)this->pages[3];
+	this->pages[4] = new AddStudentPage(this);
+	this->pages[6] = new AddStaffMemberPage(this);
+	this->pages[8] = new AddLessonPage(this);
 
-	studentsPage->init(lessonsPage->getLessonsList());
-	staffPage->init(lessonsPage->getLessonsList());
+	this->pages[5] = new ViewPage(this, " LISTA STUDENTOW ", 1);
+	this->pages[7] = new ViewPage(this, " LISTA PRACOWNIKOW ", 2);
+	this->pages[9] = new ViewPage(this, " LISTA ZAJEC ", 3);
+
+	MainPage* mainPage;
+	AddPage* addPage;
+	ViewPage* viewPage;
+
+	mainPage = (MainPage*)this->pages[1];
+	addPage = (AddPage*)this->pages[4];
+	addPage->init(mainPage->getObjectList());
+	viewPage = (ViewPage*)this->pages[5];
+	viewPage->init(mainPage->getObjectList());
+
+	mainPage = (MainPage*)this->pages[2];
+	addPage = (AddPage*)this->pages[6];
+	addPage->init(mainPage->getObjectList());
+	viewPage = (ViewPage*)this->pages[7];
+	viewPage->init(mainPage->getObjectList());
+
+	mainPage = (MainPage*)this->pages[3];
+	addPage = (AddPage*)this->pages[8];
+	addPage->init(mainPage->getObjectList());
+	viewPage = (ViewPage*)this->pages[9];
+	viewPage->init(mainPage->getObjectList());
 
 	this->activePageIndex = 0;
 }

@@ -1,6 +1,4 @@
 #include "StaffPage.h"
-#include <iostream>
-#include "CmdManager.h"
 
 StaffPage::StaffPage(Window* window, std::string headerText) : MainPage(window, headerText)
 {
@@ -15,11 +13,12 @@ StaffPage::StaffPage(Window* window, std::string headerText) : MainPage(window, 
 	this->menu.addMenuElement("Przypisz pracownika do zajec");
 
 	this->setMenu(&this->menu);
+
+	this->staffList = StaffList();
 }
 
 StaffPage::~StaffPage()
 {
-	delete this->staffList;
 	delete this->lessonList;
 }
 
@@ -67,9 +66,9 @@ void StaffPage::service()
 					break;
 				}
 
-				staffMember = (StaffMember*)this->staffList->getObjectByIndex(id);
+				staffMember = (StaffMember*)this->staffList.getObjectByIndex(id);
 
-				exists = this->staffList->removeObject(staffMember->getIndex());
+				exists = this->staffList.removeObject(staffMember->getIndex());
 
 				if (!exists)
 					std::cout << std::endl << "Nie ma takiego pracownika" << std::endl;
@@ -93,7 +92,7 @@ void StaffPage::service()
 					break;
 				}
 
-				exists = this->staffList->showByIndex(id);
+				exists = this->staffList.showByIndex(id);
 
 				if (!exists)
 					std::cout << std::endl << "Nie ma takiego pracownika" << std::endl;
@@ -101,13 +100,10 @@ void StaffPage::service()
 				Sleep(2500);
 				break;
 			case 4:
-				this->getWindow()->setActivePage(7);
-				break;
-			case 5:
 
-				StaffMember::showHeader();
+				//StaffMember::showHeader();
 
-				exists = this->staffList->showProfessors();
+				exists = this->staffList.showProfessors();
 
 				if (!exists)
 				{
@@ -117,15 +113,18 @@ void StaffPage::service()
 
 				Sleep(2500);
 				break;
+			case 5:
+				this->getWindow()->setActivePage(7);
+				break;	
 			case 6:
-				std::cout << "Liczba pracownikow: " << this->staffList->getNumberOfObjects() << std::endl;
+				std::cout << "Liczba pracownikow: " << this->staffList.getNumberOfObjects() << std::endl;
 				Sleep(2000);
 				break;
 			case 7:
 				std::cout << "Podaj nr id pracownika, ktorego chcesz przypisac: " << std::endl;
 				std::cin >> id;
 
-				staffMember = (StaffMember*)this->staffList->getObjectByIndex(id);
+				staffMember = (StaffMember*)this->staffList.getObjectByIndex(id);
 
 				if (!staffMember)
 				{

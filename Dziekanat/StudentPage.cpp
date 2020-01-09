@@ -1,8 +1,6 @@
 #include "StudentPage.h"
-#include <iostream>
-#include "CmdManager.h"
 
-StudentPage::StudentPage(Window* window, std::string headerText): MainPage(window, headerText)
+StudentPage::StudentPage(Window* window, std::string headerText) : MainPage(window, headerText)
 {
 	this->menu = Menu();
 
@@ -18,12 +16,11 @@ StudentPage::StudentPage(Window* window, std::string headerText): MainPage(windo
 
 	this->setMenu(&this->menu);
 
-	this->studentList = (StudentList*)&this->objectList;
+	this->studentList = StudentList();
 }
 
 StudentPage::~StudentPage()
 {
-	delete this->studentList;
 	delete this->lessonList;
 }
 
@@ -71,14 +68,14 @@ void StudentPage::service()
 					break;
 				}
 
-				student = this->studentList->getObjectByIndex(index);
+				student = (Student*)this->studentList.getObjectByIndex(index);
 
 				if (!student)
 					std::cout << "Nie ma takiego studenta" << std::endl;
 				else
 				{
 					this->lessonList->removeStudentFromLessons(student);
-					index = this->studentList->removeObject(student->getIndex());
+					index = this->studentList.removeObject(student->getIndex());
 					std::cout << std::endl << "Usunieto studenta o indeksie " << index;
 					//delete student;
 				}
@@ -97,7 +94,7 @@ void StudentPage::service()
 					break;
 				}
 
-				exists = this->studentList->showByIndex(index);
+				exists = this->studentList.showByIndex(index);
 
 				if (!exists)
 					std::cout << std::endl << "Nie ma takiego studenta" << std::endl;
@@ -105,26 +102,23 @@ void StudentPage::service()
 				Sleep(2500);
 				break;
 			case 4:
-				this->getWindow()->setActivePage(5);
-				break;
-			case 5:
 				std::cout << "Podaj nazwe kierunku studiow" << std::endl;
 				std::cin >> input;
 
-				Student::showHeader();
+				// show header
 
-				exists = this->studentList->showByField();
+				exists = this->studentList.showByField(input);
 
 				if (!exists)
 				{
 					this->getWindow()->refresh();
-					std::cout << std::endl << "Nie studentow na tym kierunku" << std::endl;
+					std::cout << std::endl << "Nie ma studentow na tym kierunku" << std::endl;
 				}
-					
+
 				Sleep(2500);
 				break;
-			case 6:
-				exists = this->studentList->showByType("stacjonarne");
+			case 5:
+				exists = this->studentList.showByType("stacjonarne");
 
 				if (!exists)
 				{
@@ -134,8 +128,8 @@ void StudentPage::service()
 
 				Sleep(2500);
 				break;
-			case 7:
-				exists = this->studentList->showByType("zaoczne");
+			case 6:
+				exists = this->studentList.showByType("zaoczne");
 
 				if (!exists)
 				{
@@ -145,15 +139,18 @@ void StudentPage::service()
 
 				Sleep(2500);
 				break;
+			case 7:
+				this->getWindow()->setActivePage(5);
+				break;
 			case 8:
-				std::cout << "Liczba studentow: " << this->studentList->getNumberOfObjects() << std::endl;
+				std::cout << "Liczba studentow: " << this->studentList.getNumberOfObjects() << std::endl;
 				Sleep(2000);
 				break;
 			case 9:
 				std::cout << "Podaj nr indeksu studenta, ktorego chcesz przypisac: " << std::endl;
 				std::cin >> index;
 
-				student = (Student*)this->studentList->getObjectByIndex(index);
+				student = (Student*)this->studentList.getObjectByIndex(index);
 
 				if (!student)
 				{

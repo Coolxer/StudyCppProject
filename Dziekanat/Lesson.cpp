@@ -113,7 +113,7 @@ bool Lesson::showStudents()
 	if (this->students.size() == 0)
 		return false;
 
-	Student::showHeader();
+	//Student::showHeader();
 
 	for (int i = 0; i < (int)this->students.size(); i++)
 		this->students[i].show();

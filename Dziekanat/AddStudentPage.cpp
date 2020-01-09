@@ -4,7 +4,7 @@
 
 #include "Student.h"
 
-AddStudentPage::AddStudentPage(Window* window, ObjectList* objectList) : AddPage(window, objectList)
+AddStudentPage::AddStudentPage(Window* window) : AddPage(window)
 {
 	this->header = TextBox('#', "##   Dodawanie studenta   ##");
 }
@@ -39,9 +39,6 @@ void AddStudentPage::draw()
 
 	this->drawParagraph("Typ:      | ");
 	std::cout << this->strings[3] << std::endl;
-
-	SetConsoleTextAttribute(this->getWindow()->getConsole(), FOREGROUND_INTENSITY | FOREGROUND_GREEN | FOREGROUND_BLUE);
-	this->info.show();
 }
 
 void AddStudentPage::service()
