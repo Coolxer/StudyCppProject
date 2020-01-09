@@ -12,6 +12,6 @@ public:
 	int getIndex() const;
 	void setIndex(int index);
 
-	virtual void show() = 0;
+	virtual void show(bool withHeader = false) = 0;
 };
 

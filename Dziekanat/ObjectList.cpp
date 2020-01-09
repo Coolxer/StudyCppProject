@@ -33,6 +33,11 @@ int ObjectList::removeObject(int index)
 	return 0;
 }
 
+Object* ObjectList::getObjectByHardIndex(int index)
+{
+	return &this->objects[index];
+}
+
 Object* ObjectList::getObjectByIndex(int index)
 {
 	for (int i = 0; i < (int)this->objects.size(); i++)
@@ -49,7 +54,7 @@ void ObjectList::setStartIndex(int index)
 	this->index = index;
 }
 
-bool ObjectList::showAll(std::string type)
+bool ObjectList::showAll()
 {
 	for (int i = 0; i < (int)this->objects.size(); i++)
 		this->objects[i].show();
@@ -57,6 +62,19 @@ bool ObjectList::showAll(std::string type)
 	if (this->objects.size() != 0)
 		return true;
 
+	return false;
+}
+
+bool ObjectList::showByIndex(int index)
+{
+	for (int i = 0; i < (int)this->objects.size(); i++)
+	{
+		if (this->objects[i].getIndex() == index)
+		{
+			this->objects[i].show(true);
+			return true;
+		}
+	}
 	return false;
 }
 
