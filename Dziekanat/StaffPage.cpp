@@ -17,6 +17,17 @@ StaffPage::StaffPage(Window* window, std::string headerText) : MainPage(window, 
 	this->setMenu(&this->menu);
 }
 
+StaffPage::~StaffPage()
+{
+	delete this->staffList;
+	delete this->lessonList;
+}
+
+void StaffPage::init(LessonList* lessonList)
+{
+	this->lessonList = lessonList;
+}
+
 void StaffPage::service()
 {
 	int option;
@@ -56,16 +67,16 @@ void StaffPage::service()
 					break;
 				}
 
-				staffMember = this->staffList.getStaffMemberByIndex(id);
+				staffMember = (StaffMember*)this->staffList->getObjectByIndex(id);
 
-				id = this->staffList.removeMember(id);
+				exists = this->staffList->removeObject(staffMember->getIndex());
 
-				if (id == 0)
+				if (!exists)
 					std::cout << std::endl << "Nie ma takiego pracownika" << std::endl;
 				else
 				{
 					std::cout << std::endl << "Usunieto pracownika o indeksie " << id;
-					this->lessonsList->removeStaffMember(staffMember);
+					this->lessonList->removeStaffMemberFromLessons(staffMember);
 				}
 					
 				Sleep(2000);
@@ -82,7 +93,7 @@ void StaffPage::service()
 					break;
 				}
 
-				exists = this->staffList.showMemberbyId(id);
+				exists = this->staffList->showByIndex(id);
 
 				if (!exists)
 					std::cout << std::endl << "Nie ma takiego pracownika" << std::endl;
@@ -96,7 +107,7 @@ void StaffPage::service()
 
 				StaffMember::showHeader();
 
-				exists = this->staffList.showProfessors();
+				exists = this->staffList->showProfessors();
 
 				if (!exists)
 				{
@@ -107,15 +118,14 @@ void StaffPage::service()
 				Sleep(2500);
 				break;
 			case 6:
-				std::cout << "Liczba pracownikow: " << this->staffList.getNumberOfMembers() << std::endl;
+				std::cout << "Liczba pracownikow: " << this->staffList->getNumberOfObjects() << std::endl;
 				Sleep(2000);
 				break;
 			case 7:
-				StaffMember * staffMember;
 				std::cout << "Podaj nr id pracownika, ktorego chcesz przypisac: " << std::endl;
 				std::cin >> id;
 
-				staffMember = this->staffList.getStaffMemberByIndex(id);
+				staffMember = (StaffMember*)this->staffList->getObjectByIndex(id);
 
 				if (!staffMember)
 				{
@@ -129,7 +139,7 @@ void StaffPage::service()
 					std::cout << "Podaj nazwe zajecia, do ktorego chcesz przypisac pracownika: " << std::endl;
 					std::cin >> input;
 
-					lesson = this->lessonsList->getLessonByName(input);
+					lesson = this->lessonList->getByName(input);
 
 					if (!lesson)
 					{
