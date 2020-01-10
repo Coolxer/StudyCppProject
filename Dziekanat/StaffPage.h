@@ -12,8 +12,10 @@ private:
 	StaffList staffList;
 	LessonList* lessonList;
 public:
-	StaffPage(Window* window, std::string headerText);
+	StaffPage(Window* window);
 	~StaffPage();
+
+	StaffList* getStaffList();
 
 	void init(LessonList* lessonList);
 

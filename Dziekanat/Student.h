@@ -9,6 +9,7 @@ private:
 	Study study;
 
 public:
+	Student() {}
 	Student(std::string firstName, std::string lastName, int age, std::string field, int level, int year, std::string type);
 
 	bool operator ==(const Student& s);

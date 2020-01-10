@@ -1,6 +1,7 @@
 #include "StudentList.h"
 
 #include "Student.h"
+#include "windows.h"
 
 StudentList::StudentList()
 {
@@ -15,15 +16,20 @@ StudentList::StudentList()
 bool StudentList::showByField(std::string field)
 {
 	int count = 0;
+
 	for (int i = 0; i < (int)this->objects.size(); i++)
 	{
 		Student* student = (Student*)&this->objects[i];
-		if (student->getStudy()->getField()== field)
+		std::cout << student->getAge() << std::endl;
+		Sleep(1500);
+		/*
+		if (student->getStudy()->getField() == field)
 		{
 			student->show();
 			count++;
-		}
+		}*/
 	}
+
 	if (count > 0)
 		return true;
 

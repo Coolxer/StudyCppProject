@@ -185,5 +185,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
+    <None Include="ClassDiagram — kopia.cd" />
+    <None Include="ClassDiagram — kopia — kopia.cd" />
   </ItemGroup>
 </Project>

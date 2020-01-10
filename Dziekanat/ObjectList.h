@@ -11,7 +11,7 @@ class ObjectList
 private:
 	int index;
 protected:
-	std::vector <Object> objects;
+	std::vector <Object*> objects;
 public:
 	ObjectList();
 	~ObjectList();

@@ -8,10 +8,11 @@ private:
 	int level;
 	int year;
 	std::string type;
-
 public:
 	Study() {}
-	Study(std::string field, int level, int year, std::string type);
+	//Study(std::string field = "inf", int level = 1, int year = 2, std::string type = "zaoczne");
+
+	void init(std::string field, int level, int year, std::string type);
 
 	std::string getField() const;
 	int getLevel() const;

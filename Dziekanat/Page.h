@@ -11,6 +11,7 @@ private:
 	Window* window;
 public:
 	Page(Window* window);
+	~Page();
 
 	Window* getWindow();
 

@@ -12,7 +12,7 @@ AddPage::AddPage(Window* window) : Page(window)
 
 AddPage::~AddPage()
 {
-	
+	delete this->objectList;
 }
 
 void AddPage::init(ObjectList* objectList)

@@ -7,7 +7,7 @@ private:
 	Menu menu;
 
 public:
-	MenuPage(Window* window, std::string headerText);
+	MenuPage(Window* window);
 	~MenuPage();
 
 	void service();

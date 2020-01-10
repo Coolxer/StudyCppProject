@@ -21,10 +21,10 @@ Window::Window()
 {
 	this->console = GetStdHandle(STD_OUTPUT_HANDLE);
 
-	this->pages[0] = new MenuPage(this, " DZIEKANAT ");
-	this->pages[1] = new StudentPage(this, " STUDENT SERWIS ");
-	this->pages[2] = new StaffPage(this, " GRONO PEDAGOGICZNE SERWIS ");
-	this->pages[3] = new LessonPage(this, " ZAJECIA SERWIS ");
+	this->pages[0] = new MenuPage(this);
+	this->pages[1] = new StudentPage(this);
+	this->pages[2] = new StaffPage(this);
+	this->pages[3] = new LessonPage(this);
 
 	this->pages[4] = new AddStudentPage(this);
 	this->pages[6] = new AddStaffMemberPage(this);
@@ -34,27 +34,29 @@ Window::Window()
 	this->pages[7] = new ViewPage(this, " LISTA PRACOWNIKOW ", 2);
 	this->pages[9] = new ViewPage(this, " LISTA ZAJEC ", 3);
 
-	MainPage* mainPage;
 	AddPage* addPage;
 	ViewPage* viewPage;
 
-	mainPage = (MainPage*)this->pages[1];
+	StudentPage* studentPage = (StudentPage*)this->pages[1];
 	addPage = (AddPage*)this->pages[4];
-	addPage->init(mainPage->getObjectList());
+	addPage->init(studentPage->getStudentList());
 	viewPage = (ViewPage*)this->pages[5];
-	viewPage->init(mainPage->getObjectList());
+	viewPage->init(studentPage->getStudentList());
 
-	mainPage = (MainPage*)this->pages[2];
+	StaffPage* staffPage = (StaffPage*)this->pages[2];
 	addPage = (AddPage*)this->pages[6];
-	addPage->init(mainPage->getObjectList());
+	addPage->init(staffPage->getStaffList());
 	viewPage = (ViewPage*)this->pages[7];
-	viewPage->init(mainPage->getObjectList());
+	viewPage->init(staffPage->getStaffList());
 
-	mainPage = (MainPage*)this->pages[3];
+	LessonPage* lessonPage = (LessonPage*)this->pages[3];
 	addPage = (AddPage*)this->pages[8];
-	addPage->init(mainPage->getObjectList());
+	addPage->init(lessonPage->getLessonList());
 	viewPage = (ViewPage*)this->pages[9];
-	viewPage->init(mainPage->getObjectList());
+	viewPage->init(lessonPage->getLessonList());
+
+	studentPage->init(lessonPage->getLessonList());
+	staffPage->init(lessonPage->getLessonList());
 
 	this->activePageIndex = 0;
 }

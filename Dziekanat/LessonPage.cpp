@@ -3,10 +3,8 @@
 #include "LessonList.h"
 #include "StaffMember.h"
 
-LessonPage::LessonPage(Window* window, std::string headerText) : MainPage(window, headerText)
+LessonPage::LessonPage(Window* window) : MainPage(window, " ZAJECIA SERWIS ")
 {
-	this->menu = Menu();
-
 	this->menu.addMenuElement("Dodaj zajecie");
 	this->menu.addMenuElement("Usun zajecie");
 	this->menu.addMenuElement("Znajdz zajecie wedlug nazwy");
@@ -17,13 +15,16 @@ LessonPage::LessonPage(Window* window, std::string headerText) : MainPage(window
 	this->menu.addMenuElement("Wyswietl liczbe zajec");
 
 	this->setMenu(&this->menu);
-
-	this->lessonList = LessonList();
 }
 
 LessonPage::~LessonPage()
 {
 	
+}
+
+LessonList* LessonPage::getLessonList()
+{
+	return &this->lessonList;
 }
 
 void LessonPage::service()
@@ -57,7 +58,7 @@ void LessonPage::service()
 				std::cout << "Podaj id zajec, ktore chcesz usunac: " << std::endl;
 				std::cin >> id;
 
-				id = this->objectList.removeObject(id);
+				id = this->lessonList.removeObject(id);
 
 				if (id == 0)
 					std::cout << std::endl << "Nie ma takiego zajecia" << std::endl;

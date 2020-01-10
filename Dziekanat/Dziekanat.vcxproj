@@ -197,6 +197,8 @@
     <ClInclude Include="Window.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ClassDiagram — kopia — kopia.cd" />
+    <None Include="ClassDiagram — kopia.cd" />
     <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

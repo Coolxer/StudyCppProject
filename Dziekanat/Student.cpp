@@ -4,7 +4,7 @@
 
 Student::Student(std::string firstName, std::string lastName, int age, std::string field, int level, int year, std::string type) : Person(firstName, lastName, age)
 {
-	this->study = Study(field, level, year, type);
+	this->study.init(field, level, year, type);
 }
 
 bool Student::operator ==(const Student& s)

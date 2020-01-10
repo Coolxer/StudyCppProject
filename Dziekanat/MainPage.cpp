@@ -5,18 +5,12 @@
 MainPage::MainPage(Window* window, std::string headerText) : Page(window)
 {
 	this->header = TextBox('#', headerText);
-	this->objectList = ObjectList();
 	this->info = TextBox('*', "** Podaj nr operacji **");
 }
 
 void MainPage::setMenu(Menu* menu)
 {
 	this->menu = *menu;
-}
-
-ObjectList* MainPage::getObjectList()
-{
-	return &this->objectList;
 }
 
 void MainPage::draw()

@@ -14,7 +14,6 @@ protected:
 	std::string strings[10];
 	int numbers[10];
 	ObjectList* objectList;
-
 public:
 	AddPage(Window* window);
 	~AddPage();

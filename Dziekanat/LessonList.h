@@ -11,6 +11,8 @@ public:
 
 	Lesson* getByName(std::string name);
 
+	bool lessonExist(std::string name, std::string type);
+
 	void removeStaffMemberFromLessons(StaffMember* staffMember);
 	void removeStudentFromLessons(Student* student);
 

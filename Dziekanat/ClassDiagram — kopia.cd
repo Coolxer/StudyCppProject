@@ -1,0 +1,283 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Page">
+    <Position X="7.5" Y="1.25" Width="1.5" />
+    <Members>
+      <Field Name="window" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AJAAAAAAAAAQAAAAAAIAAAAAAAAAAAAIAEAAAAAAAAA=</HashCode>
+      <FileName>Page.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AddStaffMemberPage">
+    <Position X="12" Y="8.25" Width="1.5" />
+    <Members>
+      <Field Name="header" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAEAAAAAAAAAIAAAAAAACAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>AddStaffMemberPage.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AddStudentPage">
+    <Position X="9.75" Y="8.25" Width="1.5" />
+    <Members>
+      <Field Name="header" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAAAAAIAIAAAAAAAAAAAACAEAAAAAAAAA=</HashCode>
+      <FileName>AddStudentPage.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MenuPage">
+    <Position X="0.75" Y="6.25" Width="1.5" />
+    <Members>
+      <Field Name="menu" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAEAAAAAAACA=</HashCode>
+      <FileName>MenuPage.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StaffPage">
+    <Position X="5.25" Y="6.25" Width="1.5" />
+    <Members>
+      <Field Name="lessonList" Hidden="true" />
+      <Field Name="menu" Hidden="true" />
+      <Field Name="staffList" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAQAAAAAAAAAAgAACAAAAIAAEAAAAEAAIA=</HashCode>
+      <FileName>StaffPage.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Person">
+    <Position X="5" Y="11.5" Width="1.5" />
+    <Members>
+      <Field Name="age" Hidden="true" />
+      <Field Name="firstName" Hidden="true" />
+      <Field Name="lastName" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AIAAAEAAAABAQAAAAAAAAAAAAAAAAAAAAAIACEAAAAA=</HashCode>
+      <FileName>Person.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Student">
+    <Position X="3" Y="14" Width="1.5" />
+    <Members>
+      <Field Name="index" Hidden="true" />
+      <Field Name="study" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAIAAAAAAAJAAQAAAAUAAAAABAAAAAABAAA=</HashCode>
+      <FileName>Student.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StaffMember">
+    <Position X="7" Y="14" Width="1.5" />
+    <Members>
+      <Field Name="academic_degrees" Hidden="true" />
+      <Field Name="cash" Hidden="true" />
+      <Field Name="numberOfLessonsProvided" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAECAAAAAAAUEAAAAAIEAAAAIIAAAAAABBAAAAAAAAA=</HashCode>
+      <FileName>StaffMember.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CmdManager" Collapsed="true">
+    <Position X="10.75" Y="17" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CmdManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ObjectList">
+    <Position X="12" Y="11" Width="1.5" />
+    <Members>
+      <Field Name="index" Hidden="true" />
+      <Field Name="objects" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAgAEAAAAAAAAEASAAQQAAAAAAAAAAAAABgAA=</HashCode>
+      <FileName>ObjectList.h</FileName>
+      <NewMemberFileName>LessonsList.h</NewMemberFileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StaffList">
+    <Position X="12" Y="14.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>StaffList.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MenuElement">
+    <Position X="14.25" Y="18" Width="1.5" />
+    <Members>
+      <Field Name="name" Hidden="true" />
+      <Field Name="number" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAAQAAAAAAAAAAAAAAEAAAABAAAAAAAAAA=</HashCode>
+      <FileName>MenuElement.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Program">
+    <Position X="9" Y="17.5" Width="1.5" />
+    <Members>
+      <Field Name="window" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Program.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Window">
+    <Position X="10.75" Y="18" Width="1.5" />
+    <Members>
+      <Field Name="activePageIndex" Hidden="true" />
+      <Field Name="console" Hidden="true" />
+      <Field Name="pages" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AEAAAEAAgCAAAAIAAEAAAAAAgQAAAAAAAAAICAAAAAA=</HashCode>
+      <FileName>Window.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextBox">
+    <Position X="14.25" Y="19.5" Width="1.5" />
+    <Members>
+      <Field Name="text" Hidden="true" />
+      <Field Name="type" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAAAAAAAAAAAAAAABAAAIBAAAAAAAAAA=</HashCode>
+      <FileName>TextBox.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Study">
+    <Position X="3" Y="17" Width="1.5" />
+    <Members>
+      <Field Name="field" Hidden="true" />
+      <Field Name="level" Hidden="true" />
+      <Field Name="type" Hidden="true" />
+      <Field Name="year" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>CACEAAAAAAAAABAAAAEABAAAAREBAAIAAAAAAAQAQAA=</HashCode>
+      <FileName>Study.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Object">
+    <Position X="3" Y="9" Width="1.5" />
+    <Members>
+      <Field Name="index" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAIAEAABAAAAAAAABAAAAAABAAA=</HashCode>
+      <FileName>Object.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StudentList">
+    <Position X="9.75" Y="14.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgCAAAAAAAAAAAAAAAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>StudentList.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LessonList">
+    <Position X="14.25" Y="14.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAkIAAIQAAEAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>LessonList.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Menu">
+    <Position X="12.5" Y="18" Width="1.5" />
+    <Members>
+      <Field Name="menuElements" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAACAAAAIAAAABAAAAAAAAEA=</HashCode>
+      <FileName>Menu.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AddPage">
+    <Position X="12" Y="3.75" Width="1.5" />
+    <Members>
+      <Field Name="currentStep" Hidden="true" />
+      <Field Name="numbers" Hidden="true" />
+      <Field Name="objectList" Hidden="true" />
+      <Field Name="strings" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAEAAAACAAAAEgAAAIAIABAQAIAwAIAAkAAgQAAAAA=</HashCode>
+      <FileName>AddPage.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AddLessonPage">
+    <Position X="14.25" Y="8.25" Width="1.5" />
+    <Members>
+      <Field Name="header" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAACAAAAIAAAAAAAAAAAAAAUAAAAAAAAA=</HashCode>
+      <FileName>AddLessonPage.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MainPage">
+    <Position X="4.25" Y="3.75" Width="1.5" />
+    <Members>
+      <Field Name="header" Hidden="true" />
+      <Field Name="info" Hidden="true" />
+      <Field Name="menu" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAQAAAAAAAgAIAAAgAAAAAAAAAQEAAAAAAAAA=</HashCode>
+      <FileName>MainPage.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StudentPage">
+    <Position X="3" Y="6.25" Width="1.5" />
+    <Members>
+      <Field Name="lessonList" Hidden="true" />
+      <Field Name="menu" Hidden="true" />
+      <Field Name="studentList" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAIQAAAAEAAAAAAgAAAAAAAIAAEAAAAEAAAA=</HashCode>
+      <FileName>StudentPage.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LessonPage">
+    <Position X="7.5" Y="6.25" Width="1.5" />
+    <Members>
+      <Field Name="lessonList" Hidden="true" />
+      <Field Name="menu" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAAAAAAAAAgAAAAAEAAAAFAAAAEAAAA=</HashCode>
+      <FileName>LessonPage.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Lesson">
+    <Position X="0.75" Y="11.5" Width="1.5" />
+    <Members>
+      <Field Name="duration" Hidden="true" />
+      <Field Name="maxPlaces" Hidden="true" />
+      <Field Name="name" Hidden="true" />
+      <Field Name="occupiedPlaces" Hidden="true" />
+      <Field Name="staffMember" Hidden="true" />
+      <Field Name="startTime" Hidden="true" />
+      <Field Name="students" Hidden="true" />
+      <Field Name="type" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>EAAAAAIgIAABIBAAAAIgSAAAAQAVAAABhAAMABADAAE=</HashCode>
+      <FileName>Lesson.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

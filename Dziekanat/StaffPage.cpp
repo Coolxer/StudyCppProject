@@ -1,25 +1,26 @@
 #include "StaffPage.h"
 
-StaffPage::StaffPage(Window* window, std::string headerText) : MainPage(window, headerText)
+StaffPage::StaffPage(Window* window) : MainPage(window, " GRONO PEDAGOGICZNE SERWIS ")
 {
-	this->menu = Menu();
-
 	this->menu.addMenuElement("Dodaj pracownika");
 	this->menu.addMenuElement("Usun pracownika");
-	this->menu.addMenuElement("Znajdz studenta wedlug id");
+	this->menu.addMenuElement("Znajdz pracownika wedlug id");
 	this->menu.addMenuElement("Wyswietl profesorow");
 	this->menu.addMenuElement("Wyswietl wszystkich pracownikow");
 	this->menu.addMenuElement("Wyswietl liczbe pracownikow");
 	this->menu.addMenuElement("Przypisz pracownika do zajec");
 
 	this->setMenu(&this->menu);
-
-	this->staffList = StaffList();
 }
 
 StaffPage::~StaffPage()
 {
 	delete this->lessonList;
+}
+
+StaffList* StaffPage::getStaffList()
+{
+	return &this->staffList;
 }
 
 void StaffPage::init(LessonList* lessonList)

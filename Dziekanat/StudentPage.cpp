@@ -1,9 +1,7 @@
 #include "StudentPage.h"
 
-StudentPage::StudentPage(Window* window, std::string headerText) : MainPage(window, headerText)
+StudentPage::StudentPage(Window* window) : MainPage(window, " STUDENT SERWIS ")
 {
-	this->menu = Menu();
-
 	this->menu.addMenuElement("Dodaj studenta");
 	this->menu.addMenuElement("Usun studenta");
 	this->menu.addMenuElement("Znajdz studenta wedlug indeksu");
@@ -15,13 +13,16 @@ StudentPage::StudentPage(Window* window, std::string headerText) : MainPage(wind
 	this->menu.addMenuElement("Zapisz studenta na zajecia");
 
 	this->setMenu(&this->menu);
-
-	this->studentList = StudentList();
 }
 
 StudentPage::~StudentPage()
 {
 	delete this->lessonList;
+}
+
+StudentList* StudentPage::getStudentList()
+{
+	return &this->studentList;
 }
 
 void StudentPage::init(LessonList* lessonList)
@@ -84,7 +85,7 @@ void StudentPage::service()
 
 				break;
 			case 3:
-				std::cout << "Podaj nr indeksu studenta, ktorego dane chcesz zobaczyæ: " << std::endl;
+				std::cout << "Podaj nr indeksu studenta, ktorego dane chcesz zobaczyc: " << std::endl;
 				std::cin >> index;
 
 				if (!std::cin.good())
@@ -94,7 +95,7 @@ void StudentPage::service()
 					break;
 				}
 
-				exists = this->studentList.showByIndex(index);
+				exists = (Student*)this->studentList.showByIndex(index);
 
 				if (!exists)
 					std::cout << std::endl << "Nie ma takiego studenta" << std::endl;

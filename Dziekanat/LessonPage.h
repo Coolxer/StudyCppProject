@@ -8,8 +8,10 @@ private:
 	Menu menu;
 	LessonList lessonList;
 public:
-	LessonPage(Window* window, std::string headerText);
+	LessonPage(Window* window);
 	~LessonPage();
+
+	LessonList* getLessonList();
 
 	void service();
 };

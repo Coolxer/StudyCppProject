@@ -15,6 +15,7 @@ private:
 
 public:
 	ViewPage(Window* window, std::string headerText, int parentWindowIndex);
+	~ViewPage();
 
 	void init(ObjectList* objectList);
 

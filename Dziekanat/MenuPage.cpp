@@ -1,6 +1,6 @@
 #include "MenuPage.h"
 
-MenuPage::MenuPage(Window* window, std::string headerText) : MainPage(window, headerText)
+MenuPage::MenuPage(Window* window) : MainPage(window, " DZIEKANAT ")
 {
 	this->menu = Menu();
 

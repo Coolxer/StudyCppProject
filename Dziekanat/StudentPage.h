@@ -12,8 +12,10 @@ private:
 	StudentList studentList;
 	LessonList* lessonList;
 public:
-	StudentPage(Window* window, std::string headerText);
+	StudentPage(Window* window);
 	~StudentPage();
+
+	StudentList* getStudentList();
 
 	void init(LessonList* lessonList);
 

@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Page">
+    <Position X="8.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AJAAAAAAAAAQAAAAAAIAAAAAAAAAAAAIAEAAAAAAAAA=</HashCode>
+      <FileName>Page.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AddStaffMemberPage">
+    <Position X="11.75" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAEAAAAAAAAAIAAAAAAACAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>AddStaffMemberPage.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AddStudentPage">
+    <Position X="9.5" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAAAAAIAIAAAAAAAAAAAACAEAAAAAAAAA=</HashCode>
+      <FileName>AddStudentPage.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MenuPage">
+    <Position X="1.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAEAAAAAAACA=</HashCode>
+      <FileName>MenuPage.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StaffPage">
+    <Position X="5.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAQAAAAAAAAAAgAACAAAAIAAEAAAAEAAIA=</HashCode>
+      <FileName>StaffPage.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Person">
+    <Position X="4.75" Y="16" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAEAAAABAQAAAAAAAAAAAAAAAAAAAAAIACEAAAAA=</HashCode>
+      <FileName>Person.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Student">
+    <Position X="2.75" Y="19.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAIAAAAAAAJAAQAAAAUAAAAABAAAAAABAAA=</HashCode>
+      <FileName>Student.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StaffMember">
+    <Position X="6.75" Y="19.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAECAAAAAAAUEAAAAAIEAAAAIIAAAAAABBAAAAAAAAA=</HashCode>
+      <FileName>StaffMember.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CmdManager" Collapsed="true">
+    <Position X="11" Y="20.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CmdManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ObjectList">
+    <Position X="12" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAgAEAAAAAAAAEASAAQQAAAAAAAAAAAAABgAA=</HashCode>
+      <FileName>ObjectList.h</FileName>
+      <NewMemberFileName>LessonsList.h</NewMemberFileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StaffList">
+    <Position X="12" Y="16.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>StaffList.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MenuElement">
+    <Position X="14.5" Y="21.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAAQAAAAAAAAAAAAAAEAAAABAAAAAAAAAA=</HashCode>
+      <FileName>MenuElement.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Program">
+    <Position X="9.25" Y="21" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Program.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Window">
+    <Position X="11" Y="21.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAEAAgCAAAAIAAEAAAAAAgQAAAAAAAAAICAAAAAA=</HashCode>
+      <FileName>Window.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextBox">
+    <Position X="14.5" Y="23.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAAAAAAAAAAAAAAABAAAIBAAAAAAAAAA=</HashCode>
+      <FileName>TextBox.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Study">
+    <Position X="2.75" Y="22.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CACEAAAAAAAAABAAAAEABAAAAREBAAIAAAAAAAQAQAA=</HashCode>
+      <FileName>Study.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Object">
+    <Position X="2.75" Y="13" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAIAEAABAAAAAAAABAAAAAABAAA=</HashCode>
+      <FileName>Object.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StudentList">
+    <Position X="9.75" Y="16.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgCAAAAAAAAAAAAAAAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>StudentList.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LessonList">
+    <Position X="14.25" Y="16.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAkIAAIQAAEAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>LessonList.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Menu">
+    <Position X="12.75" Y="21.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAACAAAAIAAAABAAAAAAAAEA=</HashCode>
+      <FileName>Menu.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AddPage">
+    <Position X="11.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAACAAAAEgAAAIAIABAQAIAwAIAAkAAgQAAAAA=</HashCode>
+      <FileName>AddPage.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AddLessonPage">
+    <Position X="14" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAACAAAAIAAAAAAAAAAAAAAUAAAAAAAAA=</HashCode>
+      <FileName>AddLessonPage.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MainPage">
+    <Position X="4.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAQAAAAAAAgAIAAAgAAAAAAAAAQEAAAAAAAAA=</HashCode>
+      <FileName>MainPage.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StudentPage">
+    <Position X="3.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAIQAAAAEAAAAAAgAAAAAAAIAAEAAAAEAAAA=</HashCode>
+      <FileName>StudentPage.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LessonPage">
+    <Position X="7" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAAAAAAAAAgAAAAAEAAAAFAAAAEAAAA=</HashCode>
+      <FileName>LessonPage.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Lesson">
+    <Position X="0.5" Y="16" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAIgIAABIBAAAAIgSAAAAQAVAAABhAAMABADAAE=</HashCode>
+      <FileName>Lesson.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

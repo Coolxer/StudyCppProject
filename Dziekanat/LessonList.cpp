@@ -18,6 +18,19 @@ Lesson* LessonList::getByName(std::string name)
 	return nullptr;
 }
 
+bool LessonList::lessonExist(std::string name, std::string type)
+{
+	for (int i = 0; i < (int)this->objects.size(); i++)
+	{
+		Lesson* lesson = (Lesson*)&this->objects[i];
+
+		if (lesson->getName() == name && lesson->getType() == type)
+			return true;
+	}
+
+	return false;
+}
+
 void LessonList::removeStaffMemberFromLessons(StaffMember* staffMember)
 {
 	for (int i = 0; i < (int)this->objects.size(); i++)

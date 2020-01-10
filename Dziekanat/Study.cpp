@@ -1,6 +1,6 @@
 #include "Study.h"
 
-Study::Study(std::string field, int level, int year, std::string type)
+void Study::init(std::string field, int level, int year, std::string type)
 {
 	this->field = field;
 	this->level = level;
