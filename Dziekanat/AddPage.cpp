@@ -25,16 +25,6 @@ int AddPage::getCurrentStep()
 	return this->currentStep;
 }
 
-void AddPage::setString(int id, std::string string)
-{
-	this->strings[id] = string;
-}
-
-void AddPage::setNumber(int id, int value)
-{
-	this->numbers[id] = value;
-}
-
 void AddPage::resetValues()
 {
 	this->currentStep = 1;
