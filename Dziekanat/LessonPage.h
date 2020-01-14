@@ -2,17 +2,20 @@
 #include "MainPage.h"
 #include "LessonList.h"
 
+/* Klasa reprezentujaca strone nawigacyjna dotyczaca zajec */
+/* Klasa dziedziczy klase MainPage */
+
 class LessonPage : public MainPage
 {
 private:
-	Menu menu;
-	LessonList lessonList;
+	Menu menu; // menu nawigacyjne
+	LessonList lessonList; // lista zajec
 public:
-	LessonPage(Window* window);
-	~LessonPage();
+	LessonPage(Window* window); // konstruktor z argumentem wskaünika do obiektu klasy Window
+	~LessonPage(); // destruktor
 
-	LessonList* getLessonList();
+	LessonList* getLessonList(); // metoda zwraca wskaznik do listy zajec
 
-	void service();
+	void service(); // metoda zarzadza operacjami na stronie
 };
 

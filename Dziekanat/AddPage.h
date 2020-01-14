@@ -8,7 +8,7 @@
 /* Klasa sluzaca do dodawania obiektow, bedaca klasa bazowa, ktorych obiektow nie ma w programie */
 /* Nie mozna utworzyc obiektow tej klasy, bo jest ona abstrakcyjna */
 /* Klasa posiada 2 metody czysto wirtualne: draw() i service() */
-/* Metody te musza byc przysloniete w klasach potomnych, inaczej kompilator zwroci blad*/
+/* Metody te musza byc przesloniete w klasach potomnych, inaczej kompilator zwroci blad*/
 
 class AddPage : public Page
 {

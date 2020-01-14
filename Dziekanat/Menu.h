@@ -3,15 +3,17 @@
 #include <string>
 #include "MenuElement.h"
 
+/* Klasa reprezentujaca menu nawigacyjne */
+
 class Menu
 {
 private:
-	std::vector <MenuElement> menuElements;
+	std::vector <MenuElement> menuElements; // elementy menu
 public:
-	Menu();
+	Menu(); // konstruktor domyslny
 
-	void addMenuElement(std::string text);
+	void addMenuElement(std::string text); // metoda dodaje nowy element do menu
 
-	void show();
+	void show(); // metoda wyswietla menu
 };
 
