@@ -1,14 +1,16 @@
 #pragma once
 #include <string>
 
+/* Klasa reprezentujaca tekst otoczony ramka */
+
 class TextBox
 {
 private:
-	char type;
-	std::string text;
+	char type; // znak reprezentujacy ramke
+	std::string text; // tekst
 public:
-	TextBox() {}
-	TextBox(char type, std::string text);
-	void show();
+	TextBox() {} // konstruktor
+	TextBox(char type, std::string text); // konstruktor parametrowy
+	void show(); // metoda wyswietla tekst z ramka
 };
 

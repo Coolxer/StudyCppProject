@@ -3,18 +3,21 @@
 
 #include "Object.h"
 
+/* Klasa reprezentujaca osobe */
+/* Klasa dziedziczy (rozszerza) klase Object */
+
 class Person: public Object
 {
 private:
-	std::string firstName;
-	std::string lastName;
-	int age;
+	std::string firstName; // imie
+	std::string lastName; // nazwisko
+	int age; // wiek
 public:
-	Person(){}
-	Person(std::string firstName, std::string lastName, int age);
+	Person(){} // konstruktor domyslny
+	Person(std::string firstName, std::string lastName, int age); // konstruktor z parametrami: imie, nazwisko i wiek
 
-	std::string getFirstName() const;
-	std::string getLastName() const;
-	int getAge() const;
+	std::string getFirstName() const; // metoda zwraca imie
+	std::string getLastName() const; // metoda zwraca nazwisko
+	int getAge() const; // metoda zwraca wiek
 };
 

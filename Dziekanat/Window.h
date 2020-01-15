@@ -1,25 +1,27 @@
 #pragma once
 #include "windows.h"
 
-class Page;
+/* Klasa reprezentujaca okno programu */
+
+class Page; // deklaracja klasy Page
 
 class Window
 {
 private:
-	HANDLE console;
-	Page* pages[10];
+	HANDLE console; // konsola
+	Page* pages[10]; // tablica wskaznikow na obiekty klasy Page
 
-	int activePageIndex;
+	int activePageIndex; // numer aktualnej strony
 
-	void clear();
-	void drawActivePage();
+	void clear(); // metoda czysci ekran
+	void drawActivePage(); // metoda wyswietla aktualna strone
 public:
-	Window();
-	~Window();
+	Window(); // konstruktor domyslny
+	~Window(); // destruktor
 
-	void refresh();
+	void refresh(); // metoda odswieza okno
 
-	void setActivePage(int pageIndex);
-	HANDLE getConsole();
+	void setActivePage(int pageIndex); // metoda ustawia aktualna strone
+	HANDLE getConsole(); // metoda zwraca obiekt typu HANDLE
 };
 
