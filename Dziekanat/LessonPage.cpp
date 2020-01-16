@@ -5,6 +5,7 @@
 
 LessonPage::LessonPage(Window* window) : MainPage(window, " ZAJECIA SERWIS ")
 {
+	/* Dodawanie elementow do menu */
 	this->menu.addMenuElement("Dodaj zajecie");
 	this->menu.addMenuElement("Usun zajecie");
 	this->menu.addMenuElement("Znajdz zajecie wedlug nazwy");
@@ -36,7 +37,7 @@ void LessonPage::service()
 
 		if (option == 0)
 		{
-			this->getWindow()->setActivePage(0);
+			this->getWindow()->setActivePage(0); // powrot do strony glownej
 			break;
 		}
 		else if (option == -1)

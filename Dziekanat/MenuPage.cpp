@@ -2,13 +2,14 @@
 
 MenuPage::MenuPage(Window* window) : MainPage(window, " DZIEKANAT ")
 {
-	this->menu = Menu();
+	this->menu = Menu(); // stworzenie obiektu typu Menu
 
-	this->menu.addMenuElement("Studenci");
+	/* Dodawanie elementow do menu */
+	this->menu.addMenuElement("Studenci"); 
 	this->menu.addMenuElement("Grono pedagogiczne");
 	this->menu.addMenuElement("Zajecia");
 
-	this->setMenu(&this->menu);
+	this->setMenu(&this->menu); // ustawienie menu
 }
 
 void MenuPage::service()
@@ -16,7 +17,7 @@ void MenuPage::service()
 	int option;
 
 	do {
-		option = CmdManager::listen();
+		option = CmdManager::listen(); // pobranie numeru operacji do wykonania
 
 		if (option == 0)
 			break;
@@ -24,7 +25,7 @@ void MenuPage::service()
 			continue;
 		else
 		{
-			this->getWindow()->setActivePage(option);
+			this->getWindow()->setActivePage(option); // przejscie do strony o podanym numerze
 			break;
 		}
 	} while (true);
