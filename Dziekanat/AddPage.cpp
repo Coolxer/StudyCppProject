@@ -36,11 +36,6 @@ void AddPage::resetValues()
 	}
 }
 
-int AddPage::increaseCurrentStep()
-{
-	return ++this->currentStep;
-}
-
 void AddPage::checkNumber(int number)
 {
 	if (number == 0)

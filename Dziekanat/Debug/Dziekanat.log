@@ -1,2 +1,32 @@
-﻿  StudentList.cpp
+﻿  AddLessonPage.cpp
+  AddPage.cpp
+  AddStaffMemberPage.cpp
+  AddStudentPage.cpp
+  CmdManager.cpp
+  Lesson.cpp
+  LessonList.cpp
+  LessonPage.cpp
+  MainPage.cpp
+  Menu.cpp
+  MenuElement.cpp
+  MenuPage.cpp
+  Object.cpp
+  ObjectList.cpp
+  Page.cpp
+  Person.cpp
+  Program.cpp
+  StaffList.cpp
+  StaffMember.cpp
+  StaffPage.cpp
+  Generowanie kodu...
+  Trwa kompilowanie...
+  Student.cpp
+  StudentList.cpp
+  StudentPage.cpp
+  Study.cpp
+  TextBox.cpp
+  ViewPage.cpp
+  Window.cpp
+  main.cpp
+  Generowanie kodu...
   Dziekanat.vcxproj -> E:\studia\C++\projekt\Dziekanat\Debug\Dziekanat.exe

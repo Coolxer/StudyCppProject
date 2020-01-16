@@ -19,8 +19,8 @@ void AddStaffMemberPage::draw()
 	SetConsoleTextAttribute(this->getWindow()->getConsole(), FOREGROUND_GREEN);
 	this->header.show();
 
-	this->drawParagraph("Imie:     | ");
-	std::cout << this->strings[0] << std::endl;
+	this->drawParagraph("Imie:     | "); // wyswietlenie paragrafu dot. imienia
+	std::cout << this->strings[0] << std::endl; // wyswietlenie aktualnego imienia, jesli nie wpisane to ""
 
 	this->drawParagraph("Nazwisko: | ");
 	std::cout << this->strings[1] << std::endl;
@@ -34,21 +34,22 @@ void AddStaffMemberPage::draw()
 
 void AddStaffMemberPage::service()
 {
-	switch (this->getCurrentStep())
+	switch (this->getCurrentStep()) // switch na podstawie aktualnego kroku dodawania nowego pracownika
 	{
 	case 1:
-		this->testString("Podaj imie: (min. 3 litery)", 0);
+		this->testString("Podaj imie: (min. 3 litery)", 0); // pobranie odpowiedniego imienia pracownika (pobranie + walidacja)
 		break;
 	case 2:
-		this->testString("Podaj nazwisko: (min. 3 litery)", 1);
+		this->testString("Podaj nazwisko: (min. 3 litery)", 1); // pobranie odpowiedniego imienia pracownika (pobranie + walidacja)
 		break;
 	case 3:
-		this->testNumber("Podaj wiek: (min. 30, max. 100)", 0, 30, 100);
+		this->testNumber("Podaj wiek: (min. 30, max. 100)", 0, 30, 100); // pobranie odpowiedniego wieku pracownika (pobranie + walidacja)
 		break;
 	case 4:
-		this->testString("Podaj tytul(y): (min 3 litery)", 2);
+		this->testString("Podaj tytul(y): (min 3 litery)", 2); // pobranie odpowiednich tytulow naukowych pracownika (pobranie + walidacja)
 		break;
 	default:
+		// dodanie nowego pracownika do listy
 		int id = this->objectList->addObject(new StaffMember(this->strings[0], this->strings[1], this->numbers[0], this->strings[2]));
 
 		this->getWindow()->refresh();
@@ -56,12 +57,12 @@ void AddStaffMemberPage::service()
 
 		Sleep(2000);
 
-		this->resetValues();
-		this->getWindow()->setActivePage(2);
+		this->resetValues(); // zresetowanie wszystkich wpisywanych wartosci
+		this->getWindow()->setActivePage(2); // powrot do glownej strony studentow
 		break;
 	}
 
-	this->increaseCurrentStep();
-	this->getWindow()->refresh();
-	this->service();
+	this->currentStep++; // zwiekszenie postepu dodawania nowego studenta
+	this->getWindow()->refresh();  // odswiezenie strony
+	this->service(); // powrot na poczatek metody
 }

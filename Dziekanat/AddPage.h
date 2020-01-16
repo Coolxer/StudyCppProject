@@ -12,10 +12,8 @@
 
 class AddPage : public Page
 {
-private:
-	int currentStep; // aktualny krok dodawania nowego obiektu, zainicjalizowany jedynka
-
 protected:
+	int currentStep; // aktualny krok dodawania nowego obiektu, zainicjalizowany jedynka
 	std::string strings[10]; // tablica napisow, sluzaca jako dane tymczasowe
 	int numbers[10]; // tablica liczb calkowitych, sluzaca jako dane tymczasowe
 	ObjectList* objectList; // wskaznik na obiekt klasy ObjectList
@@ -28,7 +26,6 @@ public:
 	int getCurrentStep(); // metoda zwraca aktualny krok
 
 	void resetValues(); // metoda resetuje aktualny krok oraz dane tymczasowe
-	int increaseCurrentStep(); // metoda zwieksza a nastepnie zwraca aktualny krok
 
 	void checkNumber(int number); // metoda sprawdza czy podany numer jest rowny 0, jesli tak to wypisuje '', inaczej wypisuje numer
 	void testString(std::string text, int id); // metoda sprawdza czy podany napis jest poprawny
