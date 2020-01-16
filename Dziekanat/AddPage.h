@@ -23,8 +23,6 @@ public:
 
 	void init(ObjectList* objectList); // metoda ustawia wskaznik na obiekt klasy ObjectList
 
-	int getCurrentStep(); // metoda zwraca aktualny krok
-
 	void resetValues(); // metoda resetuje aktualny krok oraz dane tymczasowe
 
 	void checkNumber(int number); // metoda sprawdza czy podany numer jest rowny 0, jesli tak to wypisuje '', inaczej wypisuje numer

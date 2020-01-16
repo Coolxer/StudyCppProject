@@ -37,7 +37,7 @@ void AddLessonPage::draw()
 
 void AddLessonPage::service()
 {
-	switch (this->getCurrentStep()) // switch na podstawie aktualnego kroku dodawania nowych zajec
+	switch (this->currentStep) // switch na podstawie aktualnego kroku dodawania nowych zajec
 	{
 	case 1:
 		std::cout << "Podaj typ: (wyklad / cwiczenia / laboratorium / projekt)" << std::endl;

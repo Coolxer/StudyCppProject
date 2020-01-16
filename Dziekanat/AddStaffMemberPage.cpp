@@ -34,7 +34,7 @@ void AddStaffMemberPage::draw()
 
 void AddStaffMemberPage::service()
 {
-	switch (this->getCurrentStep()) // switch na podstawie aktualnego kroku dodawania nowego pracownika
+	switch (this->currentStep) // switch na podstawie aktualnego kroku dodawania nowego pracownika
 	{
 	case 1:
 		this->testString("Podaj imie: (min. 3 litery)", 0); // pobranie odpowiedniego imienia pracownika (pobranie + walidacja)

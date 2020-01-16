@@ -43,7 +43,7 @@ void AddStudentPage::draw()
 
 void AddStudentPage::service()
 {
-	switch (this->getCurrentStep()) // switch na podstawie aktualnego kroku dodawania nowego studenta
+	switch (this->currentStep) // switch na podstawie aktualnego kroku dodawania nowego studenta
 	{
 	case 1:
 		this->testString("Podaj imie: (min. 3 litery)", 0); // pobranie odpowiedniego imienia studenta (pobranie + walidacja)
