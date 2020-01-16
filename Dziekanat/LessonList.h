@@ -21,11 +21,8 @@ public:
 	void removeStaffMemberFromLessons(StaffMember* staffMember); // metoda zwalnia pracownika ze wszystkich zajec, ktore prowadzil
 	void removeStudentFromLessons(Student* student); // metoda skresla studenta z list wszystkich zajec, na ktore byl zapisany
 
-	bool showByName(std::string name); // metoda wyswietla dane zajec na podstawie nazwy
-									   // jesli operacja sie powiodla zwraca prawde, inaczej falsz
+	void showByName(std::string name); // metoda wyswietla dane zajec na podstawie nazwy
 
-	bool showSpecificType(std::string type); // metoda wyswietla dane wszystkich zajec danego typu
-										     // jesli nie ma ani jednego zajecia podanego typu
-											 // to metoda zwraca falsz, inaczej prawde
+	void showSpecificType(std::string type); // metoda wyswietla dane wszystkich zajec danego typu
 };
 

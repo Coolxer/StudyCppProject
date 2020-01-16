@@ -99,10 +99,7 @@ void StudentPage::service()
 					break;
 				}
 
-				exists = (Student*)this->studentList.showByIndex(index); // proba wyswietlenia studenta o podanym indeksie
-
-				if (!exists) // jesli student o podanym indeksie nie istnieje to wyswietl komunikat
-					std::cout << std::endl << "Nie ma takiego studenta" << std::endl;
+				this->studentList.showByIndex(index); // wyswietlenie danych studenta o podanym indeksie
 
 				Sleep(2500);
 				break;
@@ -113,37 +110,19 @@ void StudentPage::service()
 
 				// show header
 
-				exists = this->studentList.showByField(input); // proba wyswietlenia studentow z danego kierunku studiow
-
-				if (!exists) // sprawdzenie czy na danym kierunku sa jacys studenci, jesli nie to wyswietl komunikat
-				{
-					this->getWindow()->refresh(); // odswiezenie okna
-					std::cout << std::endl << "Nie ma studentow na tym kierunku" << std::endl;
-				}
+				this->studentList.showByField(input); // wyswietlenie studentow z danego kierunku studiow
 
 				Sleep(2500);
 				break;
 
 			case 5:
-				exists = this->studentList.showByType("stacjonarne"); // proba wyswietlenia studentow stacjonarnych
-
-				if (!exists) // sprawdzenie czy sa jacys studenci stacjonarni, jesli nie to wyswietl komunikat
-				{
-					this->getWindow()->refresh(); // odswiezenie okna
-					std::cout << std::endl << "Nie studentow stacjonarnych" << std::endl;
-				}
+				this->studentList.showByType("stacjonarne"); // wyswietlenie studentow stacjonarnych
 
 				Sleep(2500);
 				break;
 
 			case 6:
-				exists = this->studentList.showByType("zaoczne"); // proba wyswietlenia studentow zaocznych
-
-				if (!exists) // sprawdzenie czy sa jacys studenci zaoczni, jesli nie to wyswietl komunikat
-				{
-					this->getWindow()->refresh(); // odswiezenie okna
-					std::cout << std::endl << "Nie studentow zaocznych" << std::endl;
-				}
+				this->studentList.showByType("zaoczne"); // wyswietlenie studentow zaocznych
 
 				Sleep(2500);
 				break;

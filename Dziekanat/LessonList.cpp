@@ -55,22 +55,25 @@ void LessonList::removeStudentFromLessons(Student* student)
 	}
 }
 
-bool LessonList::showByName(std::string name)
+void LessonList::showByName(std::string name)
 {
+	bool exists = false;
+
 	for (int i = 0; i < (int)this->objects.size(); i++)
 	{
 		Lesson* lesson = (Lesson*)&this->objects[i]; // pobranie wskaznika na aktualny w iteracji obiekt typu Lesson
 		if (lesson->getName() == name) // sprawdzenie czy zajecia maja nazwe taka jaka zostala podana jako argument
 		{
 			lesson->show(true); // wyswietlenie danych dotyczacych konkretnych zajec
-			return true;
+			exists = true;
 		}
 	}
 
-	return false; // jesli zajecia o podanej nazwie nie istnieja, to zwroc false 
+	if(!exists) // jesli zajecia o podanej nazwie nie istnieja, wyswietl komunikat
+		std::cout << "Nie ma zajec o podanej nazwie" << std::endl;
 }
 
-bool LessonList::showSpecificType(std::string type)
+void LessonList::showSpecificType(std::string type)
 {
 	int count = 0; // ustawienie licznika zajec spelniajacych warunek na 0
 
@@ -84,8 +87,6 @@ bool LessonList::showSpecificType(std::string type)
 		}
 	}
 
-	if (count > 0) // sprawdzenie czy istnieja zajecia spelniajace podany warunek
-		return true;
-
-	return false; // jesli nie ma wymaganych zajec, zwroc false
+	if (count == 0) // sprawdzenie czy istnieja zajecia spelniajace podany warunek
+		std::cout << "Nie ma zajec tego typu" << std::endl;
 }

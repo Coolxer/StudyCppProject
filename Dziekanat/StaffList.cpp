@@ -8,7 +8,7 @@ StaffList::StaffList()
 	this->addObject(new StaffMember("Mariusz", "Maczka", 60, "prof")); // dodanie pracownika do listy pracownikow
 }
 
-bool StaffList::showProfessors()
+void StaffList::showProfessors()
 {
 	int count = 0; // ustawienie licznika pracownikow spelniajacych warunek na 0
 
@@ -22,8 +22,6 @@ bool StaffList::showProfessors()
 		}
 	}
 
-	if (count > 0)  // sprawdzenie czy istnieja pracownicy spelniajacy podany warunek
-		return true;
-
-	return false; // jesli nie ma wymaganych pracownikow, zwroc false
+	if (count == 0)  // sprawdzenie czy istnieja pracownicy spelniajacy podany warunek
+		std::cout << "Nie ma profesorow" << std::endl;
 }

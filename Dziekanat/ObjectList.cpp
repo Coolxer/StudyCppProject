@@ -53,29 +53,31 @@ Object* ObjectList::getObjectByIndex(int index)
 	return nullptr; // jesli obiekt o podanym indeksie nie istnieje, zwroc wskaznik pusty
 }
 
-bool ObjectList::showAll()
+void ObjectList::showAll()
 {
 	/* wyswietlenie obiektow z listy */
 	for (int i = 0; i < (int)this->objects.size(); i++)
 		this->objects[i]->show();
 
-	if (this->objects.size() != 0) // jesli lista nie jest pusta to zwroc true
-		return true;
-
-	return false; // jesli lista pusta to zwroci false
+	if (this->objects.size() == 0) // jesli lista nie jest pusta to zwroc true
+		std::cout << "Lista jest pusta" << std::endl;
 }
 
-bool ObjectList::showByIndex(int index)
+void ObjectList::showByIndex(int index)
 {
+	bool exists = false;
+
 	for (int i = 0; i < (int)this->objects.size(); i++)
 	{
 		if (this->objects[i]->getIndex() == index) // sprawdzenie czy aktualny obiekt w iteracji ma index rowny podanemu jako argument
 		{
 			this->objects[i]->show(true); // wyswietlenie danych dot. obiektu
-			return true;
+			exists = true;
 		}
 	}
-	return false; // jesli nie ma obiektu na liscie o podanym indeksie, to zwroci false
+
+	if (!exists) // jesli nie ma obiektu na liscie o podanym indeksie, to wyswietl komunikat
+		std::cout << "Nie istnieje";
 }
 
 int ObjectList::getNumberOfObjects()

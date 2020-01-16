@@ -76,10 +76,7 @@ void LessonPage::service()
 				std::cout << "Podaj nazwe zajecia, ktorego szczegoly chcesz zobaczyc: " << std::endl;
 				std::cin >> input; // wczytanie nazwy zajec
 
-				exists = this->lessonList.showByName(input); // proba wyswietlenia zajec o podanej nazwie
-
-				if (!exists) // jesli zajecia o podanej nazwie nie istnieja to wyswietl komunikat
-					std::cout << std::endl << "Nie ma takich zajec" << std::endl;
+				this->lessonList.showByName(input); // wyswietlenie zajec o podanej nazwie
 
 				Sleep(2500);
 				break;
@@ -115,12 +112,7 @@ void LessonPage::service()
 				if (!lesson) // jesli wskaznik jest pusty to nie ma takich zajec, inaczej ...
 					std::cout << std::endl << "Nie ma takich zajec" << std::endl;
 				else
-				{
-					bool ok = lesson->showStudents(); // wyswietlenie studentow zapisanych na zajecia
-
-					if(!ok) // sprawdzenie czy istnieja jacys studenci zapisani na te zajecia
-						std::cout << std::endl << "To zajecie nie ma uczestnikow" << std::endl;
-				}
+					lesson->showStudents(); // wyswietlenie studentow zapisanych na zajecia
 
 				Sleep(2500);
 				break;
@@ -131,13 +123,7 @@ void LessonPage::service()
 
 				//Lesson::showHeader();
 
-				exists = this->lessonList.showSpecificType(input); // wyswietlenie zajec o podanym typie
-
-				if (!exists) // sprawdzenie czy zajecia o podanym typie istnieja, jesli nie to wyswietl komunikat
-				{
-					this->getWindow()->refresh();
-					std::cout << std::endl << "Nie ma zajec typu " << input << std::endl;
-				}
+				this->lessonList.showSpecificType(input); // wyswietlenie zajec o podanym typie
 
 				Sleep(2500);
 				break;

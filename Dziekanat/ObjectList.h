@@ -25,8 +25,8 @@ public:
 	int removeObject(int index); // metoda usuwa obiekt z tablicy
 	Object* getObjectByIndex(int index); // metoda zwraca obiekt na podstawie numeru identyfikacyjnego
 
-	bool showAll(); // metoda wyswietla wszystkie obiekty z tablicy
-	bool showByIndex(int index); // metoda wyswietla obiekt z tablicy na podstawie numeru identyfikacyjnego
+	void showAll(); // metoda wyswietla wszystkie obiekty z tablicy
+	void showByIndex(int index); // metoda wyswietla obiekt z tablicy na podstawie numeru identyfikacyjnego
 
 	int getNumberOfObjects(); // metoda zwraca ilosc elementow tablicy
 };

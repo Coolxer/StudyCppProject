@@ -37,10 +37,7 @@ void ViewPage::draw()
 	}*/
 
 	SetConsoleTextAttribute(this->getWindow()->getConsole(), FOREGROUND_RED);
-	bool isEmpty = this->objectList->showAll(); // wyswietlenie obiektow z listy
-
-	if (!isEmpty) // sprawdzenie czy lista nie jest pusta
-		std::cout << "BRAK! ";
+	this->objectList->showAll(); // wyswietlenie obiektow z listy
 
 	SetConsoleTextAttribute(this->getWindow()->getConsole(), FOREGROUND_INTENSITY | FOREGROUND_GREEN | FOREGROUND_BLUE);
 	this->info.show(); // wyswietlenie informacji

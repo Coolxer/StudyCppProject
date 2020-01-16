@@ -6,6 +6,8 @@
   Lesson.cpp
   LessonList.cpp
   LessonPage.cpp
+E:\studia\C++\projekt\Dziekanat\Dziekanat\LessonPage.cpp(49,9): warning C4101: "exists": lokalna zmienna, do której nie istnieje odwołanie
+  main.cpp
   MainPage.cpp
   Menu.cpp
   MenuElement.cpp
@@ -17,16 +19,16 @@
   Program.cpp
   StaffList.cpp
   StaffMember.cpp
-  StaffPage.cpp
   Generowanie kodu...
   Trwa kompilowanie...
+  StaffPage.cpp
   Student.cpp
   StudentList.cpp
   StudentPage.cpp
+E:\studia\C++\projekt\Dziekanat\Dziekanat\StudentPage.cpp(52,9): warning C4101: "exists": lokalna zmienna, do której nie istnieje odwołanie
   Study.cpp
   TextBox.cpp
   ViewPage.cpp
   Window.cpp
-  main.cpp
   Generowanie kodu...
   Dziekanat.vcxproj -> E:\studia\C++\projekt\Dziekanat\Debug\Dziekanat.exe

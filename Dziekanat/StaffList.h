@@ -9,7 +9,6 @@ class StaffList : public ObjectList
 public:
 	StaffList(); // konstruktor domyslny
 
-	bool showProfessors(); // metoda wyswietla wszystkich pracownikow z tytulem naukowym prof.
-
+	void showProfessors(); // metoda wyswietla wszystkich pracownikow z tytulem naukowym prof.
 };
 

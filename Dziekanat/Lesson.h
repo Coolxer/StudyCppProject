@@ -48,7 +48,7 @@ public:
 	bool addStudent(Student* student); // metoda dopisuje studenta do listy zajec
 	bool setStaffMember(StaffMember* staffMember); // metoda zatrudnia pracownika jako prowadzacego zajecia
 	
-	bool showStudents(); // metoda wyswietla liste studentow zapisanych na zajecia
+	void showStudents(); // metoda wyswietla liste studentow zapisanych na zajecia
 
 	void showHeader(); // metoda wyswietla naglowek informacyjny
 	void show(bool withHeader = false); // metoda wyswietla konkretne dane zajec

@@ -108,17 +108,15 @@ bool Lesson::setStaffMember(StaffMember* staffMember)
 	return true;
 }
 
-bool Lesson::showStudents()
+void Lesson::showStudents()
 {
-	if (this->students.size() == 0) // sprawdzenie czy do zajec sa przypisani jacys studenci, jesli nie to zwroc false
-		return false;
-
 	//Student::showHeader();
 
 	for (int i = 0; i < (int)this->students.size(); i++)
 		this->students[i].show(); // wyswietlenie danych wszystkich studentow zapisanych na zajecia
 
-	return true;
+	if (this->students.size() == 0) // sprawdzenie czy do zajec sa przypisani jacys studenci, jesli nie to wyswietl komunikat
+		std::cout << "Lista studentow dla tych zajec jest pusta" << std::endl;
 }
 
 void Lesson::showHeader()

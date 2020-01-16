@@ -95,10 +95,7 @@ void StaffPage::service()
 					break;
 				}
 
-				exists = this->staffList.showByIndex(id); // proba wyswietlenia danych pracownika o podanym id
-
-				if (!exists) // jesli pracownik o podanym id nie istnieje to wyswietl komunikat
-					std::cout << std::endl << "Nie ma takiego pracownika" << std::endl;
+				this->staffList.showByIndex(id); // wyswietlenia danych pracownika o podanym id
 
 				Sleep(2500);
 				break;
@@ -106,13 +103,7 @@ void StaffPage::service()
 
 				//StaffMember::showHeader();
 
-				exists = this->staffList.showProfessors(); // proba wyswietlenia profesorow
-
-				if (!exists) // jesli nie ma profesorow to wyswietl komunikat
-				{
-					this->getWindow()->refresh();
-					std::cout << std::endl << "Nie ma profesorow" << std::endl;
-				}
+				this->staffList.showProfessors(); // wyswietlenie profesorow
 
 				Sleep(2500);
 				break;
