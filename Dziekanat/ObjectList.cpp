@@ -38,7 +38,8 @@ int ObjectList::removeObject(int index)
 			return index;
 		}
 	}
-	return 0;
+
+	return -1;
 }
 
 Object* ObjectList::getObjectByIndex(int index)
