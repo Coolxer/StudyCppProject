@@ -3,12 +3,12 @@
 
 Page::Page(Window* window) 
 {  
-	this->window = window; 
+	this->window = window;  
 }
 
 Page::~Page()
 {
-	delete this->window;
+	
 }
 
 Window* Page::getWindow() 

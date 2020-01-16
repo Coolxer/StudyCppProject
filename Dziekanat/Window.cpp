@@ -21,6 +21,7 @@ Window::Window()
 {
 	this->console = GetStdHandle(STD_OUTPUT_HANDLE);
 
+	/* Utworzenie poszczegolnych stron */
 	this->pages[0] = new MenuPage(this);
 	this->pages[1] = new StudentPage(this);
 	this->pages[2] = new StaffPage(this);
@@ -39,43 +40,44 @@ Window::Window()
 
 	StudentPage* studentPage = (StudentPage*)this->pages[1];
 	addPage = (AddPage*)this->pages[4];
-	addPage->init(studentPage->getStudentList());
+	addPage->init(studentPage->getStudentList()); // przekazanie wskaznika na obiekt typu StudentList
 	viewPage = (ViewPage*)this->pages[5];
-	viewPage->init(studentPage->getStudentList());
+	viewPage->init(studentPage->getStudentList()); // przekazanie wskaznika na obiekt typu StudentList
 
 	StaffPage* staffPage = (StaffPage*)this->pages[2];
 	addPage = (AddPage*)this->pages[6];
-	addPage->init(staffPage->getStaffList());
+	addPage->init(staffPage->getStaffList()); // przekazanie wskaznika na obiekt typu StaffList
 	viewPage = (ViewPage*)this->pages[7];
-	viewPage->init(staffPage->getStaffList());
+	viewPage->init(staffPage->getStaffList()); // przekazanie wskaznika na obiekt typu StaffList
 
 	LessonPage* lessonPage = (LessonPage*)this->pages[3];
 	addPage = (AddPage*)this->pages[8];
-	addPage->init(lessonPage->getLessonList());
+	addPage->init(lessonPage->getLessonList()); // przekazanie wskaznika na obiekt typu LessonList
 	viewPage = (ViewPage*)this->pages[9];
-	viewPage->init(lessonPage->getLessonList());
+	viewPage->init(lessonPage->getLessonList()); // przekazanie wskaznika na obiekt typu LessonList
 
-	studentPage->init(lessonPage->getLessonList());
-	staffPage->init(lessonPage->getLessonList());
+	studentPage->init(lessonPage->getLessonList()); // przekazanie wskaznika na obiekt typu LessonList
+	staffPage->init(lessonPage->getLessonList()); // przekazanie wskaznika na obiekt typu LessonList
 
 	this->activePageIndex = 0;
 }
 
 Window::~Window()
 {
+	// zwolnienie pamieci zarezerwowanej dla poszczegolnych stron 
 	for (int i = 0; i < 7; i++)
 		delete this->pages[i];
 }
 
 void Window::clear()
 {
-	system("cls");
+	system("cls"); // wyczyszczenie konsoli
 }
 
 void Window::drawActivePage()
 {
 	this->clear();
-	this->pages[this->activePageIndex]->draw();
+	this->pages[this->activePageIndex]->draw(); // narysowanie aktualnej strony
 }
 
 void Window::refresh()

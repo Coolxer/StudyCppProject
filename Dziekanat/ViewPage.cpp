@@ -17,7 +17,7 @@ ViewPage::ViewPage(Window* window, std::string headerText, int parentWindowIndex
 
 ViewPage::~ViewPage()
 {
-	delete this->objectList;
+	//delete this->objectList;
 }
 
 void ViewPage::init(ObjectList* objectList)
@@ -28,7 +28,7 @@ void ViewPage::init(ObjectList* objectList)
 void ViewPage::draw()
 {
 	SetConsoleTextAttribute(this->getWindow()->getConsole(), FOREGROUND_GREEN);
-	this->header.show();
+	this->header.show(); // wyswietlenie naglowka
 
 	/*
 	if(this->objectList->getNumberOfObjects() != 0)
@@ -37,13 +37,13 @@ void ViewPage::draw()
 	}*/
 
 	SetConsoleTextAttribute(this->getWindow()->getConsole(), FOREGROUND_RED);
-	bool isEmpty = this->objectList->showAll();
+	bool isEmpty = this->objectList->showAll(); // wyswietlenie obiektow z listy
 
-	if (!isEmpty)
+	if (!isEmpty) // sprawdzenie czy lista nie jest pusta
 		std::cout << "BRAK! ";
 
 	SetConsoleTextAttribute(this->getWindow()->getConsole(), FOREGROUND_INTENSITY | FOREGROUND_GREEN | FOREGROUND_BLUE);
-	this->info.show();
+	this->info.show(); // wyswietlenie informacji
 }
 
 void ViewPage::service()
@@ -51,17 +51,17 @@ void ViewPage::service()
 	int option;
 
 	do {
-		option = CmdManager::listen();
+		option = CmdManager::listen();  // pobranie numeru operacji do wykonania
 
 		if (option == 0)
 		{
-			this->getWindow()->setActivePage(this->parentWindowIndex);
+			this->getWindow()->setActivePage(this->parentWindowIndex); // powrot do strony nadrzednej
 			break;
 		}
 		else
 		{
 			continue;
-			this->getWindow()->refresh();
+			this->getWindow()->refresh(); // odswiezenie okna
 		}
 	} while (true);
 }

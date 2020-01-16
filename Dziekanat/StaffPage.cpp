@@ -2,6 +2,7 @@
 
 StaffPage::StaffPage(Window* window) : MainPage(window, " GRONO PEDAGOGICZNE SERWIS ")
 {
+	/* Dodawanie elementow do menu */
 	this->menu.addMenuElement("Dodaj pracownika");
 	this->menu.addMenuElement("Usun pracownika");
 	this->menu.addMenuElement("Znajdz pracownika wedlug id");
@@ -10,12 +11,12 @@ StaffPage::StaffPage(Window* window) : MainPage(window, " GRONO PEDAGOGICZNE SER
 	this->menu.addMenuElement("Wyswietl liczbe pracownikow");
 	this->menu.addMenuElement("Przypisz pracownika do zajec");
 
-	this->setMenu(&this->menu);
+	this->setMenu(&this->menu); // ustawienie menu dla strony
 }
 
 StaffPage::~StaffPage()
 {
-	delete this->lessonList;
+	//delete this->lessonList;
 }
 
 StaffList* StaffPage::getStaffList()
@@ -33,32 +34,33 @@ void StaffPage::service()
 	int option;
 
 	do {
-		option = CmdManager::listen();
+		option = CmdManager::listen(); // pobranie numeru operacji do wykonania
 
 		if (option == 0)
 		{
-			this->getWindow()->setActivePage(0);
+			this->getWindow()->setActivePage(0); // powrot do strony glownej
 			break;
 		}
 		else if (option == -1)
 			continue;
 		else
 		{
+			/* deklaracja zmiennych pomocniczych */
 			int id;
 			bool exists;
 			std::string input;
 
 			StaffMember* staffMember;
 
-			switch (option)
+			switch (option) // switch na podstawie numeru operacji
 			{
 			case 1:
-				this->getWindow()->setActivePage(6);
+				this->getWindow()->setActivePage(6); // przejscie do strony dodawania nowego pracownika
 				break;
 			case 2:
-				this->getWindow()->refresh();
+				this->getWindow()->refresh(); // odswiezenie okna
 				std::cout << "Podaj id pracownika, ktorego chcesz zwolnic: " << std::endl;
-				std::cin >> id;
+				std::cin >> id; // wczytanie id pracownika do usuniecia
 
 				if (!std::cin.good())
 				{
@@ -67,16 +69,16 @@ void StaffPage::service()
 					break;
 				}
 
-				staffMember = (StaffMember*)this->staffList.getObjectByIndex(id);
+				staffMember = (StaffMember*)this->staffList.getObjectByIndex(id); // ustawienie wskaznika na obiekt typu StaffMember o podanym id
 
-				exists = this->staffList.removeObject(staffMember->getIndex());
+				exists = this->staffList.removeObject(staffMember->getIndex()); // proba usuniecia pracownika o podanym id z listy
 
-				if (!exists)
+				if (!exists) // jesli pracownik o podanym id nie istnieje to wyswietl komunikat
 					std::cout << std::endl << "Nie ma takiego pracownika" << std::endl;
 				else
 				{
 					std::cout << std::endl << "Usunieto pracownika o indeksie " << id;
-					this->lessonList->removeStaffMemberFromLessons(staffMember);
+					this->lessonList->removeStaffMemberFromLessons(staffMember); // usuniecie pracownika z zajec ktorych jest prowadzacym
 				}
 					
 				Sleep(2000);
@@ -84,7 +86,7 @@ void StaffPage::service()
 				break;
 			case 3:
 				std::cout << "Podaj id pracownika, ktorego dane chcesz zobaczyæ: " << std::endl;
-				std::cin >> id;
+				std::cin >> id; // wczytanie id pracownika
 
 				if (!std::cin.good())
 				{
@@ -93,9 +95,9 @@ void StaffPage::service()
 					break;
 				}
 
-				exists = this->staffList.showByIndex(id);
+				exists = this->staffList.showByIndex(id); // proba wyswietlenia danych pracownika o podanym id
 
-				if (!exists)
+				if (!exists) // jesli pracownik o podanym id nie istnieje to wyswietl komunikat
 					std::cout << std::endl << "Nie ma takiego pracownika" << std::endl;
 
 				Sleep(2500);
@@ -104,9 +106,9 @@ void StaffPage::service()
 
 				//StaffMember::showHeader();
 
-				exists = this->staffList.showProfessors();
+				exists = this->staffList.showProfessors(); // proba wyswietlenia profesorow
 
-				if (!exists)
+				if (!exists) // jesli nie ma profesorow to wyswietl komunikat
 				{
 					this->getWindow()->refresh();
 					std::cout << std::endl << "Nie ma profesorow" << std::endl;
@@ -115,7 +117,7 @@ void StaffPage::service()
 				Sleep(2500);
 				break;
 			case 5:
-				this->getWindow()->setActivePage(7);
+				this->getWindow()->setActivePage(7); // przejscie do strony wyswietlajacej liste pracownikow
 				break;	
 			case 6:
 				std::cout << "Liczba pracownikow: " << this->staffList.getNumberOfObjects() << std::endl;
@@ -125,9 +127,9 @@ void StaffPage::service()
 				std::cout << "Podaj nr id pracownika, ktorego chcesz przypisac: " << std::endl;
 				std::cin >> id;
 
-				staffMember = (StaffMember*)this->staffList.getObjectByIndex(id);
+				staffMember = (StaffMember*)this->staffList.getObjectByIndex(id); // ustawienie wskaznika na obiekt typu StaffMember o podanym id
 
-				if (!staffMember)
+				if (!staffMember) // sprawdzenie czy pracownik o podanym id istnieje, jesli nie to wyswietl komunikat
 				{
 					std::cout << "Nie ma takiego pracownika" << std::endl;
 					Sleep(1500);
@@ -136,21 +138,21 @@ void StaffPage::service()
 				{
 					Lesson* lesson;
 
-					std::cout << "Podaj nazwe zajecia, do ktorego chcesz przypisac pracownika: " << std::endl;
-					std::cin >> input;
+					std::cout << "Podaj nazwe zajec, do ktorego chcesz przypisac pracownika: " << std::endl;
+					std::cin >> input; // wczytanie nazwy zajec
 
-					lesson = this->lessonList->getByName(input);
+					lesson = this->lessonList->getByName(input); // ustawienie wskaznika na obiekt typu Lesson o podanej nazwie
 
-					if (!lesson)
+					if (!lesson) // sprawdzenie czy zajecia o podanej nazwie istnieja, jesli nie to wyswietl komunikat
 					{
-						std::cout << "Nie ma takiego zajecia" << std::endl;
+						std::cout << "Nie ma takiego zajec" << std::endl;
 						Sleep(1500);
 					}
 					else
 					{
-						bool ok = lesson->setStaffMember(staffMember);
+						bool ok = lesson->setStaffMember(staffMember); // przypisanie prowadzacego do zajec
 
-						if (ok)
+						if (ok) // jesli podany prowa
 						{
 							std::cout << "Przypisano pracownika do zajecia";
 							staffMember->increaseLessons();

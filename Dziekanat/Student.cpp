@@ -4,11 +4,12 @@
 
 Student::Student(std::string firstName, std::string lastName, int age, std::string field, int level, int year, std::string type) : Person(firstName, lastName, age)
 {
-	this->study.init(field, level, year, type);
+	this->study.init(field, level, year, type); // ustawienie danych dot. studiow
 }
 
 bool Student::operator ==(const Student& s)
 {
+	/* jesli wszystkie pola Studenta A i Studenta B sa takie same, to obiekty sa sobie rowne */
 	if ((this->index == s.index) && (this->getFirstName() == s.getFirstName()) && (this->getLastName() == s.getLastName()) && (this->getAge() == s.getAge()) && (this->study.getField() == s.study.getField()) && (this->study.getLevel() == s.study.getLevel()) && (this->study.getYear() == s.study.getYear()) && (this->study.getType() == s.study.getType()))
 		return true;
 	return false;
@@ -36,7 +37,7 @@ void Student::showHeader()
 
 void Student::show(bool withHeader)
 {
-	if (withHeader)
+	if (withHeader) // parametr withHeader jest opcjonalny
 		this->showHeader();
 
 	std::cout << "-----------------" << std::endl;

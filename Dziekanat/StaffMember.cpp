@@ -20,7 +20,9 @@ int StaffMember::getCash() const
 
 void StaffMember::calcCash()
 {
-	int converter; //przelicznik
+	int converter; // przelicznik ( mnoznik )
+
+	/* ustawienie przelicznika na podstawie posidanych stopni naukowych */
 
 	if (this->academic_degrees == "lic" || this->academic_degrees == "lic." || this->academic_degrees == "inz" || this->academic_degrees == "inz.")
 		converter = 200;
@@ -33,21 +35,21 @@ void StaffMember::calcCash()
 	else
 		converter = 0;
 
-	this->cash = converter * this->numberOfLessonsProvided;
+	this->cash = converter * this->numberOfLessonsProvided; // obliczenie wynagrodzenia na podstawie posiadanych stopni naukowych i ilosci prowadzonych zajec
 }
 
 bool StaffMember::isProfessor() const
 {
-	if (this->academic_degrees.find("prof") != std::string::npos)
+	if (this->academic_degrees.find("prof") != std::string::npos) // sprawdzenie czy pracownik ma tytul profesora, jesli tak to zwraca true
 		return true;
 
-	return false;
+	return false; // jesli pracownik nie jest profesorem, to zwraca false
 }
 
 void StaffMember::increaseLessons()
 {
-	this->numberOfLessonsProvided++;
-	this->calcCash();
+	this->numberOfLessonsProvided++; // zwiekszenie licznika prowadzonych zajec przez pracownika
+	this->calcCash(); // obliczenie wynagrodzenia
 }
 
 void StaffMember::showHeader()
@@ -57,7 +59,7 @@ void StaffMember::showHeader()
 
 void StaffMember::show(bool withHeader)
 {
-	if (withHeader)
+	if (withHeader) // parametr withHeader jest opcjonalny
 		this->showHeader();
 
 	std::cout << "-----------------" << std::endl;
