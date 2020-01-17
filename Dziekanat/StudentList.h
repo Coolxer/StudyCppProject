@@ -10,7 +10,7 @@ class StudentList: public ObjectList
 public:
 	StudentList(); // konstruktor domyslny
 
-	bool showByField(std::string field); // metoda wyswietla studentow wedlug kierunku studiow
-	bool showByType(std::string type); // metoda wyswietla studentow wedlug typu studiowania
+	void showByField(std::string field); // metoda wyswietla studentow wedlug kierunku studiow
+	void showByType(std::string type); // metoda wyswietla studentow wedlug typu studiowania
 };
 

@@ -73,6 +73,7 @@ void ObjectList::showByIndex(int index)
 		{
 			this->objects[i]->show(true); // wyswietlenie danych dot. obiektu
 			exists = true;
+			break;
 		}
 	}
 
