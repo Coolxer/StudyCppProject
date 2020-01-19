@@ -33,6 +33,8 @@ void AddLessonPage::draw()
 
 	this->drawParagraph("Max. ilosc miejsc | ");
 	this->checkNumber(this->numbers[2]);
+
+	std::cout << std::endl;
 }
 
 void AddLessonPage::service()

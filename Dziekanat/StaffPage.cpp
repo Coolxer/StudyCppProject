@@ -35,6 +35,8 @@ void StaffPage::service()
 {
 	int option;
 
+	SetConsoleTextAttribute(this->getWindow()->getConsole(), 13); // zmiana koloru tekstu w konsoli na rozowy
+
 	do {
 		option = CmdManager::listen(); // pobranie numeru operacji do wykonania
 
@@ -87,7 +89,7 @@ void StaffPage::service()
 
 				break;
 			case 3:
-				std::cout << "Podaj id pracownika, ktorego dane chcesz zobaczyæ: " << std::endl;
+				std::cout << "Podaj id pracownika, ktorego dane chcesz zobaczyc: " << std::endl;
 				std::cin >> id; // wczytanie id pracownika
 
 				if (!std::cin.good())

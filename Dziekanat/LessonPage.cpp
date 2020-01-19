@@ -34,6 +34,8 @@ void LessonPage::service()
 {
 	int option;
 
+	SetConsoleTextAttribute(this->getWindow()->getConsole(), 13); // zmiana koloru tekstu w konsoli na rozowy
+
 	do {
 		option = CmdManager::listen(); // pobranie numeru operacji do wykonania
 

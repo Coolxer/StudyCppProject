@@ -30,6 +30,8 @@ void AddStaffMemberPage::draw()
 
 	this->drawParagraph("Tytul: | ");
 	std::cout << this->strings[2] << std::endl;
+
+	std::cout << std::endl;
 }
 
 void AddStaffMemberPage::service()

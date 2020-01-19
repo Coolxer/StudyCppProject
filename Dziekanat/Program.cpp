@@ -7,5 +7,5 @@ Program::Program()
 
 void Program::run()
 {
-	this->window.setActivePage(0); // ustawienie jako aktywna strone glowna
+	this->window.setActivePage(0); // ustawienie strony glownej jako aktywna strone 
 }

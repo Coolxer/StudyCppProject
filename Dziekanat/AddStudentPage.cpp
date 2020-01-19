@@ -39,6 +39,8 @@ void AddStudentPage::draw()
 
 	this->drawParagraph("Typ:      | ");
 	std::cout << this->strings[3] << std::endl;
+
+	std::cout << std::endl;
 }
 
 void AddStudentPage::service()
