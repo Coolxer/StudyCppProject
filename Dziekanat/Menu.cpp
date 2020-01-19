@@ -12,6 +12,11 @@ void Menu::addMenuElement(std::string text)
 	this->menuElements.push_back(MenuElement(index + 1, text)); // dodanie nowego elementu do menu, z numerem zwiekszonym o 1
 }
 
+void Menu::addMenuBackElement(std::string text)
+{
+	this->menuElements.push_back(MenuElement(0, text));
+}
+
 void Menu::show()
 {
 	for (int i = 0; i < (int)this->menuElements.size(); i++)

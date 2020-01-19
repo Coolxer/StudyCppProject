@@ -1,6 +1,6 @@
 #include "MenuPage.h"
 
-MenuPage::MenuPage(Window* window) : MainPage(window, " DZIEKANAT ")
+MenuPage::MenuPage(Window* window) : MainPage(window, "              DZIEKANAT ")
 {
 	this->menu = Menu(); // stworzenie obiektu typu Menu
 
@@ -8,6 +8,7 @@ MenuPage::MenuPage(Window* window) : MainPage(window, " DZIEKANAT ")
 	this->menu.addMenuElement("Studenci"); 
 	this->menu.addMenuElement("Grono pedagogiczne");
 	this->menu.addMenuElement("Zajecia");
+	this->menu.addMenuBackElement("Wyjscie z programu");
 
 	this->setMenu(&this->menu); // ustawienie menu
 }

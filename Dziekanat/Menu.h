@@ -13,6 +13,7 @@ public:
 	Menu(); // konstruktor domyslny
 
 	void addMenuElement(std::string text); // metoda dodaje nowy element do menu
+	void addMenuBackElement(std::string text); // metoda dodaje nowy element o numerze 0 na samym koncu, element nawigacyjny
 
 	void show(); // metoda wyswietla menu
 };

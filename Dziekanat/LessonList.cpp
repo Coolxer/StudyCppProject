@@ -10,7 +10,7 @@ Lesson* LessonList::getByName(std::string name)
 {
 	for (int i = 0; i < (int)this->objects.size(); i++)
 	{
-		Lesson* lesson = (Lesson*)&this->objects[i]; // pobranie wskaznika na aktualny w iteracji obiekt typu Lesson
+		Lesson* lesson = (Lesson*)this->objects[i]; // pobranie wskaznika na aktualny w iteracji obiekt typu Lesson
 		if (lesson->getName() == name) // sprawadzenie czy zajecia maja nazwe taka jak podana jako argument
 			return lesson;             // jesli tak to zwraca wskaznik na ta zajecie
 	}
@@ -22,7 +22,7 @@ bool LessonList::lessonExist(std::string name, std::string type)
 {
 	for (int i = 0; i < (int)this->objects.size(); i++)
 	{
-		Lesson* lesson = (Lesson*)&this->objects[i]; // pobranie wskaznika na aktualny w iteracji obiekt typu Lesson
+		Lesson* lesson = (Lesson*)this->objects[i]; // pobranie wskaznika na aktualny w iteracji obiekt typu Lesson
 
 		if (lesson->getName() == name && lesson->getType() == type) // sprawdzenie czy zajecia maja nazwe i typ taki jak podany w argumentach
 			return true;                                            // jesli tak to zwraca true
@@ -35,7 +35,7 @@ void LessonList::removeStaffMemberFromLessons(StaffMember* staffMember)
 {
 	for (int i = 0; i < (int)this->objects.size(); i++)
 	{
-		Lesson* lesson = (Lesson*)&this->objects[i]; // pobranie wskaznika na aktualny w iteracji obiekt typu Lesson
+		Lesson* lesson = (Lesson*)this->objects[i]; // pobranie wskaznika na aktualny w iteracji obiekt typu Lesson
 		if (lesson->getStaffMember() == staffMember) // sprawdzenie czy prowadzacy zajecia jest taki sam jak podany w argumencie metody
 			lesson->removeStaffMember();             // jesli tak to zwalnia prowadzacego te zajecia
 	}
@@ -47,7 +47,7 @@ void LessonList::removeStudentFromLessons(Student* student)
 
 	for (int i = 0; i < (int)this->objects.size(); i++)
 	{
-		Lesson* lesson = (Lesson*)&this->objects[i]; // pobranie wskaznika na aktualny w iteracji obiekt typu Lesson
+		Lesson* lesson = (Lesson*)this->objects[i]; // pobranie wskaznika na aktualny w iteracji obiekt typu Lesson
 		x = lesson->consistsStudent(student); // sprawdzenie czy student jest zapisany na zajecia, jesli tak to x != -1
 
 		if (x != -1) // jesli student jest zapisany na zajecia to usun go z listy tych zajec
@@ -58,12 +58,19 @@ void LessonList::removeStudentFromLessons(Student* student)
 void LessonList::showByName(std::string name)
 {
 	bool exists = false;
+	bool firstOccurrence = true; // ustawienie flagi sygnalizujacej, ze napotkano pierwszy pasujacy wynik
 
 	for (int i = 0; i < (int)this->objects.size(); i++)
 	{
-		Lesson* lesson = (Lesson*)&this->objects[i]; // pobranie wskaznika na aktualny w iteracji obiekt typu Lesson
+		Lesson* lesson = (Lesson*)this->objects[i]; // pobranie wskaznika na aktualny w iteracji obiekt typu Lesson
 		if (lesson->getName() == name) // sprawdzenie czy zajecia maja nazwe taka jaka zostala podana jako argument
 		{
+			if (firstOccurrence)
+			{
+				Lesson::showHeader();
+				firstOccurrence = false;
+			}
+
 			lesson->show(true); // wyswietlenie danych dotyczacych konkretnych zajec
 			exists = true;
 		}
@@ -76,12 +83,19 @@ void LessonList::showByName(std::string name)
 void LessonList::showSpecificType(std::string type)
 {
 	int count = 0; // ustawienie licznika zajec spelniajacych warunek na 0
+	bool firstOccurrence = true; // ustawienie flagi sygnalizujacej, ze napotkano pierwszy pasujacy wynik
 
 	for (int i = 0; i < (int)this->objects.size(); i++)
 	{
-		Lesson* lesson = (Lesson*)&this->objects[i]; // pobranie wskaznika na aktualny w iteracji obiekt typu Lesson
+		Lesson* lesson = (Lesson*)this->objects[i]; // pobranie wskaznika na aktualny w iteracji obiekt typu Lesson
 		if (lesson->getType() == type) // sprawdzenie czy zajecia maja wymagany typ
 		{
+			if (firstOccurrence)
+			{
+				Lesson::showHeader();
+				firstOccurrence = false;
+			}
+
 			lesson->show(); // wyswietlenie danych dotyczacych konkretnych zajec
 			count++; // zwiekszenie licznika zajec spelniajacych warunek
 		}

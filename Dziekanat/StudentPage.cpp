@@ -1,6 +1,6 @@
 #include "StudentPage.h"
 
-StudentPage::StudentPage(Window* window) : MainPage(window, " STUDENT SERWIS ")
+StudentPage::StudentPage(Window* window) : MainPage(window, "     STUDENT SERWIS ")
 {
 	/* Dodawanie elementow do menu */
 	this->menu.addMenuElement("Dodaj studenta");
@@ -12,6 +12,8 @@ StudentPage::StudentPage(Window* window) : MainPage(window, " STUDENT SERWIS ")
 	this->menu.addMenuElement("Wyswietl wszystkich studentow");
 	this->menu.addMenuElement("Wyswietl liczbe studentow");
 	this->menu.addMenuElement("Zapisz studenta na zajecia");
+
+	this->menu.addMenuBackElement("Powrot do strony glownej");
 
 	this->setMenu(&this->menu); // ustawienie menu dla strony
 }

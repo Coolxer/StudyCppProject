@@ -11,6 +11,8 @@ StaffPage::StaffPage(Window* window) : MainPage(window, " GRONO PEDAGOGICZNE SER
 	this->menu.addMenuElement("Wyswietl liczbe pracownikow");
 	this->menu.addMenuElement("Przypisz pracownika do zajec");
 
+	this->menu.addMenuBackElement("Powrot do strony glownej");
+
 	this->setMenu(&this->menu); // ustawienie menu dla strony
 }
 

@@ -17,7 +17,6 @@ public:
 	int getIndex() const; // metoda zwraca numer identyfikacyjny
 	void setIndex(int index); // metoda ustawia numer identyfikacyjny
 
-	virtual void showHeader() = 0; // metoda czysto wirtualna (bez definicji) -> musi byc przeslonieta w klasie potomnej
 	virtual void show(bool withHeader = false) = 0; // metoda czysto wirtualna (bez definicji) -> musi byc przeslonieta w klasie potomnej
 };
 

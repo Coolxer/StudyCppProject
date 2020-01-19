@@ -22,7 +22,7 @@ public:
 	void changeStudyYear(int year); // metoda zmienia nr roku studiow
 	void changeStudyType(std::string type); // metoda zmienia typ studiowania
 
-	void showHeader(); // metoda wyswietla naglowek informacyjny
+	static void showHeader(); // metoda wyswietla naglowek informacyjny
 	void show(bool withHeader = false); // metoda wyswietla konkretne dane studenta
 };
 

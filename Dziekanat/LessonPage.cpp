@@ -15,6 +15,8 @@ LessonPage::LessonPage(Window* window) : MainPage(window, " ZAJECIA SERWIS ")
 	this->menu.addMenuElement("Wyswietl wszystkie zajecia");
 	this->menu.addMenuElement("Wyswietl liczbe zajec");
 
+	this->menu.addMenuBackElement("Powrot do strony glownej");
+
 	this->setMenu(&this->menu); // ustawienie menu dla strony
 }
 

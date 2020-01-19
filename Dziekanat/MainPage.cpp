@@ -5,7 +5,7 @@
 MainPage::MainPage(Window* window, std::string headerText) : Page(window)
 {
 	this->header = TextBox('#', headerText);
-	this->info = TextBox('*', "** Podaj nr operacji **");
+	this->info = TextBox('*', "**         Podaj nr operacji          **");
 }
 
 void MainPage::setMenu(Menu* menu)

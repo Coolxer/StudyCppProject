@@ -11,12 +11,19 @@ StaffList::StaffList()
 void StaffList::showProfessors()
 {
 	int count = 0; // ustawienie licznika pracownikow spelniajacych warunek na 0
+	bool firstOccurrence = true; // ustawienie flagi sygnalizujacej, ze napotkano pierwszy pasujacy wynik
 
 	for (int i = 0; i < (int)this->objects.size(); i++)
 	{
-		StaffMember* member = (StaffMember*)&this->objects[i]; // pobranie wskaznika na aktualny w iteracji obiekt typu StaffMember
+		StaffMember* member = (StaffMember*)this->objects[i]; // pobranie wskaznika na aktualny w iteracji obiekt typu StaffMember
 		if (member->isProfessor()) // sprawdzenie czy pracownik ma tytul profesora
 		{
+			if (firstOccurrence)
+			{
+				StaffMember::showHeader();
+				firstOccurrence = false;
+			}
+
 			member->show(); // wyswietlenie danych dot. pracownika
 			count++; // zwiekszenie licznika pracownikow spelniajacych warunek
 		}

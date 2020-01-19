@@ -50,7 +50,7 @@ public:
 	
 	void showStudents(); // metoda wyswietla liste studentow zapisanych na zajecia
 
-	void showHeader(); // metoda wyswietla naglowek informacyjny
+	static void showHeader(); // metoda wyswietla naglowek informacyjny
 	void show(bool withHeader = false); // metoda wyswietla konkretne dane zajec
 };
 

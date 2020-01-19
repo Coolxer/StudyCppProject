@@ -1,5 +1,8 @@
 #include "Study.h"
 
+#include <iostream>
+#include <windows.h>
+
 void Study::init(std::string field, int level, int year, std::string type)
 {
 	this->field = field;

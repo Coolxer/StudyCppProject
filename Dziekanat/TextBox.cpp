@@ -12,7 +12,7 @@ void TextBox::show()
 	std::cout << std::endl;
 
 	/* wyswietlenie linijki skladajacej sie ze znaku*/
-	for (int i = 0; i < 25; i++)
+	for (int i = 0; i < 40; i++)
 		std::cout << this->type;
 
 	std::cout << std::endl << std::endl;
@@ -21,7 +21,7 @@ void TextBox::show()
 	std::cout << this->text << std::endl<< std::endl;
 
 	/* wyswietlenie linijki skladajacej sie ze znaku*/
-	for (int i = 0; i < 25; i++)
+	for (int i = 0; i < 40; i++)
 		std::cout << this->type; 
 	
 	std::cout << std::endl;

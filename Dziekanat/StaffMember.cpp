@@ -5,6 +5,7 @@
 StaffMember::StaffMember(std::string firstName, std::string lastName, int age, std::string academic_degrees) : Person(firstName, lastName, age)
 {
 	this->academic_degrees = academic_degrees;
+	this->cash = 0;
 	this->numberOfLessonsProvided = 0;
 }
 
