@@ -12,8 +12,8 @@ private:
 	Study study; // obiekt reprezentujacy dane dotyczace studiow
 
 public:
-	Student() {} // konstruktor domyslny
-	Student(std::string firstName, std::string lastName, int age, std::string field, int level, int year, std::string type); // konstruktor parametrowy
+	Student(std::string firstName = "", std::string lastName = "", int age = 0, std::string field = "", int level = 0, int year = 0, std::string type = ""); // konstruktor domyslny
+	~Student(); // destruktor
 
 	bool operator ==(const Student& s); // przeciazenie operatora porownania klasy Student
 

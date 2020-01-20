@@ -4,7 +4,12 @@ LessonList::LessonList()
 {
 	this->addObject(new Lesson("projekt", "programowanie", 5, 90, 30)); // dodanie zajec do listy zajec
 	this->addObject(new Lesson("laboratorium", "systemy", 10, 120, 15)); // dodanie zajec do listy zajec
-} 
+}
+
+LessonList::~LessonList()
+{
+
+}
 
 Lesson* LessonList::getByName(std::string name)
 {

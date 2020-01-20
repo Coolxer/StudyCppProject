@@ -9,6 +9,11 @@ StaffMember::StaffMember(std::string firstName, std::string lastName, int age, s
 	this->numberOfLessonsProvided = 0;
 }
 
+StaffMember::~StaffMember()
+{
+
+}
+
 std::string StaffMember::getAcademicDegrees() const
 {
 	return this->academic_degrees;

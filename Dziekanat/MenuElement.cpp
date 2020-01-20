@@ -8,6 +8,11 @@ MenuElement::MenuElement(int number, std::string name)
 	this->name = name;
 }
 
+MenuElement::~MenuElement()
+{
+
+}
+
 void MenuElement::show()
 {
 	std::cout << "----------------------------------------" << std::endl;

@@ -1,10 +1,20 @@
 #include "TextBox.h"
 #include <iostream>
 
+TextBox::TextBox()
+{
+
+}
+
 TextBox::TextBox(char type, std::string text)
 {
 	this->type = type;
 	this->text = text;
+}
+
+TextBox::~TextBox()
+{
+
 }
 
 void TextBox::show()

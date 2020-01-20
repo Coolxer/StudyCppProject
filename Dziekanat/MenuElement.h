@@ -12,6 +12,7 @@ private:
 public:
 	MenuElement() {} // konstruktor domyslny
 	MenuElement(int number, std::string name); // konstruktor z 2 parametrami: numerem elementu oraz tekstem elementu
+	~MenuElement(); // destruktor
 
 	void show(); // metoda wyswietla element menu
 };

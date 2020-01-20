@@ -13,8 +13,9 @@ private:
 	std::string lastName; // nazwisko
 	int age; // wiek
 public:
-	Person(){} // konstruktor domyslny
+	Person(); // konstruktor domyslny
 	Person(std::string firstName, std::string lastName, int age); // konstruktor z parametrami: imie, nazwisko i wiek
+	~Person(); // destruktor
 
 	std::string getFirstName() const; // metoda zwraca imie
 	std::string getLastName() const; // metoda zwraca nazwisko

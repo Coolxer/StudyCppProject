@@ -7,6 +7,11 @@ CmdManager::CmdManager()
 
 }
 
+CmdManager::~CmdManager()
+{
+
+}
+
 int CmdManager::listen()
 {
 	int input;

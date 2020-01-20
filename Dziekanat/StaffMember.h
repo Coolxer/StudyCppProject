@@ -22,6 +22,7 @@ private:
 
 public:
 	StaffMember(std::string firstName, std::string lastName, int age, std::string academic_degrees); // konstruktor parametrowy
+	~StaffMember(); // destruktor
 
 	std::string getAcademicDegrees() const; // metoda zwraca stopnie naukowe
 	int getCash() const; // metoda zwraca wynagrodzenie pracownika

@@ -13,6 +13,11 @@ StudentList::StudentList()
 	this->addObject(new Student("Damian", "Pietraszek", 27, "inf", 1, 2, "zaoczne")); // dodanie studenta do listy studentow
 }
 
+StudentList::~StudentList()
+{
+
+}
+
 void StudentList::showByField(std::string field)
 {
 	int count = 0; // ustawienie licznika studentow spelniajacych warunek na 0

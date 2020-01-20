@@ -65,8 +65,7 @@ Window::Window()
 Window::~Window()
 {
 	// zwolnienie pamieci zarezerwowanej dla poszczegolnych stron 
-	for (int i = 0; i < 7; i++)
-		delete this->pages[i];
+	delete[] this->pages;
 }
 
 void Window::clear()

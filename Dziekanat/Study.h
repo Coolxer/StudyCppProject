@@ -11,10 +11,8 @@ private:
 	int year; // rok studiow
 	std::string type; // typ studiow
 public:
-	Study() {} // konstruktor domyslny
-	//Study(std::string field = "inf", int level = 1, int year = 2, std::string type = "zaoczne");
-
-	void init(std::string field, int level, int year, std::string type); // metoda ustawia dane dot. studiow
+	Study(std::string field = "inf", int level = 1, int year = 2, std::string type = "zaoczne"); // konstruktor domyslny
+	~Study(); // destruktor
 
 	std::string getField() const; // metoda zwraca kierunek studiow
 	int getLevel() const; // metoda zwraca stopien studiow

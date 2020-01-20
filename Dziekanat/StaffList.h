@@ -8,6 +8,7 @@ class StaffList : public ObjectList
 {
 public:
 	StaffList(); // konstruktor domyslny
+	~StaffList(); // destruktor
 
 	void showProfessors(); // metoda wyswietla wszystkich pracownikow z tytulem naukowym prof.
 };

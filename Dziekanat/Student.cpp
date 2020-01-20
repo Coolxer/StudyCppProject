@@ -4,7 +4,12 @@
 
 Student::Student(std::string firstName, std::string lastName, int age, std::string field, int level, int year, std::string type) : Person(firstName, lastName, age)
 {
-	this->study.init(field, level, year, type); // ustawienie danych dot. studiow
+	this->study = Study(field, level, year, type);
+}
+
+Student::~Student()
+{
+
 }
 
 bool Student::operator ==(const Student& s)

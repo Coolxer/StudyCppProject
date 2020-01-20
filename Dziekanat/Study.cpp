@@ -3,12 +3,17 @@
 #include <iostream>
 #include <windows.h>
 
-void Study::init(std::string field, int level, int year, std::string type)
+Study::Study(std::string field, int level, int year, std::string type)
 {
 	this->field = field;
 	this->level = level;
 	this->year = year;
 	this->type = type;
+}
+
+Study::~Study()
+{
+
 }
 
 std::string Study::getField() const

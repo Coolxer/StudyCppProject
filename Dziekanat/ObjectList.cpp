@@ -8,14 +8,14 @@ ObjectList::ObjectList()
 	this->objects = nullptr;
 }
 
-void ObjectList::setStartIndex(int startIndex)
-{
-	this->index = startIndex; // ustawienie indeksu potencjalnego pierwszego obiektu
-}
-
 ObjectList::~ObjectList()
 {
 	delete[] this->objects;
+}
+
+void ObjectList::setStartIndex(int startIndex)
+{
+	this->index = startIndex; // ustawienie indeksu potencjalnego pierwszego obiektu
 }
 
 int ObjectList::addObject(Object *object)

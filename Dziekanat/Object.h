@@ -12,7 +12,8 @@ private:
 	int index; // numer identyfikacyjny
 
 public:
-	Object() {} // konstruktor domyslny
+	Object(); // konstruktor domyslny
+	~Object(); // destruktor
 
 	int getIndex() const; // metoda zwraca numer identyfikacyjny
 	void setIndex(int index); // metoda ustawia numer identyfikacyjny

@@ -1,6 +1,16 @@
 
 #include "Object.h"
 
+Object::Object()
+{
+
+}
+
+Object::~Object()
+{
+
+}
+
 int Object::getIndex() const
 {
 	return this->index;

@@ -13,6 +13,11 @@ MenuPage::MenuPage(Window* window) : MainPage(window, "              DZIEKANAT "
 	this->setMenu(&this->menu); // ustawienie menu
 }
 
+MenuPage::~MenuPage()
+{
+
+}
+
 void MenuPage::service()
 {
 	int option;

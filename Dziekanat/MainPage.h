@@ -19,6 +19,7 @@ private:
 
 public:
 	MainPage(Window* window, std::string headerText); // konstruktor z 2 argumentami: wskaznikiem na obiekt klasy Window oraz napisem
+	~MainPage(); // destruktor
 
 	void setMenu(Menu* menu); // metoda ustawia menu nawigacyjne
 

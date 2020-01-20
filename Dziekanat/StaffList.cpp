@@ -8,6 +8,11 @@ StaffList::StaffList()
 	this->addObject(new StaffMember("Mariusz", "Maczka", 60, "prof")); // dodanie pracownika do listy pracownikow
 }
 
+StaffList::~StaffList()
+{
+
+}
+
 void StaffList::showProfessors()
 {
 	int count = 0; // ustawienie licznika pracownikow spelniajacych warunek na 0

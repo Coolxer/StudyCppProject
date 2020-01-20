@@ -8,6 +8,11 @@ MainPage::MainPage(Window* window, std::string headerText) : Page(window)
 	this->info = TextBox('*', "**         Podaj nr operacji          **");
 }
 
+MainPage::~MainPage()
+{
+
+}
+
 void MainPage::setMenu(Menu* menu)
 {
 	this->menu = *menu; // ustawienie menu

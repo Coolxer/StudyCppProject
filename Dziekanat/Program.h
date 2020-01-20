@@ -10,6 +10,8 @@ private:
 
 public:
 	Program(); // konstruktor domyslny
+	~Program(); // destruktor
+
 	void run(); // metoda uruchamiajaca program
 };
 
