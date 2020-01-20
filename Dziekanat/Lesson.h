@@ -1,6 +1,5 @@
 #pragma once
 #include <iostream>
-#include <vector>
 
 #include "Student.h"
 #include "StaffMember.h"
@@ -19,10 +18,11 @@ private:
 	int duration; // czas trwania zajec
 
 	int maxPlaces; // maksymalna liczba studentow
-	int occupiedPlaces; // aktualna liczba studentow zapisana na zajecia
 
 	StaffMember* staffMember; // prowadzacy zajecia
-	std::vector <Student> students; // studenci zapisani na zajecia
+	Student** students; // studenci zapisani na zajecia
+
+	int studentsCount;
 
 public:
 	Lesson() {} // konstruktor domyslny
@@ -34,7 +34,7 @@ public:
 	int getStartTime() const; // metoda zwraca godzine rozpoczecia zajec
 	int getDuration() const; // metoda zwraca czas trwania zajec
 	int getMaxPlaces() const; // metoda zwraca maksymalna liczbe studentow
-	int getOccupiedPlaces() const; // metoda zwraca aktualna liczbe studentow
+	int getNumberOfStudents() const; // metoda zwraca liczbe studentow zapisanych na zajecia
 
 	StaffMember* getStaffMember() const; // metoda zwraca prowadzacego zajecia
 

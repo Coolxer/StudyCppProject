@@ -11,15 +11,16 @@ Lesson::Lesson(std::string type, std::string name, int startTime, int duration, 
 	this->duration = duration;
 
 	this->maxPlaces = maxPlaces;
-	this->occupiedPlaces = 0;
 
 	this->staffMember = nullptr; // przypisanie wartosci nullptr do wskaznika, aby wskazywal na wartosc pusta
-	this->students.clear(); // wyczyszczenie tablicy dynamicznej
+	
+	this->studentsCount = 0;
+	this->students = nullptr;
 }
 
 Lesson::~Lesson()
 {
-	this->students.clear(); // wyczyszczenie tablicy dynamicznej
+	delete[] this->students;
 }
 
 std::string Lesson::getType() const
@@ -47,9 +48,9 @@ int Lesson::getMaxPlaces() const
 	return this->maxPlaces;
 }
 
-int Lesson::getOccupiedPlaces() const
+int Lesson::getNumberOfStudents() const
 {
-	return this->occupiedPlaces;
+	return this->studentsCount;
 }
 
 StaffMember* Lesson::getStaffMember() const
@@ -59,9 +60,9 @@ StaffMember* Lesson::getStaffMember() const
 
 int Lesson::consistsStudent(Student* student)
 {
-	for (int i = 0; i < (int)this->students.size(); i++)
+	for (int i = 0; i < this->studentsCount; i++)
 	{
-		if (this->students[i] == *student) // sprawdzenie czy aktualny student w iteracji jest rowny podanemu poprzez wskaznik studentowi -> wykorzystanie przeciazenia operatora porownania
+		if (this->students[i] == student) // sprawdzenie czy aktualny student w iteracji jest rowny podanemu poprzez wskaznik studentowi -> wykorzystanie przeciazenia operatora porownania
 			return i;					   // jesli tak to zwraca numer tego studenta na liscie                     
 	}
 
@@ -70,8 +71,15 @@ int Lesson::consistsStudent(Student* student)
 
 void Lesson::removeStudent(Student* student, int id)
 {
-	this->students.erase(this->students.begin() + id); // usuniecie studenta z listy zajec
-	this->occupiedPlaces--; // zmiejszenie liczby studentow zapisanych na zajecia
+	Student** tmp = new Student * [this->studentsCount - 1];
+	std::copy(this->students, this->students + id, tmp);
+	std::copy(this->students + id + 1, this->students + this->studentsCount, tmp + id);
+
+	delete[] this->students;
+
+	this->students = tmp;
+
+	this->studentsCount--; // zmniejszenie liczby studentow zapisanych na zajecia
 }
 
 void Lesson::removeStaffMember()
@@ -82,16 +90,26 @@ void Lesson::removeStaffMember()
 
 bool Lesson::addStudent(Student* student)
 {
-	if (this->occupiedPlaces < this->maxPlaces) // sprawdzenie czy sa jeszcze wolne miejsce
+	if (this->studentsCount < this->maxPlaces) // sprawdzenie czy sa jeszcze wolne miejsce
 	{
-		for (int i = 0; i < (int)this->students.size(); i++)
+		for (int i = 0; i < this->studentsCount; i++)
 		{
-			if (this->students[i] == *student) // jesli student jest juz wpisany na liste to zwroc false
+			if (this->students[i] == student) // jesli student jest juz wpisany na liste to zwroc false
 				return false;
 		}
 
-		this->students.push_back(*student); // dodanie studenta to listy
-		this->occupiedPlaces++; // zwiekszenie liczby studentow zapisanych na zajecia
+		Student** tmp = new Student * [this->studentsCount + 1];
+
+		std::copy(this->students, this->students + this->studentsCount, tmp);
+
+		this->studentsCount++;
+
+		delete[] this->students;
+
+		this->students = tmp;
+
+		this->students[this->studentsCount - 1] = student;
+
 		return true;
 	}
 
@@ -112,10 +130,10 @@ void Lesson::showStudents()
 {
 	//Student::showHeader();
 
-	for (int i = 0; i < (int)this->students.size(); i++)
-		this->students[i].show(); // wyswietlenie danych wszystkich studentow zapisanych na zajecia
+	for (int i = 0; i < this->studentsCount; i++)
+		this->students[i]->show(); // wyswietlenie danych wszystkich studentow zapisanych na zajecia
 
-	if (this->students.size() == 0) // sprawdzenie czy do zajec sa przypisani jacys studenci, jesli nie to wyswietl komunikat
+	if (this->studentsCount == 0) // sprawdzenie czy do zajec sa przypisani jacys studenci, jesli nie to wyswietl komunikat
 		std::cout << "Lista studentow dla tych zajec jest pusta" << std::endl;
 }
 
@@ -130,5 +148,5 @@ void Lesson::show(bool withHeader)
 		this->showHeader();
 
 	std::cout << "-----------------" << std::endl;
-	std::cout << this->getIndex() << " | " << this->type << " | " << this->name << " | " << this->startTime << " | " << this->duration << " | " << this->occupiedPlaces << "/" << this->maxPlaces << std::endl;
+	std::cout << this->getIndex() << " | " << this->type << " | " << this->name << " | " << this->startTime << " | " << this->duration << " | " << this->studentsCount << "/" << this->maxPlaces << std::endl;
 }

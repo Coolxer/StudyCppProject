@@ -3,6 +3,9 @@
 ObjectList::ObjectList()
 {
 	this->index = 0; // ustawienie indeksu potencjalnego pierwszego obiektu na 0
+	
+	this->size = 0;
+	this->objects = nullptr;
 }
 
 void ObjectList::setStartIndex(int startIndex)
@@ -12,29 +15,43 @@ void ObjectList::setStartIndex(int startIndex)
 
 ObjectList::~ObjectList()
 {
-	for (int i = 0; i < (int)this->objects.size(); i++)
-		delete this->objects[i]; // usunieniecie obiektu
-
-	this->objects.clear(); // wyczyszczenie tablicy dynamicznej
+	delete[] this->objects;
 }
 
 int ObjectList::addObject(Object *object)
 {
-	this->objects.push_back(object); // dodanie obiektu do listy
+	Object** tmp = new Object * [this->size + 1];
 
-	this->index++; // zwiekszenie indeksu
-	this->objects.back()->setIndex(this->index); // ustawienie indeksu nowo utworzonego obiektu
+	std::copy(this->objects, this->objects + this->size, tmp);
+
+	this->size++;
+
+	delete[] this->objects;
+
+	this->objects = tmp;
+
+	this->objects[this->size - 1] = object;
+	
+	this->objects[this->size - 1]->setIndex(++this->index);
 
 	return this->index; // zwrocenie aktualnego indeksu
 }
 
 int ObjectList::removeObject(int index)
 {
-	for (int i = 0; i < (int)this->objects.size(); i++)
+	for (int i = 0; i < this->size; i++)
 	{
 		if (this->objects[i]->getIndex() == index) // sprawdzenie czy aktualny obiekt w iteracji ma index rowny podanemu jako argument
 		{
-			this->objects.erase(this->objects.begin() + i); // usuniecie obiektu o wskazanym indeksie
+			Object** tmp = new Object * [this->size - 1];
+			std::copy(this->objects, this->objects + i, tmp);
+			std::copy(this->objects + i + 1, this->objects + this->size, tmp + i);
+
+			delete[] this->objects;
+
+			this->objects = tmp;
+
+			this->size--;
 			return index;
 		}
 	}
@@ -44,7 +61,7 @@ int ObjectList::removeObject(int index)
 
 Object* ObjectList::getObjectByIndex(int index)
 {
-	for (int i = 0; i < (int)this->objects.size(); i++)
+	for (int i = 0; i < this->size; i++)
 	{
 		if (this->objects[i]->getIndex() == index) // sprawdzenie czy aktualny obiekt w iteracji ma index rowny podanemu jako argument
 			return this->objects[i]; // zwrocenie wskaznika na obiekt o podanym indeksie
@@ -56,10 +73,10 @@ Object* ObjectList::getObjectByIndex(int index)
 void ObjectList::showAll()
 {
 	/* wyswietlenie obiektow z listy */
-	for (int i = 0; i < (int)this->objects.size(); i++)
+	for (int i = 0; i < this->size; i++)
 		this->objects[i]->show();
 
-	if (this->objects.size() == 0) // jesli lista nie jest pusta to zwroc true
+	if (this->size == 0) // jesli lista nie jest pusta to zwroc true
 		std::cout << "Lista jest pusta" << std::endl;
 }
 
@@ -67,7 +84,7 @@ void ObjectList::showByIndex(int index)
 {
 	bool exists = false;
 
-	for (int i = 0; i < (int)this->objects.size(); i++)
+	for (int i = 0; i < this->size; i++)
 	{
 		if (this->objects[i]->getIndex() == index) // sprawdzenie czy aktualny obiekt w iteracji ma index rowny podanemu jako argument
 		{
@@ -83,6 +100,6 @@ void ObjectList::showByIndex(int index)
 
 int ObjectList::getNumberOfObjects()
 {
-	return (int)this->objects.size();
+	return this->size;
 }
 

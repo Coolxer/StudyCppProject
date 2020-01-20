@@ -3,22 +3,43 @@
 
 Menu::Menu()
 {
+	this->size = 0;
+	this->menuElements = nullptr;
+}
 
+Menu::~Menu()
+{
+	delete[] this->menuElements;
 }
 
 void Menu::addMenuElement(std::string text)
 {
-	int index = this->menuElements.size(); // pobranie ilosci elementow menu
-	this->menuElements.push_back(MenuElement(index + 1, text)); // dodanie nowego elementu do menu, z numerem zwiekszonym o 1
+	MenuElement* tmp = new MenuElement[this->size + 1];
+	std::copy(this->menuElements, this->menuElements + this->size, tmp);
+
+	this->size++;
+
+	delete[] this->menuElements;
+	this->menuElements = tmp;
+
+	this->menuElements[this->size - 1] = MenuElement(this->size, text);
 }
 
 void Menu::addMenuBackElement(std::string text)
 {
-	this->menuElements.push_back(MenuElement(0, text));
+	MenuElement* tmp = new MenuElement[this->size + 1];
+	std::copy(this->menuElements, this->menuElements + this->size, tmp);
+
+	this->size++;
+
+	delete[] this->menuElements;
+	this->menuElements = tmp;
+
+	this->menuElements[this->size - 1] = MenuElement(0, text);
 }
 
 void Menu::show()
 {
-	for (int i = 0; i < (int)this->menuElements.size(); i++)
+	for (int i = 0; i < this->size; i++)
 		this->menuElements[i].show(); // wyswietlenie elementu menu
 }

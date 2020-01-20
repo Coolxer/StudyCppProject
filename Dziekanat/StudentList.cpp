@@ -18,7 +18,7 @@ void StudentList::showByField(std::string field)
 	int count = 0; // ustawienie licznika studentow spelniajacych warunek na 0
 	bool firstOccurrence = true; // ustawienie flagi sygnalizujacej, ze napotkano pierwszy pasujacy wynik
 
-	for (int i = 0; i < (int)this->objects.size(); i++)
+	for (int i = 0; i < this->size; i++)
 	{
 		Student* student = (Student*)this->objects[i]; // pobranie wskaznika na aktualny w iteracji obiekt typu Student
 
@@ -44,7 +44,7 @@ void StudentList::showByType(std::string type)
 	int count = 0; // ustawienie licznika studentow spelniajacych warunek na 0
 	bool firstOccurrence = true; // ustawienie flagi sygnalizujacej, ze napotkano pierwszy pasujacy wynik
 
-	for (int i = 0; i < (int)this->objects.size(); i++)
+	for (int i = 0; i < this->size; i++)
 	{
 		Student* student = (Student*)this->objects[i]; // pobranie wskaznika na aktualny w iteracji obiekt typu Student
 

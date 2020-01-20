@@ -13,7 +13,7 @@ void StaffList::showProfessors()
 	int count = 0; // ustawienie licznika pracownikow spelniajacych warunek na 0
 	bool firstOccurrence = true; // ustawienie flagi sygnalizujacej, ze napotkano pierwszy pasujacy wynik
 
-	for (int i = 0; i < (int)this->objects.size(); i++)
+	for (int i = 0; i < this->size; i++)
 	{
 		StaffMember* member = (StaffMember*)this->objects[i]; // pobranie wskaznika na aktualny w iteracji obiekt typu StaffMember
 		if (member->isProfessor()) // sprawdzenie czy pracownik ma tytul profesora

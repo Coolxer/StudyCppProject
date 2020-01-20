@@ -1,5 +1,4 @@
 #pragma once
-#include <vector>
 #include <string>
 
 #include "Student.h"
@@ -14,7 +13,8 @@ class ObjectList
 private:
 	int index; // startowy numer identyfikacyjny
 protected:
-	std::vector <Object*> objects; // tablica obiektow
+	Object** objects; // dynamiczna tablica wskaznikow na obiekty
+	int size;
 public:
 	ObjectList(); // konstruktor domyslny
 	~ObjectList(); // destruktor
