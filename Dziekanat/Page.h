@@ -16,7 +16,7 @@ class Page
 private:
 	Window* window; // wskaznik na obiekt klasy Window
 public:
-	Page(Window* window); // konstruktor z argumentem wskaünika do obiektu klasy Window
+	Page(Window* window = nullptr); // konstruktor domyslny z argumentem wskaünika do obiektu klasy Window
 	~Page(); // destruktor
 
 	Window* getWindow(); // metoda zwraca wskaznik na obiekt klasy Window

@@ -15,7 +15,7 @@ private:
 	StudentList studentList; // lista studentow
 	LessonList* lessonList; // wskaznik na liste zajec
 public:
-	StudentPage(Window* window); // konstruktor z argumentem wskaünika do obiektu klasy Window
+	StudentPage(Window* window = nullptr); // konstruktor domyslny z argumentem wskaünika do obiektu klasy Window
 	~StudentPage(); // destruktor
 
 	StudentList* getStudentList(); // metoda zwraca wskaznik do listy studentow

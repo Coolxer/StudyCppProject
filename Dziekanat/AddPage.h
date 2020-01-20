@@ -18,7 +18,7 @@ protected:
 	int numbers[10]; // tablica liczb calkowitych, sluzaca jako dane tymczasowe
 	ObjectList* objectList; // wskaznik na obiekt klasy ObjectList
 public:
-	AddPage(Window* window); // konstruktor z argumentem wskaünika do obiektu klasy Window
+	AddPage(Window* window = nullptr); // konstruktor domyslny z argumentem wskaünika do obiektu klasy Window
 	~AddPage(); // destruktor
 
 	void init(ObjectList* objectList); // metoda ustawia wskaznik na obiekt klasy ObjectList

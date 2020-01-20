@@ -9,8 +9,7 @@ private:
 	char type; // znak reprezentujacy ramke
 	std::string text; // tekst
 public:
-	TextBox(); // konstruktor
-	TextBox(char type, std::string text); // konstruktor parametrowy
+	TextBox(char type = ' ', std::string text = ""); // konstruktor domyslny
 	~TextBox(); // destruktor
 
 	void show(); // metoda wyswietla tekst z ramka

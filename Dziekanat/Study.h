@@ -11,7 +11,7 @@ private:
 	int year; // rok studiow
 	std::string type; // typ studiow
 public:
-	Study(std::string field = "inf", int level = 1, int year = 2, std::string type = "zaoczne"); // konstruktor domyslny
+	Study(std::string field = "", int level = 0, int year = 0, std::string type = ""); // konstruktor domyslny
 	~Study(); // destruktor
 
 	std::string getField() const; // metoda zwraca kierunek studiow

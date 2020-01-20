@@ -18,7 +18,7 @@ private:
 	TextBox info; // podpowiedz
 
 public:
-	MainPage(Window* window, std::string headerText); // konstruktor z 2 argumentami: wskaznikiem na obiekt klasy Window oraz napisem
+	MainPage(Window* window = nullptr, std::string headerText = ""); // konstruktor domyslny z 2 argumentami: wskaznikiem na obiekt klasy Window oraz napisem
 	~MainPage(); // destruktor
 
 	void setMenu(Menu* menu); // metoda ustawia menu nawigacyjne

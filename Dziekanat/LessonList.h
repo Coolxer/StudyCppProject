@@ -10,7 +10,7 @@
 class LessonList : public ObjectList
 {
 public:
-	LessonList(); // konstruktor
+	LessonList(); // konstruktor domyslny
 	~LessonList(); // destruktor
 
 	Lesson* getByName(std::string name); // metoda zwraca zajecie na podstawie nazwy

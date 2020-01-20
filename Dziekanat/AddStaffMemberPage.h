@@ -9,7 +9,7 @@ class AddStaffMemberPage : public AddPage
 private:
 	TextBox header; // naglowek strony
 public:
-	AddStaffMemberPage(Window* window); // konstruktor z argumentem wskaünika do obiektu klasy Window
+	AddStaffMemberPage(Window* window = nullptr); // konstruktor domyslny z argumentem wskaünika do obiektu klasy Window
 	~AddStaffMemberPage(); // destruktor
 
 	void draw(); // metoda rysuje strone

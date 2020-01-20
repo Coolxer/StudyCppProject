@@ -21,7 +21,7 @@ private:
 	void calcCash(); // metoda oblicza wynagrodzenie pracownika
 
 public:
-	StaffMember(std::string firstName, std::string lastName, int age, std::string academic_degrees); // konstruktor parametrowy
+	StaffMember(std::string firstName = "", std::string lastName = "", int age = 0, std::string academic_degrees = ""); // konstruktor parametrowy
 	~StaffMember(); // destruktor
 
 	std::string getAcademicDegrees() const; // metoda zwraca stopnie naukowe

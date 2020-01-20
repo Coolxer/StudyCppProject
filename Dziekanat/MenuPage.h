@@ -10,7 +10,7 @@ private:
 	Menu menu; // menu nawigacyjne
 
 public:
-	MenuPage(Window* window); // konstruktor z argumentem wskaünika do obiektu klasy Window
+	MenuPage(Window* window = nullptr); // konstruktor domyslny z argumentem wskaünika do obiektu klasy Window
 	~MenuPage(); // destruktor
 
 	void service();  // metoda zarzadza operacjami na stronie

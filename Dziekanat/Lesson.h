@@ -25,10 +25,9 @@ private:
 	int studentsCount;
 
 public:
-	Lesson() {} // konstruktor domyslny
+	Lesson(std::string type = "", std::string name = "", int startTime = 0, int duration = 0, int maxPlaces = 0); // konstruktor domyslny
 	~Lesson(); // destruktor
-	Lesson(std::string type, std::string name, int startTime, int duration, int maxPlaces); // konstruktor 
-
+	
 	std::string getType() const; // metoda zwraca typ zajec
 	std::string getName() const; // metoda zwraca nazwe zajec
 	int getStartTime() const; // metoda zwraca godzine rozpoczecia zajec

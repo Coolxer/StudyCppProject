@@ -9,7 +9,7 @@ class AddLessonPage: public AddPage
 private:
 	TextBox header; // naglowek strony
 public:
-	AddLessonPage(Window* window); // konstruktor z argumentem wskaünika do obiektu klasy Window
+	AddLessonPage(Window* window = nullptr); // konstruktor domyslny z argumentem wskaünika do obiektu klasy Window
 	~AddLessonPage(); // destruktor
 
 	void draw(); // metoda rysuje strone

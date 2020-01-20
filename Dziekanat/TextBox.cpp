@@ -1,11 +1,6 @@
 #include "TextBox.h"
 #include <iostream>
 
-TextBox::TextBox()
-{
-
-}
-
 TextBox::TextBox(char type, std::string text)
 {
 	this->type = type;

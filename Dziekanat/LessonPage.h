@@ -11,7 +11,7 @@ private:
 	Menu menu; // menu nawigacyjne
 	LessonList lessonList; // lista zajec
 public:
-	LessonPage(Window* window); // konstruktor z argumentem wskaünika do obiektu klasy Window
+	LessonPage(Window* window = nullptr); // konstruktor domyslny z argumentem wskaünika do obiektu klasy Window
 	~LessonPage(); // destruktor
 
 	LessonList* getLessonList(); // metoda zwraca wskaznik do listy zajec
