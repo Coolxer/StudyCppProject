@@ -12,12 +12,11 @@ ViewPage::ViewPage(Window* window, std::string headerText, int parentWindowIndex
 
 	this->info = TextBox('*', "** Podaj nr operacji **");
 
-	//this->objectList = new ObjectList();
 }
 
 ViewPage::~ViewPage()
 {
-	//delete this->objectList;
+	
 }
 
 void ViewPage::init(ObjectList* objectList)
@@ -30,11 +29,8 @@ void ViewPage::draw()
 	SetConsoleTextAttribute(this->getWindow()->getConsole(), FOREGROUND_GREEN);
 	this->header.show(); // wyswietlenie naglowka
 
-	/*
-	if(this->objectList->getNumberOfObjects() != 0)
-	{
-		//this->objectList->sh
-	}*/
+	if (this->objectList->getNumberOfObjects() != 0)
+		this->objectList->getObjectByRealIndex(0)->showHeader();	
 
 	SetConsoleTextAttribute(this->getWindow()->getConsole(), FOREGROUND_RED);
 	this->objectList->showAll(); // wyswietlenie obiektow z listy

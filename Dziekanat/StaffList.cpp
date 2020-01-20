@@ -20,7 +20,7 @@ void StaffList::showProfessors()
 		{
 			if (firstOccurrence)
 			{
-				StaffMember::showHeader();
+				member->showHeader();
 				firstOccurrence = false;
 			}
 

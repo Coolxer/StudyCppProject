@@ -26,7 +26,7 @@ void StudentList::showByField(std::string field)
 		{
 			if (firstOccurrence)
 			{
-				Student::showHeader();
+				student->showHeader();
 				firstOccurrence = false;
 			}
 
@@ -52,7 +52,7 @@ void StudentList::showByType(std::string type)
 		{
 			if (firstOccurrence)
 			{
-				Student::showHeader();
+				student->showHeader();
 				firstOccurrence = false;
 			}
 

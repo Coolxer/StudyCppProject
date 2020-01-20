@@ -24,6 +24,7 @@ public:
 	int addObject(Object* o); // metoda dodaje obiekt do tablicy
 	int removeObject(int index); // metoda usuwa obiekt z tablicy
 	Object* getObjectByIndex(int index); // metoda zwraca obiekt na podstawie numeru identyfikacyjnego
+	Object* getObjectByRealIndex(int index); // metoda zwraca obiekt na podstawie indeksu w tablicy dynamicznej
 
 	void showAll(); // metoda wyswietla wszystkie obiekty z tablicy
 	void showByIndex(int index); // metoda wyswietla obiekt z tablicy na podstawie numeru identyfikacyjnego

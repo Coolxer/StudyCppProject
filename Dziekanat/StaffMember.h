@@ -30,7 +30,7 @@ public:
 
 	void increaseLessons(); // metoda zwieksza liczbe prowadzonych lekcji przez pracownika
 
-	static void showHeader(); // metoda wyswietla naglowek informacyjny
+	void showHeader(); // metoda wyswietla naglowek informacyjny
 	void show(bool withHeader = false); // metoda wyswietla konkretne dane pracownika
 };
 

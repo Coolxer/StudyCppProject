@@ -67,7 +67,7 @@ void LessonList::showByName(std::string name)
 		{
 			if (firstOccurrence)
 			{
-				Lesson::showHeader();
+				lesson->showHeader();
 				firstOccurrence = false;
 			}
 
@@ -92,7 +92,7 @@ void LessonList::showSpecificType(std::string type)
 		{
 			if (firstOccurrence)
 			{
-				Lesson::showHeader();
+				lesson->showHeader();
 				firstOccurrence = false;
 			}
 

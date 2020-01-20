@@ -70,6 +70,14 @@ Object* ObjectList::getObjectByIndex(int index)
 	return nullptr; // jesli obiekt o podanym indeksie nie istnieje, zwroc wskaznik pusty
 }
 
+Object* ObjectList::getObjectByRealIndex(int index)
+{
+	if (this->objects[index])
+		return this->objects[index];
+
+	return nullptr;
+}
+
 void ObjectList::showAll()
 {
 	/* wyswietlenie obiektow z listy */
