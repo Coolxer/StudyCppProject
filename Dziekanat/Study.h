@@ -12,6 +12,8 @@ private:
 	std::string type; // typ studiow
 public:
 	Study(std::string field = "", int level = 0, int year = 0, std::string type = ""); // konstruktor domyslny
+	Study(const Study& model); // konstruktor kopiujacy
+	Study& operator = (const Study& model); // przeciazenie operatora przypisania
 	~Study(); // destruktor
 
 	std::string getField() const; // metoda zwraca kierunek studiow

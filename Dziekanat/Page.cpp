@@ -6,6 +6,18 @@ Page::Page(Window* window)
 	this->window = window;  
 }
 
+Page::Page(const Page& model)
+{
+	this->window = model.window;
+}
+
+Page& Page::operator = (const Page& model)
+{
+	this->window = model.window;
+
+	return *this;
+}
+
 Page::~Page()
 {
 	

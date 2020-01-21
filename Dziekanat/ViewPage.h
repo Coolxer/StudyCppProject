@@ -18,6 +18,8 @@ private:
 
 public:
 	ViewPage(Window* window = nullptr, std::string headerText = "", int parentWindowIndex = 0); // konstruktor domyslny
+	ViewPage(const ViewPage& model); // konstruktor kopiujacy
+	ViewPage& operator = (const ViewPage& model); // przeciazenie operatora przypisania
 	~ViewPage(); // destruktor
 
 	void init(ObjectList* objectList); // metoda ustawia wskaznik na liste obiektow

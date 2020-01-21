@@ -17,6 +17,8 @@ private:
 	void drawActivePage(); // metoda wyswietla aktualna strone
 public:
 	Window(); // konstruktor domyslny
+	Window(const Window& model); // konstruktor kopiujacy
+	Window& operator = (const Window& model); // przeciazenie operatora przypisania
 	~Window(); // destruktor
 
 	void refresh(); // metoda odswieza okno

@@ -18,6 +18,22 @@ StudentPage::StudentPage(Window* window) : MainPage(window, "     STUDENT SERWIS
 	this->setMenu(&this->menu); // ustawienie menu dla strony
 }
 
+StudentPage::StudentPage(const StudentPage& model)
+{
+	this->menu = model.menu;
+	this->studentList = model.studentList;
+	this->lessonList = model.lessonList;
+}
+
+StudentPage& StudentPage::operator = (const StudentPage& model)
+{
+	this->menu = model.menu;
+	this->studentList = model.studentList;
+	this->lessonList = model.lessonList;
+
+	return *this;
+}
+
 StudentPage::~StudentPage()
 {
 	

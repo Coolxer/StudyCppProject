@@ -13,6 +13,18 @@ MenuPage::MenuPage(Window* window) : MainPage(window, "              DZIEKANAT "
 	this->setMenu(&this->menu); // ustawienie menu
 }
 
+MenuPage::MenuPage(const MenuPage& model)
+{
+	this->menu = model.menu;
+}
+
+MenuPage& MenuPage::operator = (const MenuPage& model)
+{
+	this->menu = model.menu;
+
+	return *this;
+}
+
 MenuPage::~MenuPage()
 {
 

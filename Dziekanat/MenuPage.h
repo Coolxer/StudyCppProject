@@ -11,6 +11,8 @@ private:
 
 public:
 	MenuPage(Window* window = nullptr); // konstruktor domyslny z argumentem wskaünika do obiektu klasy Window
+	MenuPage(const MenuPage& model); // konstruktor kopiujacy
+	MenuPage& operator = (const MenuPage& model); // przeciazenie operatora przypisania
 	~MenuPage(); // destruktor
 
 	void service();  // metoda zarzadza operacjami na stronie

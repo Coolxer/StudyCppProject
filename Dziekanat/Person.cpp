@@ -7,6 +7,22 @@ Person::Person(std::string firstName, std::string lastName, int age)
 	this->age = age;
 }
 
+Person::Person(const Person& model)
+{
+	this->firstName = model.firstName;
+	this->lastName = model.lastName;
+	this->age = model.age;
+}
+
+Person& Person::operator = (const Person& model)
+{
+	this->firstName = model.firstName;
+	this->lastName = model.lastName;
+	this->age = model.age;
+
+	return *this;
+}
+
 Person::~Person()
 {
 

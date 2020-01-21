@@ -14,6 +14,8 @@ private:
 	int age; // wiek
 public:
 	Person(std::string firstName = "", std::string lastName = "", int age = 0); // konstruktor domyslny z parametrami: imie, nazwisko i wiek
+	Person(const Person& model); // konstruktor kopiujacy
+	Person& operator = (const Person& model); // przeciazenie operatora przypisania
 	~Person(); // destruktor
 
 	std::string getFirstName() const; // metoda zwraca imie

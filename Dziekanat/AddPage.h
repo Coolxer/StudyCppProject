@@ -19,6 +19,8 @@ protected:
 	ObjectList* objectList; // wskaznik na obiekt klasy ObjectList
 public:
 	AddPage(Window* window = nullptr); // konstruktor domyslny z argumentem wskaünika do obiektu klasy Window
+	AddPage(const AddPage& model); // konstruktor kopiujacy
+	AddPage& operator = (const AddPage& model); // przeciazenie operatora przypisania
 	~AddPage(); // destruktor
 
 	void init(ObjectList* objectList); // metoda ustawia wskaznik na obiekt klasy ObjectList

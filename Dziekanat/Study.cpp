@@ -11,6 +11,24 @@ Study::Study(std::string field, int level, int year, std::string type)
 	this->type = type;
 }
 
+Study::Study(const Study& model)
+{
+	this->field = field;
+	this->level = level;
+	this->year = year;
+	this->type = type;
+}
+
+Study& Study::operator = (const Study& model)
+{
+	this->field = field;
+	this->level = level;
+	this->year = year;
+	this->type = type;
+
+	return *this;
+}
+
 Study::~Study()
 {
 

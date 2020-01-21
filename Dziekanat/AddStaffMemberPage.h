@@ -10,6 +10,8 @@ private:
 	TextBox header; // naglowek strony
 public:
 	AddStaffMemberPage(Window* window = nullptr); // konstruktor domyslny z argumentem wskaünika do obiektu klasy Window
+	AddStaffMemberPage(const AddStaffMemberPage& model); // konstruktor kopiujacy
+	AddStaffMemberPage& operator = (const AddStaffMemberPage& model); // przeciazenie operatora przypisania
 	~AddStaffMemberPage(); // destruktor
 
 	void draw(); // metoda rysuje strone

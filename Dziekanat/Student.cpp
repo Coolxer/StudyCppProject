@@ -7,6 +7,20 @@ Student::Student(std::string firstName, std::string lastName, int age, std::stri
 	this->study = Study(field, level, year, type);
 }
 
+Student::Student(const Student& model)
+{
+	this->index = model.index;
+	this->study = model.study;
+}
+
+Student& Student::operator = (const Student& model)
+{
+	this->index = model.index;
+	this->study = model.study;
+
+	return *this;
+}
+
 Student::~Student()
 {
 

@@ -12,6 +12,8 @@ private:
 	LessonList lessonList; // lista zajec
 public:
 	LessonPage(Window* window = nullptr); // konstruktor domyslny z argumentem wskaünika do obiektu klasy Window
+	LessonPage(const LessonPage& model); // konstruktor kopiujacy
+	LessonPage& operator = (const LessonPage& model); // przeciazenie operatora przypisania
 	~LessonPage(); // destruktor
 
 	LessonList* getLessonList(); // metoda zwraca wskaznik do listy zajec

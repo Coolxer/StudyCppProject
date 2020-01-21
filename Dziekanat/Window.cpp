@@ -62,6 +62,30 @@ Window::Window()
 	this->activePageIndex = 0;
 }
 
+Window::Window(const Window& model)
+{
+	this->console = model.console;
+	
+	for (int i = 0; i < 10; i++)
+		this->pages[i] = model.pages[i];
+
+	this->activePageIndex = model.activePageIndex;
+}
+
+Window& Window::operator=(const Window& model)
+{
+	delete[] this->pages;
+	
+	this->console = model.console;
+
+	for (int i = 0; i < 10; i++)
+		this->pages[i] = model.pages[i];
+
+	this->activePageIndex = model.activePageIndex;
+
+	return *this;
+}
+
 Window::~Window()
 {
 	// zwolnienie pamieci zarezerwowanej dla poszczegolnych stron 

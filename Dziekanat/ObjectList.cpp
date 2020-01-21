@@ -8,6 +8,26 @@ ObjectList::ObjectList()
 	this->objects = nullptr;
 }
 
+ObjectList::ObjectList(const ObjectList& model)
+{
+	this->index = model.index;
+	this->size = model.size;
+
+	this->objects = model.objects;
+}
+
+ObjectList& ObjectList::operator = (const ObjectList& model)
+{
+	delete[] this->objects;
+
+	this->index = model.index;
+	this->size = model.size;
+
+	this->objects = model.objects;
+
+	return *this;
+}
+
 ObjectList::~ObjectList()
 {
 	delete[] this->objects;

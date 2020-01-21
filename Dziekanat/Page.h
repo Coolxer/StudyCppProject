@@ -17,6 +17,8 @@ private:
 	Window* window; // wskaznik na obiekt klasy Window
 public:
 	Page(Window* window = nullptr); // konstruktor domyslny z argumentem wskaünika do obiektu klasy Window
+	Page(const Page& model); // konstruktor kopiujacy
+	Page& operator = (const Page& model); // przeciazenie operatora przypisania
 	~Page(); // destruktor
 
 	Window* getWindow(); // metoda zwraca wskaznik na obiekt klasy Window

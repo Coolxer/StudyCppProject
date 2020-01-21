@@ -8,6 +8,34 @@ AddPage::AddPage(Window* window) : Page(window)
 	this->resetValues(); // zresetowanie wpisywanych wartosci na starcie
 }
 
+AddPage::AddPage(const AddPage& model)
+{
+	this->currentStep = model.currentStep;
+	
+	for (int i = 0; i < 10; i++)
+	{
+		this->strings[i] = model.strings[i];
+		this->numbers[i] = model.numbers[i];
+	}
+
+	this->objectList = model.objectList;
+}
+
+AddPage& AddPage::operator = (const AddPage& model)
+{
+	this->currentStep = model.currentStep;
+
+	for (int i = 0; i < 10; i++)
+	{
+		this->strings[i] = model.strings[i];
+		this->numbers[i] = model.numbers[i];
+	}
+
+	this->objectList = model.objectList;
+
+	return *this;
+}
+
 AddPage::~AddPage()
 {
 	 

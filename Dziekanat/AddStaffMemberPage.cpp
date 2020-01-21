@@ -9,6 +9,18 @@ AddStaffMemberPage::AddStaffMemberPage(Window* window) : AddPage(window)
 	this->header = TextBox('#', "##   Dodawanie pracownika   ##");
 }
 
+AddStaffMemberPage::AddStaffMemberPage(const AddStaffMemberPage& model)
+{
+	this->header = model.header;
+}
+
+AddStaffMemberPage& AddStaffMemberPage::operator = (const AddStaffMemberPage& model)
+{
+	this->header = model.header;
+
+	return *this;
+}
+
 AddStaffMemberPage::~AddStaffMemberPage()
 {
 

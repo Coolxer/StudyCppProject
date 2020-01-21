@@ -16,6 +16,8 @@ private:
 	LessonList* lessonList; // wskaznik na liste zajec
 public:
 	StaffPage(Window* window = nullptr); // konstruktor z argumentem wskaünika do obiektu klasy Window
+	StaffPage(const StaffPage& model); // konstruktor kopiujacy
+	StaffPage& operator = (const StaffPage& model); // przeciazenie operatora przypisania
 	~StaffPage(); // destruktor
 
 	StaffList* getStaffList(); // metoda zwraca wskaznik na liste pracownikow

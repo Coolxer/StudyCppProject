@@ -6,6 +6,18 @@ Object::Object()
 
 }
 
+Object::Object(const Object& model)
+{
+	this->index = model.index;
+}
+
+Object& Object::operator = (const Object& model)
+{
+	this->index = model.index;
+
+	return *this;
+}
+
 Object::~Object()
 {
 

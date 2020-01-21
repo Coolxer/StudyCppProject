@@ -13,6 +13,8 @@ private:
 
 public:
 	Object(); // konstruktor domyslny
+	Object(const Object& model); // konstruktor kopiujacy
+	Object& operator = (const Object& model); // przeciazenie operatora przypisania
 	~Object(); // destruktor
 
 	int getIndex() const; // metoda zwraca numer identyfikacyjny

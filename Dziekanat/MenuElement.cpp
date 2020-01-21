@@ -8,6 +8,20 @@ MenuElement::MenuElement(int number, std::string name)
 	this->name = name;
 }
 
+MenuElement::MenuElement(const MenuElement& model)
+{
+	this->number = model.number;
+	this->name = model.number;
+}
+
+MenuElement& MenuElement::operator = (const MenuElement& model)
+{
+	this->number = model.number;
+	this->name = model.name;
+
+	return *this;
+}
+
 MenuElement::~MenuElement()
 {
 

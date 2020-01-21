@@ -16,6 +16,22 @@ StaffPage::StaffPage(Window* window) : MainPage(window, " GRONO PEDAGOGICZNE SER
 	this->setMenu(&this->menu); // ustawienie menu dla strony
 }
 
+StaffPage::StaffPage(const StaffPage& model)
+{
+	this->menu = model.menu;
+	this->staffList = model.staffList;
+	this->lessonList = model.lessonList;
+}
+
+StaffPage& StaffPage::operator = (const StaffPage& model)
+{
+	this->menu = model.menu;
+	this->staffList = model.staffList;
+	this->lessonList = model.lessonList;
+
+	return *this;
+}
+
 StaffPage::~StaffPage()
 {
 	//delete this->lessonList;

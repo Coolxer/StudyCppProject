@@ -18,6 +18,38 @@ Lesson::Lesson(std::string type, std::string name, int startTime, int duration, 
 	this->students = nullptr;
 }
 
+Lesson::Lesson(const Lesson& model)
+{
+	this->type = model.type;
+	this->name = model.name;
+	this->startTime = model.startTime;
+	this->duration = model.duration;
+	this->maxPlaces = model.maxPlaces;
+	
+	this->staffMember = model.staffMember;
+
+	this->studentsCount = model.studentsCount;
+	this->students = model.students;
+}
+
+Lesson& Lesson::operator = (const Lesson& model)
+{
+	delete[] this->students;
+	
+	this->type = model.type;
+	this->name = model.name;
+	this->startTime = model.startTime;
+	this->duration = model.duration;
+	this->maxPlaces = model.maxPlaces;
+
+	this->staffMember = model.staffMember;
+
+	this->studentsCount = model.studentsCount;
+	this->students = model.students;
+
+	return *this;
+}
+
 Lesson::~Lesson()
 {
 	delete[] this->students;

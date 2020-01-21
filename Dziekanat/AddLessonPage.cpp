@@ -9,6 +9,18 @@ AddLessonPage::AddLessonPage(Window* window) : AddPage(window)
 	this->header = TextBox('#', "##   Dodawanie zajecia   ##"); // stworzenie naglowka
 }
 
+AddLessonPage::AddLessonPage(const AddLessonPage& model)
+{
+	this->header = model.header;
+}
+
+AddLessonPage& AddLessonPage::operator = (const AddLessonPage& model)
+{
+	this->header = model.header;
+
+	return *this;
+}
+
 AddLessonPage::~AddLessonPage()
 {
 	

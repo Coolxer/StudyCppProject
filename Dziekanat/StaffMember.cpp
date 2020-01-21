@@ -9,6 +9,22 @@ StaffMember::StaffMember(std::string firstName, std::string lastName, int age, s
 	this->numberOfLessonsProvided = 0;
 }
 
+StaffMember::StaffMember(const StaffMember& model)
+{
+	this->academic_degrees = model.academic_degrees;
+	this->cash = model.cash;
+	this->numberOfLessonsProvided = model.numberOfLessonsProvided;
+}
+
+StaffMember& StaffMember::operator = (const StaffMember& model)
+{
+	this->academic_degrees = model.academic_degrees;
+	this->cash = model.cash;
+	this->numberOfLessonsProvided = model.numberOfLessonsProvided;
+
+	return *this;
+}
+
 StaffMember::~StaffMember()
 {
 

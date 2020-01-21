@@ -19,6 +19,8 @@ private:
 
 public:
 	MainPage(Window* window = nullptr, std::string headerText = ""); // konstruktor domyslny z 2 argumentami: wskaznikiem na obiekt klasy Window oraz napisem
+	MainPage(const MainPage& model); // konstruktor kopiujacy
+	MainPage& operator = (const MainPage& model); // przeciazenie operatora przypisania
 	~MainPage(); // destruktor
 
 	void setMenu(Menu* menu); // metoda ustawia menu nawigacyjne

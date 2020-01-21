@@ -9,6 +9,18 @@ AddStudentPage::AddStudentPage(Window* window) : AddPage(window)
 	this->header = TextBox('#', "##   Dodawanie studenta   ##");
 }
 
+AddStudentPage::AddStudentPage(const AddStudentPage& model)
+{
+	this->header = model.header;
+}
+
+AddStudentPage& AddStudentPage::operator = (const AddStudentPage& model)
+{
+	this->header = model.header;
+
+	return *this;
+}
+
 AddStudentPage::~AddStudentPage()
 {
 

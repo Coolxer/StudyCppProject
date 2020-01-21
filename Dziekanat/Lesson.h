@@ -26,6 +26,8 @@ private:
 
 public:
 	Lesson(std::string type = "", std::string name = "", int startTime = 0, int duration = 0, int maxPlaces = 0); // konstruktor domyslny
+	Lesson(const Lesson& model); // konstruktor kopiujacy
+	Lesson& operator = (const Lesson& model); // przeciazenie operatora przypisania
 	~Lesson(); // destruktor
 	
 	std::string getType() const; // metoda zwraca typ zajec

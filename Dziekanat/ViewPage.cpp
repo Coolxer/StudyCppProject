@@ -14,6 +14,26 @@ ViewPage::ViewPage(Window* window, std::string headerText, int parentWindowIndex
 
 }
 
+ViewPage::ViewPage(const ViewPage& model)
+{
+	this->header = model.header;
+	this->info = model.header;
+
+	this->objectList = model.objectList;
+	this->parentWindowIndex = model.parentWindowIndex;
+}
+
+ViewPage& ViewPage::operator = (const ViewPage& model)
+{
+	this->header = model.header;
+	this->info = model.header;
+
+	this->objectList = model.objectList;
+	this->parentWindowIndex = model.parentWindowIndex;
+
+	return *this;
+}
+
 ViewPage::~ViewPage()
 {
 	

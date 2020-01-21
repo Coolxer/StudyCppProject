@@ -20,6 +20,20 @@ LessonPage::LessonPage(Window* window) : MainPage(window, " ZAJECIA SERWIS ")
 	this->setMenu(&this->menu); // ustawienie menu dla strony
 }
 
+LessonPage::LessonPage(const LessonPage& model)
+{
+	this->menu = model.menu;
+	this->lessonList = model.lessonList;
+}
+
+LessonPage& LessonPage::operator = (const LessonPage& model)
+{
+	this->menu = model.menu;
+	this->lessonList = model.lessonList;
+
+	return *this;
+}
+
 LessonPage::~LessonPage()
 {
 	

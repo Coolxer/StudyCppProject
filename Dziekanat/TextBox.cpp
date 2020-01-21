@@ -7,6 +7,20 @@ TextBox::TextBox(char type, std::string text)
 	this->text = text;
 }
 
+TextBox::TextBox(const TextBox& model)
+{
+	this->type = model.type;
+	this->text = model.text;
+}
+
+TextBox& TextBox::operator = (const TextBox& model)
+{
+	this->type = model.type;
+	this->text = model.text;
+
+	return *this;
+}
+
 TextBox::~TextBox()
 {
 

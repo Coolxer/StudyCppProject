@@ -8,6 +8,22 @@ MainPage::MainPage(Window* window, std::string headerText) : Page(window)
 	this->info = TextBox('*', "**         Podaj nr operacji          **");
 }
 
+MainPage::MainPage(const MainPage& model)
+{
+	this->header = model.header;
+	this->menu = model.menu;
+	this->info = model.info;
+}
+
+MainPage& MainPage::operator = (const MainPage& model)
+{
+	this->header = model.header;
+	this->menu = model.menu;
+	this->info = model.info;
+
+	return *this;
+}
+
 MainPage::~MainPage()
 {
 

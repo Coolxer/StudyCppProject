@@ -17,6 +17,8 @@ protected:
 	int size;
 public:
 	ObjectList(); // konstruktor domyslny
+	ObjectList(const ObjectList& model); // konstruktor kopiujacy
+	ObjectList& operator = (const ObjectList& model); // przeciazenie operatora przypisania
 	~ObjectList(); // destruktor
 
 	void setStartIndex(int startIndex); // metoda ustawia startowy numer identyfikacyjny

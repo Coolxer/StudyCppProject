@@ -7,9 +7,37 @@ Menu::Menu()
 	this->menuElements = nullptr;
 }
 
+Menu::Menu(const Menu& model)
+{
+	this->size = model.getSize();
+
+	this->menuElements = model.menuElements;;
+}
+
+Menu& Menu::operator = (const Menu& model)
+{
+	delete[] this->menuElements;
+
+	this->size = model.size;
+
+	this->menuElements = model.menuElements;
+
+	return *this;
+}
+
 Menu::~Menu()
 {
 	delete[] this->menuElements;
+}
+
+MenuElement* Menu::getMenuElement(int id) const
+{
+	return &this->menuElements[id];
+}
+
+int Menu::getSize() const
+{
+	return this->size;
 }
 
 void Menu::addMenuElement(std::string text)
