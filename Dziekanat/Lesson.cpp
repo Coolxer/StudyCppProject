@@ -50,6 +50,18 @@ Lesson& Lesson::operator = (const Lesson& model)
 	return *this;
 }
 
+bool Lesson::operator ==(Object* model)
+{
+	Lesson* lesson = (Lesson*)model;
+
+	if (this->type == lesson->type && this->name == lesson->name && this->startTime == lesson->startTime && this->duration == lesson->duration
+		&& this->maxPlaces == lesson->maxPlaces && this->staffMember == lesson->staffMember && this->studentsCount == lesson->studentsCount
+		&& this->students == lesson->students)
+		return true;
+
+	return false;
+}
+
 Lesson::~Lesson()
 {
 	delete[] this->students;
@@ -124,12 +136,9 @@ bool Lesson::addStudent(Student* student)
 {
 	if (this->studentsCount < this->maxPlaces) // sprawdzenie czy sa jeszcze wolne miejsce
 	{
-		for (int i = 0; i < this->studentsCount; i++)
-		{
-			if (this->students[i] == student) // jesli student jest juz wpisany na liste to zwroc false
-				return false;
-		}
-
+		if (this->consistsStudent(student) == -1) // jesli student jest juz wpisany na liste to zwroc false
+			return false;
+	
 		Student** tmp = new Student * [this->studentsCount + 1];
 
 		std::copy(this->students, this->students + this->studentsCount, tmp);

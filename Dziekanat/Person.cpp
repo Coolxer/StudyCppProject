@@ -23,6 +23,16 @@ Person& Person::operator = (const Person& model)
 	return *this;
 }
 
+bool Person::operator ==(const Object& model)
+{
+	Person* person = (Person*)&model;
+
+	if (this->firstName == person->firstName && this->lastName == person->lastName && this->age == person->age)
+		return true;
+
+	return false;
+}
+
 Person::~Person()
 {
 

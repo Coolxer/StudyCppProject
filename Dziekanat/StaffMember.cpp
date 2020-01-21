@@ -25,6 +25,16 @@ StaffMember& StaffMember::operator = (const StaffMember& model)
 	return *this;
 }
 
+bool StaffMember::operator ==(Object* model)
+{
+	StaffMember* staffMember = (StaffMember*)model;
+
+	if (this->academic_degrees == staffMember->academic_degrees && this->cash == staffMember->cash && this->numberOfLessonsProvided == staffMember->numberOfLessonsProvided)
+		return true;
+
+	return false;
+}
+
 StaffMember::~StaffMember()
 {
 

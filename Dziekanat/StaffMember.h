@@ -24,6 +24,7 @@ public:
 	StaffMember(std::string firstName = "", std::string lastName = "", int age = 0, std::string academic_degrees = ""); // konstruktor parametrowy
 	StaffMember(const StaffMember& model); // konstruktor kopiujacy
 	StaffMember& operator = (const StaffMember& model); // przeciazenie operatora przypisania
+	bool operator ==(Object* model); // przeciazenie operatora porownania
 	~StaffMember(); // destruktor
 
 	std::string getAcademicDegrees() const; // metoda zwraca stopnie naukowe

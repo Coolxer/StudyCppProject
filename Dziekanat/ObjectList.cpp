@@ -40,6 +40,9 @@ void ObjectList::setStartIndex(int startIndex)
 
 int ObjectList::addObject(Object *object)
 {
+	if (this->objectExists(object) != -1) // jesli obiekt jest juz wpisany na liste to zwroc -1
+		return -1;
+
 	Object** tmp = new Object * [this->size + 1];
 
 	std::copy(this->objects, this->objects + this->size, tmp);
@@ -77,6 +80,17 @@ int ObjectList::removeObject(int index)
 	}
 
 	return -1; // jesli obiekt o podanym indeksie nie istnieje, zwroc -1
+}
+
+int ObjectList::objectExists(Object* object)
+{
+	for (int i = 0; i < this->size; i++)
+	{
+		if (this->objects[i] == object) // sprawdzenie czy aktualny obiekt w iteracji jest rowny podanemu poprzez wskaznik obiektowi -> wykorzystanie przeciazenia operatora porownania
+			return i;					// jesli tak to zwraca numer tego obiektu na liscie                     
+	}
+
+	return -1; // jesli obiektu nie ma na liscie to zwraca -1
 }
 
 Object* ObjectList::getObjectByIndex(int index)

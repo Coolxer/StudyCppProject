@@ -95,6 +95,10 @@ void AddStudentPage::service()
 		int index = this->objectList->addObject(new Student(this->strings[0], this->strings[1], this->numbers[0], this->strings[2], this->numbers[1], this->numbers[2], this->strings[3]));
 
 		this->getWindow()->refresh();
+
+		if(index == -1)
+			std::cout << "Podany student juz istnieje" << std::endl << std::endl;
+		else
 		std::cout << "Dodano nowego studenta o indeksie " << index << std::endl << std::endl;
 
 		Sleep(2000);

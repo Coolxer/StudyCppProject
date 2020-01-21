@@ -25,6 +25,7 @@ public:
 
 	int addObject(Object* o); // metoda dodaje obiekt do tablicy
 	int removeObject(int index); // metoda usuwa obiekt z tablicy
+	int objectExists(Object* object); // metoda sprawdza czy obiekt istnieje na liscie
 	Object* getObjectByIndex(int index); // metoda zwraca obiekt na podstawie numeru identyfikacyjnego
 	Object* getObjectByRealIndex(int index); // metoda zwraca obiekt na podstawie indeksu w tablicy dynamicznej
 

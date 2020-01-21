@@ -1,6 +1,7 @@
 #include "Student.h"
 
 #include <iostream>
+#include "windows.h"
 
 Student::Student(std::string firstName, std::string lastName, int age, std::string field, int level, int year, std::string type) 
 																							  : Person(firstName, lastName, age)
@@ -28,11 +29,17 @@ Student::~Student()
 
 }
 
-bool Student::operator ==(const Student& s)
+bool Student::operator ==(Object* model)
 {
+	Student* student = (Student*)model;
+
+	std::cout << "operator" << std::endl;
+	Sleep(1000);
+
 	/* jesli wszystkie pola Studenta A i Studenta B sa takie same, to obiekty sa sobie rowne */
-	if ((this->index == s.index) && (this->getFirstName() == s.getFirstName()) && (this->getLastName() == s.getLastName()) && (this->getAge() == s.getAge()) && (this->study.getField() == s.study.getField()) && (this->study.getLevel() == s.study.getLevel()) && (this->study.getYear() == s.study.getYear()) && (this->study.getType() == s.study.getType()))
+	if ((this->getFirstName() == student->getFirstName()) && (this->getLastName() == student->getLastName()) && (this->getAge() == student->getAge()) && (this->study.getField() == student->study.getField()) && (this->study.getLevel() == student->study.getLevel()) && (this->study.getYear() == student->study.getYear()) && (this->study.getType() == student->study.getType()))
 		return true;
+
 	return false;
 }
 
