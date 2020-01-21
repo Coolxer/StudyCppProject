@@ -161,17 +161,28 @@ void StaffPage::service()
 					}
 					else
 					{
-						bool ok = lesson->setStaffMember(staffMember); // przypisanie prowadzacego do zajec
+						std::cout << "Podaj typ zajec, do ktorego chcesz przypisac prowadzacego: " << std::endl;
+						std::cin >> input; // wczytanie typu zajec
 
-						if (ok) // jesli podany prowa
+						if (lesson->getType() != input)
 						{
-							std::cout << "Przypisano pracownika do zajecia";
-							staffMember->increaseLessons();
+							std::cout << "Nie ma takich zajec" << std::endl;
+							Sleep(1500);
 						}
 						else
-							std::cout << "To zajecie ma juz swojego prowadzacego";
+						{
+							bool ok = lesson->setStaffMember(staffMember); // przypisanie prowadzacego do zajec
 
-						Sleep(1500);
+							if (ok) // jesli podany prowa
+							{
+								std::cout << "Przypisano pracownika do zajecia";
+								staffMember->increaseLessons();
+							}
+							else
+								std::cout << "To zajecie ma juz swojego prowadzacego";
+
+							Sleep(1500);
+						}
 					}
 				}
 				break;

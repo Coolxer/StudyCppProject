@@ -183,14 +183,25 @@ void StudentPage::service()
 					}
 					else
 					{
-						bool ok = lesson->addStudent(student); // proba zapisania studenta na zajecia
+						std::cout << "Podaj typ zajec, do ktorego chcesz zapisac studenta: " << std::endl;
+						std::cin >> input; // wczytanie typu zajec
 
-						if (ok) // sprwadzenie czy student zostal zapisany na zajecia
-							std::cout << "Przypisano studenta do zajec";
+						if (lesson->getType() != input)
+						{
+							std::cout << "Nie ma takich zajec" << std::endl;
+							Sleep(1500);
+						}
 						else
-							std::cout << "Brak wolnych miejsc / Student juz jest przypisany do tych zajec";
+						{
+							bool ok = lesson->addStudent(student); // proba zapisania studenta na zajecia
 
-						Sleep(1500);
+							if (ok) // sprwadzenie czy student zostal zapisany na zajecia
+								std::cout << "Przypisano studenta do zajec";
+							else
+								std::cout << "Brak wolnych miejsc / Student juz jest przypisany do tych zajec";
+
+							Sleep(1500);
+						}
 					}
 				}
 				break;
