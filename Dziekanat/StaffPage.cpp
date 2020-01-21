@@ -1,6 +1,6 @@
 #include "StaffPage.h"
 
-StaffPage::StaffPage(Window* window) : MainPage(window, " GRONO PEDAGOGICZNE SERWIS ")
+StaffPage::StaffPage(Window* window) : MainPage(window, "      GRONO PEDAGOGICZNE-SERWIS ")
 {
 	/* Dodawanie elementow do menu */
 	this->menu.addMenuElement("Dodaj pracownika");

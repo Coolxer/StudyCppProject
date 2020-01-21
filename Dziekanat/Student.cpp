@@ -53,7 +53,7 @@ void Student::changeStudyType(std::string type)
 
 void Student::showHeader()
 {
-	std::cout << " Imie " << " Nazwisko " << " Wiek " << " Indeks " << " Kierunek " << " Stopien " << " Rok " << " Typ " << std::endl;
+	std::cout << std::endl << " Imie " << " Nazwisko " << " Wiek " << " Indeks " << " Kierunek " << " Stopien " << " Rok " << " Typ " << std::endl;
 }
 
 void Student::show(bool withHeader)

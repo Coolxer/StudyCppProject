@@ -171,7 +171,7 @@ void Lesson::showStudents()
 
 void Lesson::showHeader()
 {
-	std::cout << " ID " << " Typ " << " Nazwa " << " Godzina rozpoczecia " << " Czas trwania " << " zajete / max "<< std::endl;
+	std::cout << std::endl << " ID " << " Typ " << " Nazwa " << " Godzina rozpoczecia " << " Czas trwania " << " zajete / max "<< std::endl;
 }
 
 void Lesson::show(bool withHeader)

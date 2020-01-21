@@ -76,7 +76,7 @@ void StaffMember::increaseLessons()
 
 void StaffMember::showHeader()
 {
-	std::cout << " ID " << " Imie " << " Nazwisko " << " Wiek " << " Tytuly " << " Wynagrodzenie " << " Liczba zajec " << std::endl;
+	std::cout << std::endl << " ID " << " Imie " << " Nazwisko " << " Wiek " << " Tytuly " << " Wynagrodzenie " << " Liczba zajec " << std::endl;
 }
 
 void StaffMember::show(bool withHeader)

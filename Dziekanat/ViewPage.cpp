@@ -10,7 +10,7 @@ ViewPage::ViewPage(Window* window, std::string headerText, int parentWindowIndex
 
 	this->parentWindowIndex = parentWindowIndex;
 
-	this->info = TextBox('*', "** Podaj nr operacji **");
+	this->info = TextBox('*', "** 0 -> powrot do poprzedniej strony. **");
 
 }
 

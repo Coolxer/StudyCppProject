@@ -3,7 +3,7 @@
 #include "LessonList.h"
 #include "StaffMember.h"
 
-LessonPage::LessonPage(Window* window) : MainPage(window, " ZAJECIA SERWIS ")
+LessonPage::LessonPage(Window* window) : MainPage(window, "            ZAJECIA-SERWIS ")
 {
 	/* Dodawanie elementow do menu */
 	this->menu.addMenuElement("Dodaj zajecie");
