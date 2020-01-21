@@ -171,7 +171,10 @@ void Lesson::showStudents()
 
 void Lesson::showHeader()
 {
-	std::cout << std::endl << " ID " << " Typ " << " Nazwa " << " Godzina rozpoczecia " << " Czas trwania " << " zajete / max "<< std::endl;
+	if (this->staffMember)
+		std::cout << std::endl << " ID " << " Typ " << " Nazwa " << " Godzina rozpoczecia " << " Czas trwania " << " zajete / max " << " Prowadzacy " << std::endl;
+	else
+		std::cout << std::endl << " ID " << " Typ " << " Nazwa " << " Godzina rozpoczecia " << " Czas trwania " << " zajete / max " << std::endl;
 }
 
 void Lesson::show(bool withHeader)
@@ -180,5 +183,9 @@ void Lesson::show(bool withHeader)
 		this->showHeader();
 
 	std::cout << "-----------------" << std::endl;
-	std::cout << this->getIndex() << " | " << this->type << " | " << this->name << " | " << this->startTime << " | " << this->duration << " | " << this->studentsCount << "/" << this->maxPlaces << std::endl;
+	
+	if (this->staffMember)
+		std::cout << this->getIndex() << " | " << this->type << " | " << this->name << " | " << this->startTime << " | " << this->duration << " | " << this->studentsCount << "/" << this->maxPlaces << " | " << this->staffMember->getAcademicDegrees() << " " << this->staffMember->getFirstName() << " " << this->staffMember->getLastName() << std::endl;
+	else
+		std::cout << this->getIndex() << " | " << this->type << " | " << this->name << " | " << this->startTime << " | " << this->duration << " | " << this->studentsCount << "/" << this->maxPlaces << std::endl;
 }

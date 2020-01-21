@@ -162,7 +162,7 @@ void StudentPage::service()
 
 				student = (Student*)this->studentList.getObjectByIndex(index); // ustawienie wskaznika na studenta o podanym indeksie
 
-				if (!student) // sprwadzenie czy student o podanym indeksie istnieje
+				if (!student) // sprawdzenie czy student o podanym indeksie istnieje
 				{
 					std::cout << "Nie ma takiego studenta" << std::endl;
 					Sleep(1500);
