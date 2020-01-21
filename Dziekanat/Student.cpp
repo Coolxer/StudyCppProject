@@ -2,9 +2,11 @@
 
 #include <iostream>
 
-Student::Student(std::string firstName, std::string lastName, int age, std::string field, int level, int year, std::string type) : Person(firstName, lastName, age)
+Student::Student(std::string firstName, std::string lastName, int age, std::string field, int level, int year, std::string type) 
+																							  : Person(firstName, lastName, age)
+																							   , study(field, level, year, type)
 {
-	this->study = Study(field, level, year, type);
+	
 }
 
 Student::Student(const Student& model)
