@@ -1,2 +1,7 @@
-﻿  AddLessonPage.cpp
+﻿  Lesson.cpp
+  LessonList.cpp
+  Window.cpp
+E:\studia\C++\projekt\Dziekanat\Dziekanat\Window.cpp(77,22): warning C4154: usunięcie wyrażenia tablicowego; dostarczono konwersji do wskaźnika
+E:\studia\C++\projekt\Dziekanat\Dziekanat\Window.cpp(92,22): warning C4154: usunięcie wyrażenia tablicowego; dostarczono konwersji do wskaźnika
+  Generowanie kodu...
   Dziekanat.vcxproj -> E:\studia\C++\projekt\Dziekanat\Debug\Dziekanat.exe

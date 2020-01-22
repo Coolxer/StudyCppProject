@@ -194,7 +194,7 @@ void Lesson::show(bool withHeader)
 	std::cout << "-----------------" << std::endl;
 	
 	if (this->staffMember)
-		std::cout << this->getIndex() << " | " << this->type << " | " << this->name << " | " << this->startTime << " | " << this->duration << " | " << this->studentsCount << "/" << this->maxPlaces << " | " << this->staffMember->getAcademicDegrees() << " " << this->staffMember->getFirstName() << " " << this->staffMember->getLastName() << std::endl;
+		std::cout << this->getIndex() << " | " << this->type << " | " << this->name << " | " << this->startTime << " | " << this->duration << " | " << this->studentsCount << "/" << this->maxPlaces << " | " << this->staffMember->getAcademicDegree() << " " << this->staffMember->getFirstName() << " " << this->staffMember->getLastName() << std::endl;
 	else
 		std::cout << this->getIndex() << " | " << this->type << " | " << this->name << " | " << this->startTime << " | " << this->duration << " | " << this->studentsCount << "/" << this->maxPlaces << std::endl;
 }

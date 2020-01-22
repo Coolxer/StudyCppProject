@@ -60,7 +60,7 @@ void AddStaffMemberPage::service()
 		this->testNumber("Podaj wiek: (min. 30, max. 100)", 0, 30, 100); // pobranie odpowiedniego wieku pracownika (pobranie + walidacja)
 		break;
 	case 4:
-		this->testString("Podaj tytul(y): (min 3 litery)", 2); // pobranie odpowiednich tytulow naukowych pracownika (pobranie + walidacja)
+		this->testString("Podaj stopien naukowy: (min 3 litery)", 2); // pobranie odpowiedniego tytulu naukowego pracownika (pobranie + walidacja)
 		break;
 	default:
 		// dodanie nowego pracownika do listy

@@ -2,23 +2,23 @@
 
 #include <iostream>
 
-StaffMember::StaffMember(std::string firstName, std::string lastName, int age, std::string academic_degrees) : Person(firstName, lastName, age)
+StaffMember::StaffMember(std::string firstName, std::string lastName, int age, std::string academic_degree) : Person(firstName, lastName, age)
 {
-	this->academic_degrees = academic_degrees;
+	this->academic_degree = academic_degree;
 	this->cash = 0;
 	this->numberOfLessonsProvided = 0;
 }
 
 StaffMember::StaffMember(const StaffMember& model)
 {
-	this->academic_degrees = model.academic_degrees;
+	this->academic_degree = model.academic_degree;
 	this->cash = model.cash;
 	this->numberOfLessonsProvided = model.numberOfLessonsProvided;
 }
 
 StaffMember& StaffMember::operator = (const StaffMember& model)
 {
-	this->academic_degrees = model.academic_degrees;
+	this->academic_degree = model.academic_degree;
 	this->cash = model.cash;
 	this->numberOfLessonsProvided = model.numberOfLessonsProvided;
 
@@ -29,7 +29,7 @@ bool StaffMember::isEqual(Object* model)
 {
 	StaffMember* staffMember = (StaffMember*)model;
 
-	if (this->academic_degrees == staffMember->academic_degrees && this->cash == staffMember->cash && this->numberOfLessonsProvided == staffMember->numberOfLessonsProvided)
+	if (this->academic_degree == staffMember->academic_degree && this->cash == staffMember->cash && this->numberOfLessonsProvided == staffMember->numberOfLessonsProvided)
 		return true;
 
 	return false;
@@ -40,9 +40,9 @@ StaffMember::~StaffMember()
 
 }
 
-std::string StaffMember::getAcademicDegrees() const
+std::string StaffMember::getAcademicDegree() const
 {
-	return this->academic_degrees;
+	return this->academic_degree;
 }
 
 int StaffMember::getCash() const
@@ -56,13 +56,13 @@ void StaffMember::calcCash()
 
 	/* ustawienie przelicznika na podstawie posidanych stopni naukowych */
 
-	if (this->academic_degrees == "lic" || this->academic_degrees == "lic." || this->academic_degrees == "inz" || this->academic_degrees == "inz.")
+	if (this->academic_degree == "lic" || this->academic_degree == "lic." || this->academic_degree == "inz" || this->academic_degree == "inz.")
 		converter = 200;
-	else if (this->academic_degrees == "mgr" || this->academic_degrees == "mgr.")
+	else if (this->academic_degree == "mgr" || this->academic_degree == "mgr.")
 		converter = 400;
-	else if (this->academic_degrees == "dr" || this->academic_degrees == "dr.")
+	else if (this->academic_degree == "dr" || this->academic_degree == "dr.")
 		converter = 700;
-	else if (this->academic_degrees == "prof" || this->academic_degrees == "prof.")
+	else if (this->academic_degree == "prof" || this->academic_degree == "prof.")
 		converter = 1000;
 	else
 		converter = 0;
@@ -72,7 +72,7 @@ void StaffMember::calcCash()
 
 bool StaffMember::isProfessor() const
 {
-	if (this->academic_degrees.find("prof") != std::string::npos) // sprawdzenie czy pracownik ma tytul profesora, jesli tak to zwraca true
+	if (this->academic_degree.find("prof") != std::string::npos) // sprawdzenie czy pracownik ma tytul profesora, jesli tak to zwraca true
 		return true;
 
 	return false; // jesli pracownik nie jest profesorem, to zwraca false
@@ -96,5 +96,5 @@ void StaffMember::show(bool withHeader)
 
 	std::cout << "-----------------" << std::endl;
 	std::cout << this->getIndex() << " | " << this->getFirstName() << " | " << this->getLastName() << " | " << this->getAge() << " | ";
-	std::cout << this->academic_degrees << " | " << this->cash << " | " << this->numberOfLessonsProvided << std::endl;
+	std::cout << this->academic_degree << " | " << this->cash << " | " << this->numberOfLessonsProvided << std::endl;
 }

@@ -70,7 +70,7 @@ void AddLessonPage::service()
 		this->testString("Podaj nazwe: (min. 3 litery)", 1); // pobranie odpowiedniej nazwy zajec (pobranie + walidacja)
 		break;
 	case 3:
-		this->testNumber("Podaj godzine rozpoczecia: (min 8 max 18, tylko pelne godziny)", 0, 8, 10); // pobranie odpowiedniej godziny rozpoczecia zajec (pobranie + walidacja)
+		this->testNumber("Podaj godzine rozpoczecia: (min 8 max 18, tylko pelne godziny)", 0, 8, 18); // pobranie odpowiedniej godziny rozpoczecia zajec (pobranie + walidacja)
 		break;
 	case 4:
 		this->testNumber("Podaj czas trwania: (min 120, max 240 [w min.])", 1, 120, 240); // pobranie odpowiedniego czasu trwania zajec (pobranie + walidacja)
