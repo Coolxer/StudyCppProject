@@ -14,7 +14,7 @@ private:
 	int index; // startowy numer identyfikacyjny
 protected:
 	Object** objects; // dynamiczna tablica wskaznikow na obiekty
-	int size;
+	int size; // ilosc obiektow w tablicy
 public:
 	ObjectList(); // konstruktor domyslny
 	ObjectList(const ObjectList& model); // konstruktor kopiujacy

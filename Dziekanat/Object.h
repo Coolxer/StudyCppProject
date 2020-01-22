@@ -3,7 +3,7 @@
 
 /* Klasa reprezentujaca obiekt */
 /* Nie mozna utworzyc obiektow tej klasy, bo jest ona abstrakcyjna */
-/* Klasa posiada 2 metody czysto wirtualne: showHeader() i show(bool withHeader = false) */
+/* Klasa posiada 3 metody czysto wirtualne: isEqual(Object*), showHeader() i show(bool withHeader = false) */
 /* Metody te musza byc przesloniete w klasach potomnych, inaczej kompilator zwroci blad*/
 
 class Object
@@ -15,7 +15,7 @@ public:
 	Object(); // konstruktor domyslny
 	Object(const Object& model); // konstruktor kopiujacy
 	Object& operator = (const Object& model); // przeciazenie operatora przypisania
-	virtual bool isEqual(Object* model) = 0;
+	virtual bool isEqual(Object* model) = 0; // metoda czysto wirtualna (bez definicji) -> musi byc przeslonieta w klasie potomnej
 	~Object(); // destruktor
 
 	int getIndex() const; // metoda zwraca numer identyfikacyjny

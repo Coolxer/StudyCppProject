@@ -15,9 +15,6 @@ public:
 	Menu& operator = (const Menu& model); // przeciazenie operatora przypisania
 	~Menu(); // destruktor
 
-	MenuElement* getMenuElement(int id) const;
-	int getSize() const;
-
 	void addMenuElement(std::string text); // metoda dodaje nowy element do menu
 	void addMenuBackElement(std::string text); // metoda dodaje nowy element o numerze 0 na samym koncu, element nawigacyjny
 

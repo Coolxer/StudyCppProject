@@ -22,7 +22,7 @@ private:
 	StaffMember* staffMember; // prowadzacy zajecia
 	Student** students; // studenci zapisani na zajecia
 
-	int studentsCount;
+	int studentsCount; // liczba studentow zapisanych na zajecia
 
 public:
 	Lesson(std::string type = "", std::string name = "", int startTime = 0, int duration = 0, int maxPlaces = 0); // konstruktor domyslny
