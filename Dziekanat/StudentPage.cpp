@@ -6,9 +6,9 @@ StudentPage::StudentPage(Window* window) : MainPage(window, "     STUDENCI-SERWI
 	this->menu.addMenuElement("Dodaj studenta");
 	this->menu.addMenuElement("Usun studenta");
 	this->menu.addMenuElement("Znajdz studenta wedlug indeksu");
+	this->menu.addMenuElement("Wyswietl studentow z wydzialu");
 	this->menu.addMenuElement("Wyswietl studentow z kierunku");
-	this->menu.addMenuElement("Wyswietl studentow stacjonarnych");
-	this->menu.addMenuElement("Wyswietl studentow zaocznych");
+	this->menu.addMenuElement("Wyswietl studentow stacjonarnych / zaocznych");
 	this->menu.addMenuElement("Wyswietl wszystkich studentow");
 	this->menu.addMenuElement("Wyswietl liczbe studentow");
 	this->menu.addMenuElement("Zapisz studenta na zajecia");
@@ -125,28 +125,49 @@ void StudentPage::service()
 				break;
 
 			case 4:
-				std::cout << "Podaj nazwe kierunku studiow" << std::endl;
+				std::cout << "Podaj nazwe wydzialu studiow (budownictwa | chemiczny | informatyki | matematyki | mechaniczny | zarzadzania)" << std::endl;
 				std::cin >> input; // wczytanie nazwy kierunku studiow
+
+
+				if (input != "budownictwa" && input != "chemiczny" && input != "informatyki" && input != "matematyki" && input != "mechaniczny" && input != "zarzadzania")
+					std::cout << "Nie ma takiego wydzialu" << std::endl;
+				else
+					this->studentList.showByDepartment(input);
 
 				// show header
 
-				this->studentList.showByField(input); // wyswietlenie studentow z danego kierunku studiow
-
 				Sleep(2500);
 				break;
-
 			case 5:
-				this->studentList.showByType("stacjonarne"); // wyswietlenie studentow stacjonarnych
+				std::cout << "Podaj nazwe kierunku studiow" << std::endl;
+				std::cin >> input; // wczytanie nazwy kierunku studiow
+
+				if(input != "architektura" && input != "biogospodarka" && input != "biotechnologia" 
+					&& input != "elektrotechnika" && input != "informatyka" && input != "matematyka" 
+					&& input != "fizyka" && input != "logistyka" && input != "zarzadzanie")
+					std::cout << "Nie ma takiego kierunku" << std::endl;
+				else
+					this->studentList.showByField(input); // wyswietlenie studentow z danego kierunku studiow
 
 				Sleep(2500);
 				break;
 
 			case 6:
-				this->studentList.showByType("zaoczne"); // wyswietlenie studentow zaocznych
+				std::cout << "Podaj tryb studiow (stacjonarne | zaoczne)";
+				std::cin >> input;
+				while (!std::cin.good() || (input != "stacjonarne" && input != "zaoczne"))
+				{
+					input.clear();
+					this->getWindow()->refresh();
+					std::cout << "Podaj tryb studiow (stacjonarne | zaoczne)";
+					std::cin.clear();
+					std::cin >> input;
+				}
+
+				this->studentList.showByType(input); // wyswietlenie studentow danego trybu
 
 				Sleep(2500);
 				break;
-
 			case 7:
 				this->getWindow()->setActivePage(5); // przejscie do strony wyswietlajacej liste studentow
 				break;

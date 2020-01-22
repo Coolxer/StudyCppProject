@@ -2,11 +2,11 @@
 
 #include <iostream>
 
-Student::Student(std::string firstName, std::string lastName, int age, std::string field, int level, int year, std::string type) 
+Student::Student(std::string firstName, std::string lastName, int age, std::string department, std::string field, int level, int year, std::string type)
 																							  : Person(firstName, lastName, age)
-																							   , study(field, level, year, type)
+																							   , study(department, field, level, year, type)
 {
-	
+	this->index = 0;
 }
 
 Student::Student(const Student& model)
@@ -32,7 +32,6 @@ bool Student::isEqual(Object* model)
 {
 	Student* student = (Student*)model;
 
-	/* jesli wszystkie pola Studenta A i Studenta B sa takie same, to obiekty sa sobie rowne */
 	if ((this->getFirstName() == student->getFirstName()) && (this->getLastName() == student->getLastName()) && (this->getAge() == student->getAge()) && (this->study.getField() == student->study.getField()) && (this->study.getLevel() == student->study.getLevel()) && (this->study.getYear() == student->study.getYear()) && (this->study.getType() == student->study.getType()))
 		return true;
 
@@ -56,7 +55,7 @@ void Student::changeStudyType(std::string type)
 
 void Student::showHeader()
 {
-	std::cout << std::endl << " Imie " << " Nazwisko " << " Wiek " << " Indeks " << " Kierunek " << " Stopien " << " Rok " << " Typ " << std::endl;
+	std::cout << std::endl << " Imie " << " Nazwisko " << " Wiek " << " Indeks " << " Wydzial " << " Kierunek " << " Stopien " << " Rok " << " Typ " << std::endl;
 }
 
 void Student::show(bool withHeader)
@@ -66,5 +65,5 @@ void Student::show(bool withHeader)
 
 	std::cout << "-----------------" << std::endl;
 	std::cout << this->getFirstName() << " | " << this->getLastName() << " | " << this->getAge() << " | " << this->getIndex() << " | ";
-	std::cout << this->study.getField() << " | " << this->study.getLevel() << " | " << this->study.getYear() << " | " << this->study.getType() << std::endl;
+	std::cout << this->study.getDepartment() << " | " << this->study.getField() << " | " << this->study.getLevel() << " | " << this->study.getYear() << " | " << this->study.getType() << std::endl;
 }

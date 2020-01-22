@@ -74,7 +74,8 @@ Window::Window(const Window& model)
 
 Window& Window::operator=(const Window& model)
 {
-	delete[] this->pages;
+	for (int i = 0; i < 10; i++)
+		delete this->pages[i];
 	
 	this->console = model.console;
 
@@ -89,7 +90,8 @@ Window& Window::operator=(const Window& model)
 Window::~Window()
 {
 	// zwolnienie pamieci zarezerwowanej dla poszczegolnych stron 
-	delete[] this->pages;
+	for (int i = 0; i < 10; i++)
+		delete this->pages[i];
 }
 
 void Window::clear()

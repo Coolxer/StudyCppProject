@@ -40,8 +40,11 @@ void AddStudentPage::draw()
 	this->drawParagraph("Wiek:     | ");
 	this->checkNumber(this->numbers[0]); // sprawdzenie czy numer jest rowny 0 (jeszcze nie wpisany) to wyswietla "", inaczej wyswietla numer
 
-	this->drawParagraph("Kierunek: | ");
+	this->drawParagraph("Wydzial: | ");
 	std::cout << this->strings[2] << std::endl;
+	
+	this->drawParagraph("Kierunek: | ");
+	std::cout << this->strings[3] << std::endl;
 
 	this->drawParagraph("Stopien:  | ");
 	this->checkNumber(this->numbers[1]);
@@ -50,7 +53,7 @@ void AddStudentPage::draw()
 	this->checkNumber(this->numbers[2]);
 
 	this->drawParagraph("Typ:      | ");
-	std::cout << this->strings[3] << std::endl;
+	std::cout << this->strings[4] << std::endl;
 
 	std::cout << std::endl;
 }
@@ -69,30 +72,112 @@ void AddStudentPage::service()
 		this->testNumber("Podaj wiek: (min. 20, max. 100)", 0, 20, 100); // pobranie odpowiedniego wieku studenta (pobranie + walidacja)
 		break;
 	case 4:
-		this->testString("Podaj kierunek: (min. 3 litery)", 2); // pobranie odpowiedniego kierunku studiow (pobranie + walidacja)
+		std::cout << "Podaj wydzial: (budownictwa | chemiczny | informatyki | matematyki | mechaniczny | zarzadzania)" << std::endl;
+		std::cin >> this->strings[2];
+		// dopoki wprowadzone dane sa niepoprawne kontynuje prosbe o podanie odpowiedniego trybu studiow
+		while (!std::cin.good() || (this->strings[2] != "budownictwa" && this->strings[2] != "chemiczny" && this->strings[2] != "informatyki" && this->strings[2] != "matematyki" && this->strings[2] != "mechaniczny" && this->strings[2] != "zarzadzania"))
+		{
+			this->strings[2].clear();
+			this->getWindow()->refresh();
+			std::cout << "Podaj wydzial: (budownictwa | chemiczny | informatyki | matematyki | zarzadzania)" << std::endl;
+			std::cin.clear();
+			std::cin >> this->strings[2];
+		}
 		break;
 	case 5:
-		this->testNumber("Podaj stopien: (1 lub 2)", 1, 1, 2); // pobranie odpowiedniego stopnia studiow (pobranie + walidacja)
+		if (this->strings[2] == "budownictwa")
+		{
+			std::cout << "Podaj kierunek: (architektura | biogospodarka)" << std::endl;
+			std::cin >> this->strings[3];
+
+			while (!std::cin.good() || (this->strings[3] != "architektura" && this->strings[3] != "biogospodarka"))
+			{
+				this->strings[3].clear();
+				this->getWindow()->refresh();
+				std::cout << "Podaj kierunek: (architektura | biogospodarka)" << std::endl;
+				std::cin.clear();
+				std::cin >> this->strings[3];
+			}
+		}
+		else if (this->strings[2] == "chemiczny")
+		{
+			std::cout << "Podaj kierunek: (biotechnologia)" << std::endl;
+			std::cin >> this->strings[3];
+
+			while (!std::cin.good() || (this->strings[3] != "biotechnologia"))
+			{
+				this->strings[3].clear();
+				this->getWindow()->refresh();
+				std::cout << "Podaj kierunek: (biotechnologia)" << std::endl;
+				std::cin.clear();
+				std::cin >> this->strings[3];
+			}
+		}
+		else if (this->strings[2] == "informatyki")
+		{
+			std::cout << "Podaj kierunek: (elektrotechnika | informatyka)" << std::endl;
+			std::cin >> this->strings[3];
+
+			while (!std::cin.good() || (this->strings[3] != "elektrotechnika" && this->strings[3] != "informatyka"))
+			{
+				this->strings[3].clear();
+				this->getWindow()->refresh();
+				std::cout << "Podaj kierunek: (elektrotechnika | informatyka)" << std::endl;
+				std::cin.clear();
+				std::cin >> this->strings[3];
+			}
+		}
+		else if (this->strings[2] == "matematyki")
+		{
+			std::cout << "Podaj kierunek: (matematyka | fizyka)" << std::endl;
+			std::cin >> this->strings[3];
+
+			while (!std::cin.good() || (this->strings[3] != "matematyka" && this->strings[3] != "fizyka"))
+			{
+				this->strings[3].clear();
+				this->getWindow()->refresh();
+				std::cout << "Podaj kierunek: (matematyka | fizyka)" << std::endl;
+				std::cin.clear();
+				std::cin >> this->strings[3];
+			}
+		}
+		else
+		{
+			std::cout << "Podaj kierunek: (logistyka | zarzadzanie)" << std::endl;
+			std::cin >> this->strings[3];
+
+			while (!std::cin.good() || (this->strings[3] != "logistyka" && this->strings[3] != "zarzadzanie"))
+			{
+				this->strings[3].clear();
+				this->getWindow()->refresh();
+				std::cout << "Podaj kierunek: (logistyka | zarzadzanie)" << std::endl;
+				std::cin.clear();
+				std::cin >> this->strings[3];
+			}
+		}
 		break;
 	case 6:
-		this->testNumber("Podaj rok: (1 - 4)", 2, 1, 4); // pobranie odpowiedniego roku studiow (pobranie + walidacja)
+		this->testNumber("Podaj stopien: (1 lub 2)", 1, 1, 2); // pobranie odpowiedniego stopnia studiow (pobranie + walidacja)
 		break;
 	case 7:
+		this->testNumber("Podaj rok: (1 - 4)", 2, 1, 4); // pobranie odpowiedniego roku studiow (pobranie + walidacja)
+		break;
+	case 8:
 		std::cout << "Podaj typ: (stacjonarne lub zaoczne)" << std::endl;
-		std::cin >> this->strings[3];
+		std::cin >> this->strings[4];
 		// dopoki wprowadzone dane sa niepoprawne kontynuje prosbe o podanie odpowiedniego trybu studiow
-		while (!std::cin.good() || (this->strings[3] != "stacjonarne" && this->strings[3] != "zaoczne"))
+		while (!std::cin.good() || (this->strings[4] != "stacjonarne" && this->strings[4] != "zaoczne"))
 		{
-			this->strings[3].clear();
+			this->strings[4].clear();
 			this->getWindow()->refresh();
 			std::cout << "Podaj typ: (stacjonarne lub zaoczne)" << std::endl;
 			std::cin.clear();
-			std::cin >> this->strings[3];
+			std::cin >> this->strings[4];
 		}
 		break;
 	default:
 		// dodanie nowego studenta do listy studentow
-		int index = this->objectList->addObject(new Student(this->strings[0], this->strings[1], this->numbers[0], this->strings[2], this->numbers[1], this->numbers[2], this->strings[3]));
+		int index = this->objectList->addObject(new Student(this->strings[0], this->strings[1], this->numbers[0], this->strings[2], this->strings[3], this->numbers[1], this->numbers[2], this->strings[4]));
 
 		this->getWindow()->refresh();
 

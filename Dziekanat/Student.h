@@ -12,7 +12,7 @@ private:
 	Study study; // obiekt reprezentujacy dane dotyczace studiow
 
 public:
-	Student(std::string firstName = "", std::string lastName = "", int age = 0, std::string field = "", int level = 0, int year = 0, std::string type = ""); // konstruktor domyslny
+	Student(std::string firstName = "", std::string lastName = "", int age = 0, std::string department="", std::string field = "", int level = 0, int year = 0, std::string type = ""); // konstruktor domyslny
 	Student(const Student& model); // konstruktor kopiujacy
 	Student& operator = (const Student& model); // przeciazenie operatora przypisania
 	bool isEqual(Object* model);

@@ -6,9 +6,9 @@
 LessonPage::LessonPage(Window* window) : MainPage(window, "            ZAJECIA-SERWIS ")
 {
 	/* Dodawanie elementow do menu */
-	this->menu.addMenuElement("Dodaj zajecie");
-	this->menu.addMenuElement("Usun zajecie");
-	this->menu.addMenuElement("Znajdz zajecie wedlug nazwy");
+	this->menu.addMenuElement("Dodaj zajecia");
+	this->menu.addMenuElement("Usun zajecia");
+	this->menu.addMenuElement("Znajdz zajecia wedlug nazwy");
 	this->menu.addMenuElement("Wyswietl prowadzacego zajecia");
 	this->menu.addMenuElement("Wyswietl uczestnikow zajec");
 	this->menu.addMenuElement("Wyswietl konkretny typ zajec");
