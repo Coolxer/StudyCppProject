@@ -43,16 +43,6 @@ Study* Student::getStudy()
 	return &this->study;
 }
 
-void Student::changeStudyYear(int year)
-{
-	this->study.setYear(year);
-}
-
-void Student::changeStudyType(std::string type)
-{
-	this->study.setType(type);
-}
-
 void Student::showHeader()
 {
 	std::cout << std::endl << " Imie " << " Nazwisko " << " Wiek " << " Indeks " << " Wydzial " << " Kierunek " << " Stopien " << " Rok " << " Typ " << std::endl;
