@@ -99,7 +99,7 @@ void AddPage::testNumber(std::string text, int id, int min, int max)
 void AddPage::drawParagraph(std::string text)
 {
 	SetConsoleTextAttribute(this->getWindow()->getConsole(), FOREGROUND_GREEN); // zmiana koloru tekstu w konsoli na zielony
-	std::cout << "-------------------------" << std::endl;
+	std::cout << "----------------------------------------" << std::endl;
 	SetConsoleTextAttribute(this->getWindow()->getConsole(), FOREGROUND_RED); // zmiana koloru tekstu w konsoli na czerwony
 	std::cout << text;
 	SetConsoleTextAttribute(this->getWindow()->getConsole(), 15); // zmiana koloru tekstu w konsoli na bialy

@@ -6,7 +6,7 @@
 
 AddStaffMemberPage::AddStaffMemberPage(Window* window) : AddPage(window)
 {
-	this->header = TextBox('#', "##   Dodawanie pracownika   ##");
+	this->header = TextBox('#', "##         Dodawanie pracownika       ##");
 }
 
 AddStaffMemberPage::AddStaffMemberPage(const AddStaffMemberPage& model)
@@ -40,7 +40,7 @@ void AddStaffMemberPage::draw()
 	this->drawParagraph("Wiek:     | ");
 	this->checkNumber(this->numbers[0]);
 
-	this->drawParagraph("Tytul: | ");
+	this->drawParagraph("Tytul:    | ");
 	std::cout << this->strings[2] << std::endl;
 
 	std::cout << std::endl;
@@ -60,7 +60,18 @@ void AddStaffMemberPage::service()
 		this->testNumber("Podaj wiek: (min. 30, max. 100)", 0, 30, 100); // pobranie odpowiedniego wieku pracownika (pobranie + walidacja)
 		break;
 	case 4:
-		this->testString("Podaj stopien naukowy: (min 3 litery)", 2); // pobranie odpowiedniego tytulu naukowego pracownika (pobranie + walidacja)
+		std::cout << "Podaj stopien naukowy: (lic. | inz. | mgr. | dr. | prof.)" << std::endl;
+		std::cin >> this->strings[2];
+		// dopoki wprowadzone dane sa niepoprawne kontynuje prosbe o podanie odpowiedniego trybu studiow
+		while (!std::cin.good() || (this->strings[2] != "lic." && this->strings[2] != "inz." && this->strings[2] != "mgr." && this->strings[2] != "dr." && this->strings[2] != "prof."))
+		{
+			this->strings[2].clear();
+			this->getWindow()->refresh();
+			std::cout << "Podaj stopien naukowy: (lic. | inz. | mgr. | dr. | prof.)" << std::endl;
+			std::cin.clear();
+			std::cin >> this->strings[2];
+		}
+		break;
 		break;
 	default:
 		// dodanie nowego pracownika do listy

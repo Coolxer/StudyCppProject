@@ -6,7 +6,7 @@
 
 AddStudentPage::AddStudentPage(Window* window) : AddPage(window)
 {
-	this->header = TextBox('#', "##   Dodawanie studenta   ##");
+	this->header = TextBox('#', "##        Dodawanie studenta          ##");
 }
 
 AddStudentPage::AddStudentPage(const AddStudentPage& model)
@@ -40,7 +40,7 @@ void AddStudentPage::draw()
 	this->drawParagraph("Wiek:     | ");
 	this->checkNumber(this->numbers[0]); // sprawdzenie czy numer jest rowny 0 (jeszcze nie wpisany) to wyswietla "", inaczej wyswietla numer
 
-	this->drawParagraph("Wydzial: | ");
+	this->drawParagraph("Wydzial:  | ");
 	std::cout << this->strings[2] << std::endl;
 	
 	this->drawParagraph("Kierunek: | ");

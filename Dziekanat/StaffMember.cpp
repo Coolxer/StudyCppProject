@@ -56,13 +56,13 @@ void StaffMember::calcCash()
 
 	/* ustawienie przelicznika na podstawie posidanych stopni naukowych */
 
-	if (this->academic_degree == "lic" || this->academic_degree == "lic." || this->academic_degree == "inz" || this->academic_degree == "inz.")
+	if (this->academic_degree == "lic." || this->academic_degree == "inz.")
 		converter = 200;
-	else if (this->academic_degree == "mgr" || this->academic_degree == "mgr.")
+	else if (this->academic_degree == "mgr." )
 		converter = 400;
-	else if (this->academic_degree == "dr" || this->academic_degree == "dr.")
+	else if (this->academic_degree == "dr.")
 		converter = 700;
-	else if (this->academic_degree == "prof" || this->academic_degree == "prof.")
+	else if (this->academic_degree == "prof.")
 		converter = 1000;
 	else
 		converter = 0;
@@ -72,7 +72,7 @@ void StaffMember::calcCash()
 
 bool StaffMember::isProfessor() const
 {
-	if (this->academic_degree.find("prof") != std::string::npos) // sprawdzenie czy pracownik ma tytul profesora, jesli tak to zwraca true
+	if (this->academic_degree == "prof.") // sprawdzenie czy pracownik ma tytul profesora, jesli tak to zwraca true
 		return true;
 
 	return false; // jesli pracownik nie jest profesorem, to zwraca false

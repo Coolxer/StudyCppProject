@@ -6,7 +6,7 @@
 
 AddLessonPage::AddLessonPage(Window* window) : AddPage(window)
 {
-	this->header = TextBox('#', "##   Dodawanie zajecia   ##"); // stworzenie naglowka
+	this->header = TextBox('#', "##          Dodawanie zajec           ##"); // stworzenie naglowka
 }
 
 AddLessonPage::AddLessonPage(const AddLessonPage& model)
@@ -31,19 +31,19 @@ void AddLessonPage::draw()
 	SetConsoleTextAttribute(this->getWindow()->getConsole(), FOREGROUND_GREEN); // ustawienie koloru tekstu w konsoli na zielony
 	this->header.show(); 
 
-	this->drawParagraph("Typ:     | "); // wyswietlenie paragrafu dot. typu
+	this->drawParagraph("Typ:                 | "); // wyswietlenie paragrafu dot. typu
 	std::cout << this->strings[0] << std::endl; // wyswietlenie aktualnego typu, jesli nie wpisany to ""
 
-	this->drawParagraph("Name: | ");
+	this->drawParagraph("Name:                | ");
 	std::cout << this->strings[1] << std::endl;
 
-	this->drawParagraph("Godzina rozpoczecia:     | ");
+	this->drawParagraph("Godzina rozpoczecia: | ");
 	this->checkNumber(this->numbers[0]); // sprawdzenie czy numer jest rowny 0 (jeszcze nie wpisany) to wyswietla "", inaczej wyswietla numer
 
-	this->drawParagraph("Czas trwania: | ");
+	this->drawParagraph("Czas trwania:        | ");
 	this->checkNumber(this->numbers[1]);
 
-	this->drawParagraph("Max. ilosc miejsc | ");
+	this->drawParagraph("Max. ilosc miejsc    | ");
 	this->checkNumber(this->numbers[2]);
 
 	std::cout << std::endl;
