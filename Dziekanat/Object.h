@@ -15,7 +15,7 @@ public:
 	Object(); // konstruktor domyslny
 	Object(const Object& model); // konstruktor kopiujacy
 	Object& operator = (const Object& model); // przeciazenie operatora przypisania
-	virtual bool operator ==(Object* model) = 0;
+	virtual bool isEqual(Object* model) = 0;
 	~Object(); // destruktor
 
 	int getIndex() const; // metoda zwraca numer identyfikacyjny

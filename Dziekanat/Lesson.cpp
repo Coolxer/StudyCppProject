@@ -50,7 +50,7 @@ Lesson& Lesson::operator = (const Lesson& model)
 	return *this;
 }
 
-bool Lesson::operator ==(Object* model)
+bool Lesson::isEqual(Object* model)
 {
 	Lesson* lesson = (Lesson*)model;
 

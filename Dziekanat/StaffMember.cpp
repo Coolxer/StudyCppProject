@@ -25,7 +25,7 @@ StaffMember& StaffMember::operator = (const StaffMember& model)
 	return *this;
 }
 
-bool StaffMember::operator ==(Object* model)
+bool StaffMember::isEqual(Object* model)
 {
 	StaffMember* staffMember = (StaffMember*)model;
 

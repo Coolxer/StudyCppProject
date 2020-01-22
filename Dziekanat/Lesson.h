@@ -28,7 +28,7 @@ public:
 	Lesson(std::string type = "", std::string name = "", int startTime = 0, int duration = 0, int maxPlaces = 0); // konstruktor domyslny
 	Lesson(const Lesson& model); // konstruktor kopiujacy
 	Lesson& operator = (const Lesson& model); // przeciazenie operatora przypisania
-	bool operator ==(Object* model); // przeciazenie operatora porownania
+	bool isEqual(Object* model);
 	~Lesson(); // destruktor
 	
 	std::string getType() const; // metoda zwraca typ zajec

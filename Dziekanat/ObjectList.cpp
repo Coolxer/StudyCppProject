@@ -1,5 +1,7 @@
 #include "ObjectList.h"
 
+#include "windows.h"
+
 ObjectList::ObjectList()
 {
 	this->index = 0; // ustawienie indeksu potencjalnego pierwszego obiektu na 0
@@ -86,8 +88,9 @@ int ObjectList::objectExists(Object* object)
 {
 	for (int i = 0; i < this->size; i++)
 	{
-		if (this->objects[i] == object) // sprawdzenie czy aktualny obiekt w iteracji jest rowny podanemu poprzez wskaznik obiektowi -> wykorzystanie przeciazenia operatora porownania
-			return i;					// jesli tak to zwraca numer tego obiektu na liscie                     
+		if(this->objects[i]->isEqual(object)) // sprawdzenie czy aktualny obiekt w iteracji jest rowny podanemu poprzez wskaznik obiektowia
+			return i;						  // jesli tak to zwraca numer tego obiektu na liscie    
+											                 
 	}
 
 	return -1; // jesli obiektu nie ma na liscie to zwraca -1

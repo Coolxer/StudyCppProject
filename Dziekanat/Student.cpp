@@ -1,7 +1,6 @@
 #include "Student.h"
 
 #include <iostream>
-#include "windows.h"
 
 Student::Student(std::string firstName, std::string lastName, int age, std::string field, int level, int year, std::string type) 
 																							  : Person(firstName, lastName, age)
@@ -29,12 +28,9 @@ Student::~Student()
 
 }
 
-bool Student::operator ==(Object* model)
+bool Student::isEqual(Object* model)
 {
 	Student* student = (Student*)model;
-
-	std::cout << "operator" << std::endl;
-	Sleep(1000);
 
 	/* jesli wszystkie pola Studenta A i Studenta B sa takie same, to obiekty sa sobie rowne */
 	if ((this->getFirstName() == student->getFirstName()) && (this->getLastName() == student->getLastName()) && (this->getAge() == student->getAge()) && (this->study.getField() == student->study.getField()) && (this->study.getLevel() == student->study.getLevel()) && (this->study.getYear() == student->study.getYear()) && (this->study.getType() == student->study.getType()))

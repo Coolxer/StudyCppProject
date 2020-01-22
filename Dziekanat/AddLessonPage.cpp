@@ -83,12 +83,16 @@ void AddLessonPage::service()
 		int id = this->objectList->addObject(new Lesson(this->strings[0], this->strings[1], this->numbers[0], this->numbers[1], this->numbers[2]));
 
 		this->getWindow()->refresh();
-		std::cout << "Dodano nowe zajecia o id " << id << std::endl << std::endl;
+
+		if (id == -1)
+			std::cout << "Podane zajecia juz istnieja" << std::endl << std::endl;
+		else
+			std::cout << "Dodano nowe zajecia o id " << id << std::endl << std::endl;
 
 		Sleep(2000);
 
 		this->resetValues(); // zresetowanie wszystkich wpisywanych wartosci
-		this->getWindow()->setActivePage(2); // powrot do glownej strony zajec
+		this->getWindow()->setActivePage(3); // powrot do glownej strony zajec
 		break;
 	}
 

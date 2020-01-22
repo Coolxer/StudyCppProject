@@ -67,7 +67,11 @@ void AddStaffMemberPage::service()
 		int id = this->objectList->addObject(new StaffMember(this->strings[0], this->strings[1], this->numbers[0], this->strings[2]));
 
 		this->getWindow()->refresh();
-		std::cout << "Dodano nowego pracownika o id " << id << std::endl << std::endl;
+		
+		if (id == -1)
+			std::cout << "Podany pracownik juz istnieje" << std::endl << std::endl;
+		else
+			std::cout << "Dodano nowego pracownika o id " << id << std::endl << std::endl;
 
 		Sleep(2000);
 
