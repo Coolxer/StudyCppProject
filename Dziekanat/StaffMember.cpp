@@ -84,6 +84,12 @@ void StaffMember::increaseLessons()
 	this->calcCash(); // obliczenie wynagrodzenia
 }
 
+void StaffMember::decreaseLessons()
+{
+	this->numberOfLessonsProvided--; // zmniejszenie licznika prowadzonych zajec przez pracownika
+	this->calcCash(); // obliczenie wynagrodzenia
+}
+
 void StaffMember::showHeader()
 {
 	std::cout << std::endl << " ID " << " Imie " << " Nazwisko " << " Wiek " << " Tytuly " << " Wynagrodzenie " << " Liczba zajec " << std::endl;

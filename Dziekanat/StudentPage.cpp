@@ -8,7 +8,7 @@ StudentPage::StudentPage(Window* window) : MainPage(window, "     STUDENCI-SERWI
 	this->menu.addMenuElement("Znajdz studenta wedlug indeksu");
 	this->menu.addMenuElement("Wyswietl studentow z wydzialu");
 	this->menu.addMenuElement("Wyswietl studentow z kierunku");
-	this->menu.addMenuElement("Wyswietl studentow stacjonarnych / zaocznych");
+	this->menu.addMenuElement("Wyswietl studentow z trybu");
 	this->menu.addMenuElement("Wyswietl wszystkich studentow");
 	this->menu.addMenuElement("Wyswietl liczbe studentow");
 	this->menu.addMenuElement("Zapisz studenta na zajecia");

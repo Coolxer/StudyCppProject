@@ -79,13 +79,19 @@ void LessonPage::service()
 				std::cout << "Podaj id zajec, ktore chcesz usunac: " << std::endl;
 				std::cin >> id; // wczytanie id zajec do usuniecia
 
-				id = this->lessonList.removeObject(id); // proba usuniecia zajec z listy zajec
+				lesson = (Lesson*)this->lessonList.getObjectByIndex(id);
 
-				if (id == -1) // sprawdzenie czy udalo sie usunac zajecia, jesli warunek jest spelniony to nie, inaczej usunieto zajecia 
-					std::cout << std::endl << "Nie ma takiego zajecia" << std::endl;
+				if (lesson)
+				{
+					lesson->removeStaffMember();
+					id = this->lessonList.removeObject(id); // usuniecie zajec z listy zajec
+
+					std::cout << std::endl << "Usunieto zajecia o id " << id;
+
+				}
 				else
-					std::cout << std::endl << "Usunieto zajecie o id " << id;
-
+					std::cout << std::endl << "Nie ma takich zajec" << std::endl;
+					
 				Sleep(2000);
 
 				break;

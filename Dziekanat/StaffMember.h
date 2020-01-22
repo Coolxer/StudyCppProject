@@ -33,6 +33,7 @@ public:
 	bool isProfessor() const; // metoda sprawdza czy pracownik ma tytul profesora
 
 	void increaseLessons(); // metoda zwieksza liczbe prowadzonych lekcji przez pracownika
+	void decreaseLessons(); // metoda zwieksza liczbe prowadzonych lekcji przez pracownika
 
 	void showHeader(); // metoda wyswietla naglowek informacyjny
 	void show(bool withHeader = false); // metoda wyswietla konkretne dane pracownika

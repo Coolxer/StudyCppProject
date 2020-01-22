@@ -129,6 +129,7 @@ void Lesson::removeStudent(Student* student, int id)
 void Lesson::removeStaffMember()
 {
 	//delete this->staffMember;
+	this->staffMember->decreaseLessons();
 	this->staffMember = nullptr; // zwolnienie prowadzacego z zajec
 }
 

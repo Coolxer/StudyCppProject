@@ -76,7 +76,7 @@ void LessonList::showByName(std::string name)
 				firstOccurrence = false;
 			}
 
-			lesson->show(true); // wyswietlenie danych dotyczacych konkretnych zajec
+			lesson->show(); // wyswietlenie danych dotyczacych konkretnych zajec
 			exists = true;
 		}
 	}

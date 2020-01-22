@@ -10,8 +10,8 @@ E:\studia\C++\projekt\Dziekanat\Dziekanat\LessonPage.cpp(67,9): warning C4101: "
   MenuPage.cpp
   ObjectList.cpp
   StaffList.cpp
+  StaffMember.cpp
   StaffPage.cpp
-  Student.cpp
   StudentList.cpp
   StudentPage.cpp
 E:\studia\C++\projekt\Dziekanat\Dziekanat\StudentPage.cpp(72,9): warning C4101: "exists": lokalna zmienna, do której nie istnieje odwołanie
