@@ -57,7 +57,11 @@ void LessonPage::service()
 			break;
 		}
 		else if (option == -1)
+		{
+			Sleep(1000);
+			this->getWindow()->refresh();
 			continue;
+		}
 		else
 		{
 			/* deklaracja zmiennych pomocniczych */

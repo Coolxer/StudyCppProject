@@ -51,8 +51,6 @@ void StaffPage::service()
 {
 	int option;
 
-	SetConsoleTextAttribute(this->getWindow()->getConsole(), 13); // zmiana koloru tekstu w konsoli na rozowy
-
 	do {
 		option = CmdManager::listen(); // pobranie numeru operacji do wykonania
 
@@ -62,7 +60,11 @@ void StaffPage::service()
 			break;
 		}
 		else if (option == -1)
+		{
+			Sleep(1000);
+			this->getWindow()->refresh();
 			continue;
+		}
 		else
 		{
 			/* deklaracja zmiennych pomocniczych */

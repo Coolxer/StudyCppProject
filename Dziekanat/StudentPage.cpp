@@ -1,6 +1,6 @@
 #include "StudentPage.h"
 
-StudentPage::StudentPage(Window* window) : MainPage(window, "     STUDENCI-SERWIS ")
+StudentPage::StudentPage(Window* window) : MainPage(window, "            STUDENCI-SERWIS")
 {
 	/* Dodawanie elementow do menu */
 	this->menu.addMenuElement("Dodaj studenta");
@@ -62,7 +62,11 @@ void StudentPage::service()
 			break;
 		}
 		else if (option == -1)
+		{
+			Sleep(1000);
+			this->getWindow()->refresh();
 			continue;
+		}
 		else
 		{
 			/* deklaracja zmiennych pomocniczych */

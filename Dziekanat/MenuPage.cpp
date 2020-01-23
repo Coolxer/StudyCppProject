@@ -40,7 +40,11 @@ void MenuPage::service()
 		if (option == 0)
 			break;
 		else if (option == -1)
+		{
+			Sleep(1000);
+			this->getWindow()->refresh();
 			continue;
+		}
 		else
 		{
 			this->getWindow()->setActivePage(option); // przejscie do strony o podanym numerze

@@ -73,8 +73,8 @@ void ViewPage::service()
 		}
 		else
 		{
-			continue;
 			this->getWindow()->refresh(); // odswiezenie okna
+			continue;
 		}
 	} while (true);
 }
