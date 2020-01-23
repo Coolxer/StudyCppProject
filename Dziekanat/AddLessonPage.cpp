@@ -54,14 +54,14 @@ void AddLessonPage::service()
 	switch (this->currentStep) // switch na podstawie aktualnego kroku dodawania nowych zajec
 	{
 	case 1:
-		std::cout << "Podaj typ: (wyklad / cwiczenia / laboratorium / projekt)" << std::endl;
+		std::cout << "Podaj typ: (wyklad | cwiczenia | laboratorium | projekt)" << std::endl;
 		std::cin >> this->strings[0]; // pobranie od uzytkownika typu zajec
 		// dopoki wprowadzone dane sa niepoprawne kontynuje prosbe o podanie typu zajec
 		while (!std::cin.good() || (this->strings[0] != "wyklad" && this->strings[0] != "cwiczenia" && this->strings[0] != "laboratorium" && this->strings[0] != "projekt"))
 		{
 			this->strings[0].clear(); // wyczyszczenie napisu
 			this->getWindow()->refresh(); // odwswiezenie strony
-			std::cout << "Podaj typ: (wyklad / cwiczenia / laboratiorum / projekt)" << std::endl;
+			std::cout << "Podaj typ: (wyklad | cwiczenia | laboratorium | projekt)" << std::endl;
 			std::cin.clear(); // wyczyszczenie wejscia
 			std::cin >> this->strings[0]; // pobranie od uzytkownika typu zajec
 		}
@@ -76,7 +76,6 @@ void AddLessonPage::service()
 		this->testNumber("Podaj czas trwania: (min 120, max 240 [w min.])", 1, 120, 240); // pobranie odpowiedniego czasu trwania zajec (pobranie + walidacja)
 		break;
 	case 5:
-		this->testNumber("Podaj max. ilosc miejsc: (min 5, max 100)", 2, 5, 100); // pobranie odpowiedniej ilosci miejsc (pobranie + walidacja)
 		if (this->strings[0] == "wyklad")
 		{
 			std::cout << "Podaj max. ilosc miejsc: (min 30, max 100)" << std::endl;

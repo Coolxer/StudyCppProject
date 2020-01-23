@@ -137,7 +137,7 @@ bool Lesson::addStudent(Student* student)
 {
 	if (this->studentsCount < this->maxPlaces) // sprawdzenie czy sa jeszcze wolne miejsce
 	{
-		if (this->consistsStudent(student) == -1) // jesli student jest juz wpisany na liste to zwroc false
+		if (this->consistsStudent(student) != -1) // jesli student jest juz wpisany na liste to zwroc false
 			return false;
 	
 		Student** tmp = new Student * [this->studentsCount + 1];

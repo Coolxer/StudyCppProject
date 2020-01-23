@@ -60,18 +60,17 @@ void AddStaffMemberPage::service()
 		this->testNumber("Podaj wiek: (min. 30, max. 100)", 0, 30, 100); // pobranie odpowiedniego wieku pracownika (pobranie + walidacja)
 		break;
 	case 4:
-		std::cout << "Podaj stopien naukowy: (lic. | inz. | mgr. | dr. | prof.)" << std::endl;
+		std::cout << "Podaj stopien naukowy: (lic. | inz. | mgr | dr | prof.)" << std::endl;
 		std::cin >> this->strings[2];
 		// dopoki wprowadzone dane sa niepoprawne kontynuje prosbe o podanie odpowiedniego trybu studiow
 		while (!std::cin.good() || (this->strings[2] != "lic." && this->strings[2] != "inz." && this->strings[2] != "mgr." && this->strings[2] != "dr." && this->strings[2] != "prof."))
 		{
 			this->strings[2].clear();
 			this->getWindow()->refresh();
-			std::cout << "Podaj stopien naukowy: (lic. | inz. | mgr. | dr. | prof.)" << std::endl;
+			std::cout << "Podaj stopien naukowy: (lic. | inz. | mgr | dr | prof.)" << std::endl;
 			std::cin.clear();
 			std::cin >> this->strings[2];
 		}
-		break;
 		break;
 	default:
 		// dodanie nowego pracownika do listy

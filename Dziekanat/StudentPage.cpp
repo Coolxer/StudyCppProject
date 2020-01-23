@@ -87,13 +87,6 @@ void StudentPage::service()
 				std::cout << "Podaj nr indeksu studenta, ktorego chcesz usunac: " << std::endl;
 				std::cin >> index; // wczytanie indeksu studenta do usuniecia
 
-				if (!std::cin.good())
-				{
-					std::cout << "indeks to liczba! " << std::endl;
-					Sleep(1000);
-					break;
-				}
-
 				student = (Student*)this->studentList.getObjectByIndex(index); // ustawienie wskaznika na obiekt typu Student o podanym indeksie
 
 				if (!student)
@@ -117,15 +110,9 @@ void StudentPage::service()
 				break;
 
 			case 3:
+				this->getWindow()->refresh(); // odswiezenie okna
 				std::cout << "Podaj nr indeksu studenta, ktorego dane chcesz zobaczyc: " << std::endl;
 				std::cin >> index; // wczytanie indeksu studenta
-
-				if (!std::cin.good())
-				{
-					std::cout << "indeks to liczba! " << std::endl;
-					Sleep(1000);
-					break;
-				}
  
 				this->studentList.showByIndex(index); // wyswietlenie danych studenta o podanym indeksie
 
@@ -133,6 +120,7 @@ void StudentPage::service()
 				break;
 
 			case 4:
+				this->getWindow()->refresh(); // odswiezenie okna
 				std::cout << "Podaj nazwe wydzialu studiow (budownictwa | chemiczny | informatyki | matematyki | mechaniczny | zarzadzania)" << std::endl;
 				std::cin >> input; // wczytanie nazwy kierunku studiow
 
@@ -150,7 +138,8 @@ void StudentPage::service()
 				Sleep(2500);
 				break;
 			case 5:
-				std::cout << "Podaj nazwe kierunku studiow" << std::endl;
+				this->getWindow()->refresh(); // odswiezenie okna
+				std::cout << "Podaj nazwe kierunku studiow: " << std::endl << "( architektura | biogospodarka | biotechnologia | elektrotechnika | informatyka | matematyka | fizyka | logistyka | zarzadzanie" << std::endl;
 				std::cin >> input; // wczytanie nazwy kierunku studiow
 
 				if (input != "architektura" && input != "biogospodarka" && input != "biotechnologia"
@@ -168,31 +157,34 @@ void StudentPage::service()
 				break;
 
 			case 6:
-				std::cout << "Podaj tryb studiow (stacjonarne | zaoczne)";
+				this->getWindow()->refresh(); // odswiezenie okna
+				std::cout << "Podaj tryb studiow (stacjonarne | zaoczne)" << std::endl;
 				std::cin >> input;
 				while (!std::cin.good() || (input != "stacjonarne" && input != "zaoczne"))
 				{
 					input.clear();
 					this->getWindow()->refresh();
-					std::cout << "Podaj tryb studiow (stacjonarne | zaoczne)";
+					std::cout << "Podaj tryb studiow (stacjonarne | zaoczne)" << std::endl;
 					std::cin.clear();
 					std::cin >> input;
 				}
 
 				this->studentList.showByType(input); // wyswietlenie studentow danego trybu
 
-				Sleep(2500);
+				Sleep(3500);
 				break;
 			case 7:
 				this->getWindow()->setActivePage(5); // przejscie do strony wyswietlajacej liste studentow
 				break;
 
 			case 8:
+				this->getWindow()->refresh(); // odswiezenie okna
 				std::cout << "Liczba studentow: " << this->studentList.getNumberOfObjects() << std::endl;
 				Sleep(2000);
 				break;
 
 			case 9:
+				this->getWindow()->refresh(); // odswiezenie okna
 				std::cout << "Podaj nr indeksu studenta, ktorego chcesz przypisac: " << std::endl;
 				std::cin >> index; // wczytanie indeksu
 
@@ -209,18 +201,18 @@ void StudentPage::service()
 				{
 					Lesson* lesson; // deklaracja wskaznika na obiekt typu Lesson
 
-					std::cout << "Podaj nazwe zajec, do ktorych chcesz zapisac studenta: " << std::endl;
+					std::cout << std::endl << "Podaj nazwe zajec, do ktorych chcesz zapisac studenta: " << std::endl;
 					std::cin >> input; // wczytanie nazwy zajec
 
-					std::cout << "Podaj typ zajec" << std::endl;
+					std::cout << std::endl << "Podaj typ zajec (wyklad | cwiczenia | laboratorium | projekt)" << std::endl;
 					std::cin >> input2; // wczytanie typu zajec
 
 					lesson = this->lessonList->getLessonByNameAndType(input, input2); // ustawienie wskaznika na obiekt typu Lesson o podanej nazwie
 
-					if (!lesson) // sprawdzenie czy zajecia o podanej nazwie istnieja
+					if (!lesson) // sprawdzenie czy zajecia o podanej nazwie i typie istnieja
 					{
 						SetConsoleTextAttribute(this->getWindow()->getConsole(), 12);
-						std::cout << "Nie ma takch zajec" << std::endl;
+						std::cout << "Nie ma takich zajec" << std::endl;
 						SetConsoleTextAttribute(this->getWindow()->getConsole(), 15);
 						Sleep(1500);
 					}
@@ -231,13 +223,13 @@ void StudentPage::service()
 						if (ok) // sprwadzenie czy student zostal zapisany na zajecia
 						{
 							SetConsoleTextAttribute(this->getWindow()->getConsole(), 10);
-							std::cout << "Przypisano studenta do zajec";
+							std::cout << std::endl << "Przypisano studenta do zajec";
 							SetConsoleTextAttribute(this->getWindow()->getConsole(), 15);
 						}
 						else
 						{
 							SetConsoleTextAttribute(this->getWindow()->getConsole(), 12);
-							std::cout << "Brak wolnych miejsc / Student juz jest przypisany do tych zajec";
+							std::cout << std::endl << "Brak wolnych miejsc / Student juz jest przypisany do tych zajec";
 							SetConsoleTextAttribute(this->getWindow()->getConsole(), 15);
 						}
 		

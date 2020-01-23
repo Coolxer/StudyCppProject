@@ -12,10 +12,10 @@ private:
 	int numberOfLessonsProvided; // liczba prowadzonych zajec
 
 	/* ROZPISKA WYNAGRODZEN ZA JEDNE ZAJECIA
-		lic/inz = 200, 
+		lic./inz. = 200, 
 		mgr = 400, 
 		dr = 700, 
-		prof = 1000
+		prof. = 1000
 	*/
 
 	void calcCash(); // metoda oblicza wynagrodzenie pracownika

@@ -85,13 +85,6 @@ void StaffPage::service()
 				std::cout << "Podaj id pracownika, ktorego chcesz zwolnic: " << std::endl;
 				std::cin >> id; // wczytanie id pracownika do usuniecia
 
-				if (!std::cin.good())
-				{
-					std::cout << "id to liczba! " << std::endl;
-					Sleep(1000);
-					break;
-				}
-
 				staffMember = (StaffMember*)this->staffList.getObjectByIndex(id); // ustawienie wskaznika na obiekt typu StaffMember o podanym id
 
 				exists = this->staffList.removeObject(staffMember->getIndex()); // proba usuniecia pracownika o podanym id z listy
@@ -115,15 +108,9 @@ void StaffPage::service()
 				break;
 
 			case 3:
+				this->getWindow()->refresh(); // odswiezenie okna
 				std::cout << "Podaj id pracownika, ktorego dane chcesz zobaczyc: " << std::endl;
 				std::cin >> id; // wczytanie id pracownika
-
-				if (!std::cin.good())
-				{
-					std::cout << "id to liczba! " << std::endl;
-					Sleep(1000);
-					break;
-				}
 	
 				this->staffList.showByIndex(id); // wyswietlenia danych pracownika o podanym id
 
@@ -131,7 +118,7 @@ void StaffPage::service()
 				break;
 
 			case 4:
-
+				this->getWindow()->refresh(); // odswiezenie okna
 				this->staffList.showProfessors(); // wyswietlenie profesorow
 
 				Sleep(2500);
@@ -142,10 +129,12 @@ void StaffPage::service()
 				break;	
 
 			case 6:
+				this->getWindow()->refresh(); // odswiezenie okna
 				std::cout << "Liczba pracownikow: " << this->staffList.getNumberOfObjects() << std::endl;
 				Sleep(2000);
 				break;
 			case 7:
+				this->getWindow()->refresh(); // odswiezenie okna
 				std::cout << "Podaj nr id pracownika, ktorego chcesz przypisac: " << std::endl;
 				std::cin >> id;
 
@@ -154,7 +143,7 @@ void StaffPage::service()
 				if (!staffMember) // sprawdzenie czy pracownik o podanym id istnieje, jesli nie to wyswietl komunikat
 				{
 					SetConsoleTextAttribute(this->getWindow()->getConsole(), 12);
-					std::cout << "Nie ma takiego pracownika" << std::endl;
+					std::cout << std::endl << "Nie ma takiego pracownika" << std::endl;
 					SetConsoleTextAttribute(this->getWindow()->getConsole(), 15);
 					Sleep(1500);
 				}
@@ -162,10 +151,10 @@ void StaffPage::service()
 				{
 					Lesson* lesson;
 
-					std::cout << "Podaj nazwe zajec, do ktorych chcesz przypisac prowadzacego: " << std::endl;
+					std::cout << std::endl << "Podaj nazwe zajec, do ktorych chcesz przypisac prowadzacego: " << std::endl;
 					std::cin >> input; // wczytanie nazwy zajec
 
-					std::cout << "Podaj typ zajec" << std::endl;
+					std::cout << std::endl << "Podaj typ zajec (wyklad | cwiczenia | laboratorium | projekt)" << std::endl;
 					std::cin >> input2; // wczytanie typu zajec
 
 					lesson = this->lessonList->getLessonByNameAndType(input, input2);
@@ -173,7 +162,7 @@ void StaffPage::service()
 					if (!lesson)
 					{
 						SetConsoleTextAttribute(this->getWindow()->getConsole(), 12);
-						std::cout << "Nie ma takiego zajec" << std::endl;
+						std::cout << "Nie ma takich zajec" << std::endl;
 						SetConsoleTextAttribute(this->getWindow()->getConsole(), 15);
 						Sleep(1500);
 					}
@@ -184,14 +173,14 @@ void StaffPage::service()
 						if (ok) // jesli podany prowa
 						{
 							SetConsoleTextAttribute(this->getWindow()->getConsole(), 10);
-							std::cout << "Przypisano pracownika do zajecia";
+							std::cout << std::endl << "Przypisano pracownika do zajec";
 							SetConsoleTextAttribute(this->getWindow()->getConsole(), 15);
 							staffMember->increaseLessons();
 						}
 						else
 						{
 							SetConsoleTextAttribute(this->getWindow()->getConsole(), 12);
-							std::cout << "To zajecie ma juz swojego prowadzacego";
+							std::cout << std::endl << "To zajecie ma juz swojego prowadzacego";
 							SetConsoleTextAttribute(this->getWindow()->getConsole(), 15);
 						}
 

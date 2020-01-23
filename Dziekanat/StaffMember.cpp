@@ -29,7 +29,8 @@ bool StaffMember::isEqual(Object* model)
 {
 	StaffMember* staffMember = (StaffMember*)model;
 
-	if (this->academic_degree == staffMember->academic_degree && this->cash == staffMember->cash && this->numberOfLessonsProvided == staffMember->numberOfLessonsProvided)
+	if(this->getFirstName() == staffMember->getFirstName() && this->getLastName() == staffMember->getLastName() && this->getAge() == staffMember->getAge()
+		&& this->academic_degree == staffMember->academic_degree && this->cash == staffMember->cash && this->numberOfLessonsProvided == staffMember->numberOfLessonsProvided)
 		return true;
 
 	return false;
@@ -58,9 +59,9 @@ void StaffMember::calcCash()
 
 	if (this->academic_degree == "lic." || this->academic_degree == "inz.")
 		converter = 200;
-	else if (this->academic_degree == "mgr." )
+	else if (this->academic_degree == "mgr" )
 		converter = 400;
-	else if (this->academic_degree == "dr.")
+	else if (this->academic_degree == "dr")
 		converter = 700;
 	else if (this->academic_degree == "prof.")
 		converter = 1000;

@@ -79,7 +79,7 @@ void AddStudentPage::service()
 		{
 			this->strings[2].clear();
 			this->getWindow()->refresh();
-			std::cout << "Podaj wydzial: (budownictwa | chemiczny | informatyki | matematyki | zarzadzania)" << std::endl;
+			std::cout << "Podaj wydzial: (budownictwa | chemiczny | informatyki | matematyki | mechaniczny | zarzadzania)" << std::endl;
 			std::cin.clear();
 			std::cin >> this->strings[2];
 		}

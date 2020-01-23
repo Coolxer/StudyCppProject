@@ -56,31 +56,6 @@ void LessonList::removeStudentFromLessons(Student* student)
 	}
 }
 
-void LessonList::showByName(std::string name)
-{
-	bool exists = false;
-	bool firstOccurrence = true; // ustawienie flagi sygnalizujacej, ze napotkano pierwszy pasujacy wynik
-
-	for (int i = 0; i < this->size; i++)
-	{
-		Lesson* lesson = (Lesson*)this->objects[i]; // pobranie wskaznika na aktualny w iteracji obiekt typu Lesson
-		if (lesson->getName() == name) // sprawdzenie czy zajecia maja nazwe taka jaka zostala podana jako argument
-		{
-			if (firstOccurrence)
-			{
-				lesson->showHeader();
-				firstOccurrence = false;
-			}
-
-			lesson->show(); // wyswietlenie danych dotyczacych konkretnych zajec
-			exists = true;
-		}
-	}
-
-	if(!exists) // jesli zajecia o podanej nazwie nie istnieja, wyswietl komunikat
-		std::cout << "Nie ma zajec o podanej nazwie" << std::endl;
-}
-
 void LessonList::showSpecificType(std::string type)
 {
 	int count = 0; // ustawienie licznika zajec spelniajacych warunek na 0

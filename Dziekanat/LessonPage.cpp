@@ -105,14 +105,17 @@ void LessonPage::service()
 				break;
 
 			case 3:
+				this->getWindow()->refresh(); // odswiezenie okna
 				std::cout << "Podaj nazwe zajec, ktorych szczegoly chcesz zobaczyc: " << std::endl;
 				std::cin >> input; // wczytanie nazwy zajec
 
-				std::cout << "Podaj typ zajec" << std::endl;
+				std::cout << std::endl << "Podaj typ zajec" << std::endl;
 				std::cin >> input2; // wczytanie typu zajec
 
-				if (this->lessonList.getLessonByNameAndType(input, input2))
-					this->lessonList.showByName(input); // wyswietlenie zajec o podanej nazwie
+				lesson = this->lessonList.getLessonByNameAndType(input, input2);
+
+				if (lesson)
+					lesson->show(true); // wyswietlenie zajec o podanej nazwie
 				else
 				{
 					SetConsoleTextAttribute(this->getWindow()->getConsole(), 12);
@@ -124,10 +127,11 @@ void LessonPage::service()
 				break;
 
 			case 4:
+				this->getWindow()->refresh(); // odswiezenie okna
 				std::cout << "Podaj nazwe zajec, ktorych prowdzacego chcesz zobaczyc: " << std::endl;
 				std::cin >> input; // wczytanie nazwy zajec
 
-				std::cout << "Podaj typ zajec" << std::endl;
+				std::cout << std::endl << "Podaj typ zajec" << std::endl;
 				std::cin >> input2; // wczytanie typu zajec
 
 				lesson = this->lessonList.getLessonByNameAndType(input, input2);
@@ -157,10 +161,11 @@ void LessonPage::service()
 				break;
 
 			case 5:
+				this->getWindow()->refresh(); // odswiezenie okna
 				std::cout << "Podaj nazwe zajec, ktorego uczestnikow chcesz zobaczyc: " << std::endl;
 				std::cin >> input; // wczytanie nazwy zajec
 
-				std::cout << "Podaj typ zajec" << std::endl;
+				std::cout << std::endl << "Podaj typ zajec" << std::endl;
 				std::cin >> input2; // wczytanie typu zajec
 
 				lesson = this->lessonList.getLessonByNameAndType(input, input2);
@@ -178,6 +183,7 @@ void LessonPage::service()
 				break;
 
 			case 6:
+				this->getWindow()->refresh(); // odswiezenie okna
 				std::cout << "Podaj typ zajec, ktore chcesz zobaczyc: " << std::endl;
 				std::cin >> input; // wczytanie typu zajec
 
@@ -191,6 +197,7 @@ void LessonPage::service()
 				break;
 
 			case 8:
+				this->getWindow()->refresh(); // odswiezenie okna
 				std::cout << "Liczba zajec: " << this->lessonList.getNumberOfObjects() << std::endl;
 				Sleep(2000);
 				break;
