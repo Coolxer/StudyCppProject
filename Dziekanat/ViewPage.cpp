@@ -6,11 +6,11 @@
 
 ViewPage::ViewPage(Window* window, std::string headerText, int parentWindowIndex) : Page(window)
 {
-	this->header = TextBox('#', headerText);
+	this->header = TextBox('#', headerText, 90);
 
 	this->parentWindowIndex = parentWindowIndex;
 
-	this->info = TextBox('*', "** 0 -> powrot do poprzedniej strony. **");
+	this->info = TextBox('*', "**                         0 -> powrot do poprzedniej strony.                           **", 90);
 
 }
 

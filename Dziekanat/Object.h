@@ -15,7 +15,8 @@ public:
 	Object(); // konstruktor domyslny
 	Object(const Object& model); // konstruktor kopiujacy
 	Object& operator = (const Object& model); // przeciazenie operatora przypisania
-	virtual bool isEqual(Object* model) = 0; // metoda czysto wirtualna (bez definicji) -> musi byc przeslonieta w klasie potomnej
+	virtual bool isEqual(Object* model) = 0; // metoda czysto wirtualna (bez definicji) -> musi byc przeslonieta w klasie potomnej, 
+										     // jest to odpowiednik operatora porownania, tyle ze dziala na wskaznikach
 	~Object(); // destruktor
 
 	int getIndex() const; // metoda zwraca numer identyfikacyjny

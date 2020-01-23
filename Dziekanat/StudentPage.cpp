@@ -53,8 +53,6 @@ void StudentPage::service()
 {
 	int option;
 
-	SetConsoleTextAttribute(this->getWindow()->getConsole(), 13); // zmiana koloru tekstu w konsoli na rozowy
-
 	do {
 		option = CmdManager::listen(); // pobranie numeru operacji do wykonania
 
@@ -70,7 +68,7 @@ void StudentPage::service()
 			/* deklaracja zmiennych pomocniczych */
 			int index;
 			bool exists;
-			std::string input;
+			std::string input, input2;
 
 			Student* student;
 
@@ -95,12 +93,18 @@ void StudentPage::service()
 				student = (Student*)this->studentList.getObjectByIndex(index); // ustawienie wskaznika na obiekt typu Student o podanym indeksie
 
 				if (!student)
+				{
+					SetConsoleTextAttribute(this->getWindow()->getConsole(), 12); // zmiana koloru tekstu w konsoli na czerwony
 					std::cout << "Nie ma takiego studenta" << std::endl;
+					SetConsoleTextAttribute(this->getWindow()->getConsole(), 15); // zmiana koloru tekstu w konsoli na bialy
+				}
 				else
 				{
 					this->lessonList->removeStudentFromLessons(student); // usuniecie studenta z zajec na ktore potencjalnie byl zapisany
 					index = this->studentList.removeObject(student->getIndex()); // proba usuniecia studenta z listy studentow
+					SetConsoleTextAttribute(this->getWindow()->getConsole(), 10); // zmiana koloru tekstu w konsoli na zielony
 					std::cout << std::endl << "Usunieto studenta o indeksie " << index;
+					SetConsoleTextAttribute(this->getWindow()->getConsole(), 15); // zmiana koloru tekstu w konsoli na bialy
 					//delete student;
 				}
 				
@@ -118,7 +122,7 @@ void StudentPage::service()
 					Sleep(1000);
 					break;
 				}
-
+ 
 				this->studentList.showByIndex(index); // wyswietlenie danych studenta o podanym indeksie
 
 				Sleep(2500);
@@ -130,11 +134,14 @@ void StudentPage::service()
 
 
 				if (input != "budownictwa" && input != "chemiczny" && input != "informatyki" && input != "matematyki" && input != "mechaniczny" && input != "zarzadzania")
+				{
+					SetConsoleTextAttribute(this->getWindow()->getConsole(), 12); 
 					std::cout << "Nie ma takiego wydzialu" << std::endl;
+					SetConsoleTextAttribute(this->getWindow()->getConsole(), 15); 
+				}
+					
 				else
 					this->studentList.showByDepartment(input);
-
-				// show header
 
 				Sleep(2500);
 				break;
@@ -142,10 +149,14 @@ void StudentPage::service()
 				std::cout << "Podaj nazwe kierunku studiow" << std::endl;
 				std::cin >> input; // wczytanie nazwy kierunku studiow
 
-				if(input != "architektura" && input != "biogospodarka" && input != "biotechnologia" 
-					&& input != "elektrotechnika" && input != "informatyka" && input != "matematyka" 
+				if (input != "architektura" && input != "biogospodarka" && input != "biotechnologia"
+					&& input != "elektrotechnika" && input != "informatyka" && input != "matematyka"
 					&& input != "fizyka" && input != "logistyka" && input != "zarzadzanie")
+				{
+					SetConsoleTextAttribute(this->getWindow()->getConsole(), 12);
 					std::cout << "Nie ma takiego kierunku" << std::endl;
+					SetConsoleTextAttribute(this->getWindow()->getConsole(), 15);
+				}
 				else
 					this->studentList.showByField(input); // wyswietlenie studentow z danego kierunku studiow
 
@@ -185,44 +196,48 @@ void StudentPage::service()
 
 				if (!student) // sprawdzenie czy student o podanym indeksie istnieje
 				{
+					SetConsoleTextAttribute(this->getWindow()->getConsole(), 12);
 					std::cout << "Nie ma takiego studenta" << std::endl;
+					SetConsoleTextAttribute(this->getWindow()->getConsole(), 15);
 					Sleep(1500);
 				}		
 				else
 				{
 					Lesson* lesson; // deklaracja wskaznika na obiekt typu Lesson
 
-					std::cout << "Podaj nazwe zajec, do ktorego chcesz zapisac studenta: " << std::endl;
+					std::cout << "Podaj nazwe zajec, do ktorych chcesz zapisac studenta: " << std::endl;
 					std::cin >> input; // wczytanie nazwy zajec
 
-					lesson = this->lessonList->getByName(input); // ustawienie wskaznika na obiekt typu Lesson o podanej nazwie
+					std::cout << "Podaj typ zajec" << std::endl;
+					std::cin >> input2; // wczytanie typu zajec
+
+					lesson = this->lessonList->getLessonByNameAndType(input, input2); // ustawienie wskaznika na obiekt typu Lesson o podanej nazwie
 
 					if (!lesson) // sprawdzenie czy zajecia o podanej nazwie istnieja
 					{
+						SetConsoleTextAttribute(this->getWindow()->getConsole(), 12);
 						std::cout << "Nie ma takch zajec" << std::endl;
+						SetConsoleTextAttribute(this->getWindow()->getConsole(), 15);
 						Sleep(1500);
 					}
 					else
 					{
-						std::cout << "Podaj typ zajec, do ktorego chcesz zapisac studenta: " << std::endl;
-						std::cin >> input; // wczytanie typu zajec
+						bool ok = lesson->addStudent(student); // proba zapisania studenta na zajecia
 
-						if (lesson->getType() != input)
+						if (ok) // sprwadzenie czy student zostal zapisany na zajecia
 						{
-							std::cout << "Nie ma takich zajec" << std::endl;
-							Sleep(1500);
+							SetConsoleTextAttribute(this->getWindow()->getConsole(), 10);
+							std::cout << "Przypisano studenta do zajec";
+							SetConsoleTextAttribute(this->getWindow()->getConsole(), 15);
 						}
 						else
 						{
-							bool ok = lesson->addStudent(student); // proba zapisania studenta na zajecia
-
-							if (ok) // sprwadzenie czy student zostal zapisany na zajecia
-								std::cout << "Przypisano studenta do zajec";
-							else
-								std::cout << "Brak wolnych miejsc / Student juz jest przypisany do tych zajec";
-
-							Sleep(1500);
+							SetConsoleTextAttribute(this->getWindow()->getConsole(), 12);
+							std::cout << "Brak wolnych miejsc / Student juz jest przypisany do tych zajec";
+							SetConsoleTextAttribute(this->getWindow()->getConsole(), 15);
 						}
+		
+						Sleep(1500);
 					}
 				}
 				break;

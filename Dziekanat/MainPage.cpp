@@ -44,4 +44,6 @@ void MainPage::draw()
 
 	SetConsoleTextAttribute(this->getWindow()->getConsole(), FOREGROUND_INTENSITY | FOREGROUND_GREEN | FOREGROUND_BLUE);
 	this->info.show(); // wyswietlenie informacji
+
+	SetConsoleTextAttribute(this->getWindow()->getConsole(), 15);
 }

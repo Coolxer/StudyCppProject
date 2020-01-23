@@ -48,8 +48,6 @@ void LessonPage::service()
 {
 	int option;
 
-	SetConsoleTextAttribute(this->getWindow()->getConsole(), 13); // zmiana koloru tekstu w konsoli na rozowy
-
 	do {
 		option = CmdManager::listen(); // pobranie numeru operacji do wykonania
 
@@ -66,7 +64,7 @@ void LessonPage::service()
 			int id;
 			bool exists;
 			Lesson* lesson;
-			std::string input;
+			std::string input, input2;
 
 			switch (option) // switch na podstawie numeru operacji
 			{
@@ -86,41 +84,68 @@ void LessonPage::service()
 					lesson->removeStaffMember();
 					id = this->lessonList.removeObject(id); // usuniecie zajec z listy zajec
 
+					SetConsoleTextAttribute(this->getWindow()->getConsole(), 10);
 					std::cout << std::endl << "Usunieto zajecia o id " << id;
+					SetConsoleTextAttribute(this->getWindow()->getConsole(), 15);
 
 				}
 				else
+				{
+					SetConsoleTextAttribute(this->getWindow()->getConsole(), 12);
 					std::cout << std::endl << "Nie ma takich zajec" << std::endl;
+					SetConsoleTextAttribute(this->getWindow()->getConsole(), 15);
+				}
 					
 				Sleep(2000);
 
 				break;
 
 			case 3:
-				std::cout << "Podaj nazwe zajecia, ktorego szczegoly chcesz zobaczyc: " << std::endl;
+				std::cout << "Podaj nazwe zajec, ktorych szczegoly chcesz zobaczyc: " << std::endl;
 				std::cin >> input; // wczytanie nazwy zajec
 
-				this->lessonList.showByName(input); // wyswietlenie zajec o podanej nazwie
+				std::cout << "Podaj typ zajec" << std::endl;
+				std::cin >> input2; // wczytanie typu zajec
 
+				if (this->lessonList.getLessonByNameAndType(input, input2))
+					this->lessonList.showByName(input); // wyswietlenie zajec o podanej nazwie
+				else
+				{
+					SetConsoleTextAttribute(this->getWindow()->getConsole(), 12);
+					std::cout << "Nie ma takich zajec" << std::endl;
+					SetConsoleTextAttribute(this->getWindow()->getConsole(), 15);
+				}
+				
 				Sleep(2500);
 				break;
 
 			case 4:
-				std::cout << "Podaj nazwe zajecia, ktorego prowadzacego chcesz zobaczyc: " << std::endl;
+				std::cout << "Podaj nazwe zajec, ktorych prowdzacego chcesz zobaczyc: " << std::endl;
 				std::cin >> input; // wczytanie nazwy zajec
 
-				lesson = this->lessonList.getByName(input); // pobranie wskaznika do zajec o podanej nazwie
+				std::cout << "Podaj typ zajec" << std::endl;
+				std::cin >> input2; // wczytanie typu zajec
 
-				if (!lesson) // jesli wskaznik jest pusty to nie ma takich zajec, inaczej ...
-					std::cout << std::endl << "Nie ma takich zajec" << std::endl;
-				else
+				lesson = this->lessonList.getLessonByNameAndType(input, input2);
+
+				if (lesson)
 				{
 					StaffMember* staffMember = lesson->getStaffMember(); // pobranie wskaznika na prowadzacego zajecia
 
 					if (!staffMember) // sprawdzenie czy zajecia nie maja prowadzacego
-						std::cout << std::endl << "To zajecie nie ma przypisanego prowadzacego" << std::endl;
+					{
+						SetConsoleTextAttribute(this->getWindow()->getConsole(), 12);
+						std::cout << std::endl << "Te zajecia nie maja przypisanego prowadzacego" << std::endl;
+						SetConsoleTextAttribute(this->getWindow()->getConsole(), 15);
+					}
 					else
 						staffMember->show(true); // jesli zajecia maja prowadzacego to wyswietl jego dane
+				}
+				else
+				{
+					SetConsoleTextAttribute(this->getWindow()->getConsole(), 12);
+					std::cout << std::endl << "Nie ma takich zajec" << std::endl;
+					SetConsoleTextAttribute(this->getWindow()->getConsole(), 15);
 				}
 
 				Sleep(2000);
@@ -128,15 +153,22 @@ void LessonPage::service()
 				break;
 
 			case 5:
-				std::cout << "Podaj nazwe zajecia, ktorego uczestnikow chcesz zobaczyc: " << std::endl;
+				std::cout << "Podaj nazwe zajec, ktorego uczestnikow chcesz zobaczyc: " << std::endl;
 				std::cin >> input; // wczytanie nazwy zajec
 
-				lesson = this->lessonList.getByName(input); // pobranie wskaznika do zajec o podanej nazwie
+				std::cout << "Podaj typ zajec" << std::endl;
+				std::cin >> input2; // wczytanie typu zajec
 
-				if (!lesson) // jesli wskaznik jest pusty to nie ma takich zajec, inaczej ...
-					std::cout << std::endl << "Nie ma takich zajec" << std::endl;
-				else
+				lesson = this->lessonList.getLessonByNameAndType(input, input2);
+
+				if (lesson)
 					lesson->showStudents(); // wyswietlenie studentow zapisanych na zajecia
+				else
+				{
+					SetConsoleTextAttribute(this->getWindow()->getConsole(), 12);
+					std::cout << std::endl << "Nie ma takich zajec" << std::endl;
+					SetConsoleTextAttribute(this->getWindow()->getConsole(), 15);
+				}
 
 				Sleep(2500);
 				break;
@@ -144,8 +176,6 @@ void LessonPage::service()
 			case 6:
 				std::cout << "Podaj typ zajec, ktore chcesz zobaczyc: " << std::endl;
 				std::cin >> input; // wczytanie typu zajec
-
-				//Lesson::showHeader();
 
 				this->lessonList.showSpecificType(input); // wyswietlenie zajec o podanym typie
 

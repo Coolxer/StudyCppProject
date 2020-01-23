@@ -2,8 +2,16 @@
 
 LessonList::LessonList()
 {
-	this->addObject(new Lesson("projekt", "programowanie", 5, 90, 30)); // dodanie zajec do listy zajec
-	this->addObject(new Lesson("laboratorium", "systemy", 10, 120, 15)); // dodanie zajec do listy zajec
+	this->addObject(new Lesson("projekt", "programowanie", 14, 120, 15)); // dodanie zajec do listy zajec
+	this->addObject(new Lesson("wyklad", "systemy", 8, 240, 80)); // dodanie zajec do listy zajec
+	this->addObject(new Lesson("laboratorium", "systemy_operacyjne", 10, 180, 15)); // dodanie zajec do listy zajec
+	this->addObject(new Lesson("cwiczenia", "metody_numeryczne", 9, 120, 30)); // dodanie zajec do listy zajec
+	this->addObject(new Lesson("laboratorium", "elektronika", 13, 120, 15)); // dodanie zajec do listy zajec
+	this->addObject(new Lesson("cwiczenia", "algorytmy", 18, 120, 30)); // dodanie zajec do listy zajec
+	this->addObject(new Lesson("projekt", "metody_numeryczne", 16, 120, 15)); // dodanie zajec do listy zajec
+	this->addObject(new Lesson("laboratorium", "programowanie", 12, 120, 15)); // dodanie zajec do listy zajec
+	this->addObject(new Lesson("wyklad", "algorytmy", 8, 180, 100)); // dodanie zajec do listy zajec
+	this->addObject(new Lesson("projekt", "systemy", 14, 120, 15)); // dodanie zajec do listy zajec
 }
 
 LessonList::~LessonList()
@@ -11,29 +19,17 @@ LessonList::~LessonList()
 
 }
 
-Lesson* LessonList::getByName(std::string name)
-{
-	for (int i = 0; i < this->size; i++)
-	{
-		Lesson* lesson = (Lesson*)this->objects[i]; // pobranie wskaznika na aktualny w iteracji obiekt typu Lesson
-		if (lesson->getName() == name) // sprawadzenie czy zajecia maja nazwe taka jak podana jako argument
-			return lesson;             // jesli tak to zwraca wskaznik na ta zajecie
-	}
-
-	return nullptr; // jesli zadane zajecia nie istnieja to zwraca pusty wskaznik
-}
-
-bool LessonList::lessonExist(std::string name, std::string type)
+Lesson* LessonList::getLessonByNameAndType(std::string name, std::string type)
 {
 	for (int i = 0; i < this->size; i++)
 	{
 		Lesson* lesson = (Lesson*)this->objects[i]; // pobranie wskaznika na aktualny w iteracji obiekt typu Lesson
 
 		if (lesson->getName() == name && lesson->getType() == type) // sprawdzenie czy zajecia maja nazwe i typ taki jak podany w argumentach
-			return true;                                            // jesli tak to zwraca true
+			return lesson;                                            // jesli tak to zwraca true
 	}
 
-	return false; // jesli zajecia o podanej nazwie i typie nie istnieje to zwraca false
+	return nullptr; // jesli zajecia o podanej nazwie i typie nie istnieja to zwraca false
 }
 
 void LessonList::removeStaffMemberFromLessons(StaffMember* staffMember)

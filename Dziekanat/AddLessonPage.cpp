@@ -77,6 +77,48 @@ void AddLessonPage::service()
 		break;
 	case 5:
 		this->testNumber("Podaj max. ilosc miejsc: (min 5, max 100)", 2, 5, 100); // pobranie odpowiedniej ilosci miejsc (pobranie + walidacja)
+		if (this->strings[0] == "wyklad")
+		{
+			std::cout << "Podaj max. ilosc miejsc: (min 30, max 100)" << std::endl;
+			std::cin >> this->numbers[2];
+			
+			while (!std::cin.good() || this->numbers[2] < 30 && this->numbers[2] > 100)
+			{
+				this->strings[0].clear(); // wyczyszczenie napisu
+				this->getWindow()->refresh(); // odwswiezenie strony
+				std::cout << "Podaj max. ilosc miejsc: (min 30, max 100)" << std::endl;
+				std::cin.clear(); // wyczyszczenie wejscia
+				std::cin >> this->numbers[2]; // pobranie od uzytkownika typu zajec
+			}
+		}
+		else if (this->strings[0] == "cwiczenia")
+		{
+			std::cout << "Podaj max. ilosc miejsc: (min 10, max 30)" << std::endl;
+			std::cin >> this->numbers[2];
+
+			while (!std::cin.good() || this->numbers[2] < 10 && this->numbers[2] > 30)
+			{
+				this->strings[0].clear(); // wyczyszczenie napisu
+				this->getWindow()->refresh(); // odwswiezenie strony
+				std::cout << "Podaj max. ilosc miejsc: (min 10, max 30)" << std::endl;
+				std::cin.clear(); // wyczyszczenie wejscia
+				std::cin >> this->numbers[2]; // pobranie od uzytkownika typu zajec
+			}
+		}
+		else
+		{
+			std::cout << "Podaj max. ilosc miejsc: (min 5, max 15)" << std::endl;
+			std::cin >> this->numbers[2];
+
+			while (!std::cin.good() || this->numbers[2] < 5 && this->numbers[2] > 15)
+			{
+				this->strings[0].clear(); // wyczyszczenie napisu
+				this->getWindow()->refresh(); // odwswiezenie strony
+				std::cout << "Podaj max. ilosc miejsc: (min 5, max 15)" << std::endl;
+				std::cin.clear(); // wyczyszczenie wejscia
+				std::cin >> this->numbers[2]; // pobranie od uzytkownika typu zajec
+			}
+		}
 		break;
 	default:
 		// dodanie nowych zajec do listy zajec
@@ -85,9 +127,17 @@ void AddLessonPage::service()
 		this->getWindow()->refresh();
 
 		if (id == -1)
+		{
+			SetConsoleTextAttribute(this->getWindow()->getConsole(), 12);
 			std::cout << "Podane zajecia juz istnieja" << std::endl << std::endl;
+			SetConsoleTextAttribute(this->getWindow()->getConsole(), 15);
+		}	
 		else
+		{
+			SetConsoleTextAttribute(this->getWindow()->getConsole(), 10);
 			std::cout << "Dodano nowe zajecia o id " << id << std::endl << std::endl;
+			SetConsoleTextAttribute(this->getWindow()->getConsole(), 15);
+		}
 
 		Sleep(2000);
 

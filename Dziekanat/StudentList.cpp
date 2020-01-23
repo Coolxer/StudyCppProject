@@ -7,10 +7,16 @@ StudentList::StudentList()
 {
 	this->setStartIndex(16000); // ustawienie startowego indeksu na 16000
 
-	this->addObject(new Student("Lukasz", "Milos", 21, "informatyki", "informatyka", 1, 2, "zaoczne")); // dodanie studenta do listy studentow
-	this->addObject(new Student("Rafal", "Magrys", 22, "informatyki", "infortmatyka", 1, 2, "stacjonarne")); // dodanie studenta do listy studentow
-	this->addObject(new Student("Kuba", "Stanislawczyk", 21, "informatyki", "informatyka", 1, 2, "zaoczne")); // dodanie studenta do listy studentow
-	this->addObject(new Student("Damian", "Pietraszek", 27, "informatyki", "informatyka", 1, 2, "zaoczne")); // dodanie studenta do listy studentow
+	this->addObject(new Student("Lukasz", "Milos", 22, "informatyki", "informatyka", 1, 2, "zaoczne")); // dodanie studenta do listy studentow
+	this->addObject(new Student("Jakub", "Basztura", 24, "budownictwa", "biogospodarka", 1, 3, "stacjonarne")); // dodanie studenta do listy studentow
+	this->addObject(new Student("Grzegorz", "Szyfner", 27, "informatyki", "elektrotechnika", 2, 1, "zaoczne")); // dodanie studenta do listy studentow
+	this->addObject(new Student("Sebastian", "Stoch", 23, "informatyki", "elektrotechnika", 1, 3, "stacjonarne")); // dodanie studenta do listy studentow
+	this->addObject(new Student("Agnieszka", "Cichonska", 23, "zarzadzania", "logistyka", 1, 3, "zaoczne")); // dodanie studenta do listy studentow
+	this->addObject(new Student("Adrian", "Nowicki", 23, "informatyki", "informatyka", 1, 3, "stacjonarne")); // dodanie studenta do listy studentow
+	this->addObject(new Student("Adam", "Konieczny", 23, "zarzadzania", "zarzadzanie", 1, 3, "zaoczne")); // dodanie studenta do listy studentow
+	this->addObject(new Student("Natalia", "Krawczyk", 23, "chemiczny", "biotechnologia", 1, 3, "stacjonarne")); // dodanie studenta do listy studentow
+	this->addObject(new Student("Kamil", "Mazur", 23, "matematyki", "fizyka", 1, 3, "stacjonarne")); // dodanie studenta do listy studentow
+	this->addObject(new Student("Weronika", "Skawinska", 23, "budownictwa", "architektura", 1, 3, "zaoczne")); // dodanie studenta do listy studentow
 }
 
 StudentList::~StudentList()

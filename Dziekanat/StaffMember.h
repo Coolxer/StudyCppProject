@@ -7,7 +7,7 @@
 class StaffMember :public Person
 {
 private:
-	std::string academic_degree; // stopnie naukowe
+	std::string academic_degree; // stopien naukowy
 	int cash; // wynagrodzenie
 	int numberOfLessonsProvided; // liczba prowadzonych zajec
 
@@ -24,7 +24,7 @@ public:
 	StaffMember(std::string firstName = "", std::string lastName = "", int age = 0, std::string academic_degree = ""); // konstruktor parametrowy
 	StaffMember(const StaffMember& model); // konstruktor kopiujacy
 	StaffMember& operator = (const StaffMember& model); // przeciazenie operatora przypisania
-	bool isEqual(Object* model);
+	bool isEqual(Object* model); // metoda sprawdzajaca przy obiekt (wskazywany poprzez wskaznik) jest taki sam
 	~StaffMember(); // destruktor
 
 	std::string getAcademicDegree() const; // metoda zwraca stopien naukowy

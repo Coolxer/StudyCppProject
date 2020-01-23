@@ -4,8 +4,11 @@
 
 StaffList::StaffList()
 {
-	this->addObject(new StaffMember("Mariusz", "Nycz", 50, "inz")); // dodanie pracownika do listy pracownikow
-	this->addObject(new StaffMember("Mariusz", "Maczka", 60, "prof")); // dodanie pracownika do listy pracownikow
+	this->addObject(new StaffMember("Janusz", "Kapinos", 50, "dr")); // dodanie pracownika do listy pracownikow
+	this->addObject(new StaffMember("Mariusz", "Blaszczyk", 28, "inz")); // dodanie pracownika do listy pracownikow
+	this->addObject(new StaffMember("Anna", "Stachowicz", 32, "mgr")); // dodanie pracownika do listy pracownikow
+	this->addObject(new StaffMember("Krzysztof", "Dornecki", 56, "prof")); // dodanie pracownika do listy pracownikow
+	this->addObject(new StaffMember("Wiktoria", "Majkrzak", 26, "lic")); // dodanie pracownika do listy pracownikow
 }
 
 StaffList::~StaffList()

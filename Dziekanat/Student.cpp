@@ -45,7 +45,7 @@ Study* Student::getStudy()
 
 void Student::showHeader()
 {
-	std::cout << std::endl << " Imie " << " Nazwisko " << " Wiek " << " Indeks " << " Wydzial " << " Kierunek " << " Stopien " << " Rok " << " Typ " << std::endl;
+	std::cout << std::endl << " Imie | " << "Nazwisko | " << "Wiek | " << "Indeks | " << "Wydzial | " << "Kierunek | " << "Stopien | " << "Rok | " << "Typ | " << std::endl;
 }
 
 void Student::show(bool withHeader)
@@ -53,7 +53,7 @@ void Student::show(bool withHeader)
 	if (withHeader) // parametr withHeader jest opcjonalny
 		this->showHeader();
 
-	std::cout << "-----------------" << std::endl;
+	std::cout << "------------------------------------------------------------------------------------------" << std::endl;
 	std::cout << this->getFirstName() << " | " << this->getLastName() << " | " << this->getAge() << " | " << this->getIndex() << " | ";
 	std::cout << this->study.getDepartment() << " | " << this->study.getField() << " | " << this->study.getLevel() << " | " << this->study.getYear() << " | " << this->study.getType() << std::endl;
 }

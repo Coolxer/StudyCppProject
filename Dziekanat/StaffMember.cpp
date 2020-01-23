@@ -92,7 +92,7 @@ void StaffMember::decreaseLessons()
 
 void StaffMember::showHeader()
 {
-	std::cout << std::endl << " ID " << " Imie " << " Nazwisko " << " Wiek " << " Tytuly " << " Wynagrodzenie " << " Liczba zajec " << std::endl;
+	std::cout << std::endl << " ID | " << "Imie | " << "Nazwisko | " << "Wiek | " << "Tytuly | " << "Wynagrodzenie | " << "Liczba zajec |" << std::endl;
 }
 
 void StaffMember::show(bool withHeader)
@@ -100,7 +100,7 @@ void StaffMember::show(bool withHeader)
 	if (withHeader) // parametr withHeader jest opcjonalny
 		this->showHeader();
 
-	std::cout << "-----------------" << std::endl;
-	std::cout << this->getIndex() << " | " << this->getFirstName() << " | " << this->getLastName() << " | " << this->getAge() << " | ";
+	std::cout << "-----------------------------------------------------------------------------------------" << std::endl;
+	std::cout << " " << this->getIndex() << " | " << this->getFirstName() << " | " << this->getLastName() << " | " << this->getAge() << " | ";
 	std::cout << this->academic_degree << " | " << this->cash << " | " << this->numberOfLessonsProvided << std::endl;
 }

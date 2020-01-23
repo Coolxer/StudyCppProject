@@ -71,7 +71,7 @@
       <Field Name="study" Hidden="true" />
     </Members>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAQAIBAAAABAJAAAAAAAUAAAAABAAgAAABAAA=</HashCode>
+      <HashCode>AAAAAAAAQAABAAAABAJAAAAAAAQAAAAABAAgAAABAAA=</HashCode>
       <FileName>Student.h</FileName>
     </TypeIdentifier>
   </Class>
@@ -82,7 +82,7 @@
       <Field Name="numberOfLessonsProvided" Hidden="true" />
     </Members>
     <TypeIdentifier>
-      <HashCode>AAECAAAAAAgVAAAAAAIEAAAAIIACAAAABBAgAAAAAAA=</HashCode>
+      <HashCode>AAECCAAAAAgVAAAAAAIEAAAAIIACAAAABBAgAAAAAAA=</HashCode>
       <FileName>StaffMember.h</FileName>
     </TypeIdentifier>
   </Class>
@@ -189,7 +189,7 @@
   <Class Name="LessonList">
     <Position X="14.25" Y="15.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAkIAAIQAAEAAAAAAAAAAAAACAIAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAkAAAIQAAEAAAAAAAAAAAAAAAIAAAg=</HashCode>
       <FileName>LessonList.h</FileName>
     </TypeIdentifier>
   </Class>
@@ -199,7 +199,7 @@
       <Field Name="menuElements" Hidden="true" />
     </Members>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAIBAAAAAAIAAAACAFAAIAAAABAAgAAAAAEA=</HashCode>
+      <HashCode>AAAAAAAAAABAAAAAAIAAAACAEAAIAAAABAAgAAAAAEA=</HashCode>
       <FileName>Menu.h</FileName>
     </TypeIdentifier>
   </Class>

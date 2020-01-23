@@ -31,9 +31,9 @@ Window::Window()
 	this->pages[6] = new AddStaffMemberPage(this);
 	this->pages[8] = new AddLessonPage(this);
 
-	this->pages[5] = new ViewPage(this, "          LISTA STUDENTOW ", 1);
-	this->pages[7] = new ViewPage(this, "         LISTA PRACOWNIKOW ", 2);
-	this->pages[9] = new ViewPage(this, "             LISTA ZAJEC ", 3);
+	this->pages[5] = new ViewPage(this, "                                    LISTA STUDENTOW", 1);
+	this->pages[7] = new ViewPage(this, "                                   LISTA PRACOWNIKOW", 2);
+	this->pages[9] = new ViewPage(this, "                                    LISTA ZAJEC", 3);
 
 	AddPage* addPage;
 	ViewPage* viewPage;

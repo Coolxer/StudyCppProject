@@ -181,10 +181,18 @@ void AddStudentPage::service()
 
 		this->getWindow()->refresh();
 
-		if(index == -1)
+		if (index == -1)
+		{
+			SetConsoleTextAttribute(this->getWindow()->getConsole(), 12);
 			std::cout << "Podany student juz istnieje" << std::endl << std::endl;
+			SetConsoleTextAttribute(this->getWindow()->getConsole(), 15);
+		}
 		else
-		std::cout << "Dodano nowego studenta o indeksie " << index << std::endl << std::endl;
+		{
+			SetConsoleTextAttribute(this->getWindow()->getConsole(), 10);
+			std::cout << "Dodano nowego studenta o indeksie " << index << std::endl << std::endl;
+			SetConsoleTextAttribute(this->getWindow()->getConsole(), 15);
+		}
 
 		Sleep(2000);
 
