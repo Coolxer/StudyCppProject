@@ -78,6 +78,7 @@
   <Class Name="StaffMember">
     <Position X="7" Y="16" Width="1.5" />
     <Members>
+      <Field Name="academic_degree" Hidden="true" />
       <Field Name="cash" Hidden="true" />
       <Field Name="numberOfLessonsProvided" Hidden="true" />
     </Members>
@@ -87,17 +88,18 @@
     </TypeIdentifier>
   </Class>
   <Class Name="CmdManager" Collapsed="true">
-    <Position X="10.75" Y="20" Width="1.5" />
+    <Position X="10.75" Y="18.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAQAAEAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>CmdManager.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ObjectList">
-    <Position X="12" Y="11" Width="1.5" />
+    <Position X="12" Y="10.5" Width="1.5" />
     <Members>
       <Field Name="index" Hidden="true" />
       <Field Name="objects" Hidden="true" />
+      <Field Name="size" Hidden="true" />
     </Members>
     <TypeIdentifier>
       <HashCode>AAgAAAIAgAEAAAAAAIAEASAAQQAAAAAAAAAgAABBgAA=</HashCode>
@@ -106,14 +108,14 @@
     </TypeIdentifier>
   </Class>
   <Class Name="StaffList">
-    <Position X="12" Y="15.25" Width="1.5" />
+    <Position X="12" Y="14.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAQAAAIAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
       <FileName>StaffList.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="MenuElement">
-    <Position X="14.25" Y="21" Width="1.5" />
+    <Position X="14.25" Y="19.75" Width="1.5" />
     <Members>
       <Field Name="name" Hidden="true" />
       <Field Name="number" Hidden="true" />
@@ -124,7 +126,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Program">
-    <Position X="9" Y="20.5" Width="1.5" />
+    <Position X="9" Y="19.25" Width="1.5" />
     <Members>
       <Field Name="window" Hidden="true" />
     </Members>
@@ -134,7 +136,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Window">
-    <Position X="10.75" Y="21" Width="1.5" />
+    <Position X="10.75" Y="19.75" Width="1.5" />
     <Members>
       <Field Name="activePageIndex" Hidden="true" />
       <Field Name="console" Hidden="true" />
@@ -146,19 +148,21 @@
     </TypeIdentifier>
   </Class>
   <Class Name="TextBox">
-    <Position X="14.25" Y="19" Width="1.5" />
+    <Position X="14.25" Y="17.75" Width="1.5" />
     <Members>
+      <Field Name="length" Hidden="true" />
       <Field Name="text" Hidden="true" />
       <Field Name="type" Hidden="true" />
     </Members>
     <TypeIdentifier>
-      <HashCode>AAAAIAAAAAIAAAAAAAAAAAAAAAABAAAIBAAgAAAAAAA=</HashCode>
+      <HashCode>AAAAIAAAAAIAAAAAAEAAAAAAAAABAAAIBAAgAAAAAAA=</HashCode>
       <FileName>TextBox.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Study">
     <Position X="3" Y="19" Width="1.5" />
     <Members>
+      <Field Name="department" Hidden="true" />
       <Field Name="field" Hidden="true" />
       <Field Name="level" Hidden="true" />
       <Field Name="type" Hidden="true" />
@@ -180,23 +184,24 @@
     </TypeIdentifier>
   </Class>
   <Class Name="StudentList">
-    <Position X="9.75" Y="15.25" Width="1.5" />
+    <Position X="9.75" Y="14.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAgCAAAAAAAABABAAAAAAAAAAAAAQAAAA=</HashCode>
       <FileName>StudentList.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="LessonList">
-    <Position X="14.25" Y="15.25" Width="1.5" />
+    <Position X="14.25" Y="14.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAkAAAIQAAEAAAAAAAAAAAAAAAIAAAg=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAgAAAIQAAEAAAAAAAAAAAAAAAIAAAg=</HashCode>
       <FileName>LessonList.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Menu">
-    <Position X="12.5" Y="21" Width="1.5" />
+    <Position X="12.5" Y="19.75" Width="1.5" />
     <Members>
       <Field Name="menuElements" Hidden="true" />
+      <Field Name="size" Hidden="true" />
     </Members>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAABAAAAAAIAAAACAEAAIAAAABAAgAAAAAEA=</HashCode>
@@ -270,6 +275,7 @@
       <Field Name="staffMember" Hidden="true" />
       <Field Name="startTime" Hidden="true" />
       <Field Name="students" Hidden="true" />
+      <Field Name="studentsCount" Hidden="true" />
       <Field Name="type" Hidden="true" />
     </Members>
     <TypeIdentifier>

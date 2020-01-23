@@ -54,9 +54,7 @@ bool Lesson::isEqual(Object* model)
 {
 	Lesson* lesson = (Lesson*)model;
 
-	if (this->type == lesson->type && this->name == lesson->name && this->startTime == lesson->startTime && this->duration == lesson->duration
-		&& this->maxPlaces == lesson->maxPlaces && this->staffMember == lesson->staffMember && this->studentsCount == lesson->studentsCount
-		&& this->students == lesson->students)
+	if (this->type == lesson->type && this->name == lesson->name)
 		return true;
 
 	return false;
@@ -129,8 +127,11 @@ void Lesson::removeStudent(Student* student, int id)
 void Lesson::removeStaffMember()
 {
 	//delete this->staffMember;
-	this->staffMember->decreaseLessons();
-	this->staffMember = nullptr; // zwolnienie prowadzacego z zajec
+	if (this->staffMember)
+	{
+		this->staffMember->decreaseLessons();
+		this->staffMember = nullptr; // zwolnienie prowadzacego z zajec
+	}
 }
 
 bool Lesson::addStudent(Student* student)
@@ -170,13 +171,13 @@ bool Lesson::setStaffMember(StaffMember* staffMember)
 
 void Lesson::showStudents()
 {
-	//Student::showHeader();
+	if (this->studentsCount == 0)
+		std::cout << "Lista studentow dla tych zajec jest pusta" << std::endl;
+	else
+		this->students[0]->showHeader();
 
 	for (int i = 0; i < this->studentsCount; i++)
 		this->students[i]->show(); // wyswietlenie danych wszystkich studentow zapisanych na zajecia
-
-	if (this->studentsCount == 0) // sprawdzenie czy do zajec sa przypisani jacys studenci, jesli nie to wyswietl komunikat
-		std::cout << "Lista studentow dla tych zajec jest pusta" << std::endl;
 }
 
 void Lesson::showHeader()
@@ -184,7 +185,7 @@ void Lesson::showHeader()
 	if (this->staffMember)
 		std::cout << std::endl << " ID | " << "Typ | " << " Nazwa | " << "Godzina rozpoczecia | " << "Czas trwania | " << "zajete / max | " << "Prowadzacy | " << std::endl;
 	else
-		std::cout << std::endl << "ID | " << "Typ | " << "Nazwa | " << "Godzina rozpoczecia | " << "Czas trwania | " << "zajete / max |" << std::endl;
+		std::cout << std::endl << " ID | " << "Typ | " << "Nazwa | " << "Godzina rozpoczecia | " << "Czas trwania | " << "zajete / max |" << std::endl;
 }
 
 void Lesson::show(bool withHeader)
@@ -195,7 +196,7 @@ void Lesson::show(bool withHeader)
 	std::cout << "-----------------------------------------------------------------------------------------" << std::endl;
 	
 	if (this->staffMember)
-		std::cout << this->getIndex() << " | " << this->type << " | " << this->name << " | " << this->startTime << " | " << this->duration << " | " << this->studentsCount << "/" << this->maxPlaces << " | " << this->staffMember->getAcademicDegree() << " " << this->staffMember->getFirstName() << " " << this->staffMember->getLastName() << std::endl;
+		std::cout << " " << this->getIndex() << " | " << this->type << " | " << this->name << " | " << this->startTime << " | " << this->duration << " | " << this->studentsCount << "/" << this->maxPlaces << " | " << this->staffMember->getAcademicDegree() << " " << this->staffMember->getFirstName() << " " << this->staffMember->getLastName() << std::endl;
 	else
-		std::cout << this->getIndex() << " | " << this->type << " | " << this->name << " | " << this->startTime << " | " << this->duration << " | " << this->studentsCount << "/" << this->maxPlaces << std::endl;
+		std::cout << " " << this->getIndex() << " | " << this->type << " | " << this->name << " | " << this->startTime << " | " << this->duration << " | " << this->studentsCount << "/" << this->maxPlaces << std::endl;
 }

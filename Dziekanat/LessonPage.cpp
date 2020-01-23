@@ -78,18 +78,22 @@ void LessonPage::service()
 
 			case 2:
 				this->getWindow()->refresh(); // odswiezenie okna
-				std::cout << "Podaj id zajec, ktore chcesz usunac: " << std::endl;
-				std::cin >> id; // wczytanie id zajec do usuniecia
+				std::cout << "Podaj nazwe zajec, ktore chcesz usunac: " << std::endl;
+				std::cin >> input; // wczytanie nazwy zajec
 
-				lesson = (Lesson*)this->lessonList.getObjectByIndex(id);
+				std::cout << std::endl << "Podaj typ zajec" << std::endl;
+				std::cin >> input2; // wczytanie typu zajec
+
+				lesson = this->lessonList.getLessonByNameAndType(input, input2);
 
 				if (lesson)
 				{
 					lesson->removeStaffMember();
-					id = this->lessonList.removeObject(id); // usuniecie zajec z listy zajec
+
+					id = this->lessonList.removeObject(lesson->getIndex()); // usuniecie zajec z listy zajec
 
 					SetConsoleTextAttribute(this->getWindow()->getConsole(), 10);
-					std::cout << std::endl << "Usunieto zajecia o id " << id;
+					std::cout << std::endl << "Usunieto zajecia" << std::endl;
 					SetConsoleTextAttribute(this->getWindow()->getConsole(), 15);
 
 				}

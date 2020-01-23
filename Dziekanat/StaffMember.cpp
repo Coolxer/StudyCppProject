@@ -29,8 +29,7 @@ bool StaffMember::isEqual(Object* model)
 {
 	StaffMember* staffMember = (StaffMember*)model;
 
-	if(this->getFirstName() == staffMember->getFirstName() && this->getLastName() == staffMember->getLastName() && this->getAge() == staffMember->getAge()
-		&& this->academic_degree == staffMember->academic_degree && this->cash == staffMember->cash && this->numberOfLessonsProvided == staffMember->numberOfLessonsProvided)
+	if(this->getFirstName() == staffMember->getFirstName() && this->getLastName() == staffMember->getLastName() && this->getAge() == staffMember->getAge() && this->academic_degree == staffMember->academic_degree)
 		return true;
 
 	return false;
@@ -87,8 +86,11 @@ void StaffMember::increaseLessons()
 
 void StaffMember::decreaseLessons()
 {
-	this->numberOfLessonsProvided--; // zmniejszenie licznika prowadzonych zajec przez pracownika
-	this->calcCash(); // obliczenie wynagrodzenia
+	if (this->numberOfLessonsProvided > 0)
+	{
+		this->numberOfLessonsProvided--; // zmniejszenie licznika prowadzonych zajec przez pracownika
+		this->calcCash(); // obliczenie wynagrodzenia
+	}
 }
 
 void StaffMember::showHeader()
