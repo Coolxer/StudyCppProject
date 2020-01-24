@@ -95,7 +95,7 @@ void LessonPage::service()
 				}
 				else
 					onFailure("Nie ma takich zajec");
-	
+				
 				Sleep(2000);
 
 				break;

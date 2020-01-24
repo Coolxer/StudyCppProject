@@ -75,7 +75,7 @@ void StudentPage::service()
 			int index = -1;
 			std::string input = "", input2 = "";
 
-			Student* student;
+			Student* student = nullptr;
 
 			switch (option) // switch na podstawie numeru operacji
 			{
@@ -97,7 +97,6 @@ void StudentPage::service()
 					this->lessonList->removeStudentFromLessons(student); // usuniecie studenta z zajec na ktore potencjalnie byl zapisany
 					index = this->studentList.removeObject(student->getIndex()); // proba usuniecia studenta z listy studentow
 					onSuccess("Usunieto studenta o indeksie", index);
-					//delete student;
 				}
 				
 				Sleep(2000);
@@ -182,7 +181,7 @@ void StudentPage::service()
 					onFailure("Nie ma takiego studenta");	
 				else
 				{
-					Lesson* lesson; // deklaracja wskaznika na obiekt typu Lesson
+					Lesson* lesson = nullptr; // deklaracja wskaznika na obiekt typu Lesson
 
 					cout << endl << "Podaj nazwe zajec, do ktorych chcesz zapisac studenta: " << endl;
 					cin >> input; // wczytanie nazwy zajec

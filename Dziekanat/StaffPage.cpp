@@ -73,7 +73,7 @@ void StaffPage::service()
 			int id = -1;
 			std::string input = "", input2 = "";
 
-			StaffMember* staffMember;
+			StaffMember* staffMember = nullptr;
 
 			switch (option) // switch na podstawie numeru operacji
 			{
@@ -140,7 +140,7 @@ void StaffPage::service()
 					onFailure("Nie ma takiego pracownika");
 				else
 				{
-					Lesson* lesson;
+					Lesson* lesson = nullptr;
 
 					cout << endl << "Podaj nazwe zajec, do ktorych chcesz przypisac prowadzacego: " << endl;
 					cin >> input; // wczytanie nazwy zajec
