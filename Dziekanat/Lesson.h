@@ -12,7 +12,7 @@
 class Lesson: public Object
 {
 private:
-	std::string type; // typ zajec: wyklad / cwiczenia / laboratoria / projekt
+	std::string type; // typ zajec: (wyklad | cwiczenia | laboratorium | projekt)
 	std::string name; // nazwa zajec
 	int startTime; // godzina rozpoczecia zajec
 	int duration; // czas trwania zajec
@@ -20,7 +20,7 @@ private:
 	int maxPlaces; // maksymalna liczba studentow
 
 	StaffMember* staffMember; // prowadzacy zajecia
-	Student** students; // studenci zapisani na zajecia
+	Student** students; // studenci zapisani na zajecia (tablica wskaznikow)
 
 	int studentsCount; // liczba studentow zapisanych na zajecia
 

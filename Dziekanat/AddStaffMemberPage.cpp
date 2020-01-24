@@ -1,6 +1,4 @@
 #include "AddStaffMemberPage.h"
-#include <iostream>
-#include "CmdManager.h"
 
 #include "StaffMember.h"
 
@@ -32,18 +30,18 @@ void AddStaffMemberPage::draw()
 	this->header.show();
 
 	this->drawParagraph("Imie:     | "); // wyswietlenie paragrafu dot. imienia
-	std::cout << this->strings[0] << std::endl; // wyswietlenie aktualnego imienia, jesli nie wpisane to ""
+	cout << this->strings[0] << endl; // wyswietlenie aktualnego imienia, jesli nie wpisane to ""
 
 	this->drawParagraph("Nazwisko: | ");
-	std::cout << this->strings[1] << std::endl;
+	cout << this->strings[1] << endl;
 
 	this->drawParagraph("Wiek:     | ");
 	this->checkNumber(this->numbers[0]);
 
 	this->drawParagraph("Tytul:    | ");
-	std::cout << this->strings[2] << std::endl;
+	cout << this->strings[2] <<endl;
 
-	std::cout << std::endl;
+	cout << endl;
 }
 
 void AddStaffMemberPage::service()
@@ -60,16 +58,16 @@ void AddStaffMemberPage::service()
 		this->testNumber("Podaj wiek: (min. 30, max. 100)", 0, 30, 100); // pobranie odpowiedniego wieku pracownika (pobranie + walidacja)
 		break;
 	case 4:
-		std::cout << "Podaj stopien naukowy: (lic. | inz. | mgr | dr | prof.)" << std::endl;
-		std::cin >> this->strings[2];
-		// dopoki wprowadzone dane sa niepoprawne kontynuje prosbe o podanie odpowiedniego trybu studiow
-		while (!std::cin.good() || (this->strings[2] != "lic." && this->strings[2] != "inz." && this->strings[2] != "mgr." && this->strings[2] != "dr." && this->strings[2] != "prof."))
+		cout << "Podaj stopien naukowy: (lic. | inz. | mgr | dr | prof.)" << endl;
+		cin >> this->strings[2];
+		
+		while (!cin.good() || (this->strings[2] != "lic." && this->strings[2] != "inz." && this->strings[2] != "mgr." && this->strings[2] != "dr." && this->strings[2] != "prof."))
 		{
 			this->strings[2].clear();
 			this->getWindow()->refresh();
-			std::cout << "Podaj stopien naukowy: (lic. | inz. | mgr | dr | prof.)" << std::endl;
-			std::cin.clear();
-			std::cin >> this->strings[2];
+			cout << "Podaj stopien naukowy: (lic. | inz. | mgr | dr | prof.)" << endl;
+			cin.clear();
+			cin >> this->strings[2];
 		}
 		break;
 	default:
@@ -79,17 +77,9 @@ void AddStaffMemberPage::service()
 		this->getWindow()->refresh();
 
 		if (id == -1)
-		{
-			SetConsoleTextAttribute(this->getWindow()->getConsole(), 12);
-			std::cout << "Podany pracownik juz istnieje" << std::endl << std::endl;
-			SetConsoleTextAttribute(this->getWindow()->getConsole(), 15);
-		}
+			this->onFailure("Podany pracownik juz istnieje");
 		else
-		{
-			SetConsoleTextAttribute(this->getWindow()->getConsole(), 10);
-			std::cout << "Dodano nowego pracownika o id " << id << std::endl << std::endl;
-			SetConsoleTextAttribute(this->getWindow()->getConsole(), 15);
-		}
+			this->onSuccess("Dodano nowego pracownika o id");
 
 		Sleep(2000);
 

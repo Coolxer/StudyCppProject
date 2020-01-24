@@ -1,8 +1,6 @@
 #pragma once
-#include <string>
 #include "Page.h" 
 #include "TextBox.h"
-
 #include "ObjectList.h"
 
 /* Klasa sluzaca do dodawania obiektow, bedaca klasa bazowa, ktorych obiektow nie ma w programie */

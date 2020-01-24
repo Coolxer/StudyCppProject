@@ -33,7 +33,7 @@ Menu::~Menu()
 void Menu::addMenuElement(std::string text)
 {
 	MenuElement* tmp = new MenuElement[this->size + 1];
-	std::copy(this->menuElements, this->menuElements + this->size, tmp);
+	std::copy(this->menuElements, this->menuElements + this->size, tmp);  //(wskaznik na pierwszy, wskaznik na ostatni, wynik)
 
 	this->size++;
 

@@ -2,7 +2,6 @@
 #include "Page.h"
 #include "TextBox.h"
 #include "ObjectList.h"
-
 #include "Menu.h"
 
 /* Klasa sluzaca nawigacji po programie, bedaca klasa bazowa, ktorych obiektow nie ma w programie */

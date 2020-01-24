@@ -12,7 +12,7 @@ Lesson::Lesson(std::string type, std::string name, int startTime, int duration, 
 
 	this->maxPlaces = maxPlaces;
 
-	this->staffMember = nullptr; // przypisanie wartosci nullptr do wskaznika, aby wskazywal na wartosc pusta
+	this->staffMember = nullptr;
 	
 	this->studentsCount = 0;
 	this->students = nullptr;
@@ -104,8 +104,8 @@ int Lesson::consistsStudent(Student* student)
 {
 	for (int i = 0; i < this->studentsCount; i++)
 	{
-		if (this->students[i] == student) // sprawdzenie czy aktualny student w iteracji jest rowny podanemu poprzez wskaznik studentowi -> wykorzystanie przeciazenia operatora porownania
-			return i;					   // jesli tak to zwraca numer tego studenta na liscie                     
+		if(this->students[i]->isEqual(student)) // sprawdzenie czy aktualny student w iteracji jest rowny podanemu poprzez wskaznik studentowi
+			return i;							// jesli tak to zwraca numer tego studenta na liscie     				                   
 	}
 
 	return -1; // jesli studenta nie ma na liscie to zwraca -1

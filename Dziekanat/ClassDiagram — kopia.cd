@@ -6,12 +6,12 @@
       <Field Name="window" Hidden="true" />
     </Members>
     <TypeIdentifier>
-      <HashCode>AJAAAAAAAAAQAAAAAAIAAAAAAAAAAAAIAEAgAAAAAAA=</HashCode>
+      <HashCode>AJAAAAAAAAAQAAAAAEIAgAAAAAAAAAAIAEAgAAAAAAA=</HashCode>
       <FileName>Page.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AddStaffMemberPage">
-    <Position X="12" Y="7.75" Width="1.5" />
+    <Position X="12" Y="8.25" Width="1.5" />
     <Members>
       <Field Name="header" Hidden="true" />
     </Members>
@@ -21,7 +21,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="AddStudentPage">
-    <Position X="9.75" Y="7.75" Width="1.5" />
+    <Position X="9.75" Y="8.25" Width="1.5" />
     <Members>
       <Field Name="header" Hidden="true" />
     </Members>
@@ -31,7 +31,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="MenuPage">
-    <Position X="0.75" Y="6.5" Width="1.5" />
+    <Position X="0.75" Y="7" Width="1.5" />
     <Members>
       <Field Name="menu" Hidden="true" />
     </Members>
@@ -41,7 +41,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="StaffPage">
-    <Position X="5.25" Y="6.5" Width="1.5" />
+    <Position X="5.25" Y="7" Width="1.5" />
     <Members>
       <Field Name="lessonList" Hidden="true" />
       <Field Name="menu" Hidden="true" />
@@ -53,7 +53,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Person">
-    <Position X="5" Y="12.75" Width="1.5" />
+    <Position X="5" Y="13.25" Width="1.5" />
     <Members>
       <Field Name="age" Hidden="true" />
       <Field Name="firstName" Hidden="true" />
@@ -65,7 +65,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Student">
-    <Position X="3" Y="16" Width="1.5" />
+    <Position X="3" Y="16.5" Width="1.5" />
     <Members>
       <Field Name="index" Hidden="true" />
       <Field Name="study" Hidden="true" />
@@ -76,7 +76,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="StaffMember">
-    <Position X="7" Y="16" Width="1.5" />
+    <Position X="7" Y="16.5" Width="1.5" />
     <Members>
       <Field Name="academic_degree" Hidden="true" />
       <Field Name="cash" Hidden="true" />
@@ -88,14 +88,14 @@
     </TypeIdentifier>
   </Class>
   <Class Name="CmdManager" Collapsed="true">
-    <Position X="10.75" Y="18.75" Width="1.5" />
+    <Position X="10.75" Y="19.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAQAAEAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>CmdManager.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ObjectList">
-    <Position X="12" Y="10.5" Width="1.5" />
+    <Position X="12" Y="11" Width="1.5" />
     <Members>
       <Field Name="index" Hidden="true" />
       <Field Name="objects" Hidden="true" />
@@ -108,14 +108,14 @@
     </TypeIdentifier>
   </Class>
   <Class Name="StaffList">
-    <Position X="12" Y="14.25" Width="1.5" />
+    <Position X="12" Y="14.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAQAAAIAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
       <FileName>StaffList.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="MenuElement">
-    <Position X="14.25" Y="19.75" Width="1.5" />
+    <Position X="14.25" Y="20.25" Width="1.5" />
     <Members>
       <Field Name="name" Hidden="true" />
       <Field Name="number" Hidden="true" />
@@ -126,7 +126,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Program">
-    <Position X="9" Y="19.25" Width="1.5" />
+    <Position X="9" Y="19.75" Width="1.5" />
     <Members>
       <Field Name="window" Hidden="true" />
     </Members>
@@ -136,7 +136,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Window">
-    <Position X="10.75" Y="19.75" Width="1.5" />
+    <Position X="10.75" Y="20.25" Width="1.5" />
     <Members>
       <Field Name="activePageIndex" Hidden="true" />
       <Field Name="console" Hidden="true" />
@@ -148,7 +148,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="TextBox">
-    <Position X="14.25" Y="17.75" Width="1.5" />
+    <Position X="14.25" Y="18.25" Width="1.5" />
     <Members>
       <Field Name="length" Hidden="true" />
       <Field Name="text" Hidden="true" />
@@ -160,7 +160,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Study">
-    <Position X="3" Y="19" Width="1.5" />
+    <Position X="3" Y="19.5" Width="1.5" />
     <Members>
       <Field Name="department" Hidden="true" />
       <Field Name="field" Hidden="true" />
@@ -174,7 +174,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Object">
-    <Position X="3" Y="9.75" Width="1.5" />
+    <Position X="3" Y="10.25" Width="1.5" />
     <Members>
       <Field Name="index" Hidden="true" />
     </Members>
@@ -184,21 +184,21 @@
     </TypeIdentifier>
   </Class>
   <Class Name="StudentList">
-    <Position X="9.75" Y="14.25" Width="1.5" />
+    <Position X="9.75" Y="14.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAgCAAAAAAAABABAAAAAAAAAAAAAQAAAA=</HashCode>
       <FileName>StudentList.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="LessonList">
-    <Position X="14.25" Y="14.25" Width="1.5" />
+    <Position X="14.25" Y="14.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAgAAAIQAAEAAAAAAAAAAAAAAAIAAAg=</HashCode>
       <FileName>LessonList.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Menu">
-    <Position X="12.5" Y="19.75" Width="1.5" />
+    <Position X="12.5" Y="20.25" Width="1.5" />
     <Members>
       <Field Name="menuElements" Hidden="true" />
       <Field Name="size" Hidden="true" />
@@ -209,7 +209,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="AddPage">
-    <Position X="12" Y="3.75" Width="1.5" />
+    <Position X="12" Y="4.25" Width="1.5" />
     <Members>
       <Field Name="currentStep" Hidden="true" />
       <Field Name="numbers" Hidden="true" />
@@ -222,7 +222,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="AddLessonPage">
-    <Position X="14.25" Y="7.75" Width="1.5" />
+    <Position X="14.25" Y="8.25" Width="1.5" />
     <Members>
       <Field Name="header" Hidden="true" />
     </Members>
@@ -232,7 +232,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="MainPage">
-    <Position X="4.25" Y="3.75" Width="1.5" />
+    <Position X="4.25" Y="4.25" Width="1.5" />
     <Members>
       <Field Name="header" Hidden="true" />
       <Field Name="info" Hidden="true" />
@@ -244,7 +244,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="StudentPage">
-    <Position X="3" Y="6.5" Width="1.5" />
+    <Position X="3" Y="7" Width="1.5" />
     <Members>
       <Field Name="lessonList" Hidden="true" />
       <Field Name="menu" Hidden="true" />
@@ -256,7 +256,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="LessonPage">
-    <Position X="7.5" Y="6.5" Width="1.5" />
+    <Position X="7.5" Y="7" Width="1.5" />
     <Members>
       <Field Name="lessonList" Hidden="true" />
       <Field Name="menu" Hidden="true" />
@@ -267,7 +267,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Lesson">
-    <Position X="0.75" Y="12.75" Width="1.5" />
+    <Position X="0.75" Y="13.25" Width="1.5" />
     <Members>
       <Field Name="duration" Hidden="true" />
       <Field Name="maxPlaces" Hidden="true" />

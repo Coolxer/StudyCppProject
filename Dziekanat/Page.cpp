@@ -28,4 +28,21 @@ Window* Page::getWindow()
 	return this->window; 
 }
 
+void Page::onSuccess(string str, int value)
+{
+	SetConsoleTextAttribute(this->window->getConsole(), 10);
+	if (value != -1)
+		cout << endl << str << " " << value << endl;
+	else
+		cout << endl << str << endl;
+	SetConsoleTextAttribute(this->window->getConsole(), 15);
+}
+
+void Page::onFailure(string str)
+{
+	SetConsoleTextAttribute(this->window->getConsole(), 12);
+	cout << endl << str << endl;
+	SetConsoleTextAttribute(this->window->getConsole(), 15);
+}
+
 

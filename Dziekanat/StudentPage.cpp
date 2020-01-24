@@ -15,6 +15,8 @@ StudentPage::StudentPage(Window* window) : MainPage(window, "            STUDENC
 
 	this->menu.addMenuBackElement("Powrot do strony glownej");
 
+	this->lessonList = nullptr;
+
 	this->setMenu(&this->menu); // ustawienie menu dla strony
 }
 
@@ -70,9 +72,8 @@ void StudentPage::service()
 		else
 		{
 			/* deklaracja zmiennych pomocniczych */
-			int index;
-			bool exists;
-			std::string input, input2;
+			int index = -1;
+			std::string input = "", input2 = "";
 
 			Student* student;
 
@@ -84,24 +85,18 @@ void StudentPage::service()
 
 			case 2:
 				this->getWindow()->refresh(); // odswiezenie okna
-				std::cout << "Podaj nr indeksu studenta, ktorego chcesz usunac: " << std::endl;
-				std::cin >> index; // wczytanie indeksu studenta do usuniecia
+				cout << "Podaj nr indeksu studenta, ktorego chcesz usunac: " << endl;
+				cin >> index; // wczytanie indeksu studenta do usuniecia
 
 				student = (Student*)this->studentList.getObjectByIndex(index); // ustawienie wskaznika na obiekt typu Student o podanym indeksie
 
 				if (!student)
-				{
-					SetConsoleTextAttribute(this->getWindow()->getConsole(), 12); // zmiana koloru tekstu w konsoli na czerwony
-					std::cout << "Nie ma takiego studenta" << std::endl;
-					SetConsoleTextAttribute(this->getWindow()->getConsole(), 15); // zmiana koloru tekstu w konsoli na bialy
-				}
+					onFailure("Nie ma takiego studenta");
 				else
 				{
 					this->lessonList->removeStudentFromLessons(student); // usuniecie studenta z zajec na ktore potencjalnie byl zapisany
 					index = this->studentList.removeObject(student->getIndex()); // proba usuniecia studenta z listy studentow
-					SetConsoleTextAttribute(this->getWindow()->getConsole(), 10); // zmiana koloru tekstu w konsoli na zielony
-					std::cout << std::endl << "Usunieto studenta o indeksie " << index;
-					SetConsoleTextAttribute(this->getWindow()->getConsole(), 15); // zmiana koloru tekstu w konsoli na bialy
+					onSuccess("Usunieto studenta o indeksie", index);
 					//delete student;
 				}
 				
@@ -111,8 +106,8 @@ void StudentPage::service()
 
 			case 3:
 				this->getWindow()->refresh(); // odswiezenie okna
-				std::cout << "Podaj nr indeksu studenta, ktorego dane chcesz zobaczyc: " << std::endl;
-				std::cin >> index; // wczytanie indeksu studenta
+				cout << "Podaj nr indeksu studenta, ktorego dane chcesz zobaczyc: " << endl;
+				cin >> index; // wczytanie indeksu studenta
  
 				this->studentList.showByIndex(index); // wyswietlenie danych studenta o podanym indeksie
 
@@ -121,35 +116,27 @@ void StudentPage::service()
 
 			case 4:
 				this->getWindow()->refresh(); // odswiezenie okna
-				std::cout << "Podaj nazwe wydzialu studiow (budownictwa | chemiczny | informatyki | matematyki | mechaniczny | zarzadzania)" << std::endl;
-				std::cin >> input; // wczytanie nazwy kierunku studiow
+				cout << "Podaj nazwe wydzialu studiow (budownictwa | chemiczny | informatyki | matematyki | mechaniczny | zarzadzania)" << endl;
+				cin >> input; // wczytanie nazwy kierunku studiow
 
 
 				if (input != "budownictwa" && input != "chemiczny" && input != "informatyki" && input != "matematyki" && input != "mechaniczny" && input != "zarzadzania")
-				{
-					SetConsoleTextAttribute(this->getWindow()->getConsole(), 12); 
-					std::cout << "Nie ma takiego wydzialu" << std::endl;
-					SetConsoleTextAttribute(this->getWindow()->getConsole(), 15); 
-				}
-					
+					onFailure("Nie ma takiego wydzialu");
 				else
 					this->studentList.showByDepartment(input);
 
 				Sleep(2500);
 				break;
+
 			case 5:
 				this->getWindow()->refresh(); // odswiezenie okna
-				std::cout << "Podaj nazwe kierunku studiow: " << std::endl << "( architektura | biogospodarka | biotechnologia | elektrotechnika | informatyka | matematyka | fizyka | logistyka | zarzadzanie" << std::endl;
-				std::cin >> input; // wczytanie nazwy kierunku studiow
+				cout << "Podaj nazwe kierunku studiow: " << endl << "( architektura | biogospodarka | biotechnologia | elektrotechnika | informatyka | matematyka | fizyka | logistyka | zarzadzanie" << endl;
+				cin >> input; // wczytanie nazwy kierunku studiow
 
 				if (input != "architektura" && input != "biogospodarka" && input != "biotechnologia"
 					&& input != "elektrotechnika" && input != "informatyka" && input != "matematyka"
 					&& input != "fizyka" && input != "logistyka" && input != "zarzadzanie")
-				{
-					SetConsoleTextAttribute(this->getWindow()->getConsole(), 12);
-					std::cout << "Nie ma takiego kierunku" << std::endl;
-					SetConsoleTextAttribute(this->getWindow()->getConsole(), 15);
-				}
+					onFailure("Nie ma takiego kierunku");
 				else
 					this->studentList.showByField(input); // wyswietlenie studentow z danego kierunku studiow
 
@@ -158,84 +145,67 @@ void StudentPage::service()
 
 			case 6:
 				this->getWindow()->refresh(); // odswiezenie okna
-				std::cout << "Podaj tryb studiow (stacjonarne | zaoczne)" << std::endl;
-				std::cin >> input;
+				cout << "Podaj tryb studiow (stacjonarne | zaoczne)" << endl;
+				cin >> input;
 				while (!std::cin.good() || (input != "stacjonarne" && input != "zaoczne"))
 				{
 					input.clear();
 					this->getWindow()->refresh();
-					std::cout << "Podaj tryb studiow (stacjonarne | zaoczne)" << std::endl;
-					std::cin.clear();
-					std::cin >> input;
+					cout << "Podaj tryb studiow (stacjonarne | zaoczne)" << endl;
+					cin.clear();
+					cin >> input;
 				}
 
 				this->studentList.showByType(input); // wyswietlenie studentow danego trybu
 
 				Sleep(3500);
 				break;
+
 			case 7:
 				this->getWindow()->setActivePage(5); // przejscie do strony wyswietlajacej liste studentow
 				break;
 
 			case 8:
 				this->getWindow()->refresh(); // odswiezenie okna
-				std::cout << "Liczba studentow: " << this->studentList.getNumberOfObjects() << std::endl;
+				cout << "Liczba studentow: " << this->studentList.getNumberOfObjects() << endl;
 				Sleep(2000);
 				break;
 
 			case 9:
 				this->getWindow()->refresh(); // odswiezenie okna
-				std::cout << "Podaj nr indeksu studenta, ktorego chcesz przypisac: " << std::endl;
-				std::cin >> index; // wczytanie indeksu
+				cout << "Podaj nr indeksu studenta, ktorego chcesz przypisac: " << endl;
+				cin >> index; // wczytanie indeksu
 
 				student = (Student*)this->studentList.getObjectByIndex(index); // ustawienie wskaznika na studenta o podanym indeksie
 
 				if (!student) // sprawdzenie czy student o podanym indeksie istnieje
-				{
-					SetConsoleTextAttribute(this->getWindow()->getConsole(), 12);
-					std::cout << "Nie ma takiego studenta" << std::endl;
-					SetConsoleTextAttribute(this->getWindow()->getConsole(), 15);
-					Sleep(1500);
-				}		
+					onFailure("Nie ma takiego studenta");	
 				else
 				{
 					Lesson* lesson; // deklaracja wskaznika na obiekt typu Lesson
 
-					std::cout << std::endl << "Podaj nazwe zajec, do ktorych chcesz zapisac studenta: " << std::endl;
-					std::cin >> input; // wczytanie nazwy zajec
+					cout << endl << "Podaj nazwe zajec, do ktorych chcesz zapisac studenta: " << endl;
+					cin >> input; // wczytanie nazwy zajec
 
-					std::cout << std::endl << "Podaj typ zajec (wyklad | cwiczenia | laboratorium | projekt)" << std::endl;
-					std::cin >> input2; // wczytanie typu zajec
+					cout << endl << "Podaj typ zajec (wyklad | cwiczenia | laboratorium | projekt)" << endl;
+					cin >> input2; // wczytanie typu zajec
 
 					lesson = this->lessonList->getLessonByNameAndType(input, input2); // ustawienie wskaznika na obiekt typu Lesson o podanej nazwie
 
 					if (!lesson) // sprawdzenie czy zajecia o podanej nazwie i typie istnieja
-					{
-						SetConsoleTextAttribute(this->getWindow()->getConsole(), 12);
-						std::cout << "Nie ma takich zajec" << std::endl;
-						SetConsoleTextAttribute(this->getWindow()->getConsole(), 15);
-						Sleep(1500);
-					}
+						onFailure("Nie ma takich zajec");
 					else
 					{
 						bool ok = lesson->addStudent(student); // proba zapisania studenta na zajecia
 
 						if (ok) // sprwadzenie czy student zostal zapisany na zajecia
-						{
-							SetConsoleTextAttribute(this->getWindow()->getConsole(), 10);
-							std::cout << std::endl << "Przypisano studenta do zajec";
-							SetConsoleTextAttribute(this->getWindow()->getConsole(), 15);
-						}
+							onSuccess("Przypisano studenta do zajec");
 						else
-						{
-							SetConsoleTextAttribute(this->getWindow()->getConsole(), 12);
-							std::cout << std::endl << "Brak wolnych miejsc / Student juz jest przypisany do tych zajec";
-							SetConsoleTextAttribute(this->getWindow()->getConsole(), 15);
-						}
-		
-						Sleep(1500);
+							onFailure("Brak wolnych miejsc / Student juz jest przypisany do tych zajec");
 					}
 				}
+
+				Sleep(1500);
 				break;
 			}
 			this->getWindow()->refresh(); // odswiezenie okna

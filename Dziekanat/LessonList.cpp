@@ -16,7 +16,7 @@ LessonList::LessonList()
 
 LessonList::~LessonList()
 {
-
+	
 }
 
 Lesson* LessonList::getLessonByNameAndType(std::string name, std::string type)
@@ -69,7 +69,7 @@ void LessonList::showSpecificType(std::string type)
 			if (firstOccurrence)
 			{
 				lesson->showHeader();
-				firstOccurrence = false;
+				firstOccurrence = false; // zmiana stanu flagi sygnalizujacej pierwszy napotkany wynik
 			}
 
 			lesson->show(); // wyswietlenie danych dotyczacych konkretnych zajec

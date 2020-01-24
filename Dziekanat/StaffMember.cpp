@@ -54,7 +54,7 @@ void StaffMember::calcCash()
 {
 	int converter; // przelicznik ( mnoznik )
 
-	/* ustawienie przelicznika na podstawie posidanych stopni naukowych */
+	/* ustawienie przelicznika na podstawie posiadanego stopnia naukowego */
 
 	if (this->academic_degree == "lic." || this->academic_degree == "inz.")
 		converter = 200;

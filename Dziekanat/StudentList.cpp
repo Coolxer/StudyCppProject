@@ -38,7 +38,7 @@ void StudentList::showByDepartment(std::string department)
 			if (firstOccurrence)
 			{
 				student->showHeader();
-				firstOccurrence = false;
+				firstOccurrence = false; // zmiana statusu flagi sygnalizujacej, ze napotkano wynik
 			}
 
 			student->show();
@@ -64,7 +64,7 @@ void StudentList::showByField(std::string field)
 			if (firstOccurrence)
 			{
 				student->showHeader();
-				firstOccurrence = false;
+				firstOccurrence = false; // zmiana statusu flagi sygnalizujacej, ze napotkano wynik
 			}
 
 			student->show();
@@ -90,7 +90,7 @@ void StudentList::showByType(std::string type)
 			if (firstOccurrence)
 			{
 				student->showHeader();
-				firstOccurrence = false;
+				firstOccurrence = false; // zmiana statusu flagi sygnalizujacej, ze napotkano wynik
 			}
 
 			student->show(); // wyswietlenie danych dot. studenta

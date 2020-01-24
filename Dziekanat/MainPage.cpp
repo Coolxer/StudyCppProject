@@ -1,5 +1,4 @@
 #include "MainPage.h"
-#include <iostream>
 #include "CmdManager.h"
 
 MainPage::MainPage(Window* window, std::string headerText) : Page(window)

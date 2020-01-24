@@ -1,6 +1,4 @@
 #include "AddPage.h"
-#include <iostream>
-
 #include "CmdManager.h"
 
 AddPage::AddPage(Window* window) : Page(window)
@@ -68,40 +66,40 @@ void AddPage::checkNumber(int number)
 
 void AddPage::testString(std::string text, int id)
 {
-	std::cout << text << std::endl; // wyswietlenie informacji, co nalezy wpisac
-	std::cin >> this->strings[id]; // pobranie danych od uzytkownika
+	cout << text << endl; // wyswietlenie informacji, co nalezy wpisac
+	cin >> this->strings[id]; // pobranie danych od uzytkownika
 	// dopoki wprowadzone dane sa nieprawidlowe, program prosi o wpisanie
-	while (!std::cin.good() || this->strings[id].length() < 3)
+	while (!cin.good() || this->strings[id].length() < 3)
 	{
 		this->strings[id].clear(); // czyszczenie napisu
 		this->getWindow()->refresh(); // odwiezenie okna
-		std::cout << text << std::endl; // wyswietlenie informacji, co nalezy wpisac
-		std::cin.clear(); // czyszczenie wejscia
-		std::cin >> this->strings[id]; // pobranie danych od uzytkownika
+		cout << text << endl; // wyswietlenie informacji, co nalezy wpisac
+		cin.clear(); // czyszczenie wejscia
+		cin >> this->strings[id]; // pobranie danych od uzytkownika
 	}
 }
 
 void AddPage::testNumber(std::string text, int id, int min, int max)
 {
-	std::cout << text << std::endl; // wyswietlenie informacji, co nalezy wpisac
-	std::cin >> this->numbers[id]; // pobranie danych od uzytkownika
+	cout << text << endl; // wyswietlenie informacji, co nalezy wpisac
+	cin >> this->numbers[id]; // pobranie danych od uzytkownika
 	// dopoki wprowadzone dane sa nieprawidlowe, program prosi o wpisanie
-	while (!std::cin.good() || this->numbers[id] < min || this->numbers[id] > max)
+	while (!cin.good() || this->numbers[id] < min || this->numbers[id] > max)
 	{
 		this->numbers[id] = 0; // wyzerowanie liczby
 		this->getWindow()->refresh(); // odwiezenie okna
-		std::cout << text << std::endl; // wyswietlenie informacji, co nalezy wpisac
-		std::cin.clear(); // czyszczenie wejscia
-		std::cin >> this->numbers[id];// pobranie danych od uzytkownika
+		cout << text << endl; // wyswietlenie informacji, co nalezy wpisac
+		cin.clear(); // czyszczenie wejscia
+		cin >> this->numbers[id];// pobranie danych od uzytkownika
 	}
 }
 
 void AddPage::drawParagraph(std::string text)
 {
 	SetConsoleTextAttribute(this->getWindow()->getConsole(), FOREGROUND_GREEN); // zmiana koloru tekstu w konsoli na zielony
-	std::cout << "----------------------------------------" << std::endl;
+	cout << "----------------------------------------" << endl;
 	SetConsoleTextAttribute(this->getWindow()->getConsole(), FOREGROUND_RED); // zmiana koloru tekstu w konsoli na czerwony
-	std::cout << text;
+	cout << text;
 	SetConsoleTextAttribute(this->getWindow()->getConsole(), 15); // zmiana koloru tekstu w konsoli na bialy
 }
 

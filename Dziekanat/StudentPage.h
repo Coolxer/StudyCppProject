@@ -1,6 +1,5 @@
 #pragma once
 #include "MainPage.h"
-
 #include "StudentList.h"
 #include "LessonList.h"
 

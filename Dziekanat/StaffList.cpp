@@ -29,7 +29,7 @@ void StaffList::showProfessors()
 			if (firstOccurrence)
 			{
 				member->showHeader();
-				firstOccurrence = false;
+				firstOccurrence = false; // zmiana statusu flagi sygnalizujacej, ze napotkano wynik
 			}
 
 			member->show(); // wyswietlenie danych dot. pracownika
